@@ -1,416 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Kumar | Ultimate Premium Production Hub</title>
+    <title>Quick setup</title>
     <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a, #1e1b4b);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-main: #0f172a;
-            --text-sub: #475569;
-            --border-color: #e2e8f0;
-            --accent-color: #6366f1;
-            --box-bg: rgba(99, 102, 241, 0.08);
-            --neon-green: #10b981;
-        }
-
-        [data-theme="dark"] {
-            --card-bg: rgba(30, 41, 59, 0.75);
-            --text-main: #f8fafc;
-            --text-sub: #cbd5e1;
-            --border-color: #334155;
-            --accent-color: #38bdf8;
-            --box-bg: rgba(56, 189, 248, 0.15);
-        }
-
-        body {
-            background: var(--bg-gradient);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px 10px;
-            box-sizing: border-box;
-            color: var(--text-main);
-        }
-
-        /* मेन कंटेनर - अब थोड़ा लंबा और डैशबोर्ड जैसा दिखेगा */
-        .dashboard-container {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 25px 20px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--box-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 6px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #6366f1, #38bdf8);
-            border-radius: 50%;
-            margin: 15px auto 10px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
-        }
-
-        h1 { font-size: 26px; margin: 5px 0; font-weight: 800; tracking: -0.5px; }
-        .badge { background: var(--box-bg); color: var(--accent-color); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 12px; display: inline-block; text-transform: uppercase; margin-bottom: 10px; border: 1px solid rgba(99,102,241,0.2); }
-        .bio { color: var(--text-sub); font-size: 13.5px; line-height: 1.5; margin: 0 0 15px 0; }
-
-        .time-box {
-            background: var(--box-bg);
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 11px;
-            color: var(--accent-color);
-            margin: 22px 0 12px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: left;
-            font-weight: 800;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 4px;
-        }
-
-        /* लाइव KPI पैरामीटर्स कार्ड्स */
-        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
-        .kpi-card {
-            background: var(--box-bg); border: 1px solid var(--border-color);
-            padding: 10px; border-radius: 12px; text-align: left;
-        }
-        .kpi-title { font-size: 10px; color: var(--text-sub); text-transform: uppercase; font-weight: bold; }
-        .kpi-value { font-size: 15px; font-weight: 800; color: var(--neon-green); margin-top: 2px; }
-
-        /* स्किल बार्स */
-        .skill-box { text-align: left; margin-bottom: 12px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-main); font-weight: 700; margin-bottom: 5px; }
-        .progress-bg { background: var(--border-color); height: 8px; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 10px; width: 0; transition: width 1.5s ease-in-out; }
-
-        /* मशीन ग्रिड - असली Wow Factor */
-        .machinery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px; }
-        .machine-item {
-            background: var(--box-bg); border: 1px solid var(--border-color);
-            padding: 10px 5px; border-radius: 10px; cursor: pointer; transition: 0.2s;
-            font-size: 11px; font-weight: bold;
-        }
-        .machine-item:hover { transform: translateY(-3px); border-color: var(--accent-color); }
-        .machine-icon { font-size: 18px; margin-bottom: 4px; }
-
-        /* प्रोजेक्ट्स टैब */
-        .tab-btn-container { display: flex; gap: 6px; margin-bottom: 10px; }
-        .tab-trigger {
-            flex: 1; padding: 8px; font-size: 12px; font-weight: bold;
-            background: var(--border-color); color: var(--text-main);
-            border: none; border-radius: 8px; cursor: pointer;
-        }
-        .tab-trigger.active { background: var(--accent-color); color: white; }
-        .tab-display {
-            background: var(--box-bg); padding: 12px; border-radius: 10px;
-            font-size: 12.5px; text-align: left; line-height: 1.5;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .btn-details-trigger {
-            background: var(--accent-color); color: white; border: none;
-            padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: bold;
-            cursor: pointer; white-space: nowrap; margin-left: 10px;
-        }
-
-        /* मोडल (पॉपअप) */
-        .modal-mask {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 2000; opacity: 0; pointer-events: none; transition: 0.3s;
-        }
-        .modal-mask.active { opacity: 1; pointer-events: auto; }
-        .modal-window {
-            background: var(--card-bg); color: var(--text-main); padding: 22px;
-            border-radius: 16px; max-width: 320px; width: 85%; text-align: left;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3); transform: scale(0.85); transition: 0.3s;
-            position: relative; border: 1px solid var(--border-color);
-        }
-        .modal-mask.active .modal-window { transform: scale(1); }
-        .close-icon { position: absolute; top: 12px; right: 15px; font-size: 22px; cursor: pointer; font-weight: bold; color: var(--text-sub); }
-        .modal-header { font-size: 16px; font-weight: 800; color: var(--accent-color); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-        .modal-txt { font-size: 13px; line-height: 1.6; color: var(--text-sub); }
-
-        /* लोकल स्टोरेज मेसेंजर */
-        .input-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
-        input, textarea {
-            padding: 10px; font-size: 13px; border: 1px solid var(--border-color);
-            background: rgba(255,255,255,0.05); color: var(--text-main); border-radius: 8px; outline: none;
-        }
-        textarea { height: 40px; resize: none; }
-        .submit-btn {
-            background: var(--accent-color); color: white; padding: 10px;
-            border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;
-        }
-        .msg-board { max-height: 100px; overflow-y: auto; text-align: left; font-size: 12px; margin-top: 8px; }
-        .msg-card { background: var(--border-color); padding: 6px 10px; border-radius: 6px; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
-        .del-node { background: none; border: none; color: #ef4444; font-weight: bold; cursor: pointer; font-size: 14px; }
-
-        .quote-container { background: var(--box-bg); border-left: 4px solid var(--accent-color); padding: 10px; border-radius: 6px; font-style: italic; font-size: 12px; text-align: left; margin: 15px 0; }
-        .action-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .social-link { display: block; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-size: 13px; font-weight: bold; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: #ffffff; color: #24292f; margin: 20px; padding: 10px; }
+        .box { background-color: #ddf4ff; border: 1px solid #54aeff; border-radius: 6px; padding: 16px; margin-bottom: 20px; }
+        h3 { margin-top: 0; font-size: 16px; font-weight: 600; }
+        .btn-group { display: inline-flex; background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; margin-right: 10px; }
+        .btn { padding: 5px 12px; font-size: 12px; font-weight: 500; cursor: pointer; border: none; background: transparent; }
+        .btn.active { background: #ffffff; border-radius: 6px; box-shadow: 0 1px 0 rgba(27,31,36,0.04); font-weight: 600; }
+        .url-box { display: inline-flex; align-items: center; background: #ffffff; border: 1px solid #d0d7de; border-radius: 6px; padding: 4px 8px; font-size: 12px; font-family: monospace; width: 60%; }
+        .command-section { border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-top: 20px; background: #f6f8fa; }
+        .command-title { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+        pre { background: #ffffff; border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 12px; line-height: 1.6; overflow-x: auto; margin: 0; }
+        a { color: #0969da; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeTrigger">🌙 Dark Mode</button>
-        
-        <div class="avatar">⚡</div>
-        
-        <h1>Amit Kumar</h1>
-        <div class="badge">Production Supervisor & Engineer</div>
-        <p class="bio">B.Tech Graduate specializing in industrial packaging automation, high-precision mechanical balancing, and responsive stack development.</p>
-        
-        <div class="time-box" id="timeDisplay">लोड हो रहा है...</div>
-
-        <!-- लाइव पैरामीटर्स (KPIs) -->
-        <div class="section-title">Live Machine Parameters</div>
-        <div class="kpi-grid">
-            <div class="kpi-card">
-                <div class="kpi-title">Gripper Clearance</div>
-                <div class="kpi-value">Perfect (0.0mm)</div>
+    <div class="box">
+        <h3>Quick setup — if you’ve done this kind of thing before</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="btn-group">
+                <button class="btn active">HTTPS</button>
+                <button class="btn">SSH</button>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-title">Cylinder Gaps</div>
-                <div class="kpi-value">Calibrated ✓</div>
-            </div>
+            <div class="url-box">https://github.com/amitsandhu973-jpg/my-portfolio.git</div>
         </div>
-
-        <!-- मशीन फ्लीट ग्रिड -->
-        <div class="section-title">Machinery Fleet Control</div>
-        <div class="machinery-grid">
-            <div class="machine-item" onclick="triggerModal('m-cx')">
-                <div class="machine-icon">⚙️</div>
-                <div>Heidelberg<br><strong>CX 104</strong></div>
-            </div>
-            <div class="machine-item" onclick="triggerModal('m-cd')">
-                <div class="machine-icon">⚙️</div>
-                <div>Heidelberg<br><strong>CD 74</strong></div>
-            </div>
-            <div class="machine-item" onclick="triggerModal('m-sm')">
-                <div class="machine-icon">⚙️</div>
-                <div>Heidelberg<br><strong>SM 102</strong></div>
-            </div>
-        </div>
-
-        <!-- प्रोग्रेस स्किल्स -->
-        <div class="section-title">Core Competencies</div>
-        <div class="skill-box">
-            <div class="skill-info"><span>Offset Lithography Optimization</span><span>95%</span></div>
-            <div class="progress-bg"><div class="progress-fill" id="bar1" style="background: #6366f1;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-info"><span>Shop Floor Operations Management</span><span>90%</span></div>
-            <div class="progress-bg"><div class="progress-fill" id="bar2" style="background: #10b981;"></div></div>
-        </div>
-        <div class="skill-box">
-            <div class="skill-info"><span>B.Tech Technical Science</span><span>85%</span></div>
-            <div class="progress-bg"><div class="progress-fill" id="bar3" style="background: #38bdf8;"></div></div>
-        </div>
-
-        <!-- प्रोजेक्ट्स हब -->
-        <div class="section-title">Active Projects Display</div>
-        <div class="tab-btn-container">
-            <button class="tab-trigger active" onclick="changeTab('printing')">Industrial Ops</button>
-            <button class="tab-trigger" onclick="changeTab('web')">Web Sandbox</button>
-        </div>
-        <div class="tab-display" id="tabView">
-            <span>Kumar Printers Plant Operations Hub...</span>
-            <button class="btn-details-trigger" onclick="triggerModal('p-print')">Details 🔍</button>
-        </div>
-
-        <!-- इनबॉक्स हब -->
-        <div class="section-title">Local Dev Terminal Messages</div>
-        <div class="input-group">
-            <input type="text" id="usrName" placeholder="आपका नाम">
-            <textarea id="usrMsg" placeholder="अपना संदेश यहाँ लिखें..."></textarea>
-            <button class="submit-btn" onclick="saveData()">डेटाबेस में स्टोर करें 💾</button>
-        </div>
-        <div class="msg-board" id="msgBoard"></div>
-        
-        <div class="quote-container" id="quoteBox" onclick="rotateQuote()" style="cursor: pointer;">लोड हो रहा है...</div>
-
-        <div class="action-links">
-            <a href="https://linkedin.com" target="_blank" class="social-link" style="background: #0077b5;">LinkedIn</a>
-            <a href="https://github.com" target="_blank" class="social-link" style="background: #0f172a; border: 1px solid #334155;">GitHub</a>
-        </div>
+        <p style="font-size: 12px; margin-top: 10px; color: #57606a;">
+            Get started by <a href="#">creating a new file</a> or <a href="#">uploading an existing file</a>. We recommend every repository include a <a href="#">README</a>, <a href="#">LICENSE</a>, and <a href="#">.gitignore</a>.
+        </p>
     </div>
 
-    <!-- मास्टर पॉपअप मोडल विंडो -->
-    <div class="modal-mask" id="masterModal" onclick="closeModal()">
-        <div class="modal-window" onclick="event.stopPropagation()">
-            <span class="close-icon" onclick="closeModal()">&times;</span>
-            <div class="modal-header" id="modalHeader">विवरण</div>
-            <div class="modal-txt" id="modalTxt">जानकारी लोड हो रही है...</div>
-        </div>
+    <div class="command-section">
+        <div class="command-title">…or create a new repository on the command line</div>
+        <pre>echo "# my-portfolio" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/amitsandhu973-jpg/my-portfolio.git
+git push -u origin main</pre>
     </div>
 
-    <script>
-        // 1. क्लॉक लॉजिक
-        function runClock() {
-            const display = document.getElementById("timeDisplay");
-            const d = new Date();
-            const timeStr = d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            const hr = d.getHours();
-            let greet = "Welcome";
-            if(hr < 12) greet = "🌅 Morning Operator Shift";
-            else if(hr < 16) greet = "☀️ Afternoon Production Run";
-            else greet = "🌆 Evening Supervision Log";
-            display.innerHTML = `<strong>${greet}</strong> | ⏱️ ${timeStr}`;
-        }
-        setInterval(runClock, 1000);
-        runClock();
+    <div class="command-section" style="margin-top: 20px;">
+        <div class="command-title">…or push an existing repository from the command line</div>
+    </div>
 
-        // 2. स्किल एनिमेटर
-        window.onload = function() {
-            document.getElementById('bar1').style.width = '95%';
-            document.getElementById('bar2').style.width = '90%';
-            document.getElementById('bar3').style.width = '85%';
-            renderData();
-        }
-
-        // 3. प्रोजेक्ट्स टैब स्विचर
-        function changeTab(mode) {
-            const targets = document.querySelectorAll('.tab-trigger');
-            const view = document.getElementById('tabView');
-            targets.forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-
-            if(mode === 'printing') {
-                view.innerHTML = `<span>Kumar Printers Plant Operations Hub...</span>
-                                  <button class="btn-details-trigger" onclick="triggerModal('p-print')">Details 🔍</button>`;
-            } else {
-                view.innerHTML = `<span>Android Termux Client-Side Frontend...</span>
-                                  <button class="btn-details-trigger" onclick="triggerModal('p-web')">Details 🔍</button>`;
-            }
-        }
-
-        // 4. ऑल-इन-वन एडवांस डेटा डिक्शनरी
-        const appDatabase = {
-            'm-cx': { title: "🕹️ Heidelberg Speedmaster CX 104", text: "<strong>Premium Multi-Color Technology:</strong><br>• Advanced sheet-fed offset press configured for rapid substrate changes.<br>• Optimized for high-speed commercial packaging runs with smart automation control." },
-            'm-cd': { title: "🕹️ Heidelberg Speedmaster CD 74", text: "<strong>Double-Diameter Impression Setup:</strong><br>• Specialized layout offering stress-free stock transfers across challenging card thicknesses.<br>• Delivers ultra-sharp ink transfer quality across delicate high-precision textures." },
-            'm-sm': { title: "🕹️ Heidelberg Speedmaster SM 102", text: "<strong>High-Performance Perfecting Press:</strong><br>• Classic industrial workhorse engineered for maximum throughput volume stability.<br>• Exceptional mechanical sheet control across large format dimensional spreads." },
-            'p-print': { title: "📦 Plant Floor Execution Details", text: "<strong>Supervisory Run Metrics:</strong><br>• Deployed comprehensive control strategies at Kumar Printers to regulate color consistency.<br>• Audited gripper tolerance logs down to zero deviations to eliminate delivery stream pile-ups." },
-            'p-web': { title: "🌐 Termux Frontend Sandbox Architecture", text: "<strong>How this was created:</strong><br>• Programmed entirely using clear responsive web nodes directly inside Android shell via custom text streams.<br>• Features real-time responsive component rendering and isolated memory variables." }
-        };
-
-        function triggerModal(id) {
-            const mask = document.getElementById("masterModal");
-            const head = document.getElementById("modalHeader");
-            const text = document.getElementById("modalTxt");
-
-            if(appDatabase[id]) {
-                head.innerHTML = appDatabase[id].title;
-                text.innerHTML = appDatabase[id].text;
-                mask.classList.add("active");
-            }
-        }
-
-        function closeModal() {
-            document.getElementById("masterModal").classList.remove("active");
-        }
-
-        // 5. इनबॉक्स फंक्शन
-        function saveData() {
-            const name = document.getElementById("usrName").value.trim();
-            const msg = document.getElementById("usrMsg").value.trim();
-            if(!name || !msg) { alert("कृपया फॉर्म पूरा भरें! ✍️"); return; }
-
-            let collection = JSON.parse(localStorage.getItem("terminalDb")) || [];
-            collection.push({ timestamp: Date.now(), user: name, content: msg });
-            localStorage.setItem("terminalDb", JSON.stringify(collection));
-
-            renderData();
-            document.getElementById("usrName").value = "";
-            document.getElementById("usrMsg").value = "";
-        }
-
-        function renderData() {
-            const board = document.getElementById("msgBoard");
-            board.innerHTML = "";
-            let collection = JSON.parse(localStorage.getItem("terminalDb")) || [];
-            collection.forEach(c => {
-                const row = document.createElement("div");
-                row.className = "msg-card";
-                row.innerHTML = `<div><strong>${c.user}:</strong> ${c.content}</div>
-                                 <button class="del-node" onclick="wipeNode(${c.timestamp})">×</button>`;
-                board.appendChild(row);
-            });
-        }
-
-        function wipeNode(ts) {
-            let collection = JSON.parse(localStorage.getItem("terminalDb")) || [];
-            collection = collection.filter(c => c.timestamp !== ts);
-            localStorage.setItem("terminalDb", JSON.stringify(collection));
-            renderData();
-        }
-
-        // 6. डार्क/लाइट थीम स्विचर
-        function toggleTheme() {
-            const bodyNode = document.body;
-            const theme = bodyNode.getAttribute("data-theme");
-            const btn = document.getElementById("themeTrigger");
-            if(theme === "dark") {
-                bodyNode.removeAttribute("data-theme");
-                btn.innerHTML = "🌙 Dark Mode";
-            } else {
-                bodyNode.setAttribute("data-theme", "dark");
-                btn.innerHTML = "☀️ Light Mode";
-            }
-        }
-
-        // 7. मोटिवेशनल थॉट्स
-        const thoughts = [
-            "“Efficiency is doing things right. Effectiveness is doing the right things.”",
-            "“Precision in printing, innovation in coding.”",
-            "“Your size doesn't define your capacity. Look at what Termux built!”",
-            "“Quality is never an accident; it is always the result of intelligent effort.”"
-        ];
-        function rotateQuote() {
-            const rand = Math.floor(Math.random() * thoughts.length);
-            document.getElementById("quoteBox").innerText = thoughts[rand];
-        }
-        rotateQuote();
-    </script>
 </body>
 </html>
