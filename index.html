@@ -3,85 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu | Senior Production & Printing Operations Engineer</title>
+    <title>Amit Sandhu | Industrial Operations Control Center</title>
     
     <!-- Social Preview Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Amit Sandhu | Senior Production & Printing Operations Engineer">
-    <meta property="og:description" content="B.Tech in Printing & Packaging Technology with 9+ years of expertise in Offset Printing & Post-Press Operations.">
+    <meta property="og:title" content="Amit Sandhu | Industrial Operations Control Center">
+    <meta property="og:description" content="B.Tech in Printing & Packaging Technology. 9+ Years of High-End Plant Supervision.">
     <meta property="og:url" content="https://amitsandhu973-jpg.github.io/my-portfolio/">
     
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-light: #e0e7ff;
-            --primary-dark: #3730a3;
-            --bg-main: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border: #e2e8f0;
-            --success: #166534;
-            --success-bg: #f0fdf4;
+            --bg-glow: #090d16;
+            --panel-bg: rgba(17, 24, 39, 0.7);
+            --neon-cyan: #00f2fe;
+            --neon-green: #4facfe;
+            --neon-alert: #10b981;
+            --text-bright: #f8fafc;
+            --text-dim: #94a3b8;
+            --border-glow: rgba(0, 242, 254, 0.2);
         }
         
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: var(--bg-main); 
-            color: var(--text-main); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-glow); 
+            background-image: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 70%);
+            color: var(--text-bright); 
             margin: 0; 
             padding: 12px; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
+            min-height: 100vh;
         }
         
-        .container { 
+        .cyber-container { 
             max-width: 600px; 
             width: 100%; 
-            background: var(--card-bg); 
-            border-radius: 24px; 
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
+            background: var(--panel-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 28px; 
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.1); 
             padding: 24px; 
             box-sizing: border-box; 
             margin-bottom: 30px; 
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-glow);
         }
         
-        .header { 
+        .cyber-header { 
             text-align: center; 
             margin-bottom: 24px; 
             padding-bottom: 20px;
-            border-bottom: 1px dashed var(--border);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .live-indicator {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
         }
         
         .name { 
-            font-size: 30px; 
-            font-weight: 800; 
-            color: var(--text-main); 
+            font-size: 32px; 
+            font-weight: 900; 
+            background: linear-gradient(135deg, #fff 30%, var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 0; 
-            letter-spacing: -0.75px; 
+            letter-spacing: -1px; 
         }
         
         .badge { 
-            background: linear-gradient(135deg, #6366f1, #4f46e5); 
-            color: white; 
-            font-size: 11.5px; 
-            font-weight: 700; 
-            padding: 6px 16px; 
+            background: linear-gradient(135deg, #00f2fe, #4facfe); 
+            color: #090d16; 
+            font-size: 11px; 
+            font-weight: 800; 
+            padding: 6px 18px; 
             border-radius: 30px; 
             display: inline-block; 
-            margin-top: 10px; 
+            margin-top: 12px; 
             letter-spacing: 0.5px; 
             text-transform: uppercase; 
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
         
         .sub-degree {
-            font-size: 13.5px; 
-            color: var(--text-muted); 
+            font-size: 13px; 
+            color: var(--text-dim); 
             margin-top: 12px; 
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .quick-actions {
@@ -93,42 +119,44 @@
         .action-btn {
             flex: 1;
             text-align: center;
-            padding: 10px;
-            background: #f1f5f9;
-            border-radius: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--text-bright);
             font-size: 13px;
             font-weight: 700;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            transition: all 0.3s;
         }
         
         .action-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: var(--neon-cyan);
+            color: #090d16;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
         
-        .nav-menu { 
-            background: #f8fafc; 
-            border: 1px solid var(--border); 
-            border-radius: 16px; 
-            padding: 14px; 
+        .cyber-grid-menu { 
+            background: rgba(0, 0, 0, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 18px; 
+            padding: 12px; 
             margin-bottom: 24px; 
         }
         
         .nav-title { 
             font-size: 11px; 
             font-weight: 800; 
-            color: #64748b; 
+            color: var(--neon-cyan); 
             text-transform: uppercase; 
-            margin-bottom: 10px; 
+            margin-bottom: 12px; 
             text-align: center; 
-            letter-spacing: 1px; 
+            letter-spacing: 1.5px; 
         }
         
         .nav-links { 
@@ -138,23 +166,23 @@
         }
         
         .nav-item { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border); 
-            border-radius: 10px; 
-            padding: 9px; 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 12px; 
+            padding: 10px; 
             text-align: center; 
-            text-decoration: none; 
             font-size: 12px; 
             font-weight: 700; 
-            color: var(--text-muted); 
+            color: var(--text-dim); 
             cursor: pointer;
             transition: all 0.2s; 
         }
         
         .nav-item.active { 
-            background: var(--primary); 
-            color: white; 
-            border-color: var(--primary); 
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 70, 229, 0.15)); 
+            color: var(--neon-cyan); 
+            border-color: var(--neon-cyan); 
+            box-shadow: inset 0 0 8px rgba(0, 242, 254, 0.2);
         }
 
         .tab-content {
@@ -163,347 +191,431 @@
 
         .tab-content.active {
             display: block;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
-        .section-box { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border); 
-            border-radius: 18px; 
-            padding: 20px; 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-box { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            padding: 22px; 
             margin-bottom: 20px; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
         }
         
-        .section-title { 
-            font-size: 14px; 
+        .panel-title { 
+            font-size: 13px; 
             font-weight: 800; 
-            color: var(--primary); 
-            letter-spacing: 0.5px; 
+            color: var(--neon-cyan); 
+            letter-spacing: 1px; 
             text-transform: uppercase; 
-            margin: 0 0 14px 0; 
-            display: inline-block; 
-            border-left: 3px solid var(--primary);
-            padding-left: 8px;
+            margin: 0 0 16px 0; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 14px;
+            background: var(--neon-cyan);
+            border-radius: 2px;
+            box-shadow: 0 0 8px var(--neon-cyan);
         }
         
-        p { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 12px 0; }
-        ul { margin: 0 0 12px 0; padding-left: 20px; font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+        p { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin: 0 0 14px 0; }
+        ul { margin: 0 0 14px 0; padding-left: 20px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
         li { margin-bottom: 8px; }
-        strong { color: var(--text-main); }
+        li strong { color: var(--text-bright); }
+        strong { color: var(--text-bright); }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
-        .mini-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px 4px; text-align: center; font-size: 11.5px; font-weight: 700; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+        .hardware-card { 
+            background: rgba(0, 0, 0, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 12px; 
+            padding: 14px 6px; 
+            text-align: center; 
+            font-size: 12px; 
+            font-weight: 700;
+            border-bottom: 3px solid #3b82f6;
+        }
         
-        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-        .metric-card { background: var(--success-bg); border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px; font-size: 12.5px; }
-        .metric-title { font-size: 10px; font-weight: 700; color: var(--success); text-transform: uppercase; letter-spacing: 0.5px; }
-        .metric-val { font-size: 15px; font-weight: 800; color: #14532d; margin-top: 4px; }
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+        .metric-card { 
+            background: rgba(16, 185, 129, 0.05); 
+            border: 1px solid rgba(16, 185, 129, 0.2); 
+            border-radius: 14px; 
+            padding: 14px; 
+        }
+        .metric-title { font-size: 10px; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-val { font-size: 16px; font-weight: 800; color: #white; margin-top: 4px; }
         
-        .tech-pill { display: inline-block; background: #f8fafc; color: #475569; padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; margin: 3px; border: 1px solid var(--border); }
-        .tech-pill.blue { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-        .tech-pill.green { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+        .tech-pill { 
+            display: inline-block; 
+            background: rgba(255,255,255,0.03); 
+            color: var(--text-dim); 
+            padding: 6px 14px; 
+            border-radius: 10px; 
+            font-size: 12.5px; 
+            font-weight: 600; 
+            margin: 4px; 
+            border: 1px solid rgba(255,255,255,0.08); 
+        }
+        .tech-pill.cyan { border-color: var(--neon-cyan); color: var(--neon-cyan); background: rgba(0, 242, 254, 0.02); }
         
-        /* Interactive Calculator Tool */
+        /* SUPER TOOL: Live Machine Simulator Control Panel */
+        .simulator-box {
+            background: #0d1527;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 18px;
+            margin-top: 18px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+        }
+        .sim-display {
+            background: #040814;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #00ff66;
+            margin-bottom: 14px;
+            text-shadow: 0 0 4px rgba(0,255,102,0.5);
+        }
+        .sim-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            color: #090d16;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0,242,254,0.3);
+        }
+
+        /* OEE Tool Custom Styling */
         .calc-tool {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
             padding: 16px;
-            margin-top: 15px;
+            margin-top: 16px;
         }
         .calc-input-group {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        .calc-input-group label {
-            font-size: 12.5px;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
+        .calc-input-group label { font-size: 13px; font-weight: 600; color: var(--text-dim); }
         .calc-input-group input {
-            width: 70px;
-            padding: 6px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 700;
+            width: 80px; padding: 8px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; text-align: center; font-weight: 700; color: white;
         }
         .calc-btn {
-            width: 100%;
-            background: var(--text-main);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 12.5px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 5px;
+            width: 100%; background: rgba(255,255,255,0.05); color: var(--neon-cyan); border: 1px solid var(--neon-cyan);
+            padding: 11px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
         }
         .calc-result {
-            margin-top: 12px;
-            padding: 10px;
-            background: #e0f2fe;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 800;
-            color: #0369a1;
-            display: none;
+            margin-top: 12px; padding: 12px; background: rgba(0, 242, 254, 0.1); border-radius: 10px;
+            text-align: center; font-size: 14px; font-weight: 800; color: var(--neon-cyan); display: none;
+            border: 1px dashed var(--neon-cyan);
         }
 
         /* Timeline Style */
-        .timeline-item { position: relative; padding-left: 20px; border-left: 2px solid var(--border); margin-bottom: 20px; }
-        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--primary); border-radius: 5px; }
-        .timeline-date { font-size: 12px; color: var(--primary); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; }
+        .timeline-item { position: relative; padding-left: 24px; border-left: 2px dashed rgba(255,255,255,0.1); margin-bottom: 24px; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--neon-cyan); border-radius: 5px; box-shadow: 0 0 8px var(--neon-cyan); }
+        .timeline-date { font-size: 12px; color: var(--neon-cyan); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .footer { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px; font-weight: 600; }
-        .input-box { width: 100%; background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-size: 13.5px; box-sizing: border-box; margin-bottom: 12px; color: var(--text-main); font-family: inherit; }
-        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); }
+        .footer { text-align: center; font-size: 11px; color: #475569; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 600; letter-spacing: 0.5px;}
+        .input-box { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; font-size: 14px; box-sizing: border-box; margin-bottom: 14px; color: white; font-family: inherit; }
+        .input-box:focus { border-color: var(--neon-cyan); outline: none; }
+        .btn-submit { width: 100%; background: linear-gradient(135deg, #00f2fe, #4facfe); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
+<div class="cyber-container">
+    <div class="cyber-header">
+        <div class="live-indicator">● Engine Online</div>
         <h1 class="name">Amit Sandhu</h1>
         <div class="badge">Senior Production & Printing Operations Engineer</div>
         <div class="sub-degree">B.Tech in Printing & Packaging Technology (G.J.U. Hisar)</div>
     </div>
 
-    <!-- Quick Actions for HRs -->
+    <!-- Quick Actions -->
     <div class="quick-actions">
-        <a href="mailto:amitsandhu973@gmail.com" class="action-btn">📧 Email Me</a>
-        <a onclick="switchTab('page10')" class="action-btn" style="background: #eff6ff; border-color: #bfdbfe; color: var(--primary); cursor: pointer;">💼 Hire Me</a>
+        <a href="mailto:amitsandhu973@gmail.com" class="action-btn">📧 Secure Email</a>
+        <a onclick="switchTab('page10')" class="action-btn" style="border-color: var(--neon-cyan); color: var(--neon-cyan); cursor: pointer;">💼 Initiate Hire</a>
     </div>
 
-    <!-- 10-Page Directory Matrix -->
-    <div class="nav-menu">
-        <div class="nav-title">📁 Portfolio Directory (Tabs Layout)</div>
+    <!-- 10-Tab Directory Panel Matrix -->
+    <div class="cyber-grid-menu">
+        <div class="nav-title">🎛️ SYSTEM CONTROL DIRECTORY</div>
         <div class="nav-links">
-            <div onclick="switchTab('page1')" id="btn-page1" class="nav-item active">1. Dashboard</div>
-            <div onclick="switchTab('page2')" id="btn-page2" class="nav-item">2. Vision</div>
-            <div onclick="switchTab('page3')" id="btn-page3" class="nav-item">3. Machinery Fleet</div>
-            <div onclick="switchTab('page4')" id="btn-page4" class="nav-item">4. OEE & Metrics</div>
-            <div onclick="switchTab('page5')" id="btn-page5" class="nav-item">5. Shop Floor</div>
-            <div onclick="switchTab('page6')" id="btn-page6" class="nav-item">6. Core Technical</div>
-            <div onclick="switchTab('page7')" id="btn-page7" class="nav-item">7. Quality QA/QC</div>
-            <div onclick="switchTab('page8')" id="btn-page8" class="nav-item">8. History</div>
-            <div onclick="switchTab('page9')" id="btn-page9" class="nav-item">9. FAQ</div>
-            <div onclick="switchTab('page10')" id="btn-page10" class="nav-item">10. Contact</div>
+            <div onclick="switchTab('page1')" id="btn-page1" class="nav-item active">01. Dashboard</div>
+            <div onclick="switchTab('page2')" id="btn-page2" class="nav-item">02. Profile Vision</div>
+            <div onclick="switchTab('page3')" id="btn-page3" class="nav-item">03. Machine Fleet</div>
+            <div onclick="switchTab('page4')" id="btn-page4" class="nav-item">04. OEE & Metrics</div>
+            <div onclick="switchTab('page5')" id="btn-page5" class="nav-item">05. Floor Control</div>
+            <div onclick="switchTab('page6')" id="btn-page6" class="nav-item">06. Tech Skills</div>
+            <div onclick="switchTab('page7')" id="btn-page7" class="nav-item">07. Quality QA/QC</div>
+            <div onclick="switchTab('page8')" id="btn-page8" class="nav-item">08. Plant History</div>
+            <div onclick="switchTab('page9')" id="btn-page9" class="nav-item">09. Eng. FAQ</div>
+            <div onclick="switchTab('page10')" id="btn-page10" class="nav-item">10. Contact Panel</div>
         </div>
     </div>
 
-    <!-- PAGE 1 -->
+    <!-- PAGE 1: DASHBOARD & LIVE SIMULATOR -->
     <div class="tab-content active" id="page1">
-        <div class="section-box">
-            <h2 class="section-title">1. Executive Dashboard</h2>
-            <p>Live operational overview tracking end-to-end efficiency, real-time substrate throughput, and standardized floor monitoring metrics.</p>
-            <div style="background: #f8fafc; border-radius: 10px; padding: 12px; text-align: center; font-size: 12.5px; font-weight: 700; color: #475569; border: 1px solid var(--border); border-left: 4px solid #10b981;">
-                🌅 Supervision Status: Shift Log Active | 🕒 System: Fully Operational
+        <div class="panel-box">
+            <h2 class="panel-title">01. Executive Mission Dashboard</h2>
+            <p>Real-time technical tracking of industrial press operations, high-speed substrate conversions, and active plant workflow orchestration.</p>
+            
+            <!-- EXCLUSIVE INTERACTIVE TOOL: Live Press Simulator -->
+            <div class="simulator-box">
+                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; letter-spacing: 0.5px;">🛠️ Interactive Press Operations Simulator</div>
+                <div class="sim-display" id="simDisplay">
+                    [SYSTEM READY]<br> Press Speed: 0 SPH<br> Total Substrates Processed: 0
+                </div>
+                <button class="sim-btn" id="simBtn" onclick="toggleSimulation()">Start Press Simulation</button>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 2 -->
+    <!-- PAGE 2: VISION -->
     <div class="tab-content" id="page2">
-        <div class="section-box">
-            <h2 class="section-title">2. Profile & Engineering Vision</h2>
-            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations. Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
+        <div class="panel-box">
+            <h2 class="panel-title">02. Engineering Core Profile</h2>
+            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations[span_0](start_span)[span_0](end_span). Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
         </div>
     </div>
 
-    <!-- PAGE 3 -->
+    <!-- PAGE 3: MACHINERY FLEET -->
     <div class="tab-content" id="page3">
-        <div class="section-box">
-            <h2 class="section-title">3. Machinery & Substrate Fleet</h2>
-            <p><strong>Press Configurations:</strong> Extensive hands-on expertise in configuring and optimizing high-precision German sheet-fed offset lithography presses:</p>
+        <div class="panel-box">
+            <h2 class="panel-title">03. High-Precision Machinery Fleet</h2>
+            <p>Direct mechanical setup and process configuration engineering for elite German multi-color sheet-fed offset lithography lines:</p>
             <div class="grid-3">
-                <div class="mini-card" style="border-top: 3px solid var(--primary);">Heidelberg<br><strong>CX 104</strong></div>
-                <div class="mini-card" style="border-top: 3px solid #10b981;">Heidelberg<br><strong>CD 74</strong></div>
-                <div class="mini-card" style="border-top: 3px solid #3b82f6;">Heidelberg<br><strong>SM 102</strong></div>
+                <div class="hardware-card" style="border-bottom-color: var(--neon-cyan);">Heidelberg<br><strong style="color:var(--neon-cyan)">CX 104</strong></div>
+                <div class="hardware-card" style="border-bottom-color: #a855f7;">Heidelberg<br><strong style="color:#a855f7;">CD 74</strong></div>
+                <div class="hardware-card" style="border-bottom-color: #10b981;">Heidelberg<br><strong style="color:#10b981;">SM 102</strong></div>
             </div>
-            <p style="margin-top: 18px; margin-bottom: 6px;"><strong>Substrate Profile Expertise:</strong></p>
-            <span class="tech-pill blue">Duplex Board</span>
-            <span class="tech-pill blue">SBS Board</span>
-            <span class="tech-pill blue">FBB (Folding Box Board)</span>
-            <span class="tech-pill blue">Kraft & Corrugated Stock</span>
+            <p style="margin-top: 20px; margin-bottom: 8px;"><strong>Substrate Profile Expertise:</strong></p>
+            <span class="tech-pill">Duplex Board</span>
+            <span class="tech-pill">SBS Board</span>
+            <span class="tech-pill">FBB (Folding Box Board)</span>
+            <span class="tech-pill">Kraft Stock & Corrugated Liners</span>
         </div>
     </div>
 
-    <!-- PAGE 4 -->
+    <!-- PAGE 4: OEE CALCULATOR -->
     <div class="tab-content" id="page4">
-        <div class="section-box">
-            <h2 class="section-title">4. Operational OEE & Efficiency Metrics</h2>
-            <p>Validated manufacturing achievements executed through systematic process mapping and strategic lean floor management:</p>
+        <div class="panel-box">
+            <h2 class="panel-title">04. Plant Performance Metrics</h2>
+            <p>Systematic optimization records verified through advanced production logging analytics:</p>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-title">Machine Ready Time</div>
-                    <div class="metric-val">Reduced by 5%</div>
+                    <div class="metric-val">Reduced by 5%[span_1](start_span)[span_1](end_span)</div>
                 </div>
-                <div class="metric-card" style="background:#eff6ff; border-color:#bfdbfe;">
-                    <div class="metric-title" style="color:#1e40af;">Production Capacity</div>
-                    <div class="metric-val" style="color:#1e3a8a;">Highest Single Month</div>
+                <div class="metric-card" style="background:rgba(0, 242, 254, 0.03); border-color: rgba(0, 242, 254, 0.2);">
+                    <div class="metric-title" style="color:var(--neon-cyan);">Total Sheet Throughput</div>
+                    <div class="metric-val" style="color:white;">Highest Single Month Record[span_2](start_span)[span_2](end_span)</div>
                 </div>
             </div>
             
-            <!-- TOOL: Interactive OEE Calculator -->
+            <!-- TOOL: Live OEE Calculator -->
             <div class="calc-tool">
-                <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--text-main); margin-bottom: 10px;">📊 Live Plant OEE Calculator Tool</div>
+                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 10px; letter-spacing: 0.5px;">📊 Live Shift OEE Calculator Tool</div>
                 <div class="calc-input-group">
-                    <label>Availability (%)</label>
+                    <label>Availability Metric (%)</label>
                     <input type="number" id="avail" value="95" min="0" max="100">
                 </div>
                 <div class="calc-input-group">
-                    <label>Performance (%)</label>
+                    <label>Performance Rate (%)</label>
                     <input type="number" id="perf" value="92" min="0" max="100">
                 </div>
                 <div class="calc-input-group">
-                    <label>Quality Rate (%)</label>
-                    <input type="number" id="qual" value="98.5" min="0" max="100" step="0.1">
+                    <label>Quality Clearance (%)</label>
+                    <input type="number" id="qual" value="99.2" min="0" max="100" step="0.1">
                 </div>
-                <button class="calc-btn" onclick="calculateOEE()">Calculate Shift OEE</button>
+                <button class="calc-btn" onclick="calculateOEE()">Compute Performance Analytics</button>
                 <div class="calc-result" id="oeeResult"></div>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 5 -->
+    <!-- PAGE 5: SHOP FLOOR -->
     <div class="tab-content" id="page5">
-        <div class="section-box">
-            <h2 class="section-title">5. Shop Floor & Converting Control</h2>
-            <p>End-to-end management of resource deployment, raw material lines, and mechanized post-press operations:</p>
+        <div class="panel-box">
+            <h2 class="panel-title">05. Shop Floor & Post-Press Control</h2>
+            <p>Operational control across conversion channels, material planning, and mechanical finishing parameters[span_3](start_span)[span_3](end_span):</p>
             <ul>
-                <li><strong>Finishing Supervision:</strong> Directing high-speed automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units.</li>
-                <li><strong>Daily Deliverables:</strong> Compiling precise Shift Logs, Daily Production Reports (DPR), Maintenance schedules, and Inventory reports.</li>
-                <li><strong>Lean Systems:</strong> Active enforcement of **5S Methodology**, Kaizen practices, and strict industrial safety guidelines on the shop floor.</li>
+                <li><strong>Finishing Supervision:</strong> Command over advanced automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units[span_4](start_span)[span_4](end_span).</li>
+                <li><strong>Operations Logging:</strong> Daily Production Reports (DPR), Shift Logbooks, Preventive Maintenance tracking, and Inventory ledgers.</li>
+                <li><strong>Lean Engineering:</strong> Absolute plant enforcement of 5S Methodology, Kaizen protocols, and structural safety norms.</li>
             </ul>
         </div>
     </div>
 
-    <!-- PAGE 6 -->
+    <!-- PAGE 6: CORE SKILLS -->
     <div class="tab-content" id="page6">
-        <div class="section-box">
-            <h2 class="section-title">6. Core Technical Competencies</h2>
-            <p>Specialized engineering control over advanced press setups and chemical metrics:</p>
-            <span class="tech-pill green">Color Management</span>
-            <span class="tech-pill green">Ink Formulations</span>
-            <span class="tech-pill green">Gripper Calibration</span>
-            <span class="tech-pill green">Cylinder Gap Tuning</span>
-            <span class="tech-pill green">Densitometric Control</span>
-            <span class="tech-pill green">Image Controllers</span>
+        <div class="panel-box">
+            <h2 class="panel-title">06. Advanced Plant Competencies</h2>
+            <p>Technical expertise covering advanced press chemistry, structural micro-adjustments, and optical profiling:</p>
+            <span class="tech-pill cyan">Spectrophotometric Color Management</span>
+            <span class="tech-pill cyan">Custom Ink Formulations[span_5](start_span)[span_5](end_span)</span>
+            <span class="tech-pill cyan">Gripper Clearance Calibration</span>
+            <span class="tech-pill cyan">Cylinder Gap Optimization</span>
+            <span class="tech-pill cyan">Densitometric Calibration</span>
+            <span class="tech-pill cyan">Prinect Image Control System</span>
         </div>
     </div>
 
-    <!-- PAGE 7 -->
+    <!-- PAGE 7: QUALITY CLEARANCE -->
     <div class="tab-content" id="page7">
-        <div class="section-box">
-            <h2 class="section-title">7. Quality Assurance & Standardization</h2>
-            <p>Maintaining a strict zero-defect quality threshold through rigorous, data-driven inspection frameworks:</p>
+        <div class="panel-box">
+            <h2 class="panel-title">07. Quality Assurance Framework</h2>
+            <p>Securing zero-defect output limits through multi-tiered quality gates:</p>
             <ul>
-                <li>Executing thorough cross-verifications of active print samples directly against customer-approved digital artwork.</li>
-                <li>Managing close densitometric and spectrophotometric color matching protocols utilizing physical shade cards.</li>
-                <li>Enforcing full quality line clearances at both print and finishing workstations to isolate and eliminate substrate non-conformities.</li>
+                <li>Executing absolute structural cross-verifications of live print output samples directly against client-approved master blue-prints.</li>
+                <li>Managing spectrophotometric shade control using physical target keys and calibrated densitometers.</li>
+                <li>Enforcing thorough line clearance validation protocols at print and conversion stations to block material variations[span_6](start_span)[span_6](end_span).</li>
             </ul>
         </div>
     </div>
 
-    <!-- PAGE 8 -->
+    <!-- PAGE 8: HISTORY -->
     <div class="tab-content" id="page8">
-        <div class="section-box">
-            <h2 class="section-title">8. Professional Timeline</h2>
+        <div class="panel-box">
+            <h2 class="panel-title">08. Industrial Timeline</h2>
             
             <div class="timeline-item">
                 <div class="timeline-date">August 2023 – Present</div>
-                <strong>Printing Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-muted);">Kumar Printers Pvt. Ltd., Manesar</span>
-                <p style="font-size: 12.5px; margin-top: 6px;">Directing high-volume packaging manufacturing lines. Responsible for process validation, machine utilization tracking, shift report logging, and managing zero-defect output.</p>
+                <strong>Printing Operations Supervisor</strong><br>
+                <span style="font-size: 13px; color: var(--text-dim);">Kumar Printers Pvt. Ltd., Manesar[span_7](start_span)[span_7](end_span)</span>
+                <p style="font-size: 13px; margin-top: 6px;">Orchestrating primary packaging lines. Managing live shifting workflows, machine runtime schedules, target tracking, and high-volume quality clearance.</p>
             </div>
             
             <div class="timeline-item">
-                <div class="timeline-date">Duration: 6 Years</div>
+                <div class="timeline-date">Duration: 6 Years[span_8](start_span)[span_8](end_span)</div>
                 <strong>Post Press & Printing Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-muted);">Art O Print Printing & Packing Pvt. Ltd.</span>
-                <p style="font-size: 12.5px; margin-top: 6px;">Managed end-to-end post-press conversions, finishing mechanics, raw stock maintenance, and led floor teams to consistently achieve monthly target numbers.</p>
+                <span style="font-size: 13px; color: var(--text-dim);">Art O Print Printing & Packing Pvt. Ltd.[span_9](start_span)[span_9](end_span)</span>
+                <p style="font-size: 13px; margin-top: 6px;">Supervised conversion logistics, mechanized post-press operations, structural material deployment, and plant productivity milestones[span_10](start_span)[span_10](end_span).</p>
             </div>
 
             <div class="timeline-item" style="margin-bottom: 0;">
-                <div class="timeline-date">Duration: 4 Months</div>
-                <strong>Production (Industrial Training)</strong><br>
-                <span style="font-size: 13px; color: var(--text-muted);">Nova Publication Pvt. Ltd.</span>
+                <div class="timeline-date">Duration: 4 Months[span_11](start_span)[span_11](end_span)</div>
+                <strong>Production Engineering Intern</strong><br>
+                <span style="font-size: 13px; color: var(--text-dim);">Nova Publication Pvt. Ltd.[span_12](start_span)[span_12](end_span)</span>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 9 -->
+    <!-- PAGE 9: FAQ -->
     <div class="tab-content" id="page9">
-        <div class="section-box">
-            <h2 class="section-title">9. Technical Engineering FAQ</h2>
-            <p><strong>Q1: What methodology do you use to ensure zero critical quality failures?</strong><br>
-            Ans: By enforcing multi-stage quality gates, verifying the first printed sheet exhaustively against the master artwork blueprint, and executing absolute line clearances before starting new runs.</p>
-            <p><strong>Q2: How do you handle setup downtime in post-press machinery?</strong><br>
-            Ans: By applying structured troubleshooting techniques, ensuring rapid component staging, and coordinating closely with maintenance engineering for planned preventive checks.</p>
+        <div class="panel-box">
+            <h2 class="panel-title">09. Technical Control FAQ</h2>
+            <p><strong>Q1: What protocols secure zero critical failures during swift job switches?</strong><br>
+            Ans: Executing full line clearance procedures, validating substrate parameters against master files, and checking structural proofs immediately post-setup.</p>
+            <p><strong>Q2: How do you counteract unscheduled mechanical downtime?</strong><br>
+            Ans: Utilizing real-time symptom mapping, coordinating quick mechanical intervention, and applying rigorous preventive checklists.</p>
         </div>
     </div>
 
-    <!-- PAGE 10 & CONTACT -->
+    <!-- PAGE 10: CONTACT -->
     <div class="tab-content" id="page10">
-        <div class="section-box">
-            <h2 class="section-title">10. Secure Contact Form</h2>
-            <p>For industrial collaborations, technical operations consulting, or corporate inquiries, reach out directly using the dashboard below:</p>
+        <div class="panel-box">
+            <h2 class="panel-title">10. Operations Inquiry Console</h2>
+            <p>Establish direct contact for industrial projects, operational consulting, or recruitment inquiries:</p>
             
             <form action="mailto:amitsandhu973@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="Name" class="input-box" placeholder="Your Full Name" required>
-                <input type="email" name="Email" class="input-box" placeholder="Your Professional Email Address" required>
-                <textarea name="Message" class="input-box" rows="4" placeholder="Type your professional inquiry or technical project requirements here..." required></textarea>
-                <button type="submit" class="btn-submit">Submit Message</button>
+                <input type="text" name="Name" class="input-box" placeholder="Your Name / Enterprise Name" required>
+                <input type="email" name="Email" class="input-box" placeholder="Secure Corporate Email Address" required>
+                <textarea name="Message" class="input-box" rows="4" placeholder="Specify your plant operational requirements or corporate proposal details..." required></textarea>
+                <button type="submit" class="btn-submit">Transmit Form Data</button>
             </form>
         </div>
     </div>
 
     <div class="footer">
-        © 2026 Amit Sandhu. All Rights Reserved. Engineered with Pride.
+        // CONTROL LOGIC ACTIVE // OPERATIONAL YEAR: 2026 // AMIT SANDHU
     </div>
 </div>
 
 <script>
-    // Tab Switching Logic
+    // Tab Switching System
     function switchTab(tabId) {
-        // Hide all tabs
         const contents = document.querySelectorAll('.tab-content');
         contents.forEach(content => content.classList.remove('active'));
         
-        // Remove active class from all nav items
         const navItems = document.querySelectorAll('.nav-item');
         navItems.forEach(item => item.classList.remove('active'));
         
-        // Show selected tab
         document.getElementById(tabId).classList.add('active');
-        
-        // Add active class to clicked button
         document.getElementById('btn-' + tabId).classList.add('active');
         
-        // Smooth scroll back to top of container if needed
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // OEE Calculator Logic
+    // OEE Analytics System
     function calculateOEE() {
         const avail = parseFloat(document.getElementById('avail').value) / 100;
         const perf = parseFloat(document.getElementById('perf').value) / 100;
         const qual = parseFloat(document.getElementById('qual').value) / 100;
         
         if (isNaN(avail) || isNaN(perf) || isNaN(qual)) {
-            alert('Please enter valid percentage values.');
+            alert('Error: Inject valid percentage matrix values.');
             return;
         }
         
         const oee = (avail * perf * qual) * 100;
         const resultDiv = document.getElementById('oeeResult');
         resultDiv.style.display = 'block';
-        resultDiv.innerHTML = 'Calculated Plant OEE: <strong>' + oee.toFixed(2) + '%</strong>';
+        resultDiv.innerHTML = 'COMPUTED SHIFT OEE: <strong style="color:#00f2fe">' + oee.toFixed(2) + '%</strong>';
+    }
+
+    // Advanced Press Simulation System
+    let simInterval = null;
+    let sheetCount = 0;
+    
+    function toggleSimulation() {
+        const btn = document.getElementById('simBtn');
+        const display = document.getElementById('simDisplay');
+        
+        if (simInterval) {
+            // Stop Simulation
+            clearInterval(simInterval);
+            simInterval = null;
+            btn.innerHTML = "Start Press Simulation";
+            btn.style.background = "linear-gradient(135deg, #00f2fe, #4facfe)";
+            display.innerHTML = "[SYSTEM HALTED]<br>Press Speed: 0 SPH<br>Total Substrates Processed: " + sheetCount;
+        } else {
+            // Start Simulation
+            btn.innerHTML = "HALT PRESS RUN";
+            btn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
+            btn.style.color = "white";
+            btn.style.boxShadow = "0 4px 15px rgba(239,68,68,0.4)";
+            
+            simInterval = setInterval(() => {
+                sheetCount += Math.floor(Math.random() * 5) + 3;
+                let currentSpeed = Math.floor(Math.random() * 500) + 14500; // Realistic Heidelberg Speed
+                display.innerHTML = "<span style='color:#00f2fe'>[RUNNING - PRODUCTION RUN ACTIVE]</span><br>Live Speed: " + currentSpeed + " SPH<br>Sheets Counted: " + sheetCount + "<br>Color Feed: 100% CMYK OK";
+            }, 800);
+        }
     }
 </script>
 
