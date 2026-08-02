@@ -11,17 +11,18 @@
     <meta property="og:description" content="B.Tech in Printing & Packaging Technology with 9+ years of expertise in Offset Printing & Post-Press Operations.">
     <meta property="og:url" content="https://amitsandhu973-jpg.github.io/my-portfolio/">
     
-    <meta name="description" content="Professional Engineering Portfolio of Amit Sandhu. B.Tech in Printing & Packaging Technology with 9+ years of expertise.">
-    
     <style>
         :root {
             --primary: #4f46e5;
+            --primary-light: #e0e7ff;
             --primary-dark: #3730a3;
             --bg-main: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-muted: #475569;
             --border: #e2e8f0;
+            --success: #166534;
+            --success-bg: #f0fdf4;
         }
         
         body { 
@@ -40,7 +41,7 @@
             width: 100%; 
             background: var(--card-bg); 
             border-radius: 24px; 
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05); 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
             padding: 24px; 
             box-sizing: border-box; 
             margin-bottom: 30px; 
@@ -146,15 +147,22 @@
             font-size: 12px; 
             font-weight: 700; 
             color: var(--text-muted); 
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02); 
+            cursor: pointer;
             transition: all 0.2s; 
         }
         
-        .nav-item:hover { 
+        .nav-item.active { 
             background: var(--primary); 
             color: white; 
             border-color: var(--primary); 
-            transform: translateY(-1px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .section-box { 
@@ -164,17 +172,6 @@
             padding: 20px; 
             margin-bottom: 20px; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
-            scroll-margin-top: 20px; 
-        }
-        
-        .page-num { 
-            float: right; 
-            background: #f1f5f9; 
-            color: #64748b; 
-            font-size: 10px; 
-            padding: 2px 8px; 
-            border-radius: 20px; 
-            font-weight: 700; 
         }
         
         .section-title { 
@@ -198,14 +195,65 @@
         .mini-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px 4px; text-align: center; font-size: 11.5px; font-weight: 700; }
         
         .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-        .metric-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px; font-size: 12.5px; }
-        .metric-title { font-size: 10px; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-card { background: var(--success-bg); border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px; font-size: 12.5px; }
+        .metric-title { font-size: 10px; font-weight: 700; color: var(--success); text-transform: uppercase; letter-spacing: 0.5px; }
         .metric-val { font-size: 15px; font-weight: 800; color: #14532d; margin-top: 4px; }
         
         .tech-pill { display: inline-block; background: #f8fafc; color: #475569; padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; margin: 3px; border: 1px solid var(--border); }
         .tech-pill.blue { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
         .tech-pill.green { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
         
+        /* Interactive Calculator Tool */
+        .calc-tool {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+        .calc-input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .calc-input-group label {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .calc-input-group input {
+            width: 70px;
+            padding: 6px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .calc-btn {
+            width: 100%;
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .calc-result {
+            margin-top: 12px;
+            padding: 10px;
+            background: #e0f2fe;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: #0369a1;
+            display: none;
+        }
+
         /* Timeline Style */
         .timeline-item { position: relative; padding-left: 20px; border-left: 2px solid var(--border); margin-bottom: 20px; }
         .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--primary); border-radius: 5px; }
@@ -213,8 +261,7 @@
 
         .footer { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px; font-weight: 600; }
         .input-box { width: 100%; background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-size: 13.5px; box-sizing: border-box; margin-bottom: 12px; color: var(--text-main); font-family: inherit; }
-        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); transition: background 0.2s; }
-        .btn-submit:hover { background: var(--primary-dark); }
+        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); }
     </style>
 </head>
 <body>
@@ -229,169 +276,236 @@
     <!-- Quick Actions for HRs -->
     <div class="quick-actions">
         <a href="mailto:amitsandhu973@gmail.com" class="action-btn">📧 Email Me</a>
-        <a href="#nav-contact" class="action-btn" style="background: #eff6ff; border-color: #bfdbfe; color: var(--primary);">💼 Hire Me</a>
+        <a onclick="switchTab('page10')" class="action-btn" style="background: #eff6ff; border-color: #bfdbfe; color: var(--primary); cursor: pointer;">💼 Hire Me</a>
     </div>
 
     <!-- 10-Page Directory Matrix -->
     <div class="nav-menu">
-        <div class="nav-title">📁 Portfolio Directory (10 Core Sub-Pages)</div>
+        <div class="nav-title">📁 Portfolio Directory (Tabs Layout)</div>
         <div class="nav-links">
-            <a href="#page1" class="nav-item">1. Executive Dashboard</a>
-            <a href="#page2" class="nav-item">2. Profile & Vision</a>
-            <a href="#page3" class="nav-item">3. Machinery Fleet</a>
-            <a href="#page4" class="nav-item">4. Operational OEE</a>
-            <a href="#page5" class="nav-item">5. Shop Floor Control</a>
-            <a href="#page6" class="nav-item">6. Technical Expertise</a>
-            <a href="#page7" class="nav-item">7. Quality QA/QC</a>
-            <a href="#page8" class="nav-item">8. Professional History</a>
-            <a href="#page9" class="nav-item">9. Engineering FAQ</a>
-            <a href="#nav-contact" class="nav-item">10. Secure Contact</a>
+            <div onclick="switchTab('page1')" id="btn-page1" class="nav-item active">1. Dashboard</div>
+            <div onclick="switchTab('page2')" id="btn-page2" class="nav-item">2. Vision</div>
+            <div onclick="switchTab('page3')" id="btn-page3" class="nav-item">3. Machinery Fleet</div>
+            <div onclick="switchTab('page4')" id="btn-page4" class="nav-item">4. OEE & Metrics</div>
+            <div onclick="switchTab('page5')" id="btn-page5" class="nav-item">5. Shop Floor</div>
+            <div onclick="switchTab('page6')" id="btn-page6" class="nav-item">6. Core Technical</div>
+            <div onclick="switchTab('page7')" id="btn-page7" class="nav-item">7. Quality QA/QC</div>
+            <div onclick="switchTab('page8')" id="btn-page8" class="nav-item">8. History</div>
+            <div onclick="switchTab('page9')" id="btn-page9" class="nav-item">9. FAQ</div>
+            <div onclick="switchTab('page10')" id="btn-page10" class="nav-item">10. Contact</div>
         </div>
     </div>
 
     <!-- PAGE 1 -->
-    <div class="section-box" id="page1">
-        <span class="page-num">Page 01</span>
-        <h2 class="section-title">1. Executive Dashboard</h2>
-        <p>Live operational overview tracking end-to-end efficiency, real-time substrate throughput, and standardized floor monitoring metrics.</p>
-        <div style="background: #f8fafc; border-radius: 10px; padding: 12px; text-align: center; font-size: 12.5px; font-weight: 700; color: #475569; border: 1px solid var(--border); border-left: 4px solid #10b981;">
-            🌅 Supervision Status: Shift Log Active | 🕒 System: Fully Operational
+    <div class="tab-content active" id="page1">
+        <div class="section-box">
+            <h2 class="section-title">1. Executive Dashboard</h2>
+            <p>Live operational overview tracking end-to-end efficiency, real-time substrate throughput, and standardized floor monitoring metrics.</p>
+            <div style="background: #f8fafc; border-radius: 10px; padding: 12px; text-align: center; font-size: 12.5px; font-weight: 700; color: #475569; border: 1px solid var(--border); border-left: 4px solid #10b981;">
+                🌅 Supervision Status: Shift Log Active | 🕒 System: Fully Operational
+            </div>
         </div>
     </div>
 
     <!-- PAGE 2 -->
-    <div class="section-box" id="page2">
-        <span class="page-num">Page 02</span>
-        <h2 class="section-title">2. Profile & Engineering Vision</h2>
-        <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations[span_0](start_span)[span_0](end_span). Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
+    <div class="tab-content" id="page2">
+        <div class="section-box">
+            <h2 class="section-title">2. Profile & Engineering Vision</h2>
+            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations. Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
+        </div>
     </div>
 
     <!-- PAGE 3 -->
-    <div class="section-box" id="page3">
-        <span class="page-num">Page 03</span>
-        <h2 class="section-title">3. Machinery & Substrate Fleet</h2>
-        <p><strong>Press Configurations:</strong> Extensive hands-on expertise in configuring and optimizing high-precision German sheet-fed offset lithography presses:</p>
-        <div class="grid-3">
-            <div class="mini-card" style="border-top: 3px solid var(--primary);">Heidelberg<br><strong>CX 104</strong></div>
-            <div class="mini-card" style="border-top: 3px solid #10b981;">Heidelberg<br><strong>CD 74</strong></div>
-            <div class="mini-card" style="border-top: 3px solid #3b82f6;">Heidelberg<br><strong>SM 102</strong></div>
+    <div class="tab-content" id="page3">
+        <div class="section-box">
+            <h2 class="section-title">3. Machinery & Substrate Fleet</h2>
+            <p><strong>Press Configurations:</strong> Extensive hands-on expertise in configuring and optimizing high-precision German sheet-fed offset lithography presses:</p>
+            <div class="grid-3">
+                <div class="mini-card" style="border-top: 3px solid var(--primary);">Heidelberg<br><strong>CX 104</strong></div>
+                <div class="mini-card" style="border-top: 3px solid #10b981;">Heidelberg<br><strong>CD 74</strong></div>
+                <div class="mini-card" style="border-top: 3px solid #3b82f6;">Heidelberg<br><strong>SM 102</strong></div>
+            </div>
+            <p style="margin-top: 18px; margin-bottom: 6px;"><strong>Substrate Profile Expertise:</strong></p>
+            <span class="tech-pill blue">Duplex Board</span>
+            <span class="tech-pill blue">SBS Board</span>
+            <span class="tech-pill blue">FBB (Folding Box Board)</span>
+            <span class="tech-pill blue">Kraft & Corrugated Stock</span>
         </div>
-        <p style="margin-top: 18px; margin-bottom: 6px;"><strong>Substrate Profile Expertise:</strong></p>
-        <span class="tech-pill blue">Duplex Board</span>
-        <span class="tech-pill blue">SBS Board</span>
-        <span class="tech-pill blue">FBB (Folding Box Board)</span>
-        <span class="tech-pill blue">Kraft & Corrugated Stock</span>
     </div>
 
     <!-- PAGE 4 -->
-    <div class="section-box" id="page4">
-        <span class="page-num">Page 04</span>
-        <h2 class="section-title">4. Operational Efficiency Metrics</h2>
-        <p>Validated manufacturing achievements executed through systematic process mapping and strategic lean floor management:</p>
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-title">Machine Ready (MR) Time</div>
-                <div class="metric-val">Reduced by 5%[span_1](start_span)[span_1](end_span)</div>
+    <div class="tab-content" id="page4">
+        <div class="section-box">
+            <h2 class="section-title">4. Operational OEE & Efficiency Metrics</h2>
+            <p>Validated manufacturing achievements executed through systematic process mapping and strategic lean floor management:</p>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-title">Machine Ready Time</div>
+                    <div class="metric-val">Reduced by 5%</div>
+                </div>
+                <div class="metric-card" style="background:#eff6ff; border-color:#bfdbfe;">
+                    <div class="metric-title" style="color:#1e40af;">Production Capacity</div>
+                    <div class="metric-val" style="color:#1e3a8a;">Highest Single Month</div>
+                </div>
             </div>
-            <div class="metric-card" style="background:#eff6ff; border-color:#bfdbfe;">
-                <div class="metric-title" style="color:#1e40af;">Production Capacity</div>
-                <div class="metric-val" style="color:#1e3a8a;">Highest Single-Month Output[span_2](start_span)[span_2](end_span)</div>
+            
+            <!-- TOOL: Interactive OEE Calculator -->
+            <div class="calc-tool">
+                <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--text-main); margin-bottom: 10px;">📊 Live Plant OEE Calculator Tool</div>
+                <div class="calc-input-group">
+                    <label>Availability (%)</label>
+                    <input type="number" id="avail" value="95" min="0" max="100">
+                </div>
+                <div class="calc-input-group">
+                    <label>Performance (%)</label>
+                    <input type="number" id="perf" value="92" min="0" max="100">
+                </div>
+                <div class="calc-input-group">
+                    <label>Quality Rate (%)</label>
+                    <input type="number" id="qual" value="98.5" min="0" max="100" step="0.1">
+                </div>
+                <button class="calc-btn" onclick="calculateOEE()">Calculate Shift OEE</button>
+                <div class="calc-result" id="oeeResult"></div>
             </div>
         </div>
-        <p style="margin-top: 12px; font-size: 12.5px; color: #64748b;">Successfully mitigated downtime during complex file corrections and minimized sheet wastage parameters down to critical operational limits (&lt;1.5%).</p>
     </div>
 
     <!-- PAGE 5 -->
-    <div class="section-box" id="page5">
-        <span class="page-num">Page 05</span>
-        <h2 class="section-title">5. Shop Floor & Converting Control</h2>
-        <p>End-to-end management of resource deployment, raw material lines, and mechanized post-press operations[span_3](start_span)[span_3](end_span):</p>
-        <ul>
-            <li><strong>Finishing Supervision:</strong> Directing high-speed automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units[span_4](start_span)[span_4](end_span).</li>
-            <li><strong>Daily Deliverables:</strong> Compiling precise Shift Logs, Daily Production Reports (DPR), Maintenance schedules, and Inventory reports.</li>
-            <li><strong>Lean Systems:</strong> Active enforcement of **5S Methodology**, Kaizen practices, and strict industrial safety guidelines on the shop floor.</li>
-        </ul>
+    <div class="tab-content" id="page5">
+        <div class="section-box">
+            <h2 class="section-title">5. Shop Floor & Converting Control</h2>
+            <p>End-to-end management of resource deployment, raw material lines, and mechanized post-press operations:</p>
+            <ul>
+                <li><strong>Finishing Supervision:</strong> Directing high-speed automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units.</li>
+                <li><strong>Daily Deliverables:</strong> Compiling precise Shift Logs, Daily Production Reports (DPR), Maintenance schedules, and Inventory reports.</li>
+                <li><strong>Lean Systems:</strong> Active enforcement of **5S Methodology**, Kaizen practices, and strict industrial safety guidelines on the shop floor.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- PAGE 6 -->
-    <div class="section-box" id="page6">
-        <span class="page-num">Page 06</span>
-        <h2 class="section-title">6. Core Technical Competencies</h2>
-        <p>Specialized engineering control over advanced press setups and chemical metrics:</p>
-        <span class="tech-pill green">Color Management</span>
-        <span class="tech-pill green">Ink Formulations[span_5](start_span)[span_5](end_span)</span>
-        <span class="tech-pill green">Gripper Calibration</span>
-        <span class="tech-pill green">Cylinder Gap Tuning</span>
-        <span class="tech-pill green">Densitometric Control</span>
-        <span class="tech-pill green">Image Controllers</span>
+    <div class="tab-content" id="page6">
+        <div class="section-box">
+            <h2 class="section-title">6. Core Technical Competencies</h2>
+            <p>Specialized engineering control over advanced press setups and chemical metrics:</p>
+            <span class="tech-pill green">Color Management</span>
+            <span class="tech-pill green">Ink Formulations</span>
+            <span class="tech-pill green">Gripper Calibration</span>
+            <span class="tech-pill green">Cylinder Gap Tuning</span>
+            <span class="tech-pill green">Densitometric Control</span>
+            <span class="tech-pill green">Image Controllers</span>
+        </div>
     </div>
 
     <!-- PAGE 7 -->
-    <div class="section-box" id="page7">
-        <span class="page-num">Page 07</span>
-        <h2 class="section-title">7. Quality Assurance & Standardization</h2>
-        <p>Maintaining a strict zero-defect quality threshold through rigorous, data-driven inspection frameworks:</p>
-        <ul>
-            <li>Executing thorough cross-verifications of active print samples directly against customer-approved digital artwork.</li>
-            <li>Managing close densitometric and spectrophotometric color matching protocols utilizing physical shade cards.</li>
-            <li>Enforcing full quality line clearances at both print and finishing workstations to isolate and eliminate substrate non-conformities[span_6](start_span)[span_6](end_span).</li>
-        </ul>
+    <div class="tab-content" id="page7">
+        <div class="section-box">
+            <h2 class="section-title">7. Quality Assurance & Standardization</h2>
+            <p>Maintaining a strict zero-defect quality threshold through rigorous, data-driven inspection frameworks:</p>
+            <ul>
+                <li>Executing thorough cross-verifications of active print samples directly against customer-approved digital artwork.</li>
+                <li>Managing close densitometric and spectrophotometric color matching protocols utilizing physical shade cards.</li>
+                <li>Enforcing full quality line clearances at both print and finishing workstations to isolate and eliminate substrate non-conformities.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- PAGE 8 -->
-    <div class="section-box" id="page8">
-        <span class="page-num">Page 08</span>
-        <h2 class="section-title">8. Professional Timeline</h2>
-        
-        <div class="timeline-item">
-            <div class="timeline-date">August 2023 – Present</div>
-            <strong>Printing Supervisor</strong><br>
-            <span style="font-size: 13px; color: var(--text-muted);">Kumar Printers Pvt. Ltd., Manesar</span>
-            <p style="font-size: 12.5px; margin-top: 6px;">Directing high-volume packaging manufacturing lines. Responsible for process validation, machine utilization tracking, shift report logging, and managing zero-defect output.</p>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-date">Duration: 6 Years[span_7](start_span)[span_7](end_span)</div>
-            <strong>Post Press & Printing Supervisor</strong><br>
-            <span style="font-size: 13px; color: var(--text-muted);">Art O Print Printing & Packing Pvt. Ltd.</span>
-            <p style="font-size: 12.5px; margin-top: 6px;">Managed end-to-end post-press conversions, finishing mechanics, raw stock maintenance, and led floor teams to consistently achieve monthly target numbers[span_8](start_span)[span_8](end_span).</p>
-        </div>
+    <div class="tab-content" id="page8">
+        <div class="section-box">
+            <h2 class="section-title">8. Professional Timeline</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">August 2023 – Present</div>
+                <strong>Printing Supervisor</strong><br>
+                <span style="font-size: 13px; color: var(--text-muted);">Kumar Printers Pvt. Ltd., Manesar</span>
+                <p style="font-size: 12.5px; margin-top: 6px;">Directing high-volume packaging manufacturing lines. Responsible for process validation, machine utilization tracking, shift report logging, and managing zero-defect output.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Duration: 6 Years</div>
+                <strong>Post Press & Printing Supervisor</strong><br>
+                <span style="font-size: 13px; color: var(--text-muted);">Art O Print Printing & Packing Pvt. Ltd.</span>
+                <p style="font-size: 12.5px; margin-top: 6px;">Managed end-to-end post-press conversions, finishing mechanics, raw stock maintenance, and led floor teams to consistently achieve monthly target numbers.</p>
+            </div>
 
-        <div class="timeline-item" style="margin-bottom: 0;">
-            <div class="timeline-date">Duration: 4 Months[span_9](start_span)[span_9](end_span)</div>
-            <strong>Production (Industrial Training)</strong><br>
-            <span style="font-size: 13px; color: var(--text-muted);">Nova Publication Pvt. Ltd.[span_10](start_span)[span_10](end_span)</span>
+            <div class="timeline-item" style="margin-bottom: 0;">
+                <div class="timeline-date">Duration: 4 Months</div>
+                <strong>Production (Industrial Training)</strong><br>
+                <span style="font-size: 13px; color: var(--text-muted);">Nova Publication Pvt. Ltd.</span>
+            </div>
         </div>
     </div>
 
     <!-- PAGE 9 -->
-    <div class="section-box" id="page9">
-        <span class="page-num">Page 09</span>
-        <h2 class="section-title">9. Technical Engineering FAQ</h2>
-        <p><strong>Q1: What methodology do you use to ensure zero critical quality failures?</strong><br>
-        Ans: By enforcing multi-stage quality gates, verifying the first printed sheet exhaustively against the master artwork blueprint, and executing absolute line clearances before starting new runs.</p>
-        <p><strong>Q2: How do you handle setup downtime in post-press machinery?</strong><br>
-        Ans: By applying structured troubleshooting techniques, ensuring rapid component staging, and coordinating closely with maintenance engineering for planned preventive checks.</p>
+    <div class="tab-content" id="page9">
+        <div class="section-box">
+            <h2 class="section-title">9. Technical Engineering FAQ</h2>
+            <p><strong>Q1: What methodology do you use to ensure zero critical quality failures?</strong><br>
+            Ans: By enforcing multi-stage quality gates, verifying the first printed sheet exhaustively against the master artwork blueprint, and executing absolute line clearances before starting new runs.</p>
+            <p><strong>Q2: How do you handle setup downtime in post-press machinery?</strong><br>
+            Ans: By applying structured troubleshooting techniques, ensuring rapid component staging, and coordinating closely with maintenance engineering for planned preventive checks.</p>
+        </div>
     </div>
 
     <!-- PAGE 10 & CONTACT -->
-    <div class="section-box" id="nav-contact">
-        <span class="page-num">Page 10</span>
-        <h2 class="section-title">10. Secure Contact Form</h2>
-        <p>For industrial collaborations, technical operations consulting, or corporate inquiries, reach out directly using the dashboard below:</p>
-        
-        <form action="mailto:amitsandhu973@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="Name" class="input-box" placeholder="Your Full Name" required>
-            <input type="email" name="Email" class="input-box" placeholder="Your Professional Email Address" required>
-            <textarea name="Message" class="input-box" rows="4" placeholder="Type your professional inquiry or technical project requirements here..." required></textarea>
-            <button type="submit" class="btn-submit">Submit Message</button>
-        </form>
+    <div class="tab-content" id="page10">
+        <div class="section-box">
+            <h2 class="section-title">10. Secure Contact Form</h2>
+            <p>For industrial collaborations, technical operations consulting, or corporate inquiries, reach out directly using the dashboard below:</p>
+            
+            <form action="mailto:amitsandhu973@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="Name" class="input-box" placeholder="Your Full Name" required>
+                <input type="email" name="Email" class="input-box" placeholder="Your Professional Email Address" required>
+                <textarea name="Message" class="input-box" rows="4" placeholder="Type your professional inquiry or technical project requirements here..." required></textarea>
+                <button type="submit" class="btn-submit">Submit Message</button>
+            </form>
+        </div>
     </div>
 
     <div class="footer">
         © 2026 Amit Sandhu. All Rights Reserved. Engineered with Pride.
     </div>
 </div>
+
+<script>
+    // Tab Switching Logic
+    function switchTab(tabId) {
+        // Hide all tabs
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active class from all nav items
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active'));
+        
+        // Show selected tab
+        document.getElementById(tabId).classList.add('active');
+        
+        // Add active class to clicked button
+        document.getElementById('btn-' + tabId).classList.add('active');
+        
+        // Smooth scroll back to top of container if needed
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // OEE Calculator Logic
+    function calculateOEE() {
+        const avail = parseFloat(document.getElementById('avail').value) / 100;
+        const perf = parseFloat(document.getElementById('perf').value) / 100;
+        const qual = parseFloat(document.getElementById('qual').value) / 100;
+        
+        if (isNaN(avail) || isNaN(perf) || isNaN(qual)) {
+            alert('Please enter valid percentage values.');
+            return;
+        }
+        
+        const oee = (avail * perf * qual) * 100;
+        const resultDiv = document.getElementById('oeeResult');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = 'Calculated Plant OEE: <strong>' + oee.toFixed(2) + '%</strong>';
+    }
+</script>
 
 </body>
 </html>
