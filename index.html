@@ -14,19 +14,30 @@
     <style>
         :root {
             --bg-glow: #090d16;
-            --panel-bg: rgba(17, 24, 39, 0.7);
+            --panel-bg: rgba(17, 24, 39, 0.75);
             --neon-cyan: #00f2fe;
             --neon-green: #4facfe;
             --neon-alert: #10b981;
             --text-bright: #f8fafc;
             --text-dim: #94a3b8;
-            --border-glow: rgba(0, 242, 254, 0.2);
+            --border-glow: rgba(0, 242, 254, 0.25);
+            --panel-gradient: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 70%);
+        }
+        
+        /* Industrial Shop Floor Theme Alternative */
+        .industrial-theme {
+            --bg-glow: #0f1115;
+            --panel-bg: rgba(24, 28, 36, 0.85);
+            --neon-cyan: #f59e0b; /* Amber */
+            --neon-green: #10b981; /* Neon Green */
+            --border-glow: rgba(245, 158, 11, 0.25);
+            --panel-gradient: radial-gradient(circle at 50% 10%, #2e2003 0%, #0f1115 70%);
         }
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
             background-color: var(--bg-glow); 
-            background-image: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 70%);
+            background-image: var(--panel-gradient);
             color: var(--text-bright); 
             margin: 0; 
             padding: 12px; 
@@ -34,8 +45,34 @@
             flex-direction: column; 
             align-items: center; 
             min-height: 100vh;
+            transition: background 0.5s ease, color 0.3s ease;
         }
         
+        /* Unique Theme Selector Floating Bar */
+        .theme-selector-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            backdrop-filter: blur(8px);
+        }
+        .theme-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
+        .theme-btn-group { display: flex; gap: 6px; }
+        .theme-toggle-btn {
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-dim); padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.3s;
+        }
+        .theme-toggle-btn.active {
+            border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
         .cyber-container { 
             max-width: 600px; 
             width: 100%; 
@@ -43,11 +80,12 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 28px; 
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.1); 
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.15); 
             padding: 24px; 
             box-sizing: border-box; 
             margin-bottom: 30px; 
             border: 1px solid var(--border-glow);
+            transition: all 0.5s ease;
         }
         
         .cyber-header { 
@@ -56,33 +94,35 @@
             padding-bottom: 20px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.05);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .live-indicator {
-            position: absolute;
-            top: 0;
-            right: 10px;
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            padding: 4px 10px;
+            margin-bottom: 10px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--neon-green);
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             animation: pulse 2s infinite;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         @keyframes pulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
+            0% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { opacity: 1; box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.2); }
+            100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
         }
         
         .name { 
             font-size: 32px; 
             font-weight: 900; 
-            background: linear-gradient(135deg, #fff 30%, var(--neon-cyan));
+            background: linear-gradient(135deg, #fff 40%, var(--neon-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0; 
@@ -90,7 +130,7 @@
         }
         
         .badge { 
-            background: linear-gradient(135deg, #00f2fe, #4facfe); 
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); 
             color: #090d16; 
             font-size: 11px; 
             font-weight: 800; 
@@ -100,7 +140,8 @@
             margin-top: 12px; 
             letter-spacing: 0.5px; 
             text-transform: uppercase; 
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+            text-shadow: none;
         }
         
         .sub-degree {
@@ -110,9 +151,25 @@
             font-weight: 500;
         }
 
+        /* Stats Counter Unique Box */
+        .live-stats-banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .stat-item-box { display: flex; flex-direction: column; justify-content: center; }
+        .stat-label { font-size: 9px; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.5px; }
+        .stat-number { font-size: 20px; font-weight: 800; color: var(--neon-cyan); margin-top: 2px; font-family: monospace; }
+
         .quick-actions {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 24px;
         }
         
@@ -130,7 +187,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             transition: all 0.3s;
         }
         
@@ -142,10 +199,10 @@
         }
         
         .cyber-grid-menu { 
-            background: rgba(0, 0, 0, 0.2); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+            background: rgba(0, 0, 0, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.06); 
             border-radius: 18px; 
-            padding: 12px; 
+            padding: 14px; 
             margin-bottom: 24px; 
         }
         
@@ -169,7 +226,7 @@
             background: rgba(255, 255, 255, 0.02); 
             border: 1px solid rgba(255, 255, 255, 0.08); 
             border-radius: 12px; 
-            padding: 10px; 
+            padding: 12px 10px; 
             text-align: center; 
             font-size: 12px; 
             font-weight: 700; 
@@ -254,8 +311,8 @@
             border-radius: 14px; 
             padding: 14px; 
         }
-        .metric-title { font-size: 10px; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.5px; }
-        .metric-val { font-size: 16px; font-weight: 800; color: #white; margin-top: 4px; }
+        .metric-title { font-size: 10px; font-weight: 700; color: var(--neon-green); text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-val { font-size: 16px; font-weight: 800; color: white; margin-top: 4px; }
         
         .tech-pill { 
             display: inline-block; 
@@ -270,7 +327,7 @@
         }
         .tech-pill.cyan { border-color: var(--neon-cyan); color: var(--neon-cyan); background: rgba(0, 242, 254, 0.02); }
         
-        /* SUPER TOOL: Live Machine Simulator Control Panel */
+        /* Live Machine Simulator Control Panel */
         .simulator-box {
             background: #0d1527;
             border: 1px solid #1e293b;
@@ -278,6 +335,7 @@
             padding: 18px;
             margin-top: 18px;
             box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
         }
         .sim-display {
             background: #040814;
@@ -289,10 +347,11 @@
             color: #00ff66;
             margin-bottom: 14px;
             text-shadow: 0 0 4px rgba(0,255,102,0.5);
+            line-height: 1.5;
         }
         .sim-btn {
             width: 100%;
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
             color: #090d16;
             border: none;
             padding: 12px;
@@ -339,13 +398,45 @@
         .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--neon-cyan); border-radius: 5px; box-shadow: 0 0 8px var(--neon-cyan); }
         .timeline-date { font-size: 12px; color: var(--neon-cyan); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 
+        /* Unique Floating Running Logs */
+        .log-toast-container {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(5, 10, 20, 0.9);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-family: monospace;
+            font-size: 11px;
+            color: var(--neon-cyan);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 999;
+            max-width: 260px;
+            pointer-events: none;
+            animation: slideIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
         .footer { text-align: center; font-size: 11px; color: #475569; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 600; letter-spacing: 0.5px;}
         .input-box { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; font-size: 14px; box-sizing: border-box; margin-bottom: 14px; color: white; font-family: inherit; }
         .input-box:focus { border-color: var(--neon-cyan); outline: none; }
-        .btn-submit { width: 100%; background: linear-gradient(135deg, #00f2fe, #4facfe); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
+        .btn-submit { width: 100%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
     </style>
 </head>
 <body>
+
+<!-- Unique Feature: Floating Layout / Theme Customizer Bar -->
+<div class="theme-selector-bar">
+    <div class="theme-title">🎚️ Console View Mode:</div>
+    <div class="theme-btn-group">
+        <button id="theme-dark-btn" class="theme-toggle-btn active" onclick="setTheme('dark')">Night Shift</button>
+        <button id="theme-ind-btn" class="theme-toggle-btn" onclick="setTheme('industrial')">Shop Floor</button>
+    </div>
+</div>
 
 <div class="cyber-container">
     <div class="cyber-header">
@@ -353,6 +444,18 @@
         <h1 class="name">Amit Sandhu</h1>
         <div class="badge">Senior Production & Printing Operations Engineer</div>
         <div class="sub-degree">B.Tech in Printing & Packaging Technology (G.J.U. Hisar)</div>
+    </div>
+
+    <!-- Unique Dynamic Live Stats Dashboard Banner -->
+    <div class="live-stats-banner">
+        <div class="stat-item-box" style="border-right: 1px solid rgba(255,255,255,0.08);">
+            <div class="stat-label">Production Uptime</div>
+            <div class="stat-number" id="uptime-counter">87,640 Hrs</div>
+        </div>
+        <div class="stat-item-box">
+            <div class="stat-label">Optimized Impressions</div>
+            <div class="stat-number" id="impressions-counter">4.2M+</div>
+        </div>
     </div>
 
     <!-- Quick Actions -->
@@ -385,7 +488,7 @@
             <p>Real-time technical tracking of industrial press operations, high-speed substrate conversions, and active plant workflow orchestration.</p>
             
             <!-- EXCLUSIVE INTERACTIVE TOOL: Live Press Simulator -->
-            <div class="simulator-box">
+            <div class="simulator-box" id="simBox">
                 <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; letter-spacing: 0.5px;">🛠️ Interactive Press Operations Simulator</div>
                 <div class="sim-display" id="simDisplay">
                     [SYSTEM READY]<br> Press Speed: 0 SPH<br> Total Substrates Processed: 0
@@ -409,7 +512,7 @@
             <h2 class="panel-title">03. High-Precision Machinery Fleet</h2>
             <p>Direct mechanical setup and process configuration engineering for elite German multi-color sheet-fed offset lithography lines:</p>
             <div class="grid-3">
-                <div class="hardware-card" style="border-bottom-color: var(--neon-cyan);">Heidelberg<br><strong style="color:var(--neon-cyan)">CX 104</strong></div>
+                <div class="hardware-card" style="border-bottom-color: #00f2fe;">Heidelberg<br><strong style="color:#00f2fe">CX 104</strong></div>
                 <div class="hardware-card" style="border-bottom-color: #a855f7;">Heidelberg<br><strong style="color:#a855f7;">CD 74</strong></div>
                 <div class="hardware-card" style="border-bottom-color: #10b981;">Heidelberg<br><strong style="color:#10b981;">SM 102</strong></div>
             </div>
@@ -556,7 +659,72 @@
     </div>
 </div>
 
+<!-- Unique Toast Container for running logs -->
+<div id="logToast" class="log-toast-container" style="display:none;">
+    <span style="animation: spin 1s linear infinite; display:inline-block;">⚙️</span>
+    <span id="logToastText">System Diagnostic Running...</span>
+</div>
+
 <script>
+    // Theme Switcher Logic (Unique View Modes)
+    function setTheme(mode) {
+        const body = document.body;
+        const darkBtn = document.getElementById('theme-dark-btn');
+        const indBtn = document.getElementById('theme-ind-btn');
+        
+        if (mode === 'industrial') {
+            body.classList.add('industrial-theme');
+            indBtn.classList.add('active');
+            darkBtn.classList.remove('active');
+            triggerToast("View Changed: Shop Floor Console Mode");
+        } else {
+            body.classList.remove('industrial-theme');
+            darkBtn.classList.add('active');
+            indBtn.classList.remove('active');
+            triggerToast("View Changed: Night Shift Mode");
+        }
+    }
+
+    // Floating Log Notification Tool
+    function triggerToast(message) {
+        const toast = document.getElementById('logToast');
+        const text = document.getElementById('logToastText');
+        text.innerText = message;
+        toast.style.display = 'flex';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => { toast.style.display = 'none'; toast.style.opacity = '1'; }, 300);
+        }, 3000);
+    }
+
+    // Auto Trigger System logs periodically to look extremely premium/AI-driven
+    const sampleLogs = [
+        "Ink Viscosity: Certified OK",
+        "Heidelberg Gripper Clearance Calibration Checked",
+        "Spectrophotometric Profiles Loaded",
+        "OEE Analytics Log Synchronized",
+        "DPR Sheet Database Backed Up"
+    ];
+    setInterval(() => {
+        if (Math.random() > 0.6) {
+            const randomLog = sampleLogs[Math.floor(Math.random() * sampleLogs.length)];
+            triggerToast(randomLog);
+        }
+    }, 12000);
+
+    // Dynamic Live Counter Ticker
+    function animateCounters() {
+        let uptime = 87400;
+        const uptimeEl = document.getElementById('uptime-counter');
+        
+        setInterval(() => {
+            uptime += Math.floor(Math.random() * 2) + 1;
+            uptimeEl.innerText = uptime.toLocaleString() + " Hrs";
+        }, 4000);
+    }
+    window.onload = animateCounters;
+
     // Tab Switching System
     function switchTab(tabId) {
         const contents = document.querySelectorAll('.tab-content');
@@ -585,35 +753,43 @@
         const oee = (avail * perf * qual) * 100;
         const resultDiv = document.getElementById('oeeResult');
         resultDiv.style.display = 'block';
-        resultDiv.innerHTML = 'COMPUTED SHIFT OEE: <strong style="color:#00f2fe">' + oee.toFixed(2) + '%</strong>';
+        resultDiv.innerHTML = 'COMPUTED SHIFT OEE: <strong style="color:var(--neon-cyan)">' + oee.toFixed(2) + '%</strong>';
+        triggerToast("OEE Computed Successfully");
     }
 
     // Advanced Press Simulation System
     let simInterval = null;
-    let sheetCount = 0;
+    let sheetCount = 60;
     
     function toggleSimulation() {
         const btn = document.getElementById('simBtn');
         const display = document.getElementById('simDisplay');
+        const simBox = document.getElementById('simBox');
         
         if (simInterval) {
             // Stop Simulation
             clearInterval(simInterval);
             simInterval = null;
             btn.innerHTML = "Start Press Simulation";
-            btn.style.background = "linear-gradient(135deg, #00f2fe, #4facfe)";
+            btn.style.background = "linear-gradient(135deg, var(--neon-cyan), var(--neon-green))";
+            btn.style.color = "#090d16";
+            btn.style.boxShadow = "0 4px 15px rgba(0,242,254,0.3)";
+            simBox.style.borderColor = "#1e293b";
             display.innerHTML = "[SYSTEM HALTED]<br>Press Speed: 0 SPH<br>Total Substrates Processed: " + sheetCount;
+            triggerToast("Press Run: Halted");
         } else {
             // Start Simulation
             btn.innerHTML = "HALT PRESS RUN";
             btn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
             btn.style.color = "white";
             btn.style.boxShadow = "0 4px 15px rgba(239,68,68,0.4)";
+            simBox.style.borderColor = "var(--neon-cyan)";
+            triggerToast("Production Setup Initiated");
             
             simInterval = setInterval(() => {
                 sheetCount += Math.floor(Math.random() * 5) + 3;
-                let currentSpeed = Math.floor(Math.random() * 500) + 14500; // Realistic Heidelberg Speed
-                display.innerHTML = "<span style='color:#00f2fe'>[RUNNING - PRODUCTION RUN ACTIVE]</span><br>Live Speed: " + currentSpeed + " SPH<br>Sheets Counted: " + sheetCount + "<br>Color Feed: 100% CMYK OK";
+                let currentSpeed = Math.floor(Math.random() * 500) + 14500;
+                display.innerHTML = "<span style='color:var(--neon-cyan)'>[RUNNING - PRODUCTION RUN ACTIVE]</span><br>Live Speed: " + currentSpeed + " SPH<br>Sheets Counted: " + sheetCount + "<br>Color Feed: 100% CMYK OK";
             }, 800);
         }
     }
