@@ -27,6 +27,7 @@
         .card-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; }
         .card-value { font-size: 14px; font-weight: 700; margin-top: 4px; }
         .text-green { color: #10b981; }
+        .text-blue { color: #3b82f6; }
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
         .fleet-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 6px; text-align: center; font-size: 11px; font-weight: 700; color: #1e293b; }
         .comp-row { margin-bottom: 12px; }
@@ -40,6 +41,7 @@
         .tab { background: #e2e8f0; border: none; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #475569; text-align: center; }
         .tab.active { background: #6366f1; color: #ffffff; }
         .input-box { width: 100%; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; font-size: 13px; box-sizing: border-box; margin-bottom: 10px; color: #334155; }
+        .btn-submit { width: 100%; background: #6366f1; color: white; border: none; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -48,7 +50,7 @@
     <div class="header">
         <h1 class="name">Amit Sandhu</h1>
         <div class="badge">PRODUCTION SUPERVISOR & ENGINEER</div>
-        <p class="sub-text">B.Tech Graduate specializing in industrial packaging automation, high-precision mechanical balancing, and responsive stack development.</p>
+        <p class="sub-text">B.Tech Graduate specializing in industrial packaging automation, high-precision mechanical balancing, and offset printing operations.</p>
     </div>
 
     <div class="log-bar">
@@ -64,6 +66,19 @@
         <div class="card">
             <div class="card-label">Cylinder Gaps</div>
             <div class="card-value text-green">Calibrated ✓</div>
+        </div>
+    </div>
+
+    <!-- नया सेक्शन: Operational Performance -->
+    <div class="section-title">Operational Efficiency</div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-label">Wastage Control</div>
+            <div class="card-value text-blue">&lt; 1.5% Minimized</div>
+        </div>
+        <div class="card">
+            <div class="card-label">Sheet Size Range</div>
+            <div class="card-value text-blue">Up to 605x740 mm</div>
         </div>
     </div>
 
@@ -93,23 +108,26 @@
         <div class="progress-bar"><div class="progress-fill bg-green" style="width: 90%;"></div></div>
     </div>
     <div class="comp-row">
-        <div class="comp-labels"><span>B.Tech Technical Science</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress-fill bg-blue" style="width: 85%;"></div></div>
+        <div class="comp-labels"><span>Quality & Color Standards</span><span>88%</span></div>
+        <div class="progress-bar"><div class="progress-fill bg-blue" style="width: 88%;"></div></div>
     </div>
 
-    <div class="section-title">Active Projects Display</div>
-    <div class="tab-group">
-        <div class="tab active">Industrial Ops</div>
-        <div class="tab">Web Sandbox</div>
-    </div>
-    <div class="card" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <span style="font-size: 13px; font-weight: 600;">Kumar Printers Plant Operations Hub...</span>
-        <button style="background: #6366f1; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">Details 🔍</button>
+    <div class="section-title">Professional Experience</div>
+    <div class="card" style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 13px; font-weight: 700; color: #0f172a;">Production Supervisor</span>
+            <span style="font-size: 11px; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Active</span>
+        </div>
+        <p style="font-size: 12px; color: #64748b; margin: 6px 0 0 0;">Managing high-volume packaging print shifts, ensuring safety protocols, machine maintenance, and zero-defect delivery.</p>
     </div>
 
-    <div class="section-title">Local Dev Terminal Messages</div>
-    <input type="text" class="input-box" placeholder="आपका नाम" readonly>
-    <textarea class="input-box" rows="2" placeholder="अपना संदेश यहाँ लिखें..." readonly></textarea>
+    <!-- नया सेक्शन: कांटेक्ट फॉर्म -->
+    <div class="section-title">Connect Professionally</div>
+    <form action="mailto:amitsandhu973.jpg@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" class="input-box" placeholder="आपका नाम" required>
+        <textarea name="Message" class="input-box" rows="3" placeholder="मुझसे संपर्क करने के लिए अपना संदेश यहाँ लिखें..." required></textarea>
+        <button type="submit" class="btn-submit">संदेश भेजें (Send Message)</button>
+    </form>
 </div>
 
 </body>
