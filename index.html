@@ -24,12 +24,11 @@
             --panel-gradient: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 70%);
         }
         
-        /* Industrial Shop Floor Theme Alternative */
         .industrial-theme {
             --bg-glow: #0f1115;
             --panel-bg: rgba(24, 28, 36, 0.85);
-            --neon-cyan: #f59e0b; /* Amber */
-            --neon-green: #10b981; /* Neon Green */
+            --neon-cyan: #f59e0b; 
+            --neon-green: #10b981; 
             --border-glow: rgba(245, 158, 11, 0.25);
             --panel-gradient: radial-gradient(circle at 50% 10%, #2e2003 0%, #0f1115 70%);
         }
@@ -48,7 +47,6 @@
             transition: background 0.5s ease, color 0.3s ease;
         }
         
-        /* Unique Theme Selector Floating Bar */
         .theme-selector-bar {
             width: 100%;
             max-width: 600px;
@@ -141,7 +139,6 @@
             letter-spacing: 0.5px; 
             text-transform: uppercase; 
             box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-            text-shadow: none;
         }
         
         .sub-degree {
@@ -151,7 +148,6 @@
             font-weight: 500;
         }
 
-        /* Stats Counter Unique Box */
         .live-stats-banner {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -242,14 +238,8 @@
             box-shadow: inset 0 0 8px rgba(0, 242, 254, 0.2);
         }
 
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease-in-out;
-        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
@@ -289,45 +279,38 @@
         p { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin: 0 0 14px 0; }
         ul { margin: 0 0 14px 0; padding-left: 20px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
         li { margin-bottom: 8px; }
-        li strong { color: var(--text-bright); }
-        strong { color: var(--text-bright); }
+        
+        /* NEW ELEMENT: Machine IoT Live Telemetry Grid */
+        .telemetry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .telemetry-card {
+            background: #060b13;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 12px;
+            font-family: monospace;
+        }
+        .tel-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; }
+        .tel-value { font-size: 15px; font-weight: 800; color: #fff; margin-top: 4px; }
+        
+        /* NEW ELEMENT: CMYK Ink Progress Bars */
+        .ink-duct-container {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+        .ink-bar-wrapper { margin-bottom: 10px; }
+        .ink-bar-wrapper:last-child { margin-bottom: 0; }
+        .ink-info { display: flex; justify-content: space-between; font-size: 11px; font-family: monospace; margin-bottom: 4px; font-weight: bold; }
+        .ink-track { width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .ink-fill { height: 100%; transition: width 0.5s ease; }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-        .hardware-card { 
-            background: rgba(0, 0, 0, 0.3); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-radius: 12px; 
-            padding: 14px 6px; 
-            text-align: center; 
-            font-size: 12px; 
-            font-weight: 700;
-            border-bottom: 3px solid #3b82f6;
-        }
-        
-        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-        .metric-card { 
-            background: rgba(16, 185, 129, 0.05); 
-            border: 1px solid rgba(16, 185, 129, 0.2); 
-            border-radius: 14px; 
-            padding: 14px; 
-        }
-        .metric-title { font-size: 10px; font-weight: 700; color: var(--neon-green); text-transform: uppercase; letter-spacing: 0.5px; }
-        .metric-val { font-size: 16px; font-weight: 800; color: white; margin-top: 4px; }
-        
-        .tech-pill { 
-            display: inline-block; 
-            background: rgba(255,255,255,0.03); 
-            color: var(--text-dim); 
-            padding: 6px 14px; 
-            border-radius: 10px; 
-            font-size: 12.5px; 
-            font-weight: 600; 
-            margin: 4px; 
-            border: 1px solid rgba(255,255,255,0.08); 
-        }
-        .tech-pill.cyan { border-color: var(--neon-cyan); color: var(--neon-cyan); background: rgba(0, 242, 254, 0.02); }
-        
-        /* Live Machine Simulator Control Panel */
         .simulator-box {
             background: #0d1527;
             border: 1px solid #1e293b;
@@ -335,7 +318,6 @@
             padding: 18px;
             margin-top: 18px;
             box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-            transition: all 0.3s ease;
         }
         .sim-display {
             background: #040814;
@@ -361,75 +343,50 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(0,242,254,0.3);
         }
 
-        /* OEE Tool Custom Styling */
-        .calc-tool {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 16px;
-            margin-top: 16px;
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+        .hardware-card { 
+            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 14px 6px; text-align: center; font-size: 12px; font-weight: 700; border-bottom: 3px solid #3b82f6;
         }
-        .calc-input-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
+        
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+        .metric-card { background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 14px; padding: 14px; }
+        .metric-title { font-size: 10px; font-weight: 700; color: var(--neon-green); text-transform: uppercase; }
+        .metric-val { font-size: 16px; font-weight: 800; color: white; margin-top: 4px; }
+        
+        .tech-pill { display: inline-block; background: rgba(255,255,255,0.03); color: var(--text-dim); padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 600; margin: 4px; border: 1px solid rgba(255,255,255,0.08); }
+        .tech-pill.cyan { border-color: var(--neon-cyan); color: var(--neon-cyan); background: rgba(0, 242, 254, 0.02); }
+        
+        .calc-tool { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 16px; margin-top: 16px; }
+        .calc-input-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .calc-input-group label { font-size: 13px; font-weight: 600; color: var(--text-dim); }
-        .calc-input-group input {
-            width: 80px; padding: 8px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px; text-align: center; font-weight: 700; color: white;
-        }
-        .calc-btn {
-            width: 100%; background: rgba(255,255,255,0.05); color: var(--neon-cyan); border: 1px solid var(--neon-cyan);
-            padding: 11px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
-        }
-        .calc-result {
-            margin-top: 12px; padding: 12px; background: rgba(0, 242, 254, 0.1); border-radius: 10px;
-            text-align: center; font-size: 14px; font-weight: 800; color: var(--neon-cyan); display: none;
-            border: 1px dashed var(--neon-cyan);
-        }
+        .calc-input-group input { width: 80px; padding: 8px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-align: center; font-weight: 700; color: white; }
+        .calc-btn { width: 100%; background: rgba(255,255,255,0.05); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 11px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; }
+        .calc-result { margin-top: 12px; padding: 12px; background: rgba(0, 242, 254, 0.1); border-radius: 10px; text-align: center; font-size: 14px; font-weight: 800; color: var(--neon-cyan); display: none; border: 1px dashed var(--neon-cyan); }
 
-        /* Timeline Style */
         .timeline-item { position: relative; padding-left: 24px; border-left: 2px dashed rgba(255,255,255,0.1); margin-bottom: 24px; }
         .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--neon-cyan); border-radius: 5px; box-shadow: 0 0 8px var(--neon-cyan); }
-        .timeline-date { font-size: 12px; color: var(--neon-cyan); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .timeline-date { font-size: 12px; color: var(--neon-cyan); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
 
-        /* Unique Floating Running Logs */
         .log-toast-container {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            background: rgba(5, 10, 20, 0.9);
-            border: 1px solid var(--neon-cyan);
-            border-radius: 10px;
-            padding: 8px 14px;
-            font-family: monospace;
-            font-size: 11px;
-            color: var(--neon-cyan);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            z-index: 999;
-            max-width: 260px;
-            pointer-events: none;
-            animation: slideIn 0.3s ease-out;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            position: fixed; bottom: 16px; right: 16px; background: rgba(5, 10, 20, 0.9); border: 1px solid var(--neon-cyan); border-radius: 10px; padding: 8px 14px; font-family: monospace; font-size: 11px; color: var(--neon-cyan); box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 999; max-width: 260px; pointer-events: none; display: flex; align-items: center; gap: 8px;
         }
-        @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .footer { text-align: center; font-size: 11px; color: #475569; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 600; letter-spacing: 0.5px;}
-        .input-box { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; font-size: 14px; box-sizing: border-box; margin-bottom: 14px; color: white; font-family: inherit; }
-        .input-box:focus { border-color: var(--neon-cyan); outline: none; }
-        .btn-submit { width: 100%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
+        .input-box { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; font-size: 14px; box-sizing: border-box; margin-bottom: 14px; color: white; }
+        .btn-submit { width: 100%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
+        
+        .download-report-btn {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff;
+            padding: 10px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 14px;
+            display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;
+        }
+        .download-report-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--neon-cyan); }
     </style>
 </head>
 <body>
 
-<!-- Unique Feature: Floating Layout / Theme Customizer Bar -->
 <div class="theme-selector-bar">
     <div class="theme-title">🎚️ Console View Mode:</div>
     <div class="theme-btn-group">
@@ -446,7 +403,6 @@
         <div class="sub-degree">B.Tech in Printing & Packaging Technology (G.J.U. Hisar)</div>
     </div>
 
-    <!-- Unique Dynamic Live Stats Dashboard Banner -->
     <div class="live-stats-banner">
         <div class="stat-item-box" style="border-right: 1px solid rgba(255,255,255,0.08);">
             <div class="stat-label">Production Uptime</div>
@@ -481,20 +437,60 @@
         </div>
     </div>
 
-    <!-- PAGE 1: DASHBOARD & LIVE SIMULATOR -->
+    <!-- PAGE 1: DASHBOARD & LIVE TELEMETRY SIMULATOR -->
     <div class="tab-content active" id="page1">
         <div class="panel-box">
-            <h2 class="panel-title">01. Executive Mission Dashboard</h2>
-            <p>Real-time technical tracking of industrial press operations, high-speed substrate conversions, and active plant workflow orchestration.</p>
+            <h2 class="panel-title">01. IoT Live Telemetry Console</h2>
             
-            <!-- EXCLUSIVE INTERACTIVE TOOL: Live Press Simulator -->
+            <!-- NEW LIVE SENSOR TELEMETRY GRID -->
+            <div class="telemetry-grid">
+                <div class="telemetry-card">
+                    <div class="tel-label">🌡️ Cylinder Temp</div>
+                    <div class="tel-value" id="val-temp">32.4 °C</div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="tel-label">⚖️ Impression Pressure</div>
+                    <div class="tel-value" id="val-press">425 Tons</div>
+                </div>
+                <div class="telemetry-card" style="grid-column: span 2; border-color: rgba(16, 185, 129, 0.2);">
+                    <div class="tel-label" style="color:var(--neon-green)">🚨 Diagnostic Status Matrix</div>
+                    <div class="tel-value" id="val-fault" style="color:var(--neon-green); font-size:12px;">[0 ACTIVE ERRORS] - ALL SYSTEMS STABLE</div>
+                </div>
+            </div>
+
+            <!-- NEW LIVE INK DUCT MANAGEMENT GRAPHICS -->
+            <div class="ink-duct-container">
+                <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 10px; letter-spacing: 0.5px;">🎨 Live Ink Fountain Capacity Tracking</div>
+                
+                <div class="ink-bar-wrapper">
+                    <div class="ink-info"><span style="color:#00f2fe">Cyan Duct</span><span id="txt-c">84%</span></div>
+                    <div class="ink-track"><div class="ink-fill" id="bar-c" style="width: 84%; background: #00f2fe;"></div></div>
+                </div>
+                <div class="ink-bar-wrapper">
+                    <div class="ink-info"><span style="color:#ec4899">Magenta Duct</span><span id="txt-m">71%</span></div>
+                    <div class="ink-track"><div class="ink-fill" id="bar-m" style="width: 71%; background: #ec4899;"></div></div>
+                </div>
+                <div class="ink-bar-wrapper">
+                    <div class="ink-info"><span style="color:#eab308">Yellow Duct</span><span id="txt-y">92%</span></div>
+                    <div class="ink-track"><div class="ink-fill" id="bar-y" style="width: 92%; background: #eab308;"></div></div>
+                </div>
+                <div class="ink-bar-wrapper">
+                    <div class="ink-info"><span style="color:#fff">Black Duct</span><span id="txt-k">65%</span></div>
+                    <div class="ink-track"><div class="ink-fill" id="bar-k" style="width: 65%; background: #fff;"></div></div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE SIMULATOR RUN -->
             <div class="simulator-box" id="simBox">
-                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; letter-spacing: 0.5px;">🛠️ Interactive Press Operations Simulator</div>
+                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; letter-spacing: 0.5px;">🛠️ Mainiser Plant Press Remote Control</div>
                 <div class="sim-display" id="simDisplay">
                     [SYSTEM READY]<br> Press Speed: 0 SPH<br> Total Substrates Processed: 0
                 </div>
                 <button class="sim-btn" id="simBtn" onclick="toggleSimulation()">Start Press Simulation</button>
             </div>
+            
+            <!-- NEW GENERATE REPORT ACTION BUTTON -->
+            <button class="download-report-btn" onclick="generateReport()">📥 Compile & Download Shift DPR Log</button>
         </div>
     </div>
 
@@ -502,7 +498,7 @@
     <div class="tab-content" id="page2">
         <div class="panel-box">
             <h2 class="panel-title">02. Engineering Core Profile</h2>
-            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations[span_0](start_span)[span_0](end_span). Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
+            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations. Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
         </div>
     </div>
 
@@ -532,15 +528,14 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-title">Machine Ready Time</div>
-                    <div class="metric-val">Reduced by 5%[span_1](start_span)[span_1](end_span)</div>
+                    <div class="metric-val">Reduced by 5%</div>
                 </div>
                 <div class="metric-card" style="background:rgba(0, 242, 254, 0.03); border-color: rgba(0, 242, 254, 0.2);">
                     <div class="metric-title" style="color:var(--neon-cyan);">Total Sheet Throughput</div>
-                    <div class="metric-val" style="color:white;">Highest Single Month Record[span_2](start_span)[span_2](end_span)</div>
+                    <div class="metric-val" style="color:white;">Highest Single Month Record</div>
                 </div>
             </div>
             
-            <!-- TOOL: Live OEE Calculator -->
             <div class="calc-tool">
                 <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 10px; letter-spacing: 0.5px;">📊 Live Shift OEE Calculator Tool</div>
                 <div class="calc-input-group">
@@ -565,9 +560,9 @@
     <div class="tab-content" id="page5">
         <div class="panel-box">
             <h2 class="panel-title">05. Shop Floor & Post-Press Control</h2>
-            <p>Operational control across conversion channels, material planning, and mechanical finishing parameters[span_3](start_span)[span_3](end_span):</p>
+            <p>Operational control across conversion channels, material planning, and mechanical finishing parameters:</p>
             <ul>
-                <li><strong>Finishing Supervision:</strong> Command over advanced automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units[span_4](start_span)[span_4](end_span).</li>
+                <li><strong>Finishing Supervision:</strong> Command over advanced automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units.</li>
                 <li><strong>Operations Logging:</strong> Daily Production Reports (DPR), Shift Logbooks, Preventive Maintenance tracking, and Inventory ledgers.</li>
                 <li><strong>Lean Engineering:</strong> Absolute plant enforcement of 5S Methodology, Kaizen protocols, and structural safety norms.</li>
             </ul>
@@ -580,7 +575,7 @@
             <h2 class="panel-title">06. Advanced Plant Competencies</h2>
             <p>Technical expertise covering advanced press chemistry, structural micro-adjustments, and optical profiling:</p>
             <span class="tech-pill cyan">Spectrophotometric Color Management</span>
-            <span class="tech-pill cyan">Custom Ink Formulations[span_5](start_span)[span_5](end_span)</span>
+            <span class="tech-pill cyan">Custom Ink Formulations</span>
             <span class="tech-pill cyan">Gripper Clearance Calibration</span>
             <span class="tech-pill cyan">Cylinder Gap Optimization</span>
             <span class="tech-pill cyan">Densitometric Calibration</span>
@@ -596,7 +591,7 @@
             <ul>
                 <li>Executing absolute structural cross-verifications of live print output samples directly against client-approved master blue-prints.</li>
                 <li>Managing spectrophotometric shade control using physical target keys and calibrated densitometers.</li>
-                <li>Enforcing thorough line clearance validation protocols at print and conversion stations to block material variations[span_6](start_span)[span_6](end_span).</li>
+                <li>Enforcing thorough line clearance validation protocols at print and conversion stations to block material variations.</li>
             </ul>
         </div>
     </div>
@@ -609,21 +604,21 @@
             <div class="timeline-item">
                 <div class="timeline-date">August 2023 – Present</div>
                 <strong>Printing Operations Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Kumar Printers Pvt. Ltd., Manesar[span_7](start_span)[span_7](end_span)</span>
+                <span style="font-size: 13px; color: var(--text-dim);">Kumar Printers Pvt. Ltd., Manesar</span>
                 <p style="font-size: 13px; margin-top: 6px;">Orchestrating primary packaging lines. Managing live shifting workflows, machine runtime schedules, target tracking, and high-volume quality clearance.</p>
             </div>
             
             <div class="timeline-item">
-                <div class="timeline-date">Duration: 6 Years[span_8](start_span)[span_8](end_span)</div>
+                <div class="timeline-date">Duration: 6 Years</div>
                 <strong>Post Press & Printing Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Art O Print Printing & Packing Pvt. Ltd.[span_9](start_span)[span_9](end_span)</span>
-                <p style="font-size: 13px; margin-top: 6px;">Supervised conversion logistics, mechanized post-press operations, structural material deployment, and plant productivity milestones[span_10](start_span)[span_10](end_span).</p>
+                <span style="font-size: 13px; color: var(--text-dim);">Art O Print Printing & Packing Pvt. Ltd.</span>
+                <p style="font-size: 13px; margin-top: 6px;">Supervised conversion logistics, mechanized post-press operations, structural material deployment, and plant productivity milestones.</p>
             </div>
 
             <div class="timeline-item" style="margin-bottom: 0;">
-                <div class="timeline-date">Duration: 4 Months[span_11](start_span)[span_11](end_span)</div>
+                <div class="timeline-date">Duration: 4 Months</div>
                 <strong>Production Engineering Intern</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Nova Publication Pvt. Ltd.[span_12](start_span)[span_12](end_span)</span>
+                <span style="font-size: 13px; color: var(--text-dim);">Nova Publication Pvt. Ltd.</span>
             </div>
         </div>
     </div>
@@ -655,18 +650,17 @@
     </div>
 
     <div class="footer">
-        // CONTROL LOGIC ACTIVE // OPERATIONAL YEAR: 2026 // AMIT SANDHU
+        // IoT SCADA TERMINAL CONNECTED // YEAR: 2026 // AMIT SANDHU
     </div>
 </div>
 
-<!-- Unique Toast Container for running logs -->
 <div id="logToast" class="log-toast-container" style="display:none;">
-    <span style="animation: spin 1s linear infinite; display:inline-block;">⚙️</span>
+    <span style="display:inline-block;">⚙️</span>
     <span id="logToastText">System Diagnostic Running...</span>
 </div>
 
 <script>
-    // Theme Switcher Logic (Unique View Modes)
+    // Theme Switcher Logic
     function setTheme(mode) {
         const body = document.body;
         const darkBtn = document.getElementById('theme-dark-btn');
@@ -676,52 +670,76 @@
             body.classList.add('industrial-theme');
             indBtn.classList.add('active');
             darkBtn.classList.remove('active');
-            triggerToast("View Changed: Shop Floor Console Mode");
+            triggerToast("View Changed: Shop Floor SCADA");
         } else {
             body.classList.remove('industrial-theme');
             darkBtn.classList.add('active');
             indBtn.classList.remove('active');
-            triggerToast("View Changed: Night Shift Mode");
+            triggerToast("View Changed: Night Shift Console");
         }
     }
 
-    // Floating Log Notification Tool
+    // Toast Engine
     function triggerToast(message) {
         const toast = document.getElementById('logToast');
         const text = document.getElementById('logToastText');
         text.innerText = message;
         toast.style.display = 'flex';
+        toast.style.opacity = '1';
         
         setTimeout(() => {
             toast.style.opacity = '0';
-            setTimeout(() => { toast.style.display = 'none'; toast.style.opacity = '1'; }, 300);
+            setTimeout(() => { toast.style.display = 'none'; }, 300);
         }, 3000);
     }
 
-    // Auto Trigger System logs periodically to look extremely premium/AI-driven
+    // LIVE DATA TELEMETRY LOGIC (Sensors fluctuate realistically)
+    function runLiveTelemetry() {
+        setInterval(() => {
+            // Temperature fluctuation (31.5 to 34.5)
+            const temp = (31.5 + Math.random() * 3).toFixed(1);
+            document.getElementById('val-temp').innerText = temp + " °C";
+            
+            // Pressure fluctuation (420 to 430)
+            const pressure = Math.floor(420 + Math.random() * 11);
+            document.getElementById('val-press').innerText = pressure + " Tons";
+            
+            // Randomly update ink duct capacity values slightly downward to simulate utilization
+            if(Math.random() > 0.8) {
+                let c = Math.floor(80 + Math.random() * 5);
+                let m = Math.floor(68 + Math.random() * 5);
+                document.getElementById('txt-c').innerText = c + "%";
+                document.getElementById('bar-c').style.width = c + "%";
+                document.getElementById('txt-m').innerText = m + "%";
+                document.getElementById('bar-m').style.width = m + "%";
+            }
+        }, 2500);
+    }
+
+    // Auto Logs Array
     const sampleLogs = [
-        "Ink Viscosity: Certified OK",
-        "Heidelberg Gripper Clearance Calibration Checked",
-        "Spectrophotometric Profiles Loaded",
-        "OEE Analytics Log Synchronized",
-        "DPR Sheet Database Backed Up"
+        "Ink Duct Flow Rate: Normalized",
+        "Heidelberg Gripper Sync: 100% Calibrated",
+        "Spectrophotometric Scan Status: Clean",
+        "Telemetry Ping to Cloud Server: Successful",
+        "DPR System Log: Standby"
     ];
     setInterval(() => {
         if (Math.random() > 0.6) {
             const randomLog = sampleLogs[Math.floor(Math.random() * sampleLogs.length)];
             triggerToast(randomLog);
         }
-    }, 12000);
+    }, 14000);
 
     // Dynamic Live Counter Ticker
     function animateCounters() {
-        let uptime = 87400;
+        let uptime = 87640;
         const uptimeEl = document.getElementById('uptime-counter');
-        
         setInterval(() => {
             uptime += Math.floor(Math.random() * 2) + 1;
             uptimeEl.innerText = uptime.toLocaleString() + " Hrs";
         }, 4000);
+        runLiveTelemetry();
     }
     window.onload = animateCounters;
 
@@ -757,7 +775,7 @@
         triggerToast("OEE Computed Successfully");
     }
 
-    // Advanced Press Simulation System
+    // Press Simulation System
     let simInterval = null;
     let sheetCount = 60;
     
@@ -765,24 +783,23 @@
         const btn = document.getElementById('simBtn');
         const display = document.getElementById('simDisplay');
         const simBox = document.getElementById('simBox');
+        const faultBar = document.getElementById('val-fault');
         
         if (simInterval) {
-            // Stop Simulation
             clearInterval(simInterval);
             simInterval = null;
             btn.innerHTML = "Start Press Simulation";
             btn.style.background = "linear-gradient(135deg, var(--neon-cyan), var(--neon-green))";
             btn.style.color = "#090d16";
-            btn.style.boxShadow = "0 4px 15px rgba(0,242,254,0.3)";
             simBox.style.borderColor = "#1e293b";
             display.innerHTML = "[SYSTEM HALTED]<br>Press Speed: 0 SPH<br>Total Substrates Processed: " + sheetCount;
+            faultBar.innerText = "[0 ACTIVE ERRORS] - ALL SYSTEMS STABLE";
+            faultBar.style.color = "var(--neon-green)";
             triggerToast("Press Run: Halted");
         } else {
-            // Start Simulation
             btn.innerHTML = "HALT PRESS RUN";
             btn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
             btn.style.color = "white";
-            btn.style.boxShadow = "0 4px 15px rgba(239,68,68,0.4)";
             simBox.style.borderColor = "var(--neon-cyan)";
             triggerToast("Production Setup Initiated");
             
@@ -790,8 +807,28 @@
                 sheetCount += Math.floor(Math.random() * 5) + 3;
                 let currentSpeed = Math.floor(Math.random() * 500) + 14500;
                 display.innerHTML = "<span style='color:var(--neon-cyan)'>[RUNNING - PRODUCTION RUN ACTIVE]</span><br>Live Speed: " + currentSpeed + " SPH<br>Sheets Counted: " + sheetCount + "<br>Color Feed: 100% CMYK OK";
+                
+                // Random running matrix updates
+                if(Math.random() > 0.85) {
+                    faultBar.innerText = "[MONITORING] - PRESS RUN EXCEEDING 14,500 SPH OPTIMAL";
+                    faultBar.style.color = "var(--neon-cyan)";
+                }
             }, 800);
         }
+    }
+
+    // Fake PDF Download Generator Action
+    function generateReport() {
+        triggerToast("Compiling DPR Database Logs...");
+        setTimeout(() => {
+            const textContent = "--- INDUSTRIAL SHIFT PRODUCTION REPORT ---\nSupervisor: Amit Sandhu\nPlant Location: Manesar\nSubstrates Processed: " + sheetCount + " Sheets\nStatus: Verified Complete.";
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "DPR_Shift_Report_AmitSandhu.txt";
+            link.click();
+            triggerToast("DPR Logs Downloaded Successfully");
+        }, 1500);
     }
 </script>
 
