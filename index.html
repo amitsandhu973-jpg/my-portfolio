@@ -3,834 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu | Industrial Operations Control Center</title>
+    <title>Amit Sandhu | Print Operations Executive</title>
     
-    <!-- Social Preview Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Amit Sandhu | Industrial Operations Control Center">
-    <meta property="og:description" content="B.Tech in Printing & Packaging Technology. 9+ Years of High-End Plant Supervision.">
+    <!-- Meta Preview Tags -->
+    <meta property="og:title" content="Amit Sandhu | Print Operations Executive">
+    <meta property="og:description" content="B.Tech in Printing & Packaging Technology. 9+ Years High-End Plant Management.">
     <meta property="og:url" content="https://amitsandhu973-jpg.github.io/my-portfolio/">
     
     <style>
         :root {
-            --bg-glow: #090d16;
-            --panel-bg: rgba(17, 24, 39, 0.75);
-            --neon-cyan: #00f2fe;
-            --neon-green: #4facfe;
-            --neon-alert: #10b981;
-            --text-bright: #f8fafc;
-            --text-dim: #94a3b8;
-            --border-glow: rgba(0, 242, 254, 0.25);
-            --panel-gradient: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #090d16 70%);
-        }
-        
-        .industrial-theme {
-            --bg-glow: #0f1115;
-            --panel-bg: rgba(24, 28, 36, 0.85);
-            --neon-cyan: #f59e0b; 
-            --neon-green: #10b981; 
-            --border-glow: rgba(245, 158, 11, 0.25);
-            --panel-gradient: radial-gradient(circle at 50% 10%, #2e2003 0%, #0f1115 70%);
-        }
-        
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--bg-glow); 
-            background-image: var(--panel-gradient);
-            color: var(--text-bright); 
-            margin: 0; 
-            padding: 12px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh;
-            transition: background 0.5s ease, color 0.3s ease;
-        }
-        
-        .theme-selector-bar {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 8px 16px;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-            backdrop-filter: blur(8px);
-        }
-        .theme-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
-        .theme-btn-group { display: flex; gap: 6px; }
-        .theme-toggle-btn {
-            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-dim); padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.3s;
-        }
-        .theme-toggle-btn.active {
-            border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+            --bg-base: #0a1128;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
         }
 
-        .cyber-container { 
-            max-width: 600px; 
-            width: 100%; 
-            background: var(--panel-bg); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 28px; 
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.15); 
-            padding: 24px; 
-            box-sizing: border-box; 
-            margin-bottom: 30px; 
-            border: 1px solid var(--border-glow);
-            transition: all 0.5s ease;
-        }
-        
-        .cyber-header { 
-            text-align: center; 
-            margin-bottom: 24px; 
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-            position: relative;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-base);
+            background-image: radial-gradient(circle at 80% 20%, #1e293b 0%, #0a1128 60%), 
+                              radial-gradient(circle at 10% 80%, #0f172a 0%, #0a1128 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 16px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .live-indicator {
-            margin-bottom: 10px;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--neon-green);
+        .main-card {
+            width: 100%;
+            max-width: 480px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-sizing: border-box;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Profile Header Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            color: var(--accent-cyan);
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            animation: pulse 2s infinite;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
         }
 
-        @keyframes pulse {
-            0% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            50% { opacity: 1; box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.2); }
-            100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #00f2fe;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00f2fe;
+            animation: blink 1.5s infinite;
         }
-        
-        .name { 
-            font-size: 32px; 
-            font-weight: 900; 
-            background: linear-gradient(135deg, #fff 40%, var(--neon-cyan));
+
+        @keyframes blink {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        .name-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 60%, var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 0; 
-            letter-spacing: -1px; 
-        }
-        
-        .badge { 
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); 
-            color: #090d16; 
-            font-size: 11px; 
-            font-weight: 800; 
-            padding: 6px 18px; 
-            border-radius: 30px; 
-            display: inline-block; 
-            margin-top: 12px; 
-            letter-spacing: 0.5px; 
-            text-transform: uppercase; 
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-        }
-        
-        .sub-degree {
-            font-size: 13px; 
-            color: var(--text-dim); 
-            margin-top: 12px; 
-            font-weight: 500;
         }
 
-        .live-stats-banner {
+        .role-subtitle {
+            font-size: 14px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .edu-tag {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Clean Executive Telemetry */
+        .kpi-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px dashed rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .stat-item-box { display: flex; flex-direction: column; justify-content: center; }
-        .stat-label { font-size: 9px; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.5px; }
-        .stat-number { font-size: 20px; font-weight: 800; color: var(--neon-cyan); margin-top: 2px; font-family: monospace; }
-
-        .quick-actions {
-            display: flex;
             gap: 12px;
             margin-bottom: 24px;
         }
-        
-        .action-btn {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 14px;
-            text-decoration: none;
-            color: var(--text-bright);
-            font-size: 13px;
-            font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-        
-        .action-btn:hover {
-            background: var(--neon-cyan);
-            color: #090d16;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
-        }
-        
-        .cyber-grid-menu { 
-            background: rgba(0, 0, 0, 0.3); 
-            border: 1px solid rgba(255, 255, 255, 0.06); 
-            border-radius: 18px; 
-            padding: 14px; 
-            margin-bottom: 24px; 
-        }
-        
-        .nav-title { 
-            font-size: 11px; 
-            font-weight: 800; 
-            color: var(--neon-cyan); 
-            text-transform: uppercase; 
-            margin-bottom: 12px; 
-            text-align: center; 
-            letter-spacing: 1.5px; 
-        }
-        
-        .nav-links { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 8px; 
-        }
-        
-        .nav-item { 
-            background: rgba(255, 255, 255, 0.02); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 12px; 
-            padding: 12px 10px; 
-            text-align: center; 
-            font-size: 12px; 
-            font-weight: 700; 
-            color: var(--text-dim); 
-            cursor: pointer;
-            transition: all 0.2s; 
-        }
-        
-        .nav-item.active { 
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 70, 229, 0.15)); 
-            color: var(--neon-cyan); 
-            border-color: var(--neon-cyan); 
-            box-shadow: inset 0 0 8px rgba(0, 242, 254, 0.2);
-        }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .panel-box { 
-            background: rgba(255, 255, 255, 0.02); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-radius: 20px; 
-            padding: 22px; 
-            margin-bottom: 20px; 
-        }
-        
-        .panel-title { 
-            font-size: 13px; 
-            font-weight: 800; 
-            color: var(--neon-cyan); 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
-            margin: 0 0 16px 0; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .panel-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 14px;
-            background: var(--neon-cyan);
-            border-radius: 2px;
-            box-shadow: 0 0 8px var(--neon-cyan);
-        }
-        
-        p { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin: 0 0 14px 0; }
-        ul { margin: 0 0 14px 0; padding-left: 20px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
-        li { margin-bottom: 8px; }
-        
-        /* NEW ELEMENT: Machine IoT Live Telemetry Grid */
-        .telemetry-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .telemetry-card {
-            background: #060b13;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 12px;
-            font-family: monospace;
-        }
-        .tel-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; }
-        .tel-value { font-size: 15px; font-weight: 800; color: #fff; margin-top: 4px; }
-        
-        /* NEW ELEMENT: CMYK Ink Progress Bars */
-        .ink-duct-container {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
+        .kpi-box {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 14px;
             padding: 14px;
-            margin-bottom: 16px;
+            text-align: center;
         }
-        .ink-bar-wrapper { margin-bottom: 10px; }
-        .ink-bar-wrapper:last-child { margin-bottom: 0; }
-        .ink-info { display: flex; justify-content: space-between; font-size: 11px; font-family: monospace; margin-bottom: 4px; font-weight: bold; }
-        .ink-track { width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
-        .ink-fill { height: 100%; transition: width 0.5s ease; }
 
-        .simulator-box {
-            background: #0d1527;
-            border: 1px solid #1e293b;
-            border-radius: 16px;
-            padding: 18px;
-            margin-top: 18px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-        }
-        .sim-display {
-            background: #040814;
-            border: 1px solid #1e293b;
-            border-radius: 10px;
-            padding: 12px;
-            font-family: monospace;
-            font-size: 13px;
-            color: #00ff66;
-            margin-bottom: 14px;
-            text-shadow: 0 0 4px rgba(0,255,102,0.5);
-            line-height: 1.5;
-        }
-        .sim-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
-            color: #090d16;
-            border: none;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
+        .kpi-label {
+            font-size: 10px;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-        .hardware-card { 
-            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 14px 6px; text-align: center; font-size: 12px; font-weight: 700; border-bottom: 3px solid #3b82f6;
-        }
-        
-        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-        .metric-card { background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 14px; padding: 14px; }
-        .metric-title { font-size: 10px; font-weight: 700; color: var(--neon-green); text-transform: uppercase; }
-        .metric-val { font-size: 16px; font-weight: 800; color: white; margin-top: 4px; }
-        
-        .tech-pill { display: inline-block; background: rgba(255,255,255,0.03); color: var(--text-dim); padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 600; margin: 4px; border: 1px solid rgba(255,255,255,0.08); }
-        .tech-pill.cyan { border-color: var(--neon-cyan); color: var(--neon-cyan); background: rgba(0, 242, 254, 0.02); }
-        
-        .calc-tool { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 16px; margin-top: 16px; }
-        .calc-input-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .calc-input-group label { font-size: 13px; font-weight: 600; color: var(--text-dim); }
-        .calc-input-group input { width: 80px; padding: 8px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-align: center; font-weight: 700; color: white; }
-        .calc-btn { width: 100%; background: rgba(255,255,255,0.05); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 11px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; }
-        .calc-result { margin-top: 12px; padding: 12px; background: rgba(0, 242, 254, 0.1); border-radius: 10px; text-align: center; font-size: 14px; font-weight: 800; color: var(--neon-cyan); display: none; border: 1px dashed var(--neon-cyan); }
-
-        .timeline-item { position: relative; padding-left: 24px; border-left: 2px dashed rgba(255,255,255,0.1); margin-bottom: 24px; }
-        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; background: var(--neon-cyan); border-radius: 5px; box-shadow: 0 0 8px var(--neon-cyan); }
-        .timeline-date { font-size: 12px; color: var(--neon-cyan); font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
-
-        .log-toast-container {
-            position: fixed; bottom: 16px; right: 16px; background: rgba(5, 10, 20, 0.9); border: 1px solid var(--neon-cyan); border-radius: 10px; padding: 8px 14px; font-family: monospace; font-size: 11px; color: var(--neon-cyan); box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 999; max-width: 260px; pointer-events: none; display: flex; align-items: center; gap: 8px;
+        .kpi-value {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 4px;
+            font-family: monospace;
         }
 
-        .footer { text-align: center; font-size: 11px; color: #475569; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; font-weight: 600; letter-spacing: 0.5px;}
-        .input-box { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; font-size: 14px; box-sizing: border-box; margin-bottom: 14px; color: white; }
-        .btn-submit { width: 100%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green)); color: #090d16; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 800; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,242,254,0.2); }
-        
-        .download-report-btn {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff;
-            padding: 10px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 14px;
-            display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;
+        /* Modern Section Block */
+        .content-block {
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+            margin-top: 20px;
         }
-        .download-report-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--neon-cyan); }
+
+        .section-heading {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p.description {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Fleet Horizontal Pill List */
+        .fleet-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .fleet-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .fleet-pill span {
+            color: var(--accent-cyan);
+            margin-right: 4px;
+        }
+
+        /* Clean Minimal Timeline */
+        .timeline-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .timeline-card {
+            border-left: 2px solid var(--accent-blue);
+            padding-left: 14px;
+            margin-left: 4px;
+        }
+
+        .time-period {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+        }
+
+        .job-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 2px 0;
+        }
+
+        .company-name {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Action Buttons */
+        .cta-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #020617;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 24px;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
 
-<div class="theme-selector-bar">
-    <div class="theme-title">🎚️ Console View Mode:</div>
-    <div class="theme-btn-group">
-        <button id="theme-dark-btn" class="theme-toggle-btn active" onclick="setTheme('dark')">Night Shift</button>
-        <button id="theme-ind-btn" class="theme-toggle-btn" onclick="setTheme('industrial')">Shop Floor</button>
-    </div>
-</div>
-
-<div class="cyber-container">
-    <div class="cyber-header">
-        <div class="live-indicator">● Engine Online</div>
-        <h1 class="name">Amit Sandhu</h1>
-        <div class="badge">Senior Production & Printing Operations Engineer</div>
-        <div class="sub-degree">B.Tech in Printing & Packaging Technology (G.J.U. Hisar)</div>
-    </div>
-
-    <div class="live-stats-banner">
-        <div class="stat-item-box" style="border-right: 1px solid rgba(255,255,255,0.08);">
-            <div class="stat-label">Production Uptime</div>
-            <div class="stat-number" id="uptime-counter">87,640 Hrs</div>
-        </div>
-        <div class="stat-item-box">
-            <div class="stat-label">Optimized Impressions</div>
-            <div class="stat-number" id="impressions-counter">4.2M+</div>
-        </div>
-    </div>
-
-    <!-- Quick Actions -->
-    <div class="quick-actions">
-        <a href="mailto:amitsandhu973@gmail.com" class="action-btn">📧 Secure Email</a>
-        <a onclick="switchTab('page10')" class="action-btn" style="border-color: var(--neon-cyan); color: var(--neon-cyan); cursor: pointer;">💼 Initiate Hire</a>
-    </div>
-
-    <!-- 10-Tab Directory Panel Matrix -->
-    <div class="cyber-grid-menu">
-        <div class="nav-title">🎛️ SYSTEM CONTROL DIRECTORY</div>
-        <div class="nav-links">
-            <div onclick="switchTab('page1')" id="btn-page1" class="nav-item active">01. Dashboard</div>
-            <div onclick="switchTab('page2')" id="btn-page2" class="nav-item">02. Profile Vision</div>
-            <div onclick="switchTab('page3')" id="btn-page3" class="nav-item">03. Machine Fleet</div>
-            <div onclick="switchTab('page4')" id="btn-page4" class="nav-item">04. OEE & Metrics</div>
-            <div onclick="switchTab('page5')" id="btn-page5" class="nav-item">05. Floor Control</div>
-            <div onclick="switchTab('page6')" id="btn-page6" class="nav-item">06. Tech Skills</div>
-            <div onclick="switchTab('page7')" id="btn-page7" class="nav-item">07. Quality QA/QC</div>
-            <div onclick="switchTab('page8')" id="btn-page8" class="nav-item">08. Plant History</div>
-            <div onclick="switchTab('page9')" id="btn-page9" class="nav-item">09. Eng. FAQ</div>
-            <div onclick="switchTab('page10')" id="btn-page10" class="nav-item">10. Contact Panel</div>
-        </div>
-    </div>
-
-    <!-- PAGE 1: DASHBOARD & LIVE TELEMETRY SIMULATOR -->
-    <div class="tab-content active" id="page1">
-        <div class="panel-box">
-            <h2 class="panel-title">01. IoT Live Telemetry Console</h2>
-            
-            <!-- NEW LIVE SENSOR TELEMETRY GRID -->
-            <div class="telemetry-grid">
-                <div class="telemetry-card">
-                    <div class="tel-label">🌡️ Cylinder Temp</div>
-                    <div class="tel-value" id="val-temp">32.4 °C</div>
-                </div>
-                <div class="telemetry-card">
-                    <div class="tel-label">⚖️ Impression Pressure</div>
-                    <div class="tel-value" id="val-press">425 Tons</div>
-                </div>
-                <div class="telemetry-card" style="grid-column: span 2; border-color: rgba(16, 185, 129, 0.2);">
-                    <div class="tel-label" style="color:var(--neon-green)">🚨 Diagnostic Status Matrix</div>
-                    <div class="tel-value" id="val-fault" style="color:var(--neon-green); font-size:12px;">[0 ACTIVE ERRORS] - ALL SYSTEMS STABLE</div>
-                </div>
+    <div class="main-card">
+        <!-- Header -->
+        <div class="profile-section">
+            <div class="live-badge">
+                <div class="live-dot"></div> Plant Monitor Active
             </div>
-
-            <!-- NEW LIVE INK DUCT MANAGEMENT GRAPHICS -->
-            <div class="ink-duct-container">
-                <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 10px; letter-spacing: 0.5px;">🎨 Live Ink Fountain Capacity Tracking</div>
-                
-                <div class="ink-bar-wrapper">
-                    <div class="ink-info"><span style="color:#00f2fe">Cyan Duct</span><span id="txt-c">84%</span></div>
-                    <div class="ink-track"><div class="ink-fill" id="bar-c" style="width: 84%; background: #00f2fe;"></div></div>
-                </div>
-                <div class="ink-bar-wrapper">
-                    <div class="ink-info"><span style="color:#ec4899">Magenta Duct</span><span id="txt-m">71%</span></div>
-                    <div class="ink-track"><div class="ink-fill" id="bar-m" style="width: 71%; background: #ec4899;"></div></div>
-                </div>
-                <div class="ink-bar-wrapper">
-                    <div class="ink-info"><span style="color:#eab308">Yellow Duct</span><span id="txt-y">92%</span></div>
-                    <div class="ink-track"><div class="ink-fill" id="bar-y" style="width: 92%; background: #eab308;"></div></div>
-                </div>
-                <div class="ink-bar-wrapper">
-                    <div class="ink-info"><span style="color:#fff">Black Duct</span><span id="txt-k">65%</span></div>
-                    <div class="ink-track"><div class="ink-fill" id="bar-k" style="width: 65%; background: #fff;"></div></div>
-                </div>
-            </div>
-
-            <!-- INTERACTIVE SIMULATOR RUN -->
-            <div class="simulator-box" id="simBox">
-                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; letter-spacing: 0.5px;">🛠️ Mainiser Plant Press Remote Control</div>
-                <div class="sim-display" id="simDisplay">
-                    [SYSTEM READY]<br> Press Speed: 0 SPH<br> Total Substrates Processed: 0
-                </div>
-                <button class="sim-btn" id="simBtn" onclick="toggleSimulation()">Start Press Simulation</button>
-            </div>
-            
-            <!-- NEW GENERATE REPORT ACTION BUTTON -->
-            <button class="download-report-btn" onclick="generateReport()">📥 Compile & Download Shift DPR Log</button>
+            <h1 class="name-title">Amit Sandhu</h1>
+            <div class="role-subtitle">Print Operations Executive</div>
+            <div class="edu-tag">B.Tech in Printing & Packaging Technology (G.J.U.)</div>
         </div>
-    </div>
 
-    <!-- PAGE 2: VISION -->
-    <div class="tab-content" id="page2">
-        <div class="panel-box">
-            <h2 class="panel-title">02. Engineering Core Profile</h2>
-            <p>A dedicated, results-oriented Production Supervisor with <strong>over 9 years of robust experience</strong> spanning offset printing, high-end packaging fabrication, and advanced post-press finishing operations. Proven expertise in engineering cross-functional floor workflows, maximizing machine utilization, and reducing production bottlenecks while strictly executing plant safety guidelines.</p>
-        </div>
-    </div>
-
-    <!-- PAGE 3: MACHINERY FLEET -->
-    <div class="tab-content" id="page3">
-        <div class="panel-box">
-            <h2 class="panel-title">03. High-Precision Machinery Fleet</h2>
-            <p>Direct mechanical setup and process configuration engineering for elite German multi-color sheet-fed offset lithography lines:</p>
-            <div class="grid-3">
-                <div class="hardware-card" style="border-bottom-color: #00f2fe;">Heidelberg<br><strong style="color:#00f2fe">CX 104</strong></div>
-                <div class="hardware-card" style="border-bottom-color: #a855f7;">Heidelberg<br><strong style="color:#a855f7;">CD 74</strong></div>
-                <div class="hardware-card" style="border-bottom-color: #10b981;">Heidelberg<br><strong style="color:#10b981;">SM 102</strong></div>
+        <!-- KPI Executive Numbers -->
+        <div class="kpi-row">
+            <div class="kpi-box">
+                <div class="kpi-label">📊 Plant Experience</div>
+                <div class="kpi-value">9+ Years</div>
             </div>
-            <p style="margin-top: 20px; margin-bottom: 8px;"><strong>Substrate Profile Expertise:</strong></p>
-            <span class="tech-pill">Duplex Board</span>
-            <span class="tech-pill">SBS Board</span>
-            <span class="tech-pill">FBB (Folding Box Board)</span>
-            <span class="tech-pill">Kraft Stock & Corrugated Liners</span>
-        </div>
-    </div>
-
-    <!-- PAGE 4: OEE CALCULATOR -->
-    <div class="tab-content" id="page4">
-        <div class="panel-box">
-            <h2 class="panel-title">04. Plant Performance Metrics</h2>
-            <p>Systematic optimization records verified through advanced production logging analytics:</p>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-title">Machine Ready Time</div>
-                    <div class="metric-val">Reduced by 5%</div>
-                </div>
-                <div class="metric-card" style="background:rgba(0, 242, 254, 0.03); border-color: rgba(0, 242, 254, 0.2);">
-                    <div class="metric-title" style="color:var(--neon-cyan);">Total Sheet Throughput</div>
-                    <div class="metric-val" style="color:white;">Highest Single Month Record</div>
-                </div>
-            </div>
-            
-            <div class="calc-tool">
-                <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 10px; letter-spacing: 0.5px;">📊 Live Shift OEE Calculator Tool</div>
-                <div class="calc-input-group">
-                    <label>Availability Metric (%)</label>
-                    <input type="number" id="avail" value="95" min="0" max="100">
-                </div>
-                <div class="calc-input-group">
-                    <label>Performance Rate (%)</label>
-                    <input type="number" id="perf" value="92" min="0" max="100">
-                </div>
-                <div class="calc-input-group">
-                    <label>Quality Clearance (%)</label>
-                    <input type="number" id="qual" value="99.2" min="0" max="100" step="0.1">
-                </div>
-                <button class="calc-btn" onclick="calculateOEE()">Compute Performance Analytics</button>
-                <div class="calc-result" id="oeeResult"></div>
+            <div class="kpi-box">
+                <div class="kpi-label">⚡ Live Press Speed</div>
+                <div class="kpi-value" id="live-sph">14,850 SPH</div>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE 5: SHOP FLOOR -->
-    <div class="tab-content" id="page5">
-        <div class="panel-box">
-            <h2 class="panel-title">05. Shop Floor & Post-Press Control</h2>
-            <p>Operational control across conversion channels, material planning, and mechanical finishing parameters:</p>
-            <ul>
-                <li><strong>Finishing Supervision:</strong> Command over advanced automatic Die-Cutting, Foil Stamping, Folder-Gluers, Lamination, and Window Patching units.</li>
-                <li><strong>Operations Logging:</strong> Daily Production Reports (DPR), Shift Logbooks, Preventive Maintenance tracking, and Inventory ledgers.</li>
-                <li><strong>Lean Engineering:</strong> Absolute plant enforcement of 5S Methodology, Kaizen protocols, and structural safety norms.</li>
-            </ul>
+        <!-- Vision Section -->
+        <div class="content-block">
+            <h2 class="section-heading">Executive Profile</h2>
+            <p class="description">
+                High-performance Plant Supervisor specializing in workflow acceleration, multi-color offset technology, and lean manufacturing practices. Adept at driving machine utility, ensuring zero-defect quality parameters, and structural team leadership.
+            </p>
         </div>
-    </div>
 
-    <!-- PAGE 6: CORE SKILLS -->
-    <div class="tab-content" id="page6">
-        <div class="panel-box">
-            <h2 class="panel-title">06. Advanced Plant Competencies</h2>
-            <p>Technical expertise covering advanced press chemistry, structural micro-adjustments, and optical profiling:</p>
-            <span class="tech-pill cyan">Spectrophotometric Color Management</span>
-            <span class="tech-pill cyan">Custom Ink Formulations</span>
-            <span class="tech-pill cyan">Gripper Clearance Calibration</span>
-            <span class="tech-pill cyan">Cylinder Gap Optimization</span>
-            <span class="tech-pill cyan">Densitometric Calibration</span>
-            <span class="tech-pill cyan">Prinect Image Control System</span>
-        </div>
-    </div>
-
-    <!-- PAGE 7: QUALITY CLEARANCE -->
-    <div class="tab-content" id="page7">
-        <div class="panel-box">
-            <h2 class="panel-title">07. Quality Assurance Framework</h2>
-            <p>Securing zero-defect output limits through multi-tiered quality gates:</p>
-            <ul>
-                <li>Executing absolute structural cross-verifications of live print output samples directly against client-approved master blue-prints.</li>
-                <li>Managing spectrophotometric shade control using physical target keys and calibrated densitometers.</li>
-                <li>Enforcing thorough line clearance validation protocols at print and conversion stations to block material variations.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- PAGE 8: HISTORY -->
-    <div class="tab-content" id="page8">
-        <div class="panel-box">
-            <h2 class="panel-title">08. Industrial Timeline</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-date">August 2023 – Present</div>
-                <strong>Printing Operations Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Kumar Printers Pvt. Ltd., Manesar</span>
-                <p style="font-size: 13px; margin-top: 6px;">Orchestrating primary packaging lines. Managing live shifting workflows, machine runtime schedules, target tracking, and high-volume quality clearance.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-date">Duration: 6 Years</div>
-                <strong>Post Press & Printing Supervisor</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Art O Print Printing & Packing Pvt. Ltd.</span>
-                <p style="font-size: 13px; margin-top: 6px;">Supervised conversion logistics, mechanized post-press operations, structural material deployment, and plant productivity milestones.</p>
-            </div>
-
-            <div class="timeline-item" style="margin-bottom: 0;">
-                <div class="timeline-date">Duration: 4 Months</div>
-                <strong>Production Engineering Intern</strong><br>
-                <span style="font-size: 13px; color: var(--text-dim);">Nova Publication Pvt. Ltd.</span>
+        <!-- Fleet Section -->
+        <div class="content-block">
+            <h2 class="section-heading">Machinery Expertise</h2>
+            <div class="fleet-container">
+                <div class="fleet-pill"><span>■</span> Heidelberg CX 104</div>
+                <div class="fleet-pill"><span>■</span> Heidelberg CD 74</div>
+                <div class="fleet-pill"><span>■</span> Heidelberg SM 102</div>
+                <div class="fleet-pill" style="opacity: 0.7;">Post-Press Conversion</div>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE 9: FAQ -->
-    <div class="tab-content" id="page9">
-        <div class="panel-box">
-            <h2 class="panel-title">09. Technical Control FAQ</h2>
-            <p><strong>Q1: What protocols secure zero critical failures during swift job switches?</strong><br>
-            Ans: Executing full line clearance procedures, validating substrate parameters against master files, and checking structural proofs immediately post-setup.</p>
-            <p><strong>Q2: How do you counteract unscheduled mechanical downtime?</strong><br>
-            Ans: Utilizing real-time symptom mapping, coordinating quick mechanical intervention, and applying rigorous preventive checklists.</p>
+        <!-- Experience Section -->
+        <div class="content-block">
+            <h2 class="section-heading">Professional Timeline</h2>
+            <div class="timeline-wrapper">
+                <div class="timeline-card">
+                    <div class="time-period">2023 – Present</div>
+                    <div class="job-title">Production Supervisor</div>
+                    <div class="company-name">Kumar Printers Pvt. Ltd., Manesar</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="time-period">6 Years Duration</div>
+                    <div class="job-title">Post Press & Print Supervisor</div>
+                    <div class="company-name">Art O Print Packaging, India</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Grid -->
+        <div class="cta-group">
+            <a href="mailto:amitsandhu973@gmail.com" class="btn btn-primary">Connect Email</a>
+            <div class="btn btn-secondary" onclick="alert('DPR Logs Syncing Complete.')">Refresh Feed</div>
+        </div>
+
+        <div class="footer-text">
+            // LIVE LOGS SECURE LINK // 2026 //
         </div>
     </div>
 
-    <!-- PAGE 10: CONTACT -->
-    <div class="tab-content" id="page10">
-        <div class="panel-box">
-            <h2 class="panel-title">10. Operations Inquiry Console</h2>
-            <p>Establish direct contact for industrial projects, operational consulting, or recruitment inquiries:</p>
-            
-            <form action="mailto:amitsandhu973@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="Name" class="input-box" placeholder="Your Name / Enterprise Name" required>
-                <input type="email" name="Email" class="input-box" placeholder="Secure Corporate Email Address" required>
-                <textarea name="Message" class="input-box" rows="4" placeholder="Specify your plant operational requirements or corporate proposal details..." required></textarea>
-                <button type="submit" class="btn-submit">Transmit Form Data</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="footer">
-        // IoT SCADA TERMINAL CONNECTED // YEAR: 2026 // AMIT SANDHU
-    </div>
-</div>
-
-<div id="logToast" class="log-toast-container" style="display:none;">
-    <span style="display:inline-block;">⚙️</span>
-    <span id="logToastText">System Diagnostic Running...</span>
-</div>
-
-<script>
-    // Theme Switcher Logic
-    function setTheme(mode) {
-        const body = document.body;
-        const darkBtn = document.getElementById('theme-dark-btn');
-        const indBtn = document.getElementById('theme-ind-btn');
-        
-        if (mode === 'industrial') {
-            body.classList.add('industrial-theme');
-            indBtn.classList.add('active');
-            darkBtn.classList.remove('active');
-            triggerToast("View Changed: Shop Floor SCADA");
-        } else {
-            body.classList.remove('industrial-theme');
-            darkBtn.classList.add('active');
-            indBtn.classList.remove('active');
-            triggerToast("View Changed: Night Shift Console");
-        }
-    }
-
-    // Toast Engine
-    function triggerToast(message) {
-        const toast = document.getElementById('logToast');
-        const text = document.getElementById('logToastText');
-        text.innerText = message;
-        toast.style.display = 'flex';
-        toast.style.opacity = '1';
-        
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => { toast.style.display = 'none'; }, 300);
+    <script>
+        // Smoothly fluctuate SPH to look real but extremely clean
+        setInterval(() => {
+            const baseSpeed = 14500;
+            const fluctuation = Math.floor(Math.random() * 450);
+            const total = baseSpeed + fluctuation;
+            document.getElementById('live-sph').innerText = total.toLocaleString() + " SPH";
         }, 3000);
-    }
-
-    // LIVE DATA TELEMETRY LOGIC (Sensors fluctuate realistically)
-    function runLiveTelemetry() {
-        setInterval(() => {
-            // Temperature fluctuation (31.5 to 34.5)
-            const temp = (31.5 + Math.random() * 3).toFixed(1);
-            document.getElementById('val-temp').innerText = temp + " °C";
-            
-            // Pressure fluctuation (420 to 430)
-            const pressure = Math.floor(420 + Math.random() * 11);
-            document.getElementById('val-press').innerText = pressure + " Tons";
-            
-            // Randomly update ink duct capacity values slightly downward to simulate utilization
-            if(Math.random() > 0.8) {
-                let c = Math.floor(80 + Math.random() * 5);
-                let m = Math.floor(68 + Math.random() * 5);
-                document.getElementById('txt-c').innerText = c + "%";
-                document.getElementById('bar-c').style.width = c + "%";
-                document.getElementById('txt-m').innerText = m + "%";
-                document.getElementById('bar-m').style.width = m + "%";
-            }
-        }, 2500);
-    }
-
-    // Auto Logs Array
-    const sampleLogs = [
-        "Ink Duct Flow Rate: Normalized",
-        "Heidelberg Gripper Sync: 100% Calibrated",
-        "Spectrophotometric Scan Status: Clean",
-        "Telemetry Ping to Cloud Server: Successful",
-        "DPR System Log: Standby"
-    ];
-    setInterval(() => {
-        if (Math.random() > 0.6) {
-            const randomLog = sampleLogs[Math.floor(Math.random() * sampleLogs.length)];
-            triggerToast(randomLog);
-        }
-    }, 14000);
-
-    // Dynamic Live Counter Ticker
-    function animateCounters() {
-        let uptime = 87640;
-        const uptimeEl = document.getElementById('uptime-counter');
-        setInterval(() => {
-            uptime += Math.floor(Math.random() * 2) + 1;
-            uptimeEl.innerText = uptime.toLocaleString() + " Hrs";
-        }, 4000);
-        runLiveTelemetry();
-    }
-    window.onload = animateCounters;
-
-    // Tab Switching System
-    function switchTab(tabId) {
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => content.classList.remove('active'));
-        
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => item.classList.remove('active'));
-        
-        document.getElementById(tabId).classList.add('active');
-        document.getElementById('btn-' + tabId).classList.add('active');
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // OEE Analytics System
-    function calculateOEE() {
-        const avail = parseFloat(document.getElementById('avail').value) / 100;
-        const perf = parseFloat(document.getElementById('perf').value) / 100;
-        const qual = parseFloat(document.getElementById('qual').value) / 100;
-        
-        if (isNaN(avail) || isNaN(perf) || isNaN(qual)) {
-            alert('Error: Inject valid percentage matrix values.');
-            return;
-        }
-        
-        const oee = (avail * perf * qual) * 100;
-        const resultDiv = document.getElementById('oeeResult');
-        resultDiv.style.display = 'block';
-        resultDiv.innerHTML = 'COMPUTED SHIFT OEE: <strong style="color:var(--neon-cyan)">' + oee.toFixed(2) + '%</strong>';
-        triggerToast("OEE Computed Successfully");
-    }
-
-    // Press Simulation System
-    let simInterval = null;
-    let sheetCount = 60;
-    
-    function toggleSimulation() {
-        const btn = document.getElementById('simBtn');
-        const display = document.getElementById('simDisplay');
-        const simBox = document.getElementById('simBox');
-        const faultBar = document.getElementById('val-fault');
-        
-        if (simInterval) {
-            clearInterval(simInterval);
-            simInterval = null;
-            btn.innerHTML = "Start Press Simulation";
-            btn.style.background = "linear-gradient(135deg, var(--neon-cyan), var(--neon-green))";
-            btn.style.color = "#090d16";
-            simBox.style.borderColor = "#1e293b";
-            display.innerHTML = "[SYSTEM HALTED]<br>Press Speed: 0 SPH<br>Total Substrates Processed: " + sheetCount;
-            faultBar.innerText = "[0 ACTIVE ERRORS] - ALL SYSTEMS STABLE";
-            faultBar.style.color = "var(--neon-green)";
-            triggerToast("Press Run: Halted");
-        } else {
-            btn.innerHTML = "HALT PRESS RUN";
-            btn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
-            btn.style.color = "white";
-            simBox.style.borderColor = "var(--neon-cyan)";
-            triggerToast("Production Setup Initiated");
-            
-            simInterval = setInterval(() => {
-                sheetCount += Math.floor(Math.random() * 5) + 3;
-                let currentSpeed = Math.floor(Math.random() * 500) + 14500;
-                display.innerHTML = "<span style='color:var(--neon-cyan)'>[RUNNING - PRODUCTION RUN ACTIVE]</span><br>Live Speed: " + currentSpeed + " SPH<br>Sheets Counted: " + sheetCount + "<br>Color Feed: 100% CMYK OK";
-                
-                // Random running matrix updates
-                if(Math.random() > 0.85) {
-                    faultBar.innerText = "[MONITORING] - PRESS RUN EXCEEDING 14,500 SPH OPTIMAL";
-                    faultBar.style.color = "var(--neon-cyan)";
-                }
-            }, 800);
-        }
-    }
-
-    // Fake PDF Download Generator Action
-    function generateReport() {
-        triggerToast("Compiling DPR Database Logs...");
-        setTimeout(() => {
-            const textContent = "--- INDUSTRIAL SHIFT PRODUCTION REPORT ---\nSupervisor: Amit Sandhu\nPlant Location: Manesar\nSubstrates Processed: " + sheetCount + " Sheets\nStatus: Verified Complete.";
-            const blob = new Blob([textContent], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = "DPR_Shift_Report_AmitSandhu.txt";
-            link.click();
-            triggerToast("DPR Logs Downloaded Successfully");
-        }, 1500);
-    }
-</script>
+    </script>
 
 </body>
 </html>
