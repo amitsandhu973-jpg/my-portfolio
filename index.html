@@ -3,291 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu | Print Production Executive</title>
-    
+    <title>Amit Sandhu | Print Production & Operations Executive</title>
     <style>
         :root {
-            --bg-dark: #090d16;
-            --card-bg: #111827;
-            --accent-glow: #38bdf8;
-            --accent-emerald: #34d399;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.05);
+            --bg-main: #0b0f19;
+            --bg-card: #131a2c;
+            --accent: #38bdf8;
+            --accent-success: #34d399;
+            --text-title: #ffffff;
+            --text-body: #94a3b8;
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            margin: 0;
-            padding: 24px 16px;
+            background-color: var(--bg-main);
+            color: var(--text-title);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
+            z-index: 100;
         }
 
-        .executive-container {
-            width: 100%;
-            max-width: 440px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 32px 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Ambient Glow Top Right */
-        .executive-container::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        /* Identity Block */
-        .identity-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .avatar-glow {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #38bdf8, #0369a1);
-            border-radius: 20px;
-            margin: 0 auto 16px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
-        }
-
-        .name {
-            font-size: 28px;
+        .nav-logo {
+            font-size: 18px;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin: 0 0 8px 0;
-            background: linear-gradient(to right, #ffffff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
         }
 
-        .title-badge {
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-item {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-body);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container Limit */
+        .site-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        /* Hero Header Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #16223f 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 36px 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .hero-badge {
             display: inline-block;
             background: rgba(56, 189, 248, 0.08);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            color: var(--accent-glow);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 99px;
-            letter-spacing: 0.3px;
-            margin-bottom: 8px;
-        }
-
-        .education {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin: 4px 0 0 0;
-        }
-
-        /* Content Blocks */
-        .info-section {
-            margin-bottom: 28px;
-        }
-
-        .section-title {
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--accent);
             font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
             font-weight: 700;
-        }
-
-        .about-text {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #e2e8f0;
-            margin: 0;
-        }
-
-        /* Pill Grid for Skills/Machinery */
-        .pill-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .custom-pill {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 8px 14px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #f1f5f9;
-            transition: all 0.2s;
-        }
-
-        .custom-pill:hover {
-            background: rgba(56, 189, 248, 0.05);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .pill-highlight {
-            border-color: rgba(52, 211, 153, 0.2);
-            background: rgba(52, 211, 153, 0.02);
-        }
-
-        /* Executive Timeline */
-        .exp-row {
-            display: flex;
-            gap: 16px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 16px;
         }
 
-        .exp-row:last-child {
-            margin-bottom: 0;
+        .hero-name {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
-        .exp-bullet {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-glow);
-            border-radius: 50%;
-            margin-top: 6px;
-            flex-shrink: 0;
-            box-shadow: 0 0 8px var(--accent-glow);
+        .hero-subtitle {
+            font-size: 15px;
+            color: var(--text-body);
+            font-weight: 500;
+            max-width: 400px;
+            margin: 0 auto 12px auto;
         }
 
-        .exp-details {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .exp-role {
-            font-size: 14.5px;
+        .hero-edu {
+            font-size: 12px;
+            color: var(--accent);
             font-weight: 600;
+        }
+
+        /* Section Headings */
+        .panel-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-body);
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .panel-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Core Operations Grid */
+        .ops-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .ops-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+        .ops-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .ops-name {
+            font-size: 14px;
+            font-weight: 700;
             color: #ffffff;
+            margin-bottom: 4px;
         }
 
-        .exp-company {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 2px;
+        .ops-desc {
+            font-size: 12px;
+            color: var(--text-body);
+            line-height: 1.4;
         }
 
-        /* Call To Action Buttons */
-        .action-container {
+        /* Advanced Machine Fleet Section */
+        .machine-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 32px;
         }
 
-        .action-btn {
-            width: 100%;
-            padding: 14px;
+        .machine-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 14px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mac-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mac-name {
             font-size: 14px;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            box-sizing: border-box;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .action-btn-main {
-            background: #ffffff;
-            color: var(--bg-dark);
-            border: none;
-        }
-
-        .action-btn-sub {
-            background: transparent;
+            font-weight: 700;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .action-btn:hover {
-            transform: translateY(-1px);
-            opacity: 0.95;
+        .mac-spec {
+            font-size: 12px;
+            color: var(--text-body);
+        }
+
+        .mac-status {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-success);
+            background: rgba(52, 211, 153, 0.08);
+            padding: 4px 10px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Timeline block */
+        .timeline-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .timeline-item {
+            border-left: 2px solid var(--border);
+            padding-left: 16px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-left: 2px solid transparent;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .time-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .company-title {
+            font-size: 13px;
+            color: var(--text-body);
+        }
+
+        /* Action Footer Panel */
+        .contact-panel {
+            background: linear-gradient(to bottom, var(--bg-card), #0f1524);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .contact-desc {
+            font-size: 13px;
+            color: var(--text-body);
+            margin-bottom: 16px;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #ffffff;
+            color: var(--bg-main);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
-    <div class="executive-container">
-        <!-- Identity Header -->
-        <div class="identity-header">
-            <div class="avatar-glow">AS</div>
-            <h1 class="name">Amit Sandhu</h1>
-            <span class="title-badge">Production Supervisor</span>
-            <p class="education">B.Tech — Printing & Packaging Technology (G.J.U. Hisar)</p>
+    <!-- Sticky Navigation Area -->
+    <nav class="navbar">
+        <div class="nav-logo">AMIT<span>.S</span></div>
+        <div class="nav-links">
+            <a href="#about" class="nav-item">About</a>
+            <a href="#operations" class="nav-item">Operations</a>
+            <a href="#machinery" class="nav-item">Machinery</a>
         </div>
+    </nav>
 
-        <!-- Executive Summary -->
-        <div class="info-section">
-            <div class="section-title">Overview</div>
-            <p class="about-text">
-                Expert in managing high-capacity offset print environments, sheet-fed operations, and plant workflows. Focused on reducing make-ready times, maintaining rigorous QA/QC standards, and maximizing floor efficiency.
-            </p>
-        </div>
+    <div class="site-wrapper">
 
-        <!-- Expertise & Systems -->
-        <div class="info-section">
-            <div class="section-title">Core Competencies</div>
-            <div class="pill-grid">
-                <div class="custom-pill pill-highlight">Heidelberg CX 104</div>
-                <div class="custom-pill pill-highlight">Heidelberg CD 74</div>
-                <div class="custom-pill">Heidelberg SM 102</div>
-                <div class="custom-pill">Plant Operations</div>
-                <div class="custom-pill">Offset Technology</div>
-                <div class="custom-pill">Team Leadership</div>
-            </div>
-        </div>
+        <!-- Header Hero Section -->
+        <header class="hero-section" id="about">
+            <span class="hero-badge">Executive Portfolio</span>
+            <h1 class="hero-name">Amit Sandhu</h1>
+            <p class="hero-subtitle">Production Supervisor specializing in plant management, workflow scaling, and high-volume press optimizations.</p>
+            <div class="hero-edu">B.Tech — Printing & Packaging Technology (G.J.U. Hisar)</div>
+        </header>
 
-        <!-- Career History -->
-        <div class="info-section">
-            <div class="section-title">Professional History</div>
-            
-            <div class="exp-row">
-                <div class="exp-bullet"></div>
-                <div class="exp-details">
-                    <span class="exp-role">Production Supervisor</span>
-                    <span class="exp-company">Kumar Printers Pvt. Ltd., Manesar (2023 – Present)</span>
+        <!-- Core Operations Section -->
+        <section id="operations">
+            <div class="panel-title">Core Plant Operations</div>
+            <div class="ops-grid">
+                <div class="ops-card">
+                    <div class="ops-icon">⏱️</div>
+                    <div class="ops-name">Make-Ready</div>
+                    <div class="ops-desc">Streamlining plate setups and ink pre-sets to drastically reduce job transition intervals.</div>
+                </div>
+                <div class="ops-card">
+                    <div class="ops-icon">📉</div>
+                    <div class="ops-name">Waste Control</div>
+                    <div class="ops-desc">Implementing strict paper and substrate tracking to keep spoilage well under parameters.</div>
+                </div>
+                <div class="ops-card">
+                    <div class="ops-icon">🛡️</div>
+                    <div class="ops-name">QA/QC Control</div>
+                    <div class="ops-desc">Managing strict standard density, dot gain metrics, and registration accuracy checks.</div>
+                </div>
+                <div class="ops-card">
+                    <div class="ops-icon">👥</div>
+                    <div class="ops-name">Floor Leadership</div>
+                    <div class="ops-desc">Supervising full shifts, scheduling jobs strategically, and balancing operational load.</div>
                 </div>
             </div>
+        </section>
 
-            <div class="exp-row">
-                <div class="exp-bullet" style="background: var(--text-secondary); box-shadow: none;"></div>
-                <div class="exp-details">
-                    <span class="exp-role">Post Press & Print Supervisor</span>
-                    <span class="exp-company">Art O Print Packaging (6 Years)</span>
+        <!-- Machine Fleet Section -->
+        <section id="machinery">
+            <div class="panel-title">Technical Fleet Competency</div>
+            <div class="machine-list">
+                <div class="machine-row">
+                    <div class="mac-info">
+                        <span class="mac-name">Heidelberg Speedmaster CX 104</span>
+                        <span class="mac-spec">Multi-color high-speed operations</span>
+                    </div>
+                    <span class="mac-status">Expert</span>
+                </div>
+                <div class="machine-row">
+                    <div class="mac-info">
+                        <span class="mac-name">Heidelberg Speedmaster CD 74</span>
+                        <span class="mac-spec">Packaging & carton standard setup</span>
+                    </div>
+                    <span class="mac-status">Expert</span>
+                </div>
+                <div class="machine-row">
+                    <div class="mac-info">
+                        <span class="mac-name">Heidelberg SM 102 / Post-Press</span>
+                        <span class="mac-spec">Commercial sheets & converting line</span>
+                    </div>
+                    <span class="mac-status">Fluent</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Engagement Buttons -->
-        <div class="action-container">
-            <a href="mailto:amitsandhu973@gmail.com" class="action-btn action-btn-main">Send Email Inquiry</a>
-            <div class="action-btn action-btn-sub" onclick="alert('Contact Details: amitsandhu973@gmail.com')">View Digital Business Card</div>
-        </div>
+        <!-- Experience Timeline Section -->
+        <section>
+            <div class="panel-title">Professional Milestones</div>
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="time-badge">2023 – Present</span>
+                    <h3 class="job-title">Production Supervisor</h3>
+                    <p class="company-title">Kumar Printers Pvt. Ltd., Manesar</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="time-badge">6 Years Tenure</span>
+                    <h3 class="job-title">Post Press & Print Supervisor</h3>
+                    <p class="company-title">Art O Print Packaging</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Connection Panel -->
+        <section class="contact-panel">
+            <h3 class="contact-title">Let's Discuss Operations</h3>
+            <p class="contact-desc">Open for professional consultation, industrial networking, or strategic management inquiries.</p>
+            <a href="mailto:amitsandhu973@gmail.com" class="cta-btn">Initiate Email Channel</a>
+        </section>
+
     </div>
 
 </body>
