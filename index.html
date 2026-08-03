@@ -3,356 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu | Print Operations Executive</title>
-    
-    <!-- Meta Preview Tags -->
-    <meta property="og:title" content="Amit Sandhu | Print Operations Executive">
-    <meta property="og:description" content="B.Tech in Printing & Packaging Technology. 9+ Years High-End Plant Management.">
-    <meta property="og:url" content="https://amitsandhu973-jpg.github.io/my-portfolio/">
+    <title>Amit Sandhu | Print Production Executive</title>
     
     <style>
         :root {
-            --bg-base: #0a1128;
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --accent-cyan: #00f2fe;
-            --accent-blue: #4facfe;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
+            --bg-dark: #090d16;
+            --card-bg: #111827;
+            --accent-glow: #38bdf8;
+            --accent-emerald: #34d399;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-base);
-            background-image: radial-gradient(circle at 80% 20%, #1e293b 0%, #0a1128 60%), 
-                              radial-gradient(circle at 10% 80%, #0f172a 0%, #0a1128 100%);
-            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             margin: 0;
-            padding: 16px 12px;
+            padding: 24px 16px;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .main-card {
-            width: 100%;
-            max-width: 480px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 24px 20px;
             box-sizing: border-box;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* Profile Header Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 28px;
+        .executive-container {
+            width: 100%;
+            max-width: 440px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 32px 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
 
-        .live-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            color: var(--accent-cyan);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .live-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #00f2fe;
+        /* Ambient Glow Top Right */
+        .executive-container::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            box-shadow: 0 0 8px #00f2fe;
-            animation: blink 1.5s infinite;
+            pointer-events: none;
         }
 
-        @keyframes blink {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
+        /* Identity Block */
+        .identity-header {
+            text-align: center;
+            margin-bottom: 32px;
         }
 
-        .name-title {
-            font-size: 30px;
+        .avatar-glow {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #38bdf8, #0369a1);
+            border-radius: 20px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .name {
+            font-size: 28px;
             font-weight: 800;
-            margin: 0 0 6px 0;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff 60%, var(--accent-cyan));
+            margin: 0 0 8px 0;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .role-subtitle {
-            font-size: 14px;
-            color: var(--accent-blue);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .edu-tag {
+        .title-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            color: var(--accent-glow);
             font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        /* Clean Executive Telemetry */
-        .kpi-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .kpi-box {
-            background: rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 14px;
-            padding: 14px;
-            text-align: center;
-        }
-
-        .kpi-label {
-            font-size: 10px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 99px;
+            letter-spacing: 0.3px;
+            margin-bottom: 8px;
         }
 
-        .kpi-value {
-            font-size: 18px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-top: 4px;
-            font-family: monospace;
+        .education {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 4px 0 0 0;
         }
 
-        /* Modern Section Block */
-        .content-block {
-            background: rgba(255, 255, 255, 0.01);
-            border-top: 1px solid var(--glass-border);
-            padding-top: 20px;
-            margin-top: 20px;
+        /* Content Blocks */
+        .info-section {
+            margin-bottom: 28px;
         }
 
-        .section-heading {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-cyan);
+        .section-title {
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        p.description {
-            font-size: 13.5px;
+        .about-text {
+            font-size: 14px;
             line-height: 1.6;
-            color: var(--text-muted);
+            color: #e2e8f0;
             margin: 0;
         }
 
-        /* Fleet Horizontal Pill List */
-        .fleet-container {
+        /* Pill Grid for Skills/Machinery */
+        .pill-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 8px;
         }
 
-        .fleet-pill {
+        .custom-pill {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 8px 14px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .fleet-pill span {
-            color: var(--accent-cyan);
-            margin-right: 4px;
-        }
-
-        /* Clean Minimal Timeline */
-        .timeline-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .timeline-card {
-            border-left: 2px solid var(--accent-blue);
-            padding-left: 14px;
-            margin-left: 4px;
-        }
-
-        .time-period {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-        }
-
-        .job-title {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 2px 0;
-        }
-
-        .company-name {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* Action Buttons */
-        .cta-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .btn {
-            padding: 12px;
             border-radius: 12px;
             font-size: 13px;
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
+            font-weight: 500;
+            color: #f1f5f9;
             transition: all 0.2s;
-            box-sizing: border-box;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #020617;
+        .custom-pill:hover {
+            background: rgba(56, 189, 248, 0.05);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .pill-highlight {
+            border-color: rgba(52, 211, 153, 0.2);
+            background: rgba(52, 211, 153, 0.02);
+        }
+
+        /* Executive Timeline */
+        .exp-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .exp-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-bullet {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .exp-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-role {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .exp-company {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Call To Action Buttons */
+        .action-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .action-btn-main {
+            background: #ffffff;
+            color: var(--bg-dark);
             border: none;
         }
 
-        .btn-secondary {
+        .action-btn-sub {
             background: transparent;
             color: #ffffff;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .btn:hover {
-            opacity: 0.9;
+        .action-btn:hover {
             transform: translateY(-1px);
-        }
-
-        .footer-text {
-            text-align: center;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.2);
-            margin-top: 24px;
-            font-family: monospace;
-            letter-spacing: 0.5px;
+            opacity: 0.95;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <!-- Header -->
-        <div class="profile-section">
-            <div class="live-badge">
-                <div class="live-dot"></div> Plant Monitor Active
-            </div>
-            <h1 class="name-title">Amit Sandhu</h1>
-            <div class="role-subtitle">Print Operations Executive</div>
-            <div class="edu-tag">B.Tech in Printing & Packaging Technology (G.J.U.)</div>
+    <div class="executive-container">
+        <!-- Identity Header -->
+        <div class="identity-header">
+            <div class="avatar-glow">AS</div>
+            <h1 class="name">Amit Sandhu</h1>
+            <span class="title-badge">Production Supervisor</span>
+            <p class="education">B.Tech — Printing & Packaging Technology (G.J.U. Hisar)</p>
         </div>
 
-        <!-- KPI Executive Numbers -->
-        <div class="kpi-row">
-            <div class="kpi-box">
-                <div class="kpi-label">📊 Plant Experience</div>
-                <div class="kpi-value">9+ Years</div>
-            </div>
-            <div class="kpi-box">
-                <div class="kpi-label">⚡ Live Press Speed</div>
-                <div class="kpi-value" id="live-sph">14,850 SPH</div>
-            </div>
-        </div>
-
-        <!-- Vision Section -->
-        <div class="content-block">
-            <h2 class="section-heading">Executive Profile</h2>
-            <p class="description">
-                High-performance Plant Supervisor specializing in workflow acceleration, multi-color offset technology, and lean manufacturing practices. Adept at driving machine utility, ensuring zero-defect quality parameters, and structural team leadership.
+        <!-- Executive Summary -->
+        <div class="info-section">
+            <div class="section-title">Overview</div>
+            <p class="about-text">
+                Expert in managing high-capacity offset print environments, sheet-fed operations, and plant workflows. Focused on reducing make-ready times, maintaining rigorous QA/QC standards, and maximizing floor efficiency.
             </p>
         </div>
 
-        <!-- Fleet Section -->
-        <div class="content-block">
-            <h2 class="section-heading">Machinery Expertise</h2>
-            <div class="fleet-container">
-                <div class="fleet-pill"><span>■</span> Heidelberg CX 104</div>
-                <div class="fleet-pill"><span>■</span> Heidelberg CD 74</div>
-                <div class="fleet-pill"><span>■</span> Heidelberg SM 102</div>
-                <div class="fleet-pill" style="opacity: 0.7;">Post-Press Conversion</div>
+        <!-- Expertise & Systems -->
+        <div class="info-section">
+            <div class="section-title">Core Competencies</div>
+            <div class="pill-grid">
+                <div class="custom-pill pill-highlight">Heidelberg CX 104</div>
+                <div class="custom-pill pill-highlight">Heidelberg CD 74</div>
+                <div class="custom-pill">Heidelberg SM 102</div>
+                <div class="custom-pill">Plant Operations</div>
+                <div class="custom-pill">Offset Technology</div>
+                <div class="custom-pill">Team Leadership</div>
             </div>
         </div>
 
-        <!-- Experience Section -->
-        <div class="content-block">
-            <h2 class="section-heading">Professional Timeline</h2>
-            <div class="timeline-wrapper">
-                <div class="timeline-card">
-                    <div class="time-period">2023 – Present</div>
-                    <div class="job-title">Production Supervisor</div>
-                    <div class="company-name">Kumar Printers Pvt. Ltd., Manesar</div>
+        <!-- Career History -->
+        <div class="info-section">
+            <div class="section-title">Professional History</div>
+            
+            <div class="exp-row">
+                <div class="exp-bullet"></div>
+                <div class="exp-details">
+                    <span class="exp-role">Production Supervisor</span>
+                    <span class="exp-company">Kumar Printers Pvt. Ltd., Manesar (2023 – Present)</span>
                 </div>
-                <div class="timeline-card">
-                    <div class="time-period">6 Years Duration</div>
-                    <div class="job-title">Post Press & Print Supervisor</div>
-                    <div class="company-name">Art O Print Packaging, India</div>
+            </div>
+
+            <div class="exp-row">
+                <div class="exp-bullet" style="background: var(--text-secondary); box-shadow: none;"></div>
+                <div class="exp-details">
+                    <span class="exp-role">Post Press & Print Supervisor</span>
+                    <span class="exp-company">Art O Print Packaging (6 Years)</span>
                 </div>
             </div>
         </div>
 
-        <!-- Action Grid -->
-        <div class="cta-group">
-            <a href="mailto:amitsandhu973@gmail.com" class="btn btn-primary">Connect Email</a>
-            <div class="btn btn-secondary" onclick="alert('DPR Logs Syncing Complete.')">Refresh Feed</div>
-        </div>
-
-        <div class="footer-text">
-            // LIVE LOGS SECURE LINK // 2026 //
+        <!-- Engagement Buttons -->
+        <div class="action-container">
+            <a href="mailto:amitsandhu973@gmail.com" class="action-btn action-btn-main">Send Email Inquiry</a>
+            <div class="action-btn action-btn-sub" onclick="alert('Contact Details: amitsandhu973@gmail.com')">View Digital Business Card</div>
         </div>
     </div>
-
-    <script>
-        // Smoothly fluctuate SPH to look real but extremely clean
-        setInterval(() => {
-            const baseSpeed = 14500;
-            const fluctuation = Math.floor(Math.random() * 450);
-            const total = baseSpeed + fluctuation;
-            document.getElementById('live-sph').innerText = total.toLocaleString() + " SPH";
-        }, 3000);
-    </script>
 
 </body>
 </html>
