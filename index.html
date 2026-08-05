@@ -3,220 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprehensive Technical Manual - Printing & Packaging</title>
+  <title>Amit Sandhu | Industrial Operations & Printing Technical Manual</title>
   <style>
     :root {
-      --primary-color: #0d6efd;
-      --secondary-color: #0b5ed7;
-      --dark-bg: #121212;
-      --card-bg: #1e1e1e;
-      --text-main: #e0e0e0;
-      --text-muted: #a0a0a0;
-      --accent-color: #00e676;
-      --border-color: #333333;
+      --bg-deep: #0f172a;
+      --bg-card: #1e293b;
+      --bg-subcard: #334155;
+      --accent-cyan: #38bdf8;
+      --accent-green: #4ade80;
+      --accent-orange: #fb923c;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #475569;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; padding: 15px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.6; padding: 15px; }
     .container { max-width: 1100px; margin: 0 auto; }
-    
-    header {
-      text-align: center;
-      padding: 25px 15px;
-      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 20px;
-    }
-    header h1 { font-size: 2rem; color: #ffffff; margin-bottom: 8px; }
-    header p { color: var(--accent-color); font-size: 1rem; font-weight: 500; }
 
+    /* HEADER SECTION */
+    .profile-header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .badge-top {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .profile-header h1 { font-size: 2.2rem; color: #ffffff; font-weight: 800; letter-spacing: -0.5px; }
+    .profile-header h2 { font-size: 1.1rem; color: var(--accent-cyan); font-weight: 600; margin-top: 4px; }
+    .profile-header p { color: var(--text-muted); font-size: 0.95rem; max-width: 800px; margin: 12px auto 0 auto; }
+    
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      background: var(--bg-subcard);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    /* CARD STYLING */
     .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 22px;
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
       margin-bottom: 25px;
       border: 1px solid var(--border-color);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
-    .card h2 { font-size: 1.4rem; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 8px; margin-bottom: 18px; }
-    
-    .sub-heading { font-size: 1.15rem; color: var(--accent-color); margin: 18px 0 10px 0; border-left: 3px solid var(--accent-color); padding-left: 8px; }
-    
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-    .grid-box { background: #252525; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-color); }
-    .grid-box h3 { font-size: 1.05rem; margin-bottom: 8px; color: #ffffff; }
+    .card-title {
+      font-size: 1.35rem;
+      color: #ffffff;
+      border-bottom: 2px solid var(--accent-cyan);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    ul { list-style-type: none; margin-bottom: 10px; }
-    ul li { margin-bottom: 6px; font-size: 0.92rem; color: var(--text-main); }
+    .sub-heading {
+      font-size: 1.1rem;
+      color: var(--accent-green);
+      margin: 20px 0 12px 0;
+      padding-left: 10px;
+      border-left: 3px solid var(--accent-green);
+    }
+
+    /* GRID LAYOUTS */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
+    
+    .box-item {
+      background: var(--bg-subcard);
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+    .box-item h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 8px; }
+
+    ul { list-style: none; }
+    ul li { margin-bottom: 8px; font-size: 0.92rem; color: var(--text-main); }
     ul li strong { color: #ffffff; }
 
-    .table-responsive { width: 100%; overflow-x: auto; margin: 15px 0; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; }
-    table th, table td { padding: 10px 12px; border: 1px solid var(--border-color); }
-    table th { background: #2a2a2a; color: var(--primary-color); }
-    table tr:nth-child(even) { background: #222222; }
+    /* TABLE STYLING */
+    .table-responsive { width: 100%; overflow-x: auto; margin: 15px 0; border-radius: 8px; border: 1px solid var(--border-color); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; }
+    table th { background: #0f172a; color: var(--accent-cyan); padding: 12px; font-weight: 600; }
+    table td { padding: 12px; border-top: 1px solid var(--border-color); }
+    table tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
 
-    code { background: #000; color: var(--accent-color); padding: 3px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88rem; }
+    code { background: #0f172a; color: var(--accent-orange); padding: 3px 8px; border-radius: 5px; font-family: monospace; font-size: 0.88rem; border: 1px solid var(--border-color); }
   </style>
 </head>
 <body>
 
   <div class="container">
     
-    <header>
-      <h1>Detailed Technical Operations & QC Manual</h1>
-      <p>Offset Printing Press Specifications, Mechanical Breakdown & Lab Testing Standards</p>
+    <!-- MAIN PROFILE HEADER -->
+    <header class="profile-header">
+      <span class="badge-top">TECHNICAL OPERATIONS HUB</span>
+      <h1>Amit Sandhu (Amit Kumar)</h1>
+      <h2>Production Supervisor & Plant Executive</h2>
+      <p>B.Tech in Printing & Packaging Technology with extensive expertise in offset press operations, substrate mechanics, inline coating, and advanced plant quality control workflows.</p>
+      
+      <div class="meta-pills">
+        <span class="pill">📍 Kumar Printers Pvt. Ltd., Manesar</span>
+        <span class="pill">⚙️ Heidelberg & Komori Specialist</span>
+        <span class="pill">🎓 B.Tech Packaging Technology</span>
+      </div>
     </header>
 
-    <!-- SECTION 1: MACHINERY SPECS -->
+    <!-- SECTION 1: MACHINERY -->
     <section class="card">
-      <h2>1. Offset Printing Press Detailed Specifications</h2>
+      <h2 class="card-title">1. Printing Press Machinery & Specifications</h2>
 
       <h3 class="sub-heading">A. Heidelberg Speedmaster CD 102 (New Model)</h3>
       <div class="table-responsive">
         <table>
-          <tr><th>Parameter</th><th>Value / Specification</th></tr>
+          <tr><th>Parameter</th><th>Technical Specification Details</th></tr>
           <tr><td>Max Sheet Size</td><td>1020 × 720 mm</td></tr>
           <tr><td>Min Sheet Size</td><td>480 × 340 mm</td></tr>
           <tr><td>Max Printing Format</td><td>1020 × 710 mm</td></tr>
           <tr><td>Production Speed</td><td>3,000 – 15,000 SPH (Sheets Per Hour)</td></tr>
           <tr><td>Stock Substrate Range</td><td>0.03 mm – 1.0 mm (28 GSM to 460 GSM)</td></tr>
           <tr><td>Gripper Margin Standard</td><td>10 mm – 12 mm</td></tr>
-          <tr><td>Pile Height (Feeder / Delivery)</td><td>Feeder: 1320 mm | Delivery: 1295 mm</td></tr>
+          <tr><td>Pile Height</td><td>Feeder: 1320 mm | Delivery: 1295 mm</td></tr>
           <tr><td>Plate Cylinder Undercut</td><td>0.12 mm (Plate Specs: 1030 × 790 mm | Thickness: 0.20 – 0.30 mm)</td></tr>
           <tr><td>Blanket Cylinder Undercut</td><td>2.30 mm (Blanket Specs: 1052 × 840 mm | Blanket: 1.95 mm + Packing: 0.35 mm)</td></tr>
           <tr><td>Coating Cylinder Undercut</td><td>3.20 mm (Coating Blanket: 1052 × 800 mm | Blanket: 1.95 mm + Packing: 1.25 mm)</td></tr>
         </table>
       </div>
 
-      <h3 class="sub-heading">B. Heidelberg Speedmaster CD 74 & SM 102 Mechanics</h3>
-      <ul>
-        <li>• <strong>Heidelberg CD 74 Sheet Size:</strong> Max 530 × 740 mm | Min 210 × 280 mm | Undercut Plate: 0.12 mm, Blanket: 2.30 mm.</li>
-        <li>• <strong>Heidelberg SM 102 Sheet Size:</strong> Max 720 × 1020 mm | Perfecting capability available | Standard Speed: up to 13,000 SPH.</li>
-        <li>• <strong>Komori Perfector 40:</strong> Max Sheet Size: 720 × 1030 mm | Dual Impression Cylinder mechanism for high-speed perfecting.</li>
-      </ul>
+      <h3 class="sub-heading">B. Additional Press Line Configurations</h3>
+      <div class="grid-3">
+        <div class="box-item">
+          <h3>Heidelberg CD 74</h3>
+          <ul>
+            <li>• <strong>Max Sheet:</strong> 530 × 740 mm</li>
+            <li>• <strong>Min Sheet:</strong> 210 × 280 mm</li>
+            <li>• <strong>Plate Undercut:</strong> 0.12 mm</li>
+            <li>• <strong>Blanket Undercut:</strong> 2.30 mm</li>
+          </ul>
+        </div>
+        <div class="box-item">
+          <h3>Heidelberg SM 102</h3>
+          <ul>
+            <li>• <strong>Max Sheet:</strong> 720 × 1020 mm</li>
+            <li>• <strong>Feature:</strong> Perfecting Capability</li>
+            <li>• <strong>Speed:</strong> Up to 13,000 SPH</li>
+          </ul>
+        </div>
+        <div class="box-item">
+          <h3>Komori Perfector 40</h3>
+          <ul>
+            <li>• <strong>Max Sheet:</strong> 720 × 1030 mm</li>
+            <li>• <strong>Mechanism:</strong> Dual Impression</li>
+            <li>• High-speed double-sided printing</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- SECTION 2: MECHANICAL BREAKDOWN -->
+    <!-- SECTION 2: MECHANICS -->
     <section class="card">
-      <h2>2. In-Depth Machine Sub-Systems & Mechanical Operations</h2>
+      <h2 class="card-title">2. In-Depth Sub-Systems & Machine Mechanics</h2>
 
-      <h3 class="sub-heading">A. Feeder Unit Breakdown</h3>
-      <ul>
-        <li>• <strong>Suction Head:</strong> 4 Lifting Suckers (for sheet lift) & 5 Forwarding Suckers (for sheet transport).</li>
-        <li>• <strong>Air Blowers & Separation:</strong> 17 Air Blower Nozzles + 6 Flexible Steel Finger Separators.</li>
-        <li>• <strong>Rear Edge Stoppers:</strong> 2 Units, precision set 1 mm away from the trailing edge of paper stack.</li>
-        <li>• <strong>Stack Level Height:</strong> Maintained 5–8 mm below the forwarding flap.</li>
-        <li>• <strong>Runners & Lays:</strong> 2 Forwarding Runners, 4 Transferring Runners, 2 Mechanical/Pneumatic Side Lays, 18 Front Lay Pins.</li>
-        <li>• <strong>Gripper Systems:</strong> Swing Arm Gripper with 18 Gripper Fingers. Ultrasonic Double Sheet Sensor integrated.</li>
-      </ul>
+      <div class="grid-2">
+        <div class="box-item">
+          <h3>Feeder Mechanism</h3>
+          <ul>
+            <li>• <strong>Suckers:</strong> 4 Lifting + 5 Forwarding Suckers</li>
+            <li>• <strong>Blowers & Finger Separators:</strong> 17 Air Blowers, 6 Flexible Steel Fingers</li>
+            <li>• <strong>Rear Edge Stoppers:</strong> 2 Units (1 mm away from paper edge)</li>
+            <li>• <strong>Stack Level Height:</strong> Maintained 5–8 mm below forwarding flap</li>
+            <li>• <strong>Runners & Lays:</strong> 2 Forwarding Runners, 4 Transferring Runners, 2 Side Lays, 18 Front Lay Pins</li>
+            <li>• <strong>Swing Arm Gripper:</strong> 18 Gripper Fingers with Ultrasonic Double Sheet Sensor</li>
+          </ul>
+        </div>
 
-      <h3 class="sub-heading">B. Inking & Dampening Roller Technical Specs</h3>
-      <ul>
-        <li>• <strong>4 Ink Form Roller Diameters:</strong> White Roller (⌀ 60 mm), Blue Roller (⌀ 72 mm), Red Roller (⌀ 66 mm), Yellow Roller (⌀ 80 mm).</li>
-        <li>• <strong>Transfer & Oscillating Rollers:</strong> 10 Transfer Rollers (5 Rilsan-coated hard rollers + 5 Rubber rollers), 4 Oscillating Rollers (⌀ 85 mm).</li>
-        <li>• <strong>Dampening System Configuration:</strong> Pan Roller (⌀ 108 mm), Stainless Steel Metering Roller (⌀ 98 mm), Dampening Form Roller (⌀ 78 mm), Chromium Vario Roller (⌀ 85 mm).</li>
-      </ul>
+        <div class="box-item">
+          <h3>Inking & Dampening Rollers</h3>
+          <ul>
+            <li>• <strong>4 Ink Form Rollers:</strong> White (⌀60mm), Blue (⌀72mm), Red (⌀66mm), Yellow (⌀80mm)</li>
+            <li>• <strong>Transfer & Oscillating Rollers:</strong> 10 Transfer (5 Rilsan + 5 Rubber), 4 Oscillating (⌀85mm)</li>
+            <li>• <strong>Dampening Rollers:</strong> Pan (⌀108mm), SS Metering (⌀98mm), Form (⌀78mm), Chromium Vario (⌀85mm)</li>
+          </ul>
+        </div>
+      </div>
 
-      <h3 class="sub-heading">C. Delivery System & Temperature Controls</h3>
+      <h3 class="sub-heading">C. Delivery System & Drying Controls</h3>
       <ul>
-        <li>• <strong>Delivery Grippers:</strong> 14 Gripper Bars (each bar holding 18 gripper fingers).</li>
-        <li>• <strong>Air Blowing & Slowdown:</strong> 25 Air Blow-down Fans + 5 Suction Slow-down Discs.</li>
-        <li>• <strong>Powder Spray Unit:</strong> 8 Spray Nozzles (Application Ratio: 80% Uncoated Paper / 20% Coated Paper).</li>
-        <li>• <strong>Drying & Temperature Standards:</strong> Protective Varnish (32°C – 34°C), Ink & Gloss Varnish (36°C), High Gloss Varnish (36°C – 38°C).</li>
+        <li>• <strong>Delivery Bars:</strong> 14 Gripper Bars (18 fingers per bar).</li>
+        <li>• <strong>Air & Suction:</strong> 25 Air Blow-down Fans + 5 Suction Slow-down Discs.</li>
+        <li>• <strong>Powder Spray Unit:</strong> 8 Nozzles (Ratio: 80% Uncoated Paper / 20% Coated Paper).</li>
+        <li>• <strong>Temperature Standards:</strong> Protective Varnish (32°C–34°C) | Ink & Gloss Varnish (36°C) | High Gloss (36°C–38°C).</li>
       </ul>
     </section>
 
     <!-- SECTION 3: CHEMISTRY & COATING -->
     <section class="card">
-      <h2>3. Printing Chemistry, Dampening & Coating Technologies</h2>
+      <h2 class="card-title">3. Printing Chemistry & Inline Coating Standards</h2>
 
       <div class="grid-2">
-        <div class="grid-box">
-          <h3>Fountain Solution & Water Parameters</h3>
+        <div class="box-item">
+          <h3>Fountain Solution Chemistry</h3>
           <ul>
-            <li>• <strong>Standard Mix:</strong> 86% Water + 2–4% Fountain Solution Additive + Isopropyl Alcohol (IPA).</li>
-            <li>• <strong>pH Control Range:</strong> 4.5 – 5.5 (Acidic range to keep non-image area clean).</li>
-            <li>• <strong>Chiller Temperature:</strong> 8°C – 10°C.</li>
-            <li>• <strong>Electrical Conductivity:</strong> 800 – 2000 µS/cm (For UV Inks: 800 – 2500 µS/cm).</li>
+            <li>• <strong>Ratio:</strong> 86% Water + 2–4% Fountain Sol. + IPA</li>
+            <li>• <strong>pH Range:</strong> 4.5 – 5.5</li>
+            <li>• <strong>Chiller Temp:</strong> 8°C – 10°C</li>
+            <li>• <strong>Conductivity:</strong> 800 – 2000 µS/cm (UV: 800 – 2500 µS/cm)</li>
           </ul>
         </div>
 
-        <div class="grid-box">
-          <h3>Offset Ink Composition & Viscosity</h3>
+        <div class="box-item">
+          <h3>Offset Ink Characteristics</h3>
           <ul>
-            <li>• <strong>Raw Materials:</strong> Pigment (Colorant), Synthetic Resins (Binder), Vegetable Oils/Mineral Oils (Vehicles), Driers, Solvents, Performance Additives.</li>
-            <li>• <strong>Tack & Viscosity Range:</strong> High Viscosity Paste (40 – 100 Pa·s).</li>
+            <li>• <strong>Raw Materials:</strong> Pigment, Synthetic Resins, Vehicles (Vegetable/Mineral Oils), Driers & Additives</li>
+            <li>• <strong>Viscosity Range:</strong> 40 – 100 Pa·s (High Paste Viscosity)</li>
           </ul>
         </div>
       </div>
 
-      <h3 class="sub-heading">Inline Coating Types & Anilox Specs</h3>
+      <h3 class="sub-heading">Inline Coating Types & Anilox Specifications</h3>
       <div class="table-responsive">
         <table>
           <thead>
-            <tr><th>Coating Type</th><th>Application GSM Weight</th><th>Functional Purpose & Detail</th></tr>
+            <tr><th>Coating Type</th><th>Weight (GSM)</th><th>Functional Purpose</th></tr>
           </thead>
           <tbody>
-            <tr><td>Aqueous Coating</td><td>2 – 4 g/m²</td><td>Water-based, fast inline drying, prevents ink set-off, smudge resistant.</td></tr>
-            <tr><td>Varnish Coating</td><td>2 – 4 g/m²</td><td>Oil-based protection, available in Gloss, Satin, Matte. Economical choice.</td></tr>
-            <tr><td>Primer Coating</td><td>1.5 – 4 g/m²</td><td>Pre-treatment base coat to enhance subsequent UV adhesion and folding capability.</td></tr>
-            <tr><td>Soft Touch Coating</td><td>3 – 4 g/m²</td><td>Velvet/peach-skin luxury feel finish, non-yellowing, high tactile impact.</td></tr>
-            <tr><td>UV Coating</td><td>3 – 10 g/m²</td><td>Instant UV light curing, extremely high gloss, chemical & scuff resistance.</td></tr>
+            <tr><td>Aqueous Coating</td><td>2 – 4 g/m²</td><td>Water-based, fast inline drying, smudge resistant.</td></tr>
+            <tr><td>Varnish Coating</td><td>2 – 4 g/m²</td><td>Oil-based protection in Gloss, Satin, or Matte.</td></tr>
+            <tr><td>Primer Coating</td><td>1.5 – 4 g/m²</td><td>Base coat for UV adhesion and improved folding.</td></tr>
+            <tr><td>Soft Touch Coating</td><td>3 – 4 g/m²</td><td>Velvet luxury tactile finish, non-yellowing.</td></tr>
+            <tr><td>UV Coating</td><td>3 – 10 g/m²</td><td>Instant UV curing, ultra-high gloss & scuff resistance.</td></tr>
           </tbody>
         </table>
       </div>
       <ul>
-        <li>• <strong>Anilox Roller Construction:</strong> Ceramic (Steel Base + Chromium Oxide Plasma Spraying) & Chromium Anilox Rollers.</li>
-        <li>• <strong>Cell Geometry & Angles:</strong> Inverted Pyramid, Quadrangular, Trihelical, Hexagonal (60° & 45° Cell Angles). Doctor Blade Angles: 55° to 65°.</li>
+        <li>• <strong>Anilox Rollers:</strong> Ceramic (Steel Base + Chromium Oxide Plasma) & Chromium Rollers.</li>
+        <li>• <strong>Cell Geometries:</strong> Inverted Pyramid, Quadrangular, Trihelical, Hexagonal (60° & 45° Cell Angles). Doctor Blade: 55° to 65°.</li>
       </ul>
     </section>
 
     <!-- SECTION 4: QC TESTING & FORMULAS -->
     <section class="card">
-      <h2>4. Quality Control (QC) Lab Testing & Standard Formulas</h2>
+      <h2 class="card-title">4. Quality Control (QC) Lab Testing & Standard Formulas</h2>
 
       <div class="table-responsive">
         <table>
           <thead>
-            <tr><th>Testing Equipment</th><th>Quality Parameter</th><th>Calculation Formula & Operating Standards</th></tr>
+            <tr><th>Equipment</th><th>Quality Parameter</th><th>Calculation Formula & Operating Standards</th></tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Rub / Scuff Tester</strong></td>
               <td>Ink & Coating Rub Resistance</td>
-              <td>Operated at 60 RPM with 2 lbs weight.<br>• <strong>Aqueous Standard:</strong> Minimum 500 rubs.<br>• <strong>UV Standard:</strong> Minimum 750 rubs.</td>
+              <td>60 RPM @ 2 lbs weight.<br>• <strong>Aqueous Target:</strong> Min 500 rubs<br>• <strong>UV Target:</strong> Min 750 rubs</td>
             </tr>
             <tr>
               <td><strong>GSM Tester</strong></td>
-              <td>Grammage (Paper/Board Weight)</td>
-              <td>Formula:<br><code>GSM = (Weight of sample in grams / Area in cm²) × 10,000</code></td>
+              <td>Grammage Weight</td>
+              <td>Formula:<br><code>GSM = (Weight in Grams / Area in cm²) × 10,000</code></td>
             </tr>
             <tr>
               <td><strong>Taber Stiffness Tester</strong></td>
-              <td>Bending Resistance / Stiffness</td>
-              <td>Formula:<br><code>Stiffness (MD) = [(Left Reading + Right Reading) × 5] / 2</code><br>Conversion: <code>mN = 2.04 × Taber Unit</code></td>
+              <td>Bending Resistance</td>
+              <td>Formula:<br><code>Stiffness (MD) = [(Left + Right Reading) × 5] / 2</code><br>Conversion: <code>mN = 2.04 × Taber Unit</code></td>
             </tr>
             <tr>
               <td><strong>Bursting Strength Tester</strong></td>
-              <td>Substrate Rupture Limit</td>
-              <td>Formula:<br><code>Burst Factor = (Bursting Strength in kg/cm² / Dry GSM) × 1000</code></td>
+              <td>Board Rupture Limit</td>
+              <td>Formula:<br><code>Burst Factor = (Bursting Strength / Dry GSM) × 1000</code></td>
             </tr>
             <tr>
               <td><strong>Cobb Tester</strong></td>
               <td>Water Absorption Capacity</td>
-              <td>Formula:<br><code>Cobb Value = Weight after water exposure (g) - Initial Dry Weight (g)</code> (Calculated for 100cm² area for 60/120 sec).</td>
+              <td>Formula:<br><code>Cobb Value = Weight After Absorption - Initial Dry Weight</code></td>
             </tr>
             <tr>
               <td><strong>B4 Ford Cup</strong></td>
-              <td>Coating & Varnish Viscosity</td>
-              <td>Measured in Efflux Time (Seconds). Standard flow time recorded at 25°C temperature.</td>
+              <td>Coating Viscosity</td>
+              <td>Measured in Efflux Time (Seconds) at 25°C.</td>
             </tr>
             <tr>
               <td><strong>Moisture Meter</strong></td>
-              <td>Substrate Moisture Percentage</td>
-              <td>• <strong>Paper & Folding Box Board Standard:</strong> 6% – 8%<br>• <strong>Corrugated Fluted Board Standard:</strong> 6% – 10%</td>
+              <td>Substrate Moisture %</td>
+              <td>• <strong>Paper & FBB Target:</strong> 6% – 8%<br>• <strong>Corrugated Fluted Board:</strong> 6% – 10%</td>
             </tr>
           </tbody>
         </table>
