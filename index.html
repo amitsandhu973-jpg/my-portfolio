@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Sandhu | Industrial Operations Control Center</title>
+  <title>Amit Sandhu | Industrial Operations Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #070a0f;
-      --bg-card: rgba(18, 26, 41, 0.7);
-      --bg-card-hover: rgba(30, 43, 67, 0.9);
+      --bg-main: #0a0d14;
+      --bg-sidebar: #111622;
+      --bg-card: rgba(21, 28, 43, 0.85);
+      --bg-card-hover: rgba(30, 40, 62, 0.9);
       --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(56, 189, 248, 0.4);
       --accent-cyan: #38bdf8;
       --accent-emerald: #34d399;
-      --accent-amber: #fbbf24;
       --accent-purple: #c084fc;
+      --accent-pink: #f472b6;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -25,426 +25,348 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-main);
       color: var(--text-main);
+      display: flex;
       min-height: 100vh;
-      padding: 24px 12px;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.08) 0%, transparent 40%);
+      overflow-x: hidden;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; }
+    /* LEFT SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      flex-shrink: 0;
+    }
 
-    /* APP HEADER */
-    .app-header {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--border-accent);
-      backdrop-filter: blur(16px);
-      border-radius: 20px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .brand-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; font-size: 1.2rem; color: #0a0d14;
+    }
+
+    .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    
+    .nav-item {
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* MAIN CONTENT AREA */
+    .main-wrapper {
+      flex: 1;
       padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      overflow-y: auto;
     }
 
-    .header-top {
+    /* TOP HEADER */
+    .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 28px;
+      background: var(--bg-card);
+      padding: 16px 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
     }
 
-    .user-profile h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(90deg, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .user-profile p { color: var(--accent-cyan); font-weight: 600; font-size: 0.95rem; }
+    .user-info h2 { font-size: 1.3rem; font-weight: 800; }
+    .user-info p { color: var(--accent-cyan); font-size: 0.85rem; font-weight: 600; }
 
-    .live-status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(52, 211, 153, 0.1);
+    .status-tag {
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--accent-emerald);
       border: 1px solid rgba(52, 211, 153, 0.3);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.8rem;
-      color: var(--accent-emerald);
       font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
     }
 
-    .status-dot { width: 8px; height: 8px; background: var(--accent-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--accent-emerald); }
+    .dot { width: 8px; height: 8px; background: var(--accent-emerald); border-radius: 50%; box-shadow: 0 0 8px var(--accent-emerald); }
 
-    /* SEARCH BAR & NAVIGATION TABS */
-    .search-box {
-      width: 100%;
-      margin-bottom: 20px;
+    /* DASHBOARD GRID LAYOUT */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
     }
 
-    .search-input {
-      width: 100%;
-      padding: 14px 20px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      color: #fff;
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.3s ease;
-    }
+    .col-8 { grid-column: span 8; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
 
-    .search-input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
-
-    .nav-tabs {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-    }
-
-    .tab-btn {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn:hover, .tab-btn.active {
-      background: var(--accent-cyan);
-      color: #070a0f;
-      border-color: var(--accent-cyan);
-      font-weight: 700;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-    }
-
-    /* TAB CONTENT */
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* GRID & CARDS */
-    .card {
+    /* CARD WIDGETS */
+    .widget {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
       border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
-    .card-head {
-      font-size: 1.25rem;
+    .widget-title {
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 16px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    /* CHART SIMULATOR BARS */
+    .chart-container {
       display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 150px;
+      padding-top: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bar-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      height: 100%;
+      justify-content: flex-end;
     }
 
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-
-    .box {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      transition: all 0.2s;
+    .bar {
+      width: 100%;
+      max-width: 28px;
+      background: linear-gradient(180deg, var(--accent-purple), var(--accent-cyan));
+      border-radius: 6px 6px 0 0;
+      transition: height 0.3s ease;
     }
 
-    .box:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+    .bar-label { font-size: 0.75rem; color: var(--text-muted); }
 
-    .box h4 { color: var(--accent-cyan); font-size: 1rem; margin-bottom: 10px; }
+    /* DATA LISTS & STATS */
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      margin: 8px 0;
+    }
 
-    ul.data-list { list-style: none; }
-    ul.data-list li {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+    .data-row {
       display: flex;
       justify-content: space-between;
-    }
-    ul.data-list li strong { color: var(--text-main); }
-
-    /* INTERACTIVE QC CALCULATOR */
-    .calc-container {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-accent);
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.88rem;
     }
 
-    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .data-row:last-child { border-bottom: none; }
+    .data-row span { color: var(--text-muted); }
+    .data-row strong { color: var(--text-main); }
 
+    /* INTERACTIVE CALCULATOR INPUTS */
+    .calc-box { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+    
     .calc-input {
       width: 100%;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.05);
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.3);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .calc-btn {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+      padding: 10px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
       border: none;
-      border-radius: 10px;
-      color: #070a0f;
+      border-radius: 8px;
+      color: #0a0d14;
       font-weight: 700;
       cursor: pointer;
-      font-size: 0.95rem;
-      transition: opacity 0.2s;
     }
 
-    .calc-btn:hover { opacity: 0.9; }
-
-    .calc-result {
-      margin-top: 14px;
+    .result-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.1rem;
-      color: var(--accent-amber);
-      font-weight: bold;
+      padding: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      border-radius: 8px;
       text-align: center;
+      font-weight: bold;
     }
 
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; }
+      .col-8, .col-4, .col-6 { grid-column: span 12; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">A</div>
+      <span>PRINT OS HUB</span>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="nav-item active">📊 Dashboard</li>
+      <li class="nav-item">⚙️ Press Specs</li>
+      <li class="nav-item">🔧 Mechanicals</li>
+      <li class="nav-item">🧪 Chemistry</li>
+      <li class="nav-item">🧮 QC Testing</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-wrapper">
     
-    <!-- HEADER -->
-    <header class="app-header">
-      <div class="header-top">
-        <div class="user-profile">
-          <h1>Amit Sandhu (Amit Kumar)</h1>
-          <p>Production Supervisor & Plant Operations Executive</p>
-        </div>
-        <div class="live-status">
-          <span class="status-dot"></span> Plant System Online
-        </div>
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="user-info">
+        <h2>Amit Sandhu (Amit Kumar)</h2>
+        <p>Production Supervisor & Plant Operations Executive</p>
       </div>
-
-      <!-- SEARCH BAR -->
-      <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search Press Specs, Anilox, Chemistry, or Lab Formulas..." onkeyup="filterContent()">
-      </div>
-
-      <!-- TABS NAVIGATION -->
-      <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'tab-specs')">⚙️ Press Specs</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-mechanics')">🔧 Mechanical Systems</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-chemistry')">🧪 Chemistry & Coating</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-qc')">📊 QC Lab & Live Calculators</button>
+      <div class="status-tag">
+        <span class="dot"></span> Live Plant Line
       </div>
     </header>
 
-    <!-- TAB 1: PRESS SPECS -->
-    <div id="tab-specs" class="tab-content active searchable">
-      <div class="card">
-        <div class="card-head">⚡ Heidelberg Speedmaster CD 102 (Detailed Setup)</div>
-        <div class="grid-2">
-          <div class="box">
-            <h4>Sheet & Production Limits</h4>
-            <ul class="data-list">
-              <span>Max Sheet Size:</span><strong>1020 × 720 mm</strong>
-              <span>Min Sheet Size:</span><strong>480 × 340 mm</strong>
-              <span>Max Speed:</span><strong>15,000 SPH</strong>
-              <span>Substrate Thickness:</span><strong>0.03 – 1.0 mm (28 - 460 GSM)</strong>
-              <span>Gripper Margin:</span><strong>10 – 12 mm</strong>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Cylinder Undercuts & Packing</h4>
-            <ul class="data-list">
-              <span>Plate Undercut:</span><strong>0.12 mm (Plate: 0.20-0.30mm)</strong>
-              <span>Blanket Undercut:</span><strong>2.30 mm (Blanket: 1.95 + 0.35 Packing)</strong>
-              <span>Coating Undercut:</span><strong>3.20 mm (Blanket: 1.95 + 1.25 Packing)</strong>
-            </ul>
-          </div>
+    <!-- DASHBOARD GRID -->
+    <div class="dashboard-grid">
+
+      <!-- WIDGET 1: PRODUCTION SPEED CHART (Col 8) -->
+      <div class="widget col-8">
+        <div class="widget-title">
+          <span>⚙️ Heidelberg CD 102 - Hourly Output (SPH)</span>
+          <span style="color: var(--accent-emerald); font-size: 0.85rem;">Max 15,000 SPH</span>
+        </div>
+        <div class="chart-container">
+          <div class="bar-group"><div class="bar" style="height: 60%;"></div><span class="bar-label">08:00</span></div>
+          <div class="bar-group"><div class="bar" style="height: 80%;"></div><span class="bar-label">10:00</span></div>
+          <div class="bar-group"><div class="bar" style="height: 95%;"></div><span class="bar-label">12:00</span></div>
+          <div class="bar-group"><div class="bar" style="height: 75%;"></div><span class="bar-label">14:00</span></div>
+          <div class="bar-group"><div class="bar" style="height: 90%;"></div><span class="bar-label">16:00</span></div>
+          <div class="bar-group"><div class="bar" style="height: 85%;"></div><span class="bar-label">18:00</span></div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-head">🖨️ Auxiliary Press Line Models</div>
-        <div class="grid-2">
-          <div class="box">
-            <h4>Heidelberg CD 74</h4>
-            <ul class="data-list">
-              <span>Max Sheet:</span><strong>530 × 740 mm</strong>
-              <span>Min Sheet:</span><strong>210 × 280 mm</strong>
-              <span>Undercuts:</span><strong>Plate 0.12mm / Blanket 2.30mm</strong>
-            </ul>
+      <!-- WIDGET 2: OEE OVERVIEW (Col 4) -->
+      <div class="widget col-4">
+        <div class="widget-title"><span>⚡ Overall Efficiency</span></div>
+        <div class="stat-value">88.5%</div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">Plant Performance Score</p>
+        <div class="data-row"><span>Availability:</span><strong>92%</strong></div>
+        <div class="data-row"><span>Performance:</span><strong>94%</strong></div>
+        <div class="data-row"><span>Quality Rate:</span><strong>98%</strong></div>
+      </div>
+
+      <!-- WIDGET 3: MACHINE SPECS (Col 6) -->
+      <div class="widget col-6">
+        <div class="widget-title"><span>📐 Heidelberg CD 102 Technical Setup</span></div>
+        <div class="data-row"><span>Max Sheet Size:</span><strong>1020 × 720 mm</strong></div>
+        <div class="data-row"><span>Min Sheet Size:</span><strong>480 × 340 mm</strong></div>
+        <div class="data-row"><span>Substrate Thickness:</span><strong>0.03 – 1.0 mm (28 - 460 GSM)</strong></div>
+        <div class="data-row"><span>Plate Cylinder Undercut:</span><strong>0.12 mm</strong></div>
+        <div class="data-row"><span>Blanket Undercut:</span><strong>2.30 mm (1.95 + 0.35)</strong></div>
+      </div>
+
+      <!-- WIDGET 4: CHEMISTRY & FOUNTAIN (Col 6) -->
+      <div class="widget col-6">
+        <div class="widget-title"><span>🧪 Chemistry & Coating Standards</span></div>
+        <div class="data-row"><span>Fountain Solution Recipe:</span><strong>86% Water + 2-4% Fount + IPA</strong></div>
+        <div class="data-row"><span>pH Balance Target:</span><strong>4.5 – 5.5</strong></div>
+        <div class="data-row"><span>Chiller Temp:</span><strong>8°C – 10°C</strong></div>
+        <div class="data-row"><span>Aqueous Coating Weight:</span><strong>2 – 4 g/m²</strong></div>
+        <div class="data-row"><span>UV Coating Weight:</span><strong>3 – 10 g/m²</strong></div>
+      </div>
+
+      <!-- WIDGET 5: QC LAB LIVE CALCULATOR (Col 12) -->
+      <div class="widget col-12">
+        <div class="widget-title"><span>🧮 Live Quality Control (QC) Lab Operations</span></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          
+          <!-- GSM Calc -->
+          <div class="calc-box">
+            <h4 style="color: var(--accent-cyan);">GSM Calculator</h4>
+            <input type="number" id="w" class="calc-input" placeholder="Weight (Grams)">
+            <input type="number" id="l" class="calc-input" placeholder="Length (cm)">
+            <input type="number" id="b" class="calc-input" placeholder="Width (cm)">
+            <button class="calc-btn" onclick="calcGSM()">Calculate GSM</button>
+            <div id="gsmRes" class="result-badge">Result: -- g/m²</div>
           </div>
-          <div class="box">
-            <h4>Heidelberg SM 102 & Komori 40</h4>
-            <ul class="data-list">
-              <span>SM 102 Max Sheet:</span><strong>720 × 1020 mm (Convertible Perfector)</strong>
-              <span>Komori 40 Max Sheet:</span><strong>720 × 1030 mm (Dual Impression)</strong>
-            </ul>
+
+          <!-- Taber Stiffness Calc -->
+          <div class="calc-box">
+            <h4 style="color: var(--accent-emerald);">Taber Stiffness Calculator</h4>
+            <input type="number" id="left" class="calc-input" placeholder="Left Reading">
+            <input type="number" id="right" class="calc-input" placeholder="Right Reading">
+            <button class="calc-btn" onclick="calcStiffness()">Calculate Stiffness</button>
+            <div id="taberRes" class="result-badge">Result: -- mN</div>
           </div>
+
         </div>
       </div>
+
     </div>
-
-    <!-- TAB 2: MECHANICAL SYSTEMS -->
-    <div id="tab-mechanics" class="tab-content searchable">
-      <div class="card">
-        <div class="card-head">📦 Feeder Head & Delivery Mechanics</div>
-        <div class="grid-2">
-          <div class="box">
-            <h4>Feeder Head Assembly</h4>
-            <ul class="data-list">
-              <span>Suckers:</span><strong>4 Lifting + 5 Forwarding</strong>
-              <span>Blowers:</span><strong>17 Adjustable Nozzles</strong>
-              <span>Separators:</span><strong>6 Flexible Steel Fingers</strong>
-              <span>Double Sheet Sensor:</span><strong>Ultrasonic Unit</strong>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Delivery & Thermal Profile</h4>
-            <ul class="data-list">
-              <span>Gripper Bars:</span><strong>14 Bars (18 Fingers per bar)</strong>
-              <span>Varnish Temp Target:</span><strong>32°C – 34°C (Protective)</strong>
-              <span>High Gloss Temp:</span><strong>36°C – 38°C</strong>
-              <span>Powder Nozzles:</span><strong>8 Spray Nozzles</strong>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: CHEMISTRY & COATING -->
-    <div id="tab-chemistry" class="tab-content searchable">
-      <div class="card">
-        <div class="card-head">🧪 Fountain Solution & Anilox Parameters</div>
-        <div class="grid-2">
-          <div class="box">
-            <h4>Fountain Solution Balance</h4>
-            <ul class="data-list">
-              <span>Standard Recipe:</span><strong>86% Water + 2-4% Fount + IPA</strong>
-              <span>Target pH Range:</span><strong>4.5 – 5.5</strong>
-              <span>Chiller Temp:</span><strong>8°C – 10°C</strong>
-              <span>Conductivity:</span><strong>800 – 2000 µS/cm</strong>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Inline Coating GSM Weights</h4>
-            <ul class="data-list">
-              <span>Aqueous Coating:</span><strong>2 – 4 g/m²</strong>
-              <span>UV Coating:</span><strong>3 – 10 g/m²</strong>
-              <span>Soft Touch:</span><strong>3 – 4 g/m²</strong>
-              <span>Doctor Blade Angle:</span><strong>55° – 65°</strong>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 4: QC LAB & CALCULATORS -->
-    <div id="tab-qc" class="tab-content searchable">
-      <div class="card">
-        <div class="card-head">🧮 Interactive QC Lab Calculator (Live Operation)</div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Enter sample values below to instantly compute GSM & Taber Stiffness:</p>
-        
-        <!-- GSM CALCULATOR -->
-        <div class="calc-container">
-          <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">1. Instant GSM Calculator</h4>
-          <div class="calc-grid">
-            <input type="number" id="gsmWeight" class="calc-input" placeholder="Weight (Grams)">
-            <input type="number" id="gsmLength" class="calc-input" placeholder="Length (cm)">
-            <input type="number" id="gsmWidth" class="calc-input" placeholder="Width (cm)">
-          </div>
-          <button class="calc-btn" onclick="calculateGSM()">Calculate GSM</button>
-          <div id="gsmResult" class="calc-result">GSM: -- g/m²</div>
-        </div>
-
-        <!-- STIFFNESS CALCULATOR -->
-        <div class="calc-container">
-          <h4 style="color: var(--accent-emerald); margin-bottom: 10px;">2. Taber Stiffness Calculator</h4>
-          <div class="calc-grid">
-            <input type="number" id="taberLeft" class="calc-input" placeholder="Left Reading">
-            <input type="number" id="taberRight" class="calc-input" placeholder="Right Reading">
-          </div>
-          <button class="calc-btn" onclick="calculateStiffness()">Calculate Stiffness</button>
-          <div id="taberResult" class="calc-result">Stiffness: -- mN</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  </main>
 
   <script>
-    // TAB SWITCHING FUNCTION
-    function switchTab(evt, tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const btns = document.querySelectorAll('.tab-btn');
-      
-      tabs.forEach(tab => tab.classList.remove('active'));
-      btns.forEach(btn => btn.classList.remove('active'));
-
-      document.getElementById(tabId).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
-
-    // LIVE SEARCH FILTER
-    function filterContent() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.searchable .box');
-      
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        if(text.includes(input)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    // LIVE GSM CALCULATOR LOGIC
-    function calculateGSM() {
-      const w = parseFloat(document.getElementById('gsmWeight').value);
-      const l = parseFloat(document.getElementById('gsmLength').value);
-      const b = parseFloat(document.getElementById('gsmWidth').value);
-
+    function calcGSM() {
+      const w = parseFloat(document.getElementById('w').value);
+      const l = parseFloat(document.getElementById('l').value);
+      const b = parseFloat(document.getElementById('b').value);
       if(w && l && b) {
-        const areaInCm2 = l * b;
-        const gsm = (w / areaInCm2) * 10000;
-        document.getElementById('gsmResult').innerText = `Calculated GSM: ${gsm.toFixed(2)} g/m²`;
-      } else {
-        document.getElementById('gsmResult').innerText = "⚠️ Enter valid values!";
+        const gsm = (w / (l * b)) * 10000;
+        document.getElementById('gsmRes').innerText = `GSM: ${gsm.toFixed(2)} g/m²`;
       }
     }
 
-    // LIVE TABER STIFFNESS CALCULATOR LOGIC
-    function calculateStiffness() {
-      const left = parseFloat(document.getElementById('taberLeft').value);
-      const right = parseFloat(document.getElementById('taberRight').value);
-
-      if(left && right) {
-        const taberUnit = ((left + right) * 5) / 2;
-        const mN = 2.04 * taberUnit;
-        document.getElementById('taberResult').innerText = `${taberUnit.toFixed(1)} Taber Units (${mN.toFixed(2)} mN)`;
-      } else {
-        document.getElementById('taberResult').innerText = "⚠️ Enter valid readings!";
+    function calcStiffness() {
+      const l = parseFloat(document.getElementById('left').value);
+      const r = parseFloat(document.getElementById('right').value);
+      if(l && r) {
+        const taber = ((l + r) * 5) / 2;
+        const mN = 2.04 * taber;
+        document.getElementById('taberRes').innerText = `${taber.toFixed(1)} Taber (${mN.toFixed(2)} mN)`;
       }
     }
   </script>
-
 </body>
 </html>
