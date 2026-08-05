@@ -3,506 +3,448 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Sandhu | Industrial Printing & Packaging Operations Hub</title>
+  <title>Amit Sandhu | Industrial Operations Control Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0b0f17;
-      --bg-card: #131c2a;
-      --bg-card-hover: #1a2638;
+      --bg-dark: #070a0f;
+      --bg-card: rgba(18, 26, 41, 0.7);
+      --bg-card-hover: rgba(30, 43, 67, 0.9);
       --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(56, 189, 248, 0.3);
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
+      --border-accent: rgba(56, 189, 248, 0.4);
       --accent-cyan: #38bdf8;
       --accent-emerald: #34d399;
       --accent-amber: #fbbf24;
       --accent-purple: #c084fc;
-      --glow-cyan: rgba(56, 189, 248, 0.15);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-    
+
     body {
       background-color: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      padding: 20px 12px;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px 12px;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(52, 211, 153, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.08) 0%, transparent 40%);
     }
 
-    .container { max-width: 1150px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 0 auto; }
 
-    /* HEADER DASHBOARD */
-    .hero-header {
-      background: linear-gradient(135deg, rgba(19, 28, 42, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+    /* APP HEADER */
+    .app-header {
+      background: rgba(15, 23, 42, 0.8);
       border: 1px solid var(--border-accent);
+      backdrop-filter: blur(16px);
       border-radius: 20px;
-      padding: 35px 25px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      margin-bottom: 30px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     }
 
-    .hero-header::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald), var(--accent-purple));
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .status-badge {
-      display: inline-flex;
+    .user-profile h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(90deg, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .user-profile p { color: var(--accent-cyan); font-weight: 600; font-size: 0.95rem; }
+
+    .live-status {
+      display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--glow-cyan);
-      color: var(--accent-cyan);
-      border: 1px solid var(--border-accent);
-      padding: 6px 16px;
-      border-radius: 30px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
       font-size: 0.8rem;
+      color: var(--accent-emerald);
       font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
     }
 
-    .status-dot {
-      width: 8px; height: 8px;
-      background-color: var(--accent-emerald);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-emerald);
+    .status-dot { width: 8px; height: 8px; background: var(--accent-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--accent-emerald); }
+
+    /* SEARCH BAR & NAVIGATION TABS */
+    .search-box {
+      width: 100%;
+      margin-bottom: 20px;
     }
 
-    .hero-header h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .hero-header h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      margin-bottom: 15px;
-    }
-
-    .hero-header p {
-      color: var(--text-secondary);
-      font-size: 0.98rem;
-      max-width: 850px;
-      margin: 0 auto 20px auto;
-    }
-
-    .pills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .pill-item {
-      background: rgba(255, 255, 255, 0.03);
+    .search-input {
+      width: 100%;
+      padding: 14px 20px;
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      color: var(--text-primary);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* CARD STYLES */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-radius: 14px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
       transition: all 0.3s ease;
     }
 
-    .card:hover { border-color: rgba(56, 189, 248, 0.2); }
+    .search-input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
 
-    .card-title {
-      font-size: 1.4rem;
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--accent-cyan);
+      color: #070a0f;
+      border-color: var(--accent-cyan);
       font-weight: 700;
-      color: #ffffff;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* TAB CONTENT */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* GRID & CARDS */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .card-head {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 22px;
+      gap: 10px;
     }
 
-    .card-title span.num {
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 
-    .sub-heading {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent-emerald);
-      margin: 22px 0 14px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* STATS & GRID */
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-
-    .stat-box {
+    .box {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 18px;
-      transition: transform 0.2s;
+      padding: 16px;
+      transition: all 0.2s;
     }
 
-    .stat-box:hover {
-      transform: translateY(-2px);
-      background: var(--bg-card-hover);
-      border-color: var(--border-accent);
+    .box:hover { border-color: var(--border-accent); background: var(--bg-card-hover); }
+
+    .box h4 { color: var(--accent-cyan); font-size: 1rem; margin-bottom: 10px; }
+
+    ul.data-list { list-style: none; }
+    ul.data-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    ul.data-list li strong { color: var(--text-main); }
+
+    /* INTERACTIVE QC CALCULATOR */
+    .calc-container {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 15px;
     }
 
-    .stat-box h4 {
-      font-size: 1.05rem;
-      color: var(--accent-cyan);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 14px; }
 
-    ul.tech-list { list-style: none; }
-    ul.tech-list li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 8px;
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-    }
-    ul.tech-list li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: var(--accent-emerald);
-      font-weight: bold;
-    }
-    ul.tech-list li strong { color: var(--text-primary); }
-
-    /* MODERN TABLES */
-    .table-container {
+    .calc-input {
       width: 100%;
-      overflow-x: auto;
-      border-radius: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.05);
       border: 1px solid var(--border);
-      margin: 15px 0;
-      background: rgba(0,0,0,0.2);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
+      border-radius: 8px;
+      color: #fff;
       font-size: 0.9rem;
     }
 
-    table th {
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--accent-cyan);
-      padding: 14px 16px;
+    .calc-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+      border: none;
+      border-radius: 10px;
+      color: #070a0f;
       font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      letter-spacing: 0.8px;
-      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
     }
 
-    table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      color: var(--text-secondary);
-    }
+    .calc-btn:hover { opacity: 0.9; }
 
-    table td strong { color: var(--text-primary); }
-
-    table tr:last-child td { border-bottom: none; }
-    table tr:hover { background: rgba(255, 255, 255, 0.02); }
-
-    /* CODE & FORMULAS */
-    .formula-code {
+    .calc-result {
+      margin-top: 14px;
       font-family: 'JetBrains Mono', monospace;
-      background: #070a0f;
+      font-size: 1.1rem;
       color: var(--accent-amber);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      border: 1px solid rgba(251, 191, 36, 0.2);
-      display: inline-block;
-      margin-top: 4px;
+      font-weight: bold;
+      text-align: center;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .tag-cyan { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); }
-    .tag-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); }
-    .tag-purple { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
-
-    @media (max-width: 768px) {
-      .hero-header h1 { font-size: 1.8rem; }
-      .card { padding: 20px; }
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
     
-    <!-- HERO HEADER -->
-    <header class="hero-header">
-      <div class="status-badge">
-        <span class="status-dot"></span> Plant Operations Active
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="user-profile">
+          <h1>Amit Sandhu (Amit Kumar)</h1>
+          <p>Production Supervisor & Plant Operations Executive</p>
+        </div>
+        <div class="live-status">
+          <span class="status-dot"></span> Plant System Online
+        </div>
       </div>
-      <h1>Amit Sandhu (Amit Kumar)</h1>
-      <h2>Production Supervisor & Plant Executive</h2>
-      <p>B.Tech in Printing & Packaging Technology with 9+ years of core expertise driving sheet-fed stability, press workflows, substrate mechanics, and advanced quality assurance.</p>
-      
-      <div class="pills-container">
-        <div class="pill-item">🏢 Kumar Printers Pvt. Ltd., Manesar</div>
-        <div class="pill-item">⚙️ Offset & Packaging Specialist</div>
-        <div class="pill-item">🎓 B.Tech Tech Specialist</div>
+
+      <!-- SEARCH BAR -->
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search Press Specs, Anilox, Chemistry, or Lab Formulas..." onkeyup="filterContent()">
+      </div>
+
+      <!-- TABS NAVIGATION -->
+      <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'tab-specs')">⚙️ Press Specs</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-mechanics')">🔧 Mechanical Systems</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-chemistry')">🧪 Chemistry & Coating</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-qc')">📊 QC Lab & Live Calculators</button>
       </div>
     </header>
 
-    <!-- SECTION 1: PRESS MACHINERY -->
-    <section class="card">
-      <h2 class="card-title"><span class="num">01.</span> Printing Press Machinery & Technical Specs</h2>
-
-      <h3 class="sub-heading">A. Heidelberg Speedmaster CD 102 (New Generation)</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr><th>Operational Parameter</th><th>Standard Factory Specification</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Max Sheet Size</strong></td><td>1020 × 720 mm</td></tr>
-            <tr><td><strong>Min Sheet Size</strong></td><td>480 × 340 mm</td></tr>
-            <tr><td><strong>Max Printing Format</strong></td><td>1020 × 710 mm</td></tr>
-            <tr><td><strong>Production Speed Range</strong></td><td>3,000 – 15,000 SPH (Sheets Per Hour)</td></tr>
-            <tr><td><strong>Substrate Thickness Range</strong></td><td>0.03 mm – 1.0 mm (28 GSM to 460 GSM)</td></tr>
-            <tr><td><strong>Gripper Margin</strong></td><td>10 mm – 12 mm Standard Clearance</td></tr>
-            <tr><td><strong>Pile Height Standard</strong></td><td>Feeder Pile: 1320 mm | Delivery Pile: 1295 mm</td></tr>
-            <tr><td><strong>Plate Cylinder Setup</strong></td><td>Undercut: 0.12 mm | Size: 1030 × 790 mm | Plate Thickness: 0.20 – 0.30 mm</td></tr>
-            <tr><td><strong>Blanket Cylinder Setup</strong></td><td>Undercut: 2.30 mm | Size: 1052 × 840 mm | Blanket: 1.95 mm + Packing: 0.35 mm</td></tr>
-            <tr><td><strong>Coating Cylinder Setup</strong></td><td>Undercut: 3.20 mm | Size: 1052 × 800 mm | Blanket: 1.95 mm + Packing: 1.25 mm</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="sub-heading">B. Additional Press Line Machinery Specs</h3>
-      <div class="grid-3">
-        <div class="stat-box">
-          <span class="tag tag-cyan">Press Line</span>
-          <h4>Heidelberg CD 74</h4>
-          <ul class="tech-list">
-            <li><strong>Max Sheet:</strong> 530 × 740 mm</li>
-            <li><strong>Min Sheet:</strong> 210 × 280 mm</li>
-            <li><strong>Plate Undercut:</strong> 0.12 mm</li>
-            <li><strong>Blanket Undercut:</strong> 2.30 mm</li>
-          </ul>
-        </div>
-
-        <div class="stat-box">
-          <span class="tag tag-green">Perfecting</span>
-          <h4>Heidelberg SM 102</h4>
-          <ul class="tech-list">
-            <li><strong>Max Sheet:</strong> 720 × 1020 mm</li>
-            <li><strong>Feature:</strong> Convertible Perfector</li>
-            <li><strong>Speed:</strong> Up to 13,000 SPH</li>
-            <li><strong>Substrate:</strong> Paper & Board</li>
-          </ul>
-        </div>
-
-        <div class="stat-box">
-          <span class="tag tag-purple">High Speed</span>
-          <h4>Komori Perfector 40</h4>
-          <ul class="tech-list">
-            <li><strong>Max Sheet:</strong> 720 × 1030 mm</li>
-            <li><strong>Mechanism:</strong> Dual Impression</li>
-            <li><strong>Workflow:</strong> Both-side Inline Print</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: MACHINE MECHANICS -->
-    <section class="card">
-      <h2 class="card-title"><span class="num">02.</span> Machine Sub-Systems & Mechanical Operations</h2>
-
-      <div class="grid-2">
-        <div class="stat-box">
-          <h4>Feeder Head & Sheet Separation</h4>
-          <ul class="tech-list">
-            <li><strong>Suckers:</strong> 4 Lifting Suckers + 5 Forwarding Suckers</li>
-            <li><strong>Air Blowers:</strong> 17 Adjustable Air Blower Nozzles</li>
-            <li><strong>Sheet Separators:</strong> 6 Flexible Steel Fingers</li>
-            <li><strong>Rear Edge Stoppers:</strong> 2 Units (Maintained 1 mm from sheet edge)</li>
-            <li><strong>Stack Height:</strong> Maintained 5–8 mm below forwarding flap</li>
-            <li><strong>Alignment Lays:</strong> 2 Side Lays + 18 Front Lay Pins</li>
-            <li><strong>Sensors:</strong> Ultrasonic Double Sheet Detector</li>
-          </ul>
-        </div>
-
-        <div class="stat-box">
-          <h4>Inking & Dampening Systems</h4>
-          <ul class="tech-list">
-            <li><strong>White Form Roller:</strong> ⌀ 60 mm</li>
-            <li><strong>Blue Form Roller:</strong> ⌀ 72 mm</li>
-            <li><strong>Red Form Roller:</strong> ⌀ 66 mm</li>
-            <li><strong>Yellow Form Roller:</strong> ⌀ 80 mm</li>
-            <li><strong>Transfer Rollers:</strong> 10 Rollers (5 Rilsan + 5 Rubber)</li>
-            <li><strong>Oscillators:</strong> 4 Units (⌀ 85 mm)</li>
-            <li><strong>Dampening System:</strong> Pan (⌀108mm), SS Metering (⌀98mm), Form (⌀78mm), Vario (⌀85mm)</li>
-          </ul>
+    <!-- TAB 1: PRESS SPECS -->
+    <div id="tab-specs" class="tab-content active searchable">
+      <div class="card">
+        <div class="card-head">⚡ Heidelberg Speedmaster CD 102 (Detailed Setup)</div>
+        <div class="grid-2">
+          <div class="box">
+            <h4>Sheet & Production Limits</h4>
+            <ul class="data-list">
+              <span>Max Sheet Size:</span><strong>1020 × 720 mm</strong>
+              <span>Min Sheet Size:</span><strong>480 × 340 mm</strong>
+              <span>Max Speed:</span><strong>15,000 SPH</strong>
+              <span>Substrate Thickness:</span><strong>0.03 – 1.0 mm (28 - 460 GSM)</strong>
+              <span>Gripper Margin:</span><strong>10 – 12 mm</strong>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Cylinder Undercuts & Packing</h4>
+            <ul class="data-list">
+              <span>Plate Undercut:</span><strong>0.12 mm (Plate: 0.20-0.30mm)</strong>
+              <span>Blanket Undercut:</span><strong>2.30 mm (Blanket: 1.95 + 0.35 Packing)</strong>
+              <span>Coating Undercut:</span><strong>3.20 mm (Blanket: 1.95 + 1.25 Packing)</strong>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <h3 class="sub-heading">Delivery Controls & Thermal Profiles</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr><th>Component / Process</th><th>Operational Standard & Temperature</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Delivery Gripper Bars</strong></td><td>14 Gripper Bars (Each equipped with 18 Gripper Fingers)</td></tr>
-            <tr><td><strong>Air Blow-down & Suction</strong></td><td>25 Air Blow Fans + 5 Suction Slow-down Discs</td></tr>
-            <tr><td><strong>Anti-Set-Off Powder Unit</strong></td><td>8 Spray Nozzles (Ratio: 80% Uncoated Paper / 20% Coated Paper)</td></tr>
-            <tr><td><strong>Protective Varnish Temp</strong></td><td>Maintained at 32°C – 34°C</td></tr>
-            <tr><td><strong>Ink & Gloss Varnish Temp</strong></td><td>Maintained at 36°C</td></tr>
-            <tr><td><strong>High Gloss Varnish Temp</strong></td><td>Maintained at 36°C – 38°C</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- SECTION 3: CHEMISTRY & COATING -->
-    <section class="card">
-      <h2 class="card-title"><span class="num">03.</span> Printing Chemistry & Inline Coating Standards</h2>
-
-      <div class="grid-2">
-        <div class="stat-box">
-          <h4>Fountain Solution Controls</h4>
-          <ul class="tech-list">
-            <li><strong>Chemical Recipe:</strong> 86% Water + 2–4% Fountain Solution + IPA</li>
-            <li><strong>pH Target Range:</strong> 4.5 – 5.5 (Acidic Balance)</li>
-            <li><strong>Chiller Temperature:</strong> 8°C – 10°C</li>
-            <li><strong>Conductivity Limit:</strong> 800 – 2000 µS/cm (UV: 800 – 2500 µS/cm)</li>
-          </ul>
-        </div>
-
-        <div class="stat-box">
-          <h4>Offset Inks & Anilox Parameters</h4>
-          <ul class="tech-list">
-            <li><strong>Ink Ingredients:</strong> Pigment, Synthetic Resins, Vehicles, Driers</li>
-            <li><strong>Ink Viscosity:</strong> High Paste (40 – 100 Pa·s)</li>
-            <li><strong>Anilox Rollers:</strong> Ceramic Plasma & Chromium Anilox</li>
-            <li><strong>Cell Angles:</strong> 45° and 60° Hexagonal/Pyramid Cells</li>
-            <li><strong>Doctor Blade Angle:</strong> Set between 55° and 65°</li>
-          </ul>
+      <div class="card">
+        <div class="card-head">🖨️ Auxiliary Press Line Models</div>
+        <div class="grid-2">
+          <div class="box">
+            <h4>Heidelberg CD 74</h4>
+            <ul class="data-list">
+              <span>Max Sheet:</span><strong>530 × 740 mm</strong>
+              <span>Min Sheet:</span><strong>210 × 280 mm</strong>
+              <span>Undercuts:</span><strong>Plate 0.12mm / Blanket 2.30mm</strong>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Heidelberg SM 102 & Komori 40</h4>
+            <ul class="data-list">
+              <span>SM 102 Max Sheet:</span><strong>720 × 1020 mm (Convertible Perfector)</strong>
+              <span>Komori 40 Max Sheet:</span><strong>720 × 1030 mm (Dual Impression)</strong>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
 
-      <h3 class="sub-heading">Inline Coating Types & Application Weights</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr><th>Coating Finish</th><th>Coating Weight (GSM)</th><th>Property & Technical Advantage</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Aqueous Coating</strong></td><td>2 – 4 g/m²</td><td>Water-based, rapid inline drying, scuff resistant.</td></tr>
-            <tr><td><strong>Varnish Coating</strong></td><td>2 – 4 g/m²</td><td>Oil-based protection (Gloss, Satin, or Matte).</td></tr>
-            <tr><td><strong>Primer Coating</strong></td><td>1.5 – 4 g/m²</td><td>Base coat for enhancing UV adhesion & line creasing.</td></tr>
-            <tr><td><strong>Soft Touch Coating</strong></td><td>3 – 4 g/m²</td><td>Velvet luxury feel, non-yellowing surface finish.</td></tr>
-            <tr><td><strong>UV Coating</strong></td><td>3 – 10 g/m²</td><td>Instant UV curing, ultra-glossy & chemical resistant.</td></tr>
-          </tbody>
-        </table>
+    <!-- TAB 2: MECHANICAL SYSTEMS -->
+    <div id="tab-mechanics" class="tab-content searchable">
+      <div class="card">
+        <div class="card-head">📦 Feeder Head & Delivery Mechanics</div>
+        <div class="grid-2">
+          <div class="box">
+            <h4>Feeder Head Assembly</h4>
+            <ul class="data-list">
+              <span>Suckers:</span><strong>4 Lifting + 5 Forwarding</strong>
+              <span>Blowers:</span><strong>17 Adjustable Nozzles</strong>
+              <span>Separators:</span><strong>6 Flexible Steel Fingers</strong>
+              <span>Double Sheet Sensor:</span><strong>Ultrasonic Unit</strong>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Delivery & Thermal Profile</h4>
+            <ul class="data-list">
+              <span>Gripper Bars:</span><strong>14 Bars (18 Fingers per bar)</strong>
+              <span>Varnish Temp Target:</span><strong>32°C – 34°C (Protective)</strong>
+              <span>High Gloss Temp:</span><strong>36°C – 38°C</strong>
+              <span>Powder Nozzles:</span><strong>8 Spray Nozzles</strong>
+            </ul>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 4: QC LAB FORMULAS -->
-    <section class="card">
-      <h2 class="card-title"><span class="num">04.</span> Quality Control (QC) Lab Testing & Formulas</h2>
-
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr><th>Test Equipment</th><th>Tested Parameter</th><th>Calculation Formula & Test Standard</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Rub / Scuff Tester</strong></td>
-              <td>Ink Rub Resistance</td>
-              <td>60 RPM @ 2 lbs weight.<br>• <strong>Aqueous Target:</strong> Min 500 rubs<br>• <strong>UV Target:</strong> Min 750 rubs</td>
-            </tr>
-            <tr>
-              <td><strong>GSM Tester</strong></td>
-              <td>Paper / Board Grammage</td>
-              <td><span class="formula-code">GSM = (Weight in Grams / Area in cm²) × 10,000</span></td>
-            </tr>
-            <tr>
-              <td><strong>Taber Stiffness Tester</strong></td>
-              <td>Bending Resistance</td>
-              <td><span class="formula-code">Stiffness (MD) = [(Left + Right) × 5] / 2</span><br>Conversion: <span class="formula-code">mN = 2.04 × Taber Unit</span></td>
-            </tr>
-            <tr>
-              <td><strong>Bursting Tester</strong></td>
-              <td>Substrate Rupture Limit</td>
-              <td><span class="formula-code">Burst Factor = (Bursting Strength / Dry GSM) × 1000</span></td>
-            </tr>
-            <tr>
-              <td><strong>Cobb Tester</strong></td>
-              <td>Water Absorption Capacity</td>
-              <td><span class="formula-code">Cobb = Weight After Exposure - Initial Dry Weight</span></td>
-            </tr>
-            <tr>
-              <td><strong>B4 Ford Cup</strong></td>
-              <td>Coating Viscosity</td>
-              <td>Efflux Time in Seconds recorded at 25°C standard.</td>
-            </tr>
-            <tr>
-              <td><strong>Moisture Meter</strong></td>
-              <td>Substrate Moisture %</td>
-              <td>• <strong>Paper/FBB Target:</strong> 6% – 8%<br>• <strong>Corrugated Board:</strong> 6% – 10%</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- TAB 3: CHEMISTRY & COATING -->
+    <div id="tab-chemistry" class="tab-content searchable">
+      <div class="card">
+        <div class="card-head">🧪 Fountain Solution & Anilox Parameters</div>
+        <div class="grid-2">
+          <div class="box">
+            <h4>Fountain Solution Balance</h4>
+            <ul class="data-list">
+              <span>Standard Recipe:</span><strong>86% Water + 2-4% Fount + IPA</strong>
+              <span>Target pH Range:</span><strong>4.5 – 5.5</strong>
+              <span>Chiller Temp:</span><strong>8°C – 10°C</strong>
+              <span>Conductivity:</span><strong>800 – 2000 µS/cm</strong>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Inline Coating GSM Weights</h4>
+            <ul class="data-list">
+              <span>Aqueous Coating:</span><strong>2 – 4 g/m²</strong>
+              <span>UV Coating:</span><strong>3 – 10 g/m²</strong>
+              <span>Soft Touch:</span><strong>3 – 4 g/m²</strong>
+              <span>Doctor Blade Angle:</span><strong>55° – 65°</strong>
+            </ul>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- TAB 4: QC LAB & CALCULATORS -->
+    <div id="tab-qc" class="tab-content searchable">
+      <div class="card">
+        <div class="card-head">🧮 Interactive QC Lab Calculator (Live Operation)</div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Enter sample values below to instantly compute GSM & Taber Stiffness:</p>
+        
+        <!-- GSM CALCULATOR -->
+        <div class="calc-container">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">1. Instant GSM Calculator</h4>
+          <div class="calc-grid">
+            <input type="number" id="gsmWeight" class="calc-input" placeholder="Weight (Grams)">
+            <input type="number" id="gsmLength" class="calc-input" placeholder="Length (cm)">
+            <input type="number" id="gsmWidth" class="calc-input" placeholder="Width (cm)">
+          </div>
+          <button class="calc-btn" onclick="calculateGSM()">Calculate GSM</button>
+          <div id="gsmResult" class="calc-result">GSM: -- g/m²</div>
+        </div>
+
+        <!-- STIFFNESS CALCULATOR -->
+        <div class="calc-container">
+          <h4 style="color: var(--accent-emerald); margin-bottom: 10px;">2. Taber Stiffness Calculator</h4>
+          <div class="calc-grid">
+            <input type="number" id="taberLeft" class="calc-input" placeholder="Left Reading">
+            <input type="number" id="taberRight" class="calc-input" placeholder="Right Reading">
+          </div>
+          <button class="calc-btn" onclick="calculateStiffness()">Calculate Stiffness</button>
+          <div id="taberResult" class="calc-result">Stiffness: -- mN</div>
+        </div>
+      </div>
+    </div>
 
   </div>
+
+  <script>
+    // TAB SWITCHING FUNCTION
+    function switchTab(evt, tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const btns = document.querySelectorAll('.tab-btn');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      btns.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    // LIVE SEARCH FILTER
+    function filterContent() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.searchable .box');
+      
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if(text.includes(input)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // LIVE GSM CALCULATOR LOGIC
+    function calculateGSM() {
+      const w = parseFloat(document.getElementById('gsmWeight').value);
+      const l = parseFloat(document.getElementById('gsmLength').value);
+      const b = parseFloat(document.getElementById('gsmWidth').value);
+
+      if(w && l && b) {
+        const areaInCm2 = l * b;
+        const gsm = (w / areaInCm2) * 10000;
+        document.getElementById('gsmResult').innerText = `Calculated GSM: ${gsm.toFixed(2)} g/m²`;
+      } else {
+        document.getElementById('gsmResult').innerText = "⚠️ Enter valid values!";
+      }
+    }
+
+    // LIVE TABER STIFFNESS CALCULATOR LOGIC
+    function calculateStiffness() {
+      const left = parseFloat(document.getElementById('taberLeft').value);
+      const right = parseFloat(document.getElementById('taberRight').value);
+
+      if(left && right) {
+        const taberUnit = ((left + right) * 5) / 2;
+        const mN = 2.04 * taberUnit;
+        document.getElementById('taberResult').innerText = `${taberUnit.toFixed(1)} Taber Units (${mN.toFixed(2)} mN)`;
+      } else {
+        document.getElementById('taberResult').innerText = "⚠️ Enter valid readings!";
+      }
+    }
+  </script>
 
 </body>
 </html>
