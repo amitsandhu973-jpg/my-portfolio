@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Sandhu | Metallic Gold & Silver Operations Hub</title>
+  <title>Amit Sandhu | 10-Page Operations Data Book</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -12,17 +12,12 @@
       --bg-deep: #080a0f;
       --bg-card: rgba(18, 22, 32, 0.95);
       
-      /* METALLIC GOLD GRADIENTS */
+      /* METALLIC GRADIENTS */
       --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-      --gold-text: linear-gradient(180deg, #ffe082 0%, #c5a059 100%);
       --gold-border: linear-gradient(90deg, #bf953f, #fcf6ba, #aa771c);
       --gold-accent: #d4af37;
-      
-      /* METALLIC SILVER GRADIENTS */
-      --silver-gradient: linear-gradient(135deg, #e6e8fa, #8a9ea7, #e6e8fa, #708090);
-      --silver-text: linear-gradient(180deg, #ffffff 0%, #b0c4de 100%);
-      --silver-border: rgba(230, 232, 250, 0.25);
       --silver-accent: #e2e8f0;
+      --silver-border: rgba(230, 232, 250, 0.25);
 
       --text-main: #e2e8f0;
       --text-muted: #94a3b8;
@@ -33,32 +28,27 @@
     body {
       background-color: var(--bg-deep);
       color: var(--text-main);
-      padding: 24px;
+      padding: 20px;
       min-height: 100vh;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(191, 149, 63, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(230, 232, 250, 0.05) 0%, transparent 40%);
     }
 
-    .container { max-width: 1400px; margin: 0 auto; }
+    .container { max-width: 1250px; margin: 0 auto; }
 
-    /* METALLIC GOLD HEADER FRAME */
-    .gold-frame-header {
+    /* HEADER */
+    .header-frame {
       position: relative;
       background: var(--bg-card);
       border-radius: 16px;
-      padding: 28px 32px;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 15px rgba(212, 175, 55, 0.15);
+      padding: 24px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
     }
 
-    /* Metallic Border Stroke */
-    .gold-frame-header::before {
+    .header-frame::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -71,244 +61,133 @@
       pointer-events: none;
     }
 
-    .header-title h1 {
+    .header-frame h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
       text-transform: uppercase;
-      text-shadow: 0 0 20px rgba(191, 149, 63, 0.3);
     }
 
-    .header-title p {
-      color: var(--silver-accent);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
+    /* 10 PAGE NAVIGATION TABS */
+    .page-nav-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--silver-border);
     }
 
-    .plant-badge {
-      background: linear-gradient(135deg, rgba(191, 149, 63, 0.15), rgba(0,0,0,0.6));
-      border: 1px solid var(--gold-accent);
-      padding: 10px 20px;
-      border-radius: 30px;
+    .page-tab {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--silver-border);
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: 8px;
       font-size: 0.85rem;
       font-weight: 700;
-      color: #fcf6ba;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
     }
 
-    /* SECTION TITLES WITH METALLIC LINES */
-    .gold-sec-title {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 36px 0 20px 0;
-    }
-
-    .gold-sec-title h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.35rem;
-      font-weight: 800;
+    .page-tab:hover, .page-tab.active {
       background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      white-space: nowrap;
+      color: #080a0f;
+      border-color: var(--gold-accent);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
     }
 
-    .gold-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold-accent), rgba(230,232,250,0.2), transparent);
-    }
-
-    /* CARDS & GRID */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 24px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; margin-bottom: 24px; }
-
-    .silver-card {
-      position: relative;
+    /* PAGE CONTAINER & DISPLAY */
+    .page-content {
+      display: none;
       background: var(--bg-card);
       border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      min-height: 480px;
     }
 
-    .silver-card::before {
+    .page-content.active { display: block; }
+
+    .page-content::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 14px;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(230, 232, 250, 0.4), rgba(255,255,255,0.05), rgba(191, 149, 63, 0.3));
+      background: var(--silver-border);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
     }
 
-    .silver-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.15);
-    }
-
-    .card-head {
-      font-size: 1.1rem;
-      font-weight: 700;
+    .page-title-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
       color: #fcf6ba;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--silver-border);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-accent);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    /* METALLIC TABLES */
-    .metallic-table-box {
-      position: relative;
-      background: var(--bg-card);
-      border-radius: 14px;
-      overflow-x: auto;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    }
+    /* TABLES & LISTS INSIDE PAGES */
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; }
+    table th { background: #1a202c; color: #fcf6ba; padding: 12px 16px; border-bottom: 1px solid var(--gold-accent); }
+    table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main); }
+    table td strong { color: #fff; }
 
-    .metallic-table-box::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      padding: 1px;
-      background: var(--gold-border);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      text-align: left;
-    }
-
-    table th {
-      background: linear-gradient(180deg, #1f2736, #121620);
-      color: #fcf6ba;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--gold-accent);
-      white-space: nowrap;
-      letter-spacing: 0.5px;
-    }
-
-    table td {
-      padding: 12px 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
-    }
-
-    table tr:last-child td { border-bottom: none; }
-    table tr:hover { background: rgba(191, 149, 63, 0.05); }
-    table td strong { color: #ffffff; }
-
-    /* METALLIC DATA LISTS */
-    .metal-list { list-style: none; }
-    .metal-list li {
-      font-size: 0.88rem;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    .detail-list { list-style: none; }
+    .detail-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      font-size: 0.92rem;
     }
-    .metal-list li:last-child { border-bottom: none; }
-    .metal-list li span { color: var(--text-muted); }
-    .metal-list li strong { color: #fcf6ba; text-align: right; }
+    .detail-list li span { color: var(--text-muted); }
+    .detail-list li strong { color: #fcf6ba; text-align: right; }
 
-    /* METALLIC FORMULA TAG */
-    .gold-formula {
+    .formula-tag {
       font-family: 'JetBrains Mono', monospace;
-      background: linear-gradient(135deg, rgba(191,149,63,0.1), rgba(0,0,0,0.8));
+      background: rgba(191,149,63,0.15);
       border: 1px solid var(--gold-accent);
       color: #fcf6ba;
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 6px;
-      font-size: 0.82rem;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+      font-size: 0.85rem;
     }
 
-    /* INTERACTIVE CALCULATOR METALLIC INPUTS */
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .calc-field-group {
+    /* BOTTOM PAGE FOOTER CONTROLS */
+    .page-controls {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .metal-input {
-      background: rgba(8, 10, 15, 0.8);
-      border: 1px solid var(--silver-border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      color: #fff;
-      font-size: 0.88rem;
-      outline: none;
-      transition: border 0.3s ease;
-    }
-
-    .metal-input:focus {
-      border-color: var(--gold-accent);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-    }
-
-    .gold-btn {
+    .ctrl-btn {
       background: var(--gold-gradient);
       border: none;
-      padding: 12px;
+      padding: 10px 20px;
       border-radius: 8px;
       color: #080a0f;
       font-weight: 800;
-      font-size: 0.88rem;
       cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 15px rgba(191, 149, 63, 0.3);
-      transition: opacity 0.2s ease;
-    }
-
-    .gold-btn:hover { opacity: 0.9; }
-
-    .result-gold-box {
-      background: rgba(191, 149, 63, 0.1);
-      border: 1px solid var(--gold-accent);
-      color: #fcf6ba;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
     }
 
     @media (max-width: 768px) {
-      body { padding: 12px; }
-      .gold-frame-header { padding: 20px; flex-direction: column; align-items: flex-start; }
-      .header-title h1 { font-size: 1.6rem; }
+      .header-frame { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -316,39 +195,48 @@
 
   <div class="container">
 
-    <!-- METALLIC GOLD HEADER -->
-    <header class="gold-frame-header">
-      <div class="header-title">
+    <!-- HEADER -->
+    <header class="header-frame">
+      <div>
         <h1>Amit Sandhu (Amit Kumar)</h1>
-        <p>Production Supervisor & Plant Operations Executive</p>
+        <p style="color: var(--silver-accent); font-weight: 600;">Production Supervisor & Plant Operations Executive</p>
       </div>
-      <div class="plant-badge">
-        📍 Kumar Printers Pvt. Ltd., Manesar | B.Tech Tech Specialist
+      <div style="font-size: 0.85rem; color: #fcf6ba; border: 1px solid var(--gold-accent); padding: 8px 16px; border-radius: 20px;">
+        📖 10-Page Technical Data Book
       </div>
     </header>
 
-    <!-- SECTION 1 -->
-    <div class="gold-sec-title">
-      <h2>01. Printing Press Machinery & Technical Specs</h2>
-      <div class="gold-line"></div>
+    <!-- 10 PAGE TABS BAR -->
+    <div class="page-nav-bar">
+      <button class="page-tab active" onclick="openPage(1)">Page 01: CD 102 Specs</button>
+      <button class="page-tab" onclick="openPage(2)">Page 02: CD 74 & SM 102</button>
+      <button class="page-tab" onclick="openPage(3)">Page 03: Feeder Operations</button>
+      <button class="page-tab" onclick="openPage(4)">Page 04: Inking Systems</button>
+      <button class="page-tab" onclick="openPage(5)">Page 05: Dampening Systems</button>
+      <button class="page-tab" onclick="openPage(6)">Page 06: Delivery & Temps</button>
+      <button class="page-tab" onclick="openPage(7)">Page 07: Chemistry & Fount</button>
+      <button class="page-tab" onclick="openPage(8)">Page 08: Anilox & Inks</button>
+      <button class="page-tab" onclick="openPage(9)">Page 09: Inline Coatings</button>
+      <button class="page-tab" onclick="openPage(10)">Page 10: QC Lab Formulas</button>
     </div>
 
-    <div class="metallic-table-box">
+    <!-- PAGE 01 -->
+    <div id="page1" class="page-content active">
+      <div class="page-title-badge">
+        <span>PAGE 01: Heidelberg Speedmaster CD 102 Core Specifications</span>
+        <span>01 / 10</span>
+      </div>
       <table>
-        <thead>
-          <tr>
-            <th>Operational Parameter</th>
-            <th>Heidelberg Speedmaster CD 102 Standard Specification</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Operational Metric</th><th>Standard Value</th></tr></thead>
         <tbody>
           <tr><td><strong>Max Sheet Size</strong></td><td>1020 × 720 mm</td></tr>
           <tr><td><strong>Min Sheet Size</strong></td><td>480 × 340 mm</td></tr>
           <tr><td><strong>Max Printing Format</strong></td><td>1020 × 710 mm</td></tr>
-          <tr><td><strong>Production Speed Range</strong></td><td>3,000 – 15,000 SPH (Sheets Per Hour)</td></tr>
+          <tr><td><strong>Production Speed Range</strong></td><td>3,000 – 15,000 SPH</td></tr>
           <tr><td><strong>Substrate Thickness Range</strong></td><td>0.03 mm – 1.0 mm (28 GSM to 460 GSM)</td></tr>
-          <tr><td><strong>Gripper Margin Clearance</strong></td><td>10 mm – 12 mm Standard Clearance</td></tr>
-          <tr><td><strong>Pile Height Standard</strong></td><td>Feeder Pile: 1320 mm | Delivery Pile: 1295 mm</td></tr>
+          <tr><td><strong>Gripper Margin Clearance</strong></td><td>10 mm – 12 mm</td></tr>
+          <tr><td><strong>Feeder Pile Height</strong></td><td>1320 mm Standard</td></tr>
+          <tr><td><strong>Delivery Pile Height</strong></td><td>1295 mm Standard</td></tr>
           <tr><td><strong>Plate Cylinder Setup</strong></td><td>Undercut: 0.12 mm | Plate Size: 1030 × 790 mm | Thickness: 0.20 – 0.30 mm</td></tr>
           <tr><td><strong>Blanket Cylinder Setup</strong></td><td>Undercut: 2.30 mm | Size: 1052 × 840 mm | Blanket: 1.95 mm + Packing: 0.35 mm</td></tr>
           <tr><td><strong>Coating Cylinder Setup</strong></td><td>Undercut: 3.20 mm | Size: 1052 × 800 mm | Blanket: 1.95 mm + Packing: 1.25 mm</td></tr>
@@ -356,192 +244,185 @@
       </table>
     </div>
 
-    <!-- OTHER PRESS LINES CARDS -->
-    <div class="grid-3">
-      <div class="silver-card">
-        <div class="card-head"><span>Heidelberg CD 74 Specs</span> ⚙️</div>
-        <ul class="metal-list">
-          <li><span>Max Sheet Size:</span><strong>530 × 740 mm</strong></li>
-          <li><span>Min Sheet Size:</span><strong>210 × 280 mm</strong></li>
-          <li><span>Plate Undercut:</span><strong>0.12 mm</strong></li>
-          <li><span>Blanket Undercut:</span><strong>2.30 mm</strong></li>
-        </ul>
+    <!-- PAGE 02 -->
+    <div id="page2" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 02: Heidelberg CD 74, SM 102 & Komori Lines</span>
+        <span>02 / 10</span>
       </div>
-
-      <div class="silver-card">
-        <div class="card-head"><span>Heidelberg SM 102 Specs</span> ⚡</div>
-        <ul class="metal-list">
-          <li><span>Max Sheet Size:</span><strong>720 × 1020 mm</strong></li>
-          <li><span>Mechanism:</span><strong>Convertible Perfector</strong></li>
-          <li><span>Operating Speed:</span><strong>Up to 13,000 SPH</strong></li>
-          <li><span>Substrates:</span><strong>Paper & Board</strong></li>
-        </ul>
-      </div>
-
-      <div class="silver-card">
-        <div class="card-head"><span>Komori Perfector 40 Specs</span> 🏭</div>
-        <ul class="metal-list">
-          <li><span>Max Sheet Size:</span><strong>720 × 1030 mm</strong></li>
-          <li><span>Mechanism:</span><strong>Dual Impression Cylinder</strong></li>
-          <li><span>Workflow:</span><strong>Both-side Inline Printing</strong></li>
-        </ul>
-      </div>
+      <ul class="detail-list">
+        <li><span>Heidelberg CD 74 Max Sheet Size:</span><strong>530 × 740 mm</strong></li>
+        <li><span>Heidelberg CD 74 Min Sheet Size:</span><strong>210 × 280 mm</strong></li>
+        <li><span>Heidelberg CD 74 Plate Undercut:</span><strong>0.12 mm</strong></li>
+        <li><span>Heidelberg CD 74 Blanket Undercut:</span><strong>2.30 mm</strong></li>
+        <li><span>Heidelberg SM 102 Max Sheet Size:</span><strong>720 × 1020 mm</strong></li>
+        <li><span>Heidelberg SM 102 Perfecting Mechanism:</span><strong>Convertible Perfector (13,000 SPH)</strong></li>
+        <li><span>Komori Perfector 40 Max Sheet Size:</span><strong>720 × 1030 mm</strong></li>
+        <li><span>Komori Operating System:</span><strong>Dual Impression Cylinder Inline</strong></li>
+      </ul>
     </div>
 
-    <!-- SECTION 2 -->
-    <div class="gold-sec-title">
-      <h2>02. Machine Sub-Systems & Mechanical Operations</h2>
-      <div class="gold-line"></div>
+    <!-- PAGE 03 -->
+    <div id="page3" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 03: Feeder Head & Sheet Separation System</span>
+        <span>03 / 10</span>
+      </div>
+      <ul class="detail-list">
+        <li><span>Suckers Assembly:</span><strong>4 Lifting + 5 Forwarding Suckers</strong></li>
+        <li><span>Air Blower Nozzles:</span><strong>17 Adjustable Air Blower Nozzles</strong></li>
+        <li><span>Sheet Separator Fingers:</span><strong>6 Flexible Steel Fingers</strong></li>
+        <li><span>Rear Edge Stoppers:</span><strong>2 Units (1 mm from sheet edge)</strong></li>
+        <li><span>Stack Height Distance:</span><strong>5 – 8 mm below forwarding flap</strong></li>
+        <li><span>Alignment Lays System:</span><strong>2 Side Lays + 18 Front Lay Pins</strong></li>
+        <li><span>Double Sheet Detection:</span><strong>Ultrasonic Double Sheet Sensor</strong></li>
+      </ul>
     </div>
 
-    <div class="grid-2">
-      <div class="silver-card">
-        <div class="card-head"><span>Feeder Head & Sheet Separation</span> 💨</div>
-        <ul class="metal-list">
-          <li><span>Suckers Assembly:</span><strong>4 Lifting + 5 Forwarding Suckers</strong></li>
-          <li><span>Air Blower System:</span><strong>17 Adjustable Air Blower Nozzles</strong></li>
-          <li><span>Sheet Separators:</span><strong>6 Flexible Steel Fingers</strong></li>
-          <li><span>Rear Edge Stoppers:</span><strong>2 Units (1 mm from sheet edge)</strong></li>
-          <li><span>Stack Height:</span><strong>5 – 8 mm below forwarding flap</strong></li>
-          <li><span>Alignment Lays:</span><strong>2 Side Lays + 18 Front Lay Pins</strong></li>
-          <li><span>Detection Sensor:</span><strong>Ultrasonic Double Sheet Detector</strong></li>
-        </ul>
+    <!-- PAGE 04 -->
+    <div id="page4" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 04: Inking System Rollers Configuration</span>
+        <span>04 / 10</span>
       </div>
-
-      <div class="silver-card">
-        <div class="card-head"><span>Inking & Dampening Rollers</span> 🎨</div>
-        <ul class="metal-list">
-          <li><span>White Form Roller:</span><strong>⌀ 60 mm</strong></li>
-          <li><span>Blue Form Roller:</span><strong>⌀ 72 mm</strong></li>
-          <li><span>Red Form Roller:</span><strong>⌀ 66 mm</strong></li>
-          <li><span>Yellow Form Roller:</span><strong>⌀ 80 mm</strong></li>
-          <li><span>Transfer Rollers:</span><strong>10 Rollers (5 Rilsan + 5 Rubber)</strong></li>
-          <li><span>Oscillators:</span><strong>4 Units (⌀ 85 mm)</strong></li>
-          <li><span>Dampening System:</span><strong>Pan (⌀108), SS Metering (⌀98), Form (⌀78), Vario (⌀85)</strong></li>
-        </ul>
-      </div>
+      <ul class="detail-list">
+        <li><span>White Form Roller Diameter:</span><strong>⌀ 60 mm</strong></li>
+        <li><span>Blue Form Roller Diameter:</span><strong>⌀ 72 mm</strong></li>
+        <li><span>Red Form Roller Diameter:</span><strong>⌀ 66 mm</strong></li>
+        <li><span>Yellow Form Roller Diameter:</span><strong>⌀ 80 mm</strong></li>
+        <li><span>Transfer Rollers Count:</span><strong>10 Rollers (5 Rilsan + 5 Rubber)</strong></li>
+        <li><span>Oscillating Rollers:</span><strong>4 Units (⌀ 85 mm)</strong></li>
+      </ul>
     </div>
 
-    <div class="metallic-table-box">
+    <!-- PAGE 05 -->
+    <div id="page5" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 05: Continuous Dampening System Rollers</span>
+        <span>05 / 10</span>
+      </div>
+      <ul class="detail-list">
+        <li><span>Dampening Pan Roller Diameter:</span><strong>⌀ 108 mm</strong></li>
+        <li><span>Stainless Steel Metering Roller:</span><strong>⌀ 98 mm</strong></li>
+        <li><span>Dampening Form Roller Diameter:</span><strong>⌀ 78 mm</strong></li>
+        <li><span>Vario Roller Diameter:</span><strong>⌀ 85 mm</strong></li>
+      </ul>
+    </div>
+
+    <!-- PAGE 06 -->
+    <div id="page6" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 06: Delivery Mechanics & Temperature Control</span>
+        <span>06 / 10</span>
+      </div>
+      <ul class="detail-list">
+        <li><span>Delivery Gripper Bars:</span><strong>14 Bars (18 Gripper Fingers per bar)</strong></li>
+        <li><span>Air Blow-down Fans & Discs:</span><strong>25 Blow Fans + 5 Suction Discs</strong></li>
+        <li><span>Anti-Set-Off Powder Ratio:</span><strong>8 Spray Nozzles (80% Uncoated / 20% Coated)</strong></li>
+        <li><span>Protective Varnish Temp:</span><strong>Maintained at 32°C – 34°C</strong></li>
+        <li><span>Ink & Gloss Varnish Temp:</span><strong>Maintained at 36°C</strong></li>
+        <li><span>High Gloss Varnish Temp:</span><strong>Maintained at 36°C – 38°C</strong></li>
+      </ul>
+    </div>
+
+    <!-- PAGE 07 -->
+    <div id="page7" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 07: Printing Chemistry & Fountain Solution</span>
+        <span>07 / 10</span>
+      </div>
+      <ul class="detail-list">
+        <li><span>Chemical Water Recipe:</span><strong>86% Water + 2–4% Fount + IPA</strong></li>
+        <li><span>pH Target Balance:</span><strong>4.5 – 5.5 (Acidic Control)</strong></li>
+        <li><span>Chiller Temperature:</span><strong>8°C – 10°C</strong></li>
+        <li><span>Conductivity Range:</span><strong>800 – 2000 µS/cm (UV: 800-2500 µS/cm)</strong></li>
+      </ul>
+    </div>
+
+    <!-- PAGE 08 -->
+    <div id="page8" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 08: Inks Viscosity & Anilox Specifications</span>
+        <span>08 / 10</span>
+      </div>
+      <ul class="detail-list">
+        <li><span>Offset Ink Formulation:</span><strong>Pigment, Resins, Vehicles, Driers</strong></li>
+        <li><span>Ink Viscosity Range:</span><strong>High Paste (40 – 100 Pa·s)</strong></li>
+        <li><span>Anilox Rollers Material:</span><strong>Ceramic Plasma & Chromium Surface</strong></li>
+        <li><span>Cell Structure & Engraving Angle:</span><strong>45° and 60° Hexagonal/Pyramid</strong></li>
+        <li><span>Chambered Doctor Blade Angle:</span><strong>55° – 65° Angle</strong></li>
+      </ul>
+    </div>
+
+    <!-- PAGE 09 -->
+    <div id="page9" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 09: Inline Coating Application Weights</span>
+        <span>09 / 10</span>
+      </div>
       <table>
-        <thead>
-          <tr>
-            <th>Component / Thermal Control</th>
-            <th>Standard Operational Metric</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Delivery Gripper Bars</strong></td><td>14 Gripper Bars (Each equipped with 18 Gripper Fingers)</td></tr>
-          <tr><td><strong>Air Blow-down & Suction</strong></td><td>25 Air Blow Fans + 5 Suction Slow-down Discs</td></tr>
-          <tr><td><strong>Anti-Set-Off Powder Unit</strong></td><td>8 Spray Nozzles (Ratio: 80% Uncoated Paper / 20% Coated Paper)</td></tr>
-          <tr><td><strong>Protective Varnish Temp</strong></td><td>Maintained at 32°C – 34°C</td></tr>
-          <tr><td><strong>Ink & Gloss Varnish Temp</strong></td><td>Maintained at 36°C</td></tr>
-          <tr><td><strong>High Gloss Varnish Temp</strong></td><td>Maintained at 36°C – 38°C</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- SECTION 3 -->
-    <div class="gold-sec-title">
-      <h2>03. Printing Chemistry & Inline Coating Standards</h2>
-      <div class="gold-line"></div>
-    </div>
-
-    <div class="grid-2">
-      <div class="silver-card">
-        <div class="card-head"><span>Fountain Solution Parameters</span> 🧪</div>
-        <ul class="metal-list">
-          <li><span>Chemical Recipe:</span><strong>86% Water + 2–4% Fount + IPA</strong></li>
-          <li><span>pH Target Balance:</span><strong>4.5 – 5.5 (Acidic Balance)</strong></li>
-          <li><span>Chiller Temperature:</span><strong>8°C – 10°C</strong></li>
-          <li><span>Conductivity Limits:</span><strong>800 – 2000 µS/cm (UV: 800-2500)</strong></li>
-        </ul>
-      </div>
-
-      <div class="silver-card">
-        <div class="card-head"><span>Inks & Anilox Parameters</span> 🛢️</div>
-        <ul class="metal-list">
-          <li><span>Ink Components:</span><strong>Pigment, Resins, Vehicles, Driers</strong></li>
-          <li><span>Ink Viscosity Range:</span><strong>High Paste (40 – 100 Pa·s)</strong></li>
-          <li><span>Anilox Rollers:</span><strong>Ceramic Plasma & Chromium Anilox</strong></li>
-          <li><span>Cell Structure & Angle:</span><strong>45° and 60° Hexagonal/Pyramid</strong></li>
-          <li><span>Doctor Blade Angle:</span><strong>55° – 65° Angle</strong></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="metallic-table-box">
-      <table>
-        <thead>
-          <tr>
-            <th>Coating Finish Type</th>
-            <th>Application Weight (GSM)</th>
-            <th>Property & Technical Advantage</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Coating Finish Type</th><th>GSM Weight</th><th>Properties</th></tr></thead>
         <tbody>
           <tr><td><strong>Aqueous Coating</strong></td><td>2 – 4 g/m²</td><td>Water-based, rapid inline drying, scuff resistant.</td></tr>
-          <tr><td><strong>Varnish Coating</strong></td><td>2 – 4 g/m²</td><td>Oil-based protection (Gloss, Satin, or Matte).</td></tr>
-          <tr><td><strong>Primer Coating</strong></td><td>1.5 – 4 g/m²</td><td>Base coat for enhancing UV adhesion & line creasing.</td></tr>
-          <tr><td><strong>Soft Touch Coating</strong></td><td>3 – 4 g/m²</td><td>Velvet luxury feel, non-yellowing surface finish.</td></tr>
-          <tr><td><strong>UV Coating</strong></td><td>3 – 10 g/m²</td><td>Instant UV curing, ultra-glossy & chemical resistant.</td></tr>
+          <tr><td><strong>Varnish Coating</strong></td><td>2 – 4 g/m²</td><td>Oil-based surface protection (Gloss/Matte).</td></tr>
+          <tr><td><strong>Primer Coating</strong></td><td>1.5 – 4 g/m²</td><td>Base coat for enhancing UV adhesion & creasing.</td></tr>
+          <tr><td><strong>Soft Touch Coating</strong></td><td>3 – 4 g/m²</td><td>Velvet luxury feel, non-yellowing.</td></tr>
+          <tr><td><strong>UV Coating</strong></td><td>3 – 10 g/m²</td><td>Instant UV curing, high gloss & chemical resistance.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- SECTION 4 -->
-    <div class="gold-sec-title">
-      <h2>04. Quality Control (QC) Lab Testing & Formulas</h2>
-      <div class="gold-line"></div>
-    </div>
-
-    <div class="metallic-table-box">
+    <!-- PAGE 10 -->
+    <div id="page10" class="page-content">
+      <div class="page-title-badge">
+        <span>PAGE 10: QC Lab Testing Standards & Formulas</span>
+        <span>10 / 10</span>
+      </div>
       <table>
-        <thead>
-          <tr>
-            <th>Test Equipment</th>
-            <th>Tested Parameter</th>
-            <th>Calculation Formula / Operational Standard</th>
-          </tr>
-        </thead>
+        <thead><tr><th>QC Test</th><th>Formula / Metric Target</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Rub / Scuff Tester</strong></td>
-            <td>Ink Rub Resistance</td>
-            <td>60 RPM @ 2 lbs weight.<br>• Aqueous Target: Min 500 rubs | UV Target: Min 750 rubs</td>
-          </tr>
-          <tr>
-            <td><strong>GSM Tester</strong></td>
-            <td>Grammage (g/m²)</td>
-            <td><span class="gold-formula">GSM = (Weight in Grams / Area in cm²) × 10,000</span></td>
-          </tr>
-          <tr>
-            <td><strong>Taber Stiffness Tester</strong></td>
-            <td>Bending Resistance</td>
-            <td><span class="gold-formula">Stiffness (MD) = [(Left + Right) × 5] / 2</span> &nbsp;|&nbsp; <span class="gold-formula">mN = 2.04 × Taber Unit</span></td>
-          </tr>
-          <tr>
-            <td><strong>Bursting Tester</strong></td>
-            <td>Substrate Rupture Limit</td>
-            <td><span class="gold-formula">Burst Factor = (Bursting Strength / Dry GSM) × 1000</span></td>
-          </tr>
-          <tr>
-            <td><strong>Cobb Tester</strong></td>
-            <td>Water Absorption</td>
-            <td><span class="gold-formula">Cobb = Weight After Exposure - Initial Dry Weight</span></td>
-          </tr>
-          <tr>
-            <td><strong>B4 Ford Cup</strong></td>
-            <td>Coating Viscosity</td>
-            <td>Efflux Time in Seconds recorded at 25°C standard.</td>
-          </tr>
-          <tr>
-            <td><strong>Moisture Meter</strong></td>
-            <td>Substrate Moisture %</td>
-            <td>• Paper / FBB Target: 6% – 8%<br>• Corrugated Board Target: 6% – 10%</td>
-          </tr>
+          <tr><td><strong>Rub / Scuff Resistance</strong></td><td>60 RPM @ 2 lbs (Aqueous: Min 500 rubs | UV: Min 750)</td></tr>
+          <tr><td><strong>GSM Formula</strong></td><td><span class="formula-tag">GSM = (Weight in Grams / Area in cm²) × 10,000</span></td></tr>
+          <tr><td><strong>Taber Stiffness</strong></td><td><span class="formula-tag">MD = [(Left + Right) × 5] / 2</span> &nbsp;|&nbsp; <span class="formula-tag">mN = 2.04 × Taber</span></td></tr>
+          <tr><td><strong>Burst Factor</strong></td><td><span class="formula-tag">Burst Factor = (Bursting Strength / Dry GSM) × 1000</span></td></tr>
+          <tr><td><strong>Cobb Water Absorption</strong></td><td><span class="formula-tag">Cobb = Weight After Exposure - Dry Weight</span></td></tr>
+          <tr><td><strong>Viscosity (Ford Cup)</strong></td><td>Efflux Time in Seconds at 25°C</td></tr>
+          <tr><td><strong>Moisture Content</strong></td><td>Paper/FBB: 6% – 8% | Corrugated: 6% – 10%</td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- INTERACTIVE QC CALCULATOR
+    <!-- FOOTER CONTROLS -->
+    <div class="page-controls">
+      <button class="ctrl-btn" onclick="prevPage()">⬅️ Previous Page</button>
+      <span id="pageTracker" style="font-weight: 700; color: #fcf6ba;">Page 1 of 10</span>
+      <button class="ctrl-btn" onclick="nextPage()">Next Page ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentPage = 1;
+    const totalPages = 10;
+
+    function openPage(pageNum) {
+      currentPage = pageNum;
+      document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+
+      document.getElementById(`page${pageNum}`).classList.add('active');
+      document.querySelectorAll('.page-tab')[pageNum - 1].classList.add('active');
+
+      document.getElementById('pageTracker').innerText = `Page ${pageNum} of ${totalPages}`;
+    }
+
+    function nextPage() {
+      if(currentPage < totalPages) openPage(currentPage + 1);
+    }
+
+    function prevPage() {
+      if(currentPage > 1) openPage(currentPage - 1);
+    }
+  </script>
+</body>
+</html>
