@@ -1,310 +1,215 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu | Production Supervisor & Technical Master Sheet</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Printing & Packaging Technical Specifications | Kumar Printers</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            background-color: #f1f5f9;
-            color: #1e293b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
         }
-
-        /* MAIN LAYOUT */
         .container {
             max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 15px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid #0284c7;
-            padding-bottom: 8px;
+        .header h1 {
+            color: #0056b3;
+            margin: 0;
+            font-size: 28px;
         }
-
-        .card-title i {
-            color: #0284c7;
+        .header p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
         }
-
-        /* TABLES STYLING */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            margin-top: 10px;
+        h2 {
+            color: #0056b3;
+            border-left: 5px solid #0056b3;
+            padding-left: 10px;
+            margin-top: 30px;
+            font-size: 22px;
         }
-
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left;
-            font-size: 0.88rem;
+            margin: 15px 0;
         }
-
+        table, th, td {
+            border: 1px solid #e0e0e0;
+        }
         th, td {
-            padding: 12px 14px;
-            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 14px;
         }
-
         th {
-            background-color: #0f172a;
-            color: #ffffff;
-            font-weight: 600;
-            white-space: nowrap;
+            background-color: #f1f5f9;
+            color: #333;
         }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
+        ul {
+            padding-left: 20px;
         }
-
-        /* GRID CARDS FOR TECHNICAL PARAMETERS */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .tech-card {
-            background: #f8fafc;
-            border-left: 4px solid #0284c7;
-            padding: 15px;
-            border-radius: 6px;
-            border-top: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .tech-card h4 {
-            font-size: 1rem;
-            color: #0f172a;
+        li {
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 14px;
         }
-
-        .tech-card ul {
-            padding-left: 18px;
-            font-size: 0.88rem;
-            color: #475569;
+        .badge {
+            background: #e7f1ff;
+            color: #0056b3;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
         }
-
-        .tech-card ul li {
-            margin-bottom: 5px;
-        }
-
-        /* SKILLS LIST */
-        .skills-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        footer {
+        .footer {
             text-align: center;
-            padding: 25px;
-            color: #64748b;
-            font-size: 0.85rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- WORK PROFILE -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-user-gear"></i>
-                <span>Professional Overview</span>
-            </div>
-            <p style="font-size:0.95rem; color:#334155;">
-                Experienced <strong>Production Supervisor</strong> managing sheet-fed offset printing operations. Expert in shift scheduling, troubleshooting print defects, Heidelberg & Komori machine parameters, dampening solutions, and quality compliance.
-            </p>
-        </div>
-
-        <!-- MACHINE SPECIFICATIONS & PLATE DIMENSIONS SHEET -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-print"></i>
-                <span>Offset Machine Technical Specifications & Plate Dimensions</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Press Model</th>
-                            <th>Plate Dimensions</th>
-                            <th>Blanket Dimensions</th>
-                            <th>Max Sheet Size</th>
-                            <th>Speed / Capacity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Heidelberg SM 74</strong></td>
-                            <td>605 mm × 740 mm</td>
-                            <td>Standard SM 74 Blanket</td>
-                            <td>530 mm × 740 mm</td>
-                            <td>15,000 SPH</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Heidelberg CX 104</strong></td>
-                            <td>790 mm × 1030 mm / Custom</td>
-                            <td>Underpack + Metal Backed</td>
-                            <td>740 mm × 1040 mm</td>
-                            <td>16,500 SPH</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Heidelberg SM 102 / CD 102</strong></td>
-                            <td>790 mm × 1030 mm</td>
-                            <td>Standard 102 Blanket</td>
-                            <td>720 mm × 1020 mm</td>
-                            <td>13,000 - 15,000 SPH</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Komori Lithrone Series</strong></td>
-                            <td>Standard / Custom Komori Setup</td>
-                            <td>Komori Quick Clamp</td>
-                            <td>Standard Full Sheet</td>
-                            <td>15,000 SPH</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- FOUNTAIN SOLUTION & DAMPENING PARAMETERS -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-flask"></i>
-                <span>Dampening & Fountain Solution Target Parameters</span>
-            </div>
-            
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h4><i class="fa-solid fa-droplet"></i> pH Level Targets</h4>
-                    <ul>
-                        <li><strong>Standard Range:</strong> 4.8 – 5.5 pH</li>
-                        <li><strong>Buffer Control:</strong> Maintains ink-water balance.</li>
-                        <li><strong>Low pH (&lt; 4.5):</strong> Slows ink drying, strips roller.</li>
-                        <li><strong>High pH (&gt; 5.8):</strong> Causes ink emulsification & scumming.</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <h4><i class="fa-solid fa-bolt"></i> Conductivity & IPA</h4>
-                    <ul>
-                        <li><strong>Conductivity Target:</strong> 800 – 1500 µS/cm</li>
-                        <li><strong>IPA (Alcohol) Range:</strong> 6% – 10%</li>
-                        <li><strong>Fresh Water Base:</strong> 200 – 300 µS/cm target.</li>
-                        <li><strong>Monitoring:</strong> Daily bath tank check & replacement.</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <h4><i class="fa-solid fa-temperature-half"></i> Chiller Temperature</h4>
-                    <ul>
-                        <li><strong>Dampening Temp:</strong> 10°C – 12°C</li>
-                        <li><strong>Cylinder Packing:</strong> Precise paper/polyester underpacking.</li>
-                        <li><strong>Impression Clearance:</strong> Caliper based setting.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- TROUBLESHOOTING & QUALITY CONTROL -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Print Quality & Troubleshooting Protocols</span>
-            </div>
-
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h4><i class="fa-solid fa-bug"></i> Defect Prevention</h4>
-                    <ul>
-                        <li><strong>Hickies / Spotting:</strong> Roller cleaning & ink dust check.</li>
-                        <li><strong>Scumming / Toning:</strong> Adjust fountain solution & roller pressure.</li>
-                        <li><strong>Ghosting:</strong> Adjust ink form roller sweep & oscillation.</li>
-                        <li><strong>Set-off:</strong> Optimize anti-setoff powder spray & pile height.</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <h4><i class="fa-solid fa-chart-line"></i> Color & TVI Targets</h4>
-                    <ul>
-                        <li><strong>Dot Gain (TVI):</strong> Managed according to ISO 12647-2 standards.</li>
-                        <li><strong>Registration:</strong> Electronic register & optical mark alignment.</li>
-                        <li><strong>Densitometry:</strong> Density control across C, M, Y, K zones.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SKILLS & EDUCATION -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <span>Education & Core Competencies</span>
-            </div>
-            
-            <p><strong>B.Tech in Printing and Packaging Technology</strong></p>
-            <p style="font-size:0.88rem; color:#64748b; margin-bottom:15px;">Guru Jambheshwar University of Science & Technology (G.J.U.), Hisar</p>
-
-            <div class="skills-flex">
-                <div class="skill-tag">Offset Shift Supervision</div>
-                <div class="skill-tag">Heidelberg CX 104 / SM 102</div>
-                <div class="skill-tag">Plate Dimensioning (605x740 & 790x1030)</div>
-                <div class="skill-tag">Dampening Solution & pH Control</div>
-                <div class="skill-tag">TVI & Dot Gain Control</div>
-                <div class="skill-tag">Maintenance & Quality Audit</div>
-                <div class="skill-tag">Packaging Box Production</div>
-            </div>
-        </div>
-
+    <!-- Header Section -->
+    <div class="header">
+        <h1>KUMAR PRINTERS PVT LTD</h1>
+        <p><strong>Technical Printing Knowledge & Machine Specifications Sheet</strong></p>
+        <p>Prepared by: <strong>Aamir Khan (Supervisor Trainee)</strong> | Submitted to: <strong>Mr. Sonu Sir (Assistant Manager)</strong></p>
+        <p>Date: 06/07/2021</p>
     </div>
 
-    <footer>
-        <p>© 2026 Amit Sandhu • Technical Offset Press Master Sheet & Profile</p>
-    </footer>
+    <!-- Machine List -->
+    <h2>1. Printing Department Overview</h2>
+    <p><strong>Available Machines:</strong></p>
+    <ul>
+        <li>Heidelberg CD 74</li>
+        <li>Heidelberg CD 102 (New)</li>
+        <li>Heidelberg CD 102 (Old)</li>
+        <li>Heidelberg SM 102</li>
+        <li>Heidelberg 2 Colour CPC</li>
+        <li>Heidelberg 2 Colour Old</li>
+        <li>Komori Perfector 40</li>
+    </ul>
+
+    <!-- Machine Specifications -->
+    <h2>2. Heidelberg Speedmaster CD-102 (NEW) Specifications</h2>
+    <table>
+        <tr><th>Parameter</th><th>Specification</th></tr>
+        <tr><td>Machine Size / Max Sheet Size</td><td>1020 x 720 mm</td></tr>
+        <tr><td>Minimum Sheet Size</td><td>480 x 340 mm</td></tr>
+        <tr><td>Maximum Printing Format</td><td>1020 x 710 mm</td></tr>
+        <tr><td>Production Speed</td><td>3,000 to 15,000 SPH</td></tr>
+        <tr><td>Printing Units & Coating</td><td>6 Printing Units + 1 Coating Unit</td></tr>
+        <tr><td>Stock Thickness Range</td><td>0.03 to 1.0 mm (28 gsm to 460 gsm)</td></tr>
+        <tr><td>Gripper Margin</td><td>10 to 12 mm</td></tr>
+        <tr><td>Pile Heights</td><td>Feeder: 1320 mm | Delivery: 1295 mm</td></tr>
+        <tr><td>Plate Cylinder Size & Undercut</td><td>1030 x 790 mm | Undercut: 0.12 mm</td></tr>
+        <tr><td>Blanket Size & Undercut</td><td>1052 x 840 mm | Undercut: 2.30 mm (Thickness: 1.95 mm)</td></tr>
+        <tr><td>Coating Blanket Size</td><td>1052 x 800 mm | Undercut: 3.20 mm</td></tr>
+        <tr><td>Pneumatic Pressure Values</td><td>Total: 6 bar | Vacuum: 0.6 bar</td></tr>
+    </table>
+
+    <!-- Technical Breakdown -->
+    <h2>3. Feeder & Printing Unit Key Details</h2>
+    <h3>Feeding Mechanism & Components</h3>
+    <ul>
+        <li><strong>Suckers:</strong> 4 Lifting Suckers, 5 Forwarding Suckers.</li>
+        <li><strong>Blowers & Strips:</strong> 17 Air Blowers, 6 Sheet Separation Strips.</li>
+        <li><strong>Runners & Lays:</strong> 2 Forwarding Runners, 4 Transferring Runners, 2 Side Lays, 18 Front Lay Pins.</li>
+        <li><strong>Swing Arm Gripper:</strong> 18 Gripper Fingers.</li>
+    </ul>
+
+    <h3>Rollers & Dimensions (Inking & Dampening)</h3>
+    <table>
+        <tr><th>Roller Type</th><th>Quantity / Specs</th><th>Diameter (mm)</th></tr>
+        <tr><td>Rider Roller</td><td>1 (Steel)</td><td>108 mm</td></tr>
+        <tr><td>Ink Form Rollers</td><td>4 (Rubber)</td><td>White: 60mm, Blue: 72mm, Red: 66mm, Yellow: 80mm</td></tr>
+        <tr><td>Vibrator Roller</td><td>1 (Rubber)</td><td>59 mm</td></tr>
+        <tr><td>Oscillator / Distributor</td><td>4 (Rilsan)</td><td>85 mm</td></tr>
+        <tr><td>Dampening Pan Roller</td><td>1 (Rubber)</td><td>108 mm</td></tr>
+        <tr><td>Metering Roller</td><td>1 (Stainless Steel)</td><td>98 mm</td></tr>
+        <tr><td>Dampening Form Roller</td><td>1 (Rubber)</td><td>78 mm</td></tr>
+    </table>
+
+    <!-- Coating & Drying -->
+    <h2>4. Surface Coating & Drying Systems</h2>
+    <h3>Types of Coatings & Applications</h3>
+    <ul>
+        <li><strong>Aqueous Coating:</strong> Water-based, smudge-resistant, quick drying (2 to 4 g/m²).</li>
+        <li><strong>Varnish Coating:</strong> Low cost, available in Gloss/Matte/Satin (2 to 4 g/m²).</li>
+        <li><strong>Primer Coating:</strong> Base coat for UV adhesion improvement (1.5 to 4 g/m²).</li>
+        <li><strong>Soft Touch Coating:</strong> Velvet texture, luxurious tactile finish (3 to 4 g/m²).</li>
+        <li><strong>UV Coating:</strong> High gloss, cured under UV light, excellent liquid/scuff resistance (3 to 10 g/m²).</li>
+    </ul>
+
+    <h3>Drying Temperature Controls</h3>
+    <table>
+        <tr><th>Application</th><th>Pile Delivery Temperature</th></tr>
+        <tr><td>Protective Varnish</td><td>32°C - 34°C</td></tr>
+        <tr><td>Ink Drying</td><td>36°C</td></tr>
+        <tr><td>Glossy Varnish</td><td>36°C</td></tr>
+        <tr><td>High Gloss Varnish</td><td>36°C - 38°C</td></tr>
+    </table>
+
+    <!-- Post Press -->
+    <h2>5. Post-Press Department & Machinery</h2>
+    <table>
+        <tr><th>Machine</th><th>Max Size</th><th>Speed / Capacity</th></tr>
+        <tr><td>Ultra Coat 1000</td><td>28 x 40 inches</td><td>Max 6,000 SPH</td></tr>
+        <tr><td>Crosograph (Foiling/Embossing)</td><td>28 x 38 inches</td><td>Foiling: 700 SPH | Embossing: 1,250 SPH</td></tr>
+        <tr><td>Sugano Auto Foil Stamping & Punching</td><td>725 x 1040 mm</td><td>Punching: 4,000 SPH | Foiling: 2,500 SPH</td></tr>
+        <tr><td>Nova Cut (Bobst) Die Punching</td><td>1060 x 740 mm</td><td>Up to 8,000 SPH (Pressure: 10 - 250 ton)</td></tr>
+        <tr><td>FMZ-1100 Corrugation Laminator</td><td>1100 x 1100 mm</td><td>Up to 6,000 SPH</td></tr>
+        <tr><td>Wen Chyuan Lamination</td><td>1050 x 950 mm</td><td>6,000 SPH (Temp: 95°C - 105°C)</td></tr>
+        <tr><td>Expert Fold (Bobst) Folder Gluer</td><td>1290 mm</td><td>450 meters / minute</td></tr>
+        <tr><td>Autoprint Checkmate 50 (Inspection)</td><td>400 x 500 mm</td><td>250 meters / minute</td></tr>
+    </table>
+
+    <!-- Quality Control -->
+    <h2>6. Quality Control (QC) & Testing Equipment</h2>
+    <ul>
+        <li><strong>Scuff / Rub Resistance Tester:</strong> Evaluates print rub proofness (60 RPM, 2 LBS weight; 750 rubs for UV, 500 rubs for Aqueous).</li>
+        <li><strong>GSM Tester & Weighing Scale:</strong> Calculates paper/board weight $(GSM = \frac{Weight (g)}{Area (cm^2)} \times 10,000)$.</li>
+        <li><strong>Taber Stiffness Tester:</strong> Evaluates material flexural strength and elasticity.</li>
+        <li><strong>Bursting Strength Tester:</strong> Measures hydraulic load resistance using glycerin.</li>
+        <li><strong>ECT / RCT / FCT Tester:</strong> Edge, Ring, and Flat Crush Testing for corrugated paperboards.</li>
+        <li><strong>Cobb Tester:</strong> Measures water absorbency over 60s/180s.</li>
+        <li><strong>Ford Cup:</strong> Viscosity measurement in seconds.</li>
+        <li><strong>Moisture Meter:</strong> Checks moisture % (Ideal: Paper 6-8%, Corrugated Board 6-10%).</li>
+    </ul>
+
+    <div class="footer">
+        <p>© Kumar Printers Pvt. Ltd. | Internal Technical Knowledge Base</p>
+    </div>
+
+</div>
 
 </body>
 </html>
