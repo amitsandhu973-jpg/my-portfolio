@@ -3,93 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printing & Packaging Technical Specifications | Kumar Printers</title>
+    <title>Printing & Packaging Technical Documentation</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #2c3e50;
+            background-color: #f4f6f9;
             margin: 0;
             padding: 20px;
         }
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            background: #fff;
+            background: #ffffff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            border-bottom: 3px solid #0056b3;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            color: #0056b3;
-            margin: 0;
-            font-size: 28px;
-        }
-        .header p {
-            margin: 5px 0;
-            color: #666;
-            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         h2 {
-            color: #0056b3;
-            border-left: 5px solid #0056b3;
-            padding-left: 10px;
-            margin-top: 30px;
+            color: #1a365d;
+            border-bottom: 3px solid #2b6cb0;
+            padding-bottom: 8px;
+            margin-top: 35px;
             font-size: 22px;
+            text-transform: uppercase;
         }
         h3 {
-            color: #333;
-            margin-top: 20px;
+            color: #2b6cb0;
+            margin-top: 25px;
             font-size: 18px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
+            border-left: 4px solid #2b6cb0;
+            padding-left: 10px;
+        }
+        h4 {
+            color: #2d3748;
+            margin-top: 15px;
+            font-size: 16px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 15px 0;
+            background: #fff;
         }
         table, th, td {
-            border: 1px solid #e0e0e0;
+            border: 1px solid #cbd5e0;
         }
         th, td {
-            padding: 10px 12px;
+            padding: 10px 14px;
             text-align: left;
             font-size: 14px;
         }
         th {
-            background-color: #f1f5f9;
-            color: #333;
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            font-weight: bold;
         }
-        ul {
-            padding-left: 20px;
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+        ul, ol {
+            padding-left: 22px;
         }
         li {
             margin-bottom: 8px;
             font-size: 14px;
         }
-        .badge {
-            background: #e7f1ff;
-            color: #0056b3;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 12px;
+        .highlight {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 14px;
         }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #777;
-            font-size: 13px;
+        .code-box {
+            background: #edf2f7;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -97,17 +90,9 @@
 
 <div class="container">
 
-    <!-- Header Section -->
-    <div class="header">
-        <h1>KUMAR PRINTERS PVT LTD</h1>
-        <p><strong>Technical Printing Knowledge & Machine Specifications Sheet</strong></p>
-        <p>Prepared by: <strong>Aamir Khan (Supervisor Trainee)</strong> | Submitted to: <strong>Mr. Sonu Sir (Assistant Manager)</strong></p>
-        <p>Date: 06/07/2021</p>
-    </div>
-
-    <!-- Machine List -->
-    <h2>1. Printing Department Overview</h2>
-    <p><strong>Available Machines:</strong></p>
+    <!-- 1. PRINTING DEPARTMENT OVERVIEW -->
+    <h2>1. Printing Department Overview & Machines Available</h2>
+    <p>The Printing Department consists of high-precision offset printing presses capable of multi-color printing, inline coating, and high-speed execution. Below is the list of available printing machines:</p>
     <ul>
         <li>Heidelberg CD 74</li>
         <li>Heidelberg CD 102 (New)</li>
@@ -118,96 +103,164 @@
         <li>Komori Perfector 40</li>
     </ul>
 
-    <!-- Machine Specifications -->
-    <h2>2. Heidelberg Speedmaster CD-102 (NEW) Specifications</h2>
+    <!-- 2. HEIDELBERG CD-102 (NEW) TECHNICAL SPECIFICATIONS -->
+    <h2>2. Heidelberg Speedmaster CD-102 (NEW) - Technical Specifications</h2>
+    
+    <h3>A. Machine Dimensions & Speed Parameters</h3>
     <table>
-        <tr><th>Parameter</th><th>Specification</th></tr>
-        <tr><td>Machine Size / Max Sheet Size</td><td>1020 x 720 mm</td></tr>
-        <tr><td>Minimum Sheet Size</td><td>480 x 340 mm</td></tr>
-        <tr><td>Maximum Printing Format</td><td>1020 x 710 mm</td></tr>
-        <tr><td>Production Speed</td><td>3,000 to 15,000 SPH</td></tr>
-        <tr><td>Printing Units & Coating</td><td>6 Printing Units + 1 Coating Unit</td></tr>
-        <tr><td>Stock Thickness Range</td><td>0.03 to 1.0 mm (28 gsm to 460 gsm)</td></tr>
-        <tr><td>Gripper Margin</td><td>10 to 12 mm</td></tr>
-        <tr><td>Pile Heights</td><td>Feeder: 1320 mm | Delivery: 1295 mm</td></tr>
-        <tr><td>Plate Cylinder Size & Undercut</td><td>1030 x 790 mm | Undercut: 0.12 mm</td></tr>
-        <tr><td>Blanket Size & Undercut</td><td>1052 x 840 mm | Undercut: 2.30 mm (Thickness: 1.95 mm)</td></tr>
-        <tr><td>Coating Blanket Size</td><td>1052 x 800 mm | Undercut: 3.20 mm</td></tr>
-        <tr><td>Pneumatic Pressure Values</td><td>Total: 6 bar | Vacuum: 0.6 bar</td></tr>
+        <tr><th>Parameter Description</th><th>Technical Specification Value</th></tr>
+        <tr><td>Maximum Sheet Size</td><td>1020 mm x 720 mm (40.16 in x 28.35 in)</td></tr>
+        <tr><td>Minimum Sheet Size</td><td>480 mm x 340 mm (18.90 in x 13.39 in)</td></tr>
+        <tr><td>Maximum Printing Format / Area</td><td>1020 mm x 710 mm (40.16 in x 27.95 in)</td></tr>
+        <tr><td>Production Speed (Variable)</td><td>3,000 to 15,000 Sheets Per Hour (SPH)</td></tr>
+        <tr><td>Number of Printing Units & Coating</td><td>6 Printing Units + 1 In-Line Coating Unit</td></tr>
+        <tr><td>Substrate Stock Thickness Range</td><td>0.03 mm to 1.0 mm (28 gsm to 460 gsm paper/board)</td></tr>
+        <tr><td>Gripper Margin Length</td><td>10 mm to 12 mm</td></tr>
+        <tr><td>Maximum Feeder Pile Height</td><td>1320 mm (51.97 in)</td></tr>
+        <tr><td>Maximum Delivery Pile Height</td><td>1295 mm (50.98 in)</td></tr>
     </table>
 
-    <!-- Technical Breakdown -->
-    <h2>3. Feeder & Printing Unit Key Details</h2>
-    <h3>Feeding Mechanism & Components</h3>
+    <h3>B. Cylinder Sizes, Undercut & Packing Specifications</h3>
+    <table>
+        <tr><th>Cylinder Type</th><th>Dimensions (Length x Width)</th><th>Undercut Depth</th><th>Packing / Blanket Thickness</th></tr>
+        <tr><td>Plate Cylinder</td><td>1030 mm x 790 mm</td><td>0.12 mm</td><td>Plate: 0.30 mm</td></tr>
+        <tr><td>Blanket Cylinder</td><td>1052 mm x 840 mm</td><td>2.30 mm</td><td>Blanket: 1.95 mm + Underlay Packing</td></tr>
+        <tr><td>Coating Blanket Cylinder</td><td>1052 mm x 800 mm</td><td>3.20 mm</td><td>Coating Blanket: 1.95 mm / Coating Plate: 1.15 mm</td></tr>
+        <tr><td>Impression Cylinder</td><td>Double Diameter Design</td><td>0.00 mm</td><td>N/A (Transfer Cylinder Gripper System)</td></tr>
+    </table>
+
+    <h3>C. Pneumatic & System Pressure Settings</h3>
     <ul>
-        <li><strong>Suckers:</strong> 4 Lifting Suckers, 5 Forwarding Suckers.</li>
-        <li><strong>Blowers & Strips:</strong> 17 Air Blowers, 6 Sheet Separation Strips.</li>
-        <li><strong>Runners & Lays:</strong> 2 Forwarding Runners, 4 Transferring Runners, 2 Side Lays, 18 Front Lay Pins.</li>
-        <li><strong>Swing Arm Gripper:</strong> 18 Gripper Fingers.</li>
+        <li><strong>Total Pneumatic System Air Pressure:</strong> 6 Bar</li>
+        <li><strong>Vacuum Air Pressure (Feeder/Delivery):</strong> 0.6 Bar</li>
+        <li><strong>Dampening Solution Alcohol (IPA) Ratio:</strong> 8% to 12%</li>
+        <li><strong>Fountain Solution pH Level:</strong> 4.8 to 5.5</li>
+        <li><strong>Fountain Solution Conductivity:</strong> 800 to 1500 µS/cm</li>
+        <li><strong>Water Chiller Temperature:</strong> 10°C to 12°C</li>
     </ul>
 
-    <h3>Rollers & Dimensions (Inking & Dampening)</h3>
-    <table>
-        <tr><th>Roller Type</th><th>Quantity / Specs</th><th>Diameter (mm)</th></tr>
-        <tr><td>Rider Roller</td><td>1 (Steel)</td><td>108 mm</td></tr>
-        <tr><td>Ink Form Rollers</td><td>4 (Rubber)</td><td>White: 60mm, Blue: 72mm, Red: 66mm, Yellow: 80mm</td></tr>
-        <tr><td>Vibrator Roller</td><td>1 (Rubber)</td><td>59 mm</td></tr>
-        <tr><td>Oscillator / Distributor</td><td>4 (Rilsan)</td><td>85 mm</td></tr>
-        <tr><td>Dampening Pan Roller</td><td>1 (Rubber)</td><td>108 mm</td></tr>
-        <tr><td>Metering Roller</td><td>1 (Stainless Steel)</td><td>98 mm</td></tr>
-        <tr><td>Dampening Form Roller</td><td>1 (Rubber)</td><td>78 mm</td></tr>
-    </table>
+    <!-- 3. FEEDING & PRINTING MECHANISM DETAILS -->
+    <h2>3. Feeder & Printing Unit Mechanical Breakdown</h2>
 
-    <!-- Coating & Drying -->
-    <h2>4. Surface Coating & Drying Systems</h2>
-    <h3>Types of Coatings & Applications</h3>
+    <h3>A. Feeder Section Components</h3>
     <ul>
-        <li><strong>Aqueous Coating:</strong> Water-based, smudge-resistant, quick drying (2 to 4 g/m²).</li>
-        <li><strong>Varnish Coating:</strong> Low cost, available in Gloss/Matte/Satin (2 to 4 g/m²).</li>
-        <li><strong>Primer Coating:</strong> Base coat for UV adhesion improvement (1.5 to 4 g/m²).</li>
-        <li><strong>Soft Touch Coating:</strong> Velvet texture, luxurious tactile finish (3 to 4 g/m²).</li>
-        <li><strong>UV Coating:</strong> High gloss, cured under UV light, excellent liquid/scuff resistance (3 to 10 g/m²).</li>
+        <li><strong>Lifting Suckers:</strong> 4 Units (Pneumatic control for initial sheet lift).</li>
+        <li><strong>Forwarding Suckers:</strong> 5 Units (Transfers sheet onto the feed table).</li>
+        <li><strong>Air Blowers:</strong> 17 Units total (Float and separate individual sheets).</li>
+        <li><strong>Sheet Separation Strips:</strong> 6 Spring-loaded steel strips.</li>
+        <li><strong>Forwarding Runners / Wheels:</strong> 2 Metal/Rubber rollers.</li>
+        <li><strong>Transferring Runners:</strong> 4 Adjustable tracking wheels.</li>
+        <li><strong>Side Lays:</strong> 2 Pull-type side guides (Pneumatic OS & DS).</li>
+        <li><strong>Front Lay Pins:</strong> 18 Individual alignment pins with electronic double-sheet detectors.</li>
+        <li><strong>Swing Arm Gripper Bar:</strong> Contains 18 precision gripper fingers for sheet transfer to 1st Impression cylinder.</li>
     </ul>
 
-    <h3>Drying Temperature Controls</h3>
+    <h3>B. Inking & Dampening Roller Configuration (Per Printing Unit)</h3>
     <table>
-        <tr><th>Application</th><th>Pile Delivery Temperature</th></tr>
-        <tr><td>Protective Varnish</td><td>32°C - 34°C</td></tr>
-        <tr><td>Ink Drying</td><td>36°C</td></tr>
-        <tr><td>Glossy Varnish</td><td>36°C</td></tr>
-        <tr><td>High Gloss Varnish</td><td>36°C - 38°C</td></tr>
+        <tr><th>Roller Name / Function</th><th>Material Composition</th><th>Quantity</th><th>Diameter (mm)</th></tr>
+        <tr><td>Duct / Fountain Roller</td><td>Steel / Ceramic</td><td>1</td><td>100 mm</td></tr>
+        <tr><td>Inking Ductor Roller</td><td>Rubber</td><td>1</td><td>80 mm</td></tr>
+        <tr><td>Rider Roller</td><td>Hard Steel</td><td>1</td><td>108 mm</td></tr>
+        <tr><td>Ink Form Rollers (Plate Contact)</td><td>Rubber (Color Coded)</td><td>4</td><td>
+            1st (White): 60 mm<br>
+            2nd (Blue): 72 mm<br>
+            3rd (Red): 66 mm<br>
+            4th (Yellow): 80 mm
+        </td></tr>
+        <tr><td>Vibrator / Distributor Roller</td><td>Rubber</td><td>1</td><td>59 mm</td></tr>
+        <tr><td>Oscillator / Distribution Rollers</td><td>Rilsan Coated Steel</td><td>4</td><td>85 mm</td></tr>
+        <tr><td>Dampening Pan / Water Roller</td><td>Rubber</td><td>1</td><td>108 mm</td></tr>
+        <tr><td>Water Metering Roller</td><td>Stainless Steel / Chrome</td><td>1</td><td>98 mm</td></tr>
+        <tr><td>Dampening Form Roller</td><td>Rubber (Alcolor system)</td><td>1</td><td>78 mm</td></tr>
     </table>
 
-    <!-- Post Press -->
-    <h2>5. Post-Press Department & Machinery</h2>
+    <!-- 4. SURFACE COATING & DRYING SYSTEMS -->
+    <h2>4. In-Line Surface Coating & Drying Systems</h2>
+
+    <h3>A. Types of Coatings, Properties & Application Rates</h3>
     <table>
-        <tr><th>Machine</th><th>Max Size</th><th>Speed / Capacity</th></tr>
-        <tr><td>Ultra Coat 1000</td><td>28 x 40 inches</td><td>Max 6,000 SPH</td></tr>
-        <tr><td>Crosograph (Foiling/Embossing)</td><td>28 x 38 inches</td><td>Foiling: 700 SPH | Embossing: 1,250 SPH</td></tr>
-        <tr><td>Sugano Auto Foil Stamping & Punching</td><td>725 x 1040 mm</td><td>Punching: 4,000 SPH | Foiling: 2,500 SPH</td></tr>
-        <tr><td>Nova Cut (Bobst) Die Punching</td><td>1060 x 740 mm</td><td>Up to 8,000 SPH (Pressure: 10 - 250 ton)</td></tr>
-        <tr><td>FMZ-1100 Corrugation Laminator</td><td>1100 x 1100 mm</td><td>Up to 6,000 SPH</td></tr>
-        <tr><td>Wen Chyuan Lamination</td><td>1050 x 950 mm</td><td>6,000 SPH (Temp: 95°C - 105°C)</td></tr>
-        <tr><td>Expert Fold (Bobst) Folder Gluer</td><td>1290 mm</td><td>450 meters / minute</td></tr>
-        <tr><td>Autoprint Checkmate 50 (Inspection)</td><td>400 x 500 mm</td><td>250 meters / minute</td></tr>
+        <tr><th>Coating Type</th><th>Key Properties & End Uses</th><th>Application Weight (g/m²)</th></tr>
+        <tr><td><strong>Aqueous Coating (Water-Based)</strong></td><td>Fast-drying, eco-friendly, excellent rub resistance, prevents ink set-off in pile delivery.</td><td>2.0 to 4.0 g/m²</td></tr>
+        <tr><td><strong>Varnish Coating (Oil-Based)</strong></td><td>Applied via standard ink duct. Available in Gloss, Satin, or Matte finish. Low cost.</td><td>2.0 to 4.0 g/m²</td></tr>
+        <tr><td><strong>Primer Coating</strong></td><td>Protective base layer applied over wet oil ink before applying UV varnish for high adhesion.</td><td>1.5 to 4.0 g/m²</td></tr>
+        <tr><td><strong>Soft Touch Coating</strong></td><td>Creates a matte, velvet, or suede-like premium tactile feel. Requires precise Anilox control.</td><td>3.0 to 4.0 g/m²</td></tr>
+        <tr><td><strong>UV Coating (Ultra-Violet)</strong></td><td>Instant curing under UV lamps. Highest gloss level, maximum chemical and scratch resistance.</td><td>3.0 to 10.0 g/m²</td></tr>
     </table>
 
-    <!-- Quality Control -->
-    <h2>6. Quality Control (QC) & Testing Equipment</h2>
+    <h3>B. Infrared (IR), Hot Air & UV Drying Delivery Temperature Settings</h3>
+    <table>
+        <tr><th>Application / Coating Process</th><th>Target Pile Delivery Temperature Range</th></tr>
+        <tr><td>Protective Varnish / Light Aqueous</td><td>32°C - 34°C</td></tr>
+        <tr><td>Standard Ink Drying (IR Heat)</td><td>36°C</td></tr>
+        <tr><td>Glossy Water-Based Varnish</td><td>36°C</td></tr>
+        <tr><td>High Gloss Aqueous / Heavy Varnish</td><td>36°C - 38°C</td></tr>
+        <tr><td>UV Curing System (UV Lamps)</td><td>40°C - 45°C (Controlled via cold UV cassettes)</td></tr>
+    </table>
+
+    <!-- 5. QUALITY CONTROL (QC) & TESTING EQUIPMENT -->
+    <h2>5. Quality Control (QC) & Laboratory Testing Equipment</h2>
+
+    <p>To ensure high quality standards across all packaging materials, the following quality assurance tests and equipment are utilized:</p>
+
+    <h3>1. Scuff / Rub Resistance Tester</h3>
     <ul>
-        <li><strong>Scuff / Rub Resistance Tester:</strong> Evaluates print rub proofness (60 RPM, 2 LBS weight; 750 rubs for UV, 500 rubs for Aqueous).</li>
-        <li><strong>GSM Tester & Weighing Scale:</strong> Calculates paper/board weight $(GSM = \frac{Weight (g)}{Area (cm^2)} \times 10,000)$.</li>
-        <li><strong>Taber Stiffness Tester:</strong> Evaluates material flexural strength and elasticity.</li>
-        <li><strong>Bursting Strength Tester:</strong> Measures hydraulic load resistance using glycerin.</li>
-        <li><strong>ECT / RCT / FCT Tester:</strong> Edge, Ring, and Flat Crush Testing for corrugated paperboards.</li>
-        <li><strong>Cobb Tester:</strong> Measures water absorbency over 60s/180s.</li>
-        <li><strong>Ford Cup:</strong> Viscosity measurement in seconds.</li>
-        <li><strong>Moisture Meter:</strong> Checks moisture % (Ideal: Paper 6-8%, Corrugated Board 6-10%).</li>
+        <li><strong>Purpose:</strong> Evaluates the abrasion and rub resistance of printed inks and coatings during transport.</li>
+        <li><strong>Testing Parameters:</strong> Operates at 60 RPM with a 2 LBS deadweight attached.</li>
+        <li><strong>Standard Test Cycles:</strong> 750 Rubs for UV Coated boards | 500 Rubs for Aqueous / Water-based Coated boards.</li>
     </ul>
 
-    <div class="footer">
-        <p>© Kumar Printers Pvt. Ltd. | Internal Technical Knowledge Base</p>
+    <h3>2. GSM (Grams per Square Meter) Tester & Electronic Balance</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Measures the weight density of paper, folding box board (FBB), and duplex board.</li>
+        <li><strong>Sample Preparation:</strong> 10cm x 10cm (100 cm²) precision template cutter.</li>
+        <li><strong>Calculation Formula:</strong></li>
+    </ul>
+    <div class="code-box">
+        GSM = (Weight of 100 cm² Sample in Grams) × 10,000 / 100
     </div>
+
+    <h3>3. Taber Stiffness Tester</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Evaluates the bending resistance, stiffness, and elasticity of paperboard to ensure smooth runnability on high-speed automatic packaging lines.</li>
+        <li><strong>Measurement Units:</strong> Taber Stiffness Units (g·cm or mN·m).</li>
+    </ul>
+
+    <h3>4. Bursting Strength Tester</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Measures the maximum hydraulic pressure a paperboard or corrugated board can withstand before rupturing.</li>
+        <li><strong>Working Principle:</strong> Uses a rubber diaphragm inflated by glycerin fluid against a clamped circular specimen area.</li>
+        <li><strong>Unit of Measurement:</strong> kg/cm² or kPa.</li>
+    </ul>
+
+    <h3>5. ECT / RCT / FCT Testing Machine (Corrugation Lab)</h3>
+    <ul>
+        <li><strong>ECT (Edge Crush Test):</strong> Measures the cross-direction crushing strength of corrugated board edges (Determines box stacking strength).</li>
+        <li><strong>RCT (Ring Crush Test):</strong> Measures the edgewise compression strength of paper strips used for fluting and liners.</li>
+        <li><strong>FCT (Flat Crush Test):</strong> Measures the resistance of corrugated flutes against flat crushing force.</li>
+    </ul>
+
+    <h3>6. Cobb Moisture Absorption Tester</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Measures the amount of water absorbed by paper or paperboard in a specified time interval (usually 60 seconds or 180 seconds).</li>
+        <li><strong>Formula:</strong> Cobb Value = (Weight after exposure - Dry weight) × 100 [Expressed in g/m²].</li>
+    </ul>
+
+    <h3>7. Ford Cup Viscosity Meter</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Measures the flow viscosity of liquids such as printing inks, aqueous coatings, UV varnishes, and adhesives.</li>
+        <li><strong>Method:</strong> Measures the exact time in seconds (using a stopwatch) for liquid to drain completely through a standardized orifice (Ford Cup #4).</li>
+    </ul>
+
+    <h3>8. Digital Moisture Meter</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Measures the percentage of moisture retained inside paper, paperboard, and corrugated sheets to prevent warping and cracking at creases.</li>
+        <li><strong>Standard Ideal Moisture Limits:</strong>
+            <ul>
+                <li>Virgin Paper / Board: 6% to 8%</li>
+                <li>Corrugated Fluted Boards: 6% to 10%</li>
+            </ul>
+        </li>
+    </ul>
 
 </div>
 
