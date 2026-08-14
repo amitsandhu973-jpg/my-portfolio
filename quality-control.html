@@ -3,67 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 4: Quality Control & Lab Testing | Offset Printing Manual</title>
+    <title>Chapter 4: Quality Control & Lab Testing Manual | Offset Printing</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 1100px; margin: auto; }
+        .container { max-width: 1200px; margin: auto; }
         .nav-btn { display: inline-block; background: #0284c7; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
-        h1 { color: #0f172a; border-bottom: 3px solid #f59e0b; padding-bottom: 10px; }
-        .qc-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #16a34a; }
-        .qc-card h2 { margin-top: 0; color: #15803d; }
-        .tech-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .tech-table th, .tech-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; }
-        .tech-table th { background: #f1f5f9; color: #334155; width: 30%; }
-        .tag { background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-        .formula-box { background: #f8fafc; border: 1px dashed #0284c7; padding: 10px; font-family: monospace; font-weight: bold; margin: 5px 0; }
+        h1 { color: #0f172a; border-bottom: 3px solid #16a34a; padding-bottom: 10px; }
+        .qc-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #16a34a; }
+        .qc-card h2 { margin-top: 0; color: #15803d; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .tech-table th, .tech-table td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; vertical-align: top; }
+        .tech-table th { background: #f1f5f9; color: #1e293b; width: 28%; font-weight: bold; }
+        .tag { background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; }
+        .formula-box { background: #f8fafc; border: 1px dashed #16a34a; padding: 10px; font-family: monospace; font-weight: bold; margin: 5px 0; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="nav-btn">⬅ Home / Main Book Index</a>
-        <h1>Chapter 4: Pressroom Quality Control & Testing (गुणवत्ता नियंत्रण)</h1>
+        <h1>Chapter 4: Comprehensive Quality Control & Laboratory Testing Science</h1>
 
-        <!-- QC Topic 1 -->
+        <!-- QC Topic 1: Color Science -->
         <div class="qc-card">
-            <h2>1. Paper Substrate QC (GSM & Caliper)</h2>
-            <p><span class="tag">Lab Testing</span></p>
+            <h2>1. Color Science, Spectrophotometry & Delta E ($\Delta E$)</h2>
+            <p><span class="tag">Colorimetry Standard</span></p>
             <table class="tech-table">
-                <tr><th>GSM Test ($10 \text{ cm} \times 10 \text{ cm}$)</th><td>GSM Cutter मशीन से $10 \times 10 \text{ cm}$ का सैंपल काटकर Weighing Scale पर मापा जाता है।<div class="formula-box">Formula: GSM = Weight in grams × 100</div></td></tr>
-                <tr><th>Caliper / Thickness</th><td>Digital Micrometer द्वारा बोर्ड की मोटाई Microns ($\mu\text{m}$) में मापी जाती है। क्रीज़िंग और कटिंग पंचिंग सेटिंग्स के लिए आवश्यक।</td></tr>
-                <tr><th>Grain Direction Check</th><td>• Water Tear Test: पानी की बूंद से जिधर पेपर मुड़े वह Grain Line है।<br>• Bending Test: जिधर पेपर आसानी से मुड़े वह Grain Parallel है।</td></tr>
+                <tr>
+                    <th>CIE $L^*a^*b^*$ Space Explanation</th>
+                    <td>
+                        • <b>$L^*$ (Luminance/Brightness):</b> $0$ (Pure Black) to $100$ (Pure White).<br>
+                        • <b>$a^*$ (Red-Green Axis):</b> $+a^*$ (Redness), $-a^*$ (Greenness).<br>
+                        • <b>$b^*$ (Yellow-Blue Axis):</b> $+b^*$ (Yellowness), $-b^*$ (Blueness).
+                    </td>
+                </tr>
+                <tr>
+                    <th>Delta E ($\Delta E$) Equations & Tolerance</th>
+                    <td>
+                        <b>$\Delta E_{ab}$ Formula:</b>
+                        <div class="formula-box">$$\Delta E_{ab} = \sqrt{(\Delta L^*)^2 + (\Delta a^*)^2 + (\Delta b^*)^2}$$</div>
+                        <b>ISO 12647-2 Tolerances (स्वीकृति सीमाएं):</b><br>
+                        • $\Delta E < 1.0$: इंसानी आँख से अंतर पहचानना असंभव (Perfect Match)।<br>
+                        • $\Delta E \le 2.5$: अंतर्राष्ट्रीय ब्रांड्स (Pharma/FMCG) की स्वीकृत सीमा (Pass Limit)।<br>
+                        • $\Delta E > 4.0$: कलर्स में साफ़ अंतर (Rejection Risk)।
+                    </td>
+                </tr>
+                <tr>
+                    <th>Solid Ink Density (SID Standards)</th>
+                    <td>
+                        ISO 12647-2 Densitometric Values (Status T Density):<br>
+                        • <b>Black (K):</b> $1.70\text{--}1.85$ D<br>
+                        • <b>Cyan (C):</b> $1.40\text{--}1.55$ D<br>
+                        • <b>Magenta (M):</b> $1.40\text{--}1.50$ D<br>
+                        • <b>Yellow (Y):</b> $1.05\text{--}1.15$ D
+                    </td>
+                </tr>
             </table>
         </div>
 
-        <!-- QC Topic 2 -->
+        <!-- QC Topic 2: Chemistry & Water -->
         <div class="qc-card">
-            <h2>2. Color Management & Measurement</h2>
-            <p><span class="tag">Color QC</span></p>
+            <h2>2. Dampening Water Chemistry & Electro-Chemistry</h2>
+            <p><span class="tag">Chemical Testing</span></p>
             <table class="tech-table">
-                <tr><th>Spectrophotometer</th><td>Lab Values ($L^*a^*b^*$) और Delta E ($\Delta E$) मापने के लिए मुख्य उपकरण।</td></tr>
-                <tr><th>Delta E ($\Delta E$) Standards</th><td>• $\Delta E < 1.5$: इंसानी आँख से अंतर पहचानना असंभव (Perfect Match)।<br>• $\Delta E < 3.0$: इंडस्ट्रियल प्रिंटिंग स्वीकृति सीमा (Standard Pass)।<br>• $\Delta E > 4.0$: कलर्स में साफ़ अंतर (Rejection Risk)।</td></tr>
-                <tr><th>Densitometer Readings</th><td>Solid Ink Density (SID) Standards:<br>• Black (K): $1.70\text{--}1.85$<br>• Cyan (C): $1.40\text{--}1.50$<br>• Magenta (M): $1.40\text{--}1.50$<br>• Yellow (Y): $1.05\text{--}1.15$</td></tr>
+                <tr>
+                    <th>pH Control & Acid Balance</th>
+                    <td>
+                        Standard Target Range: <b>4.8 to 5.5 pH</b><br>
+                        • <b>pH < 4.5:</b> Slow ink drying, Plate blinding, Roller stripping.<br>
+                        • <b>pH > 5.8:</b> Plate scumming, Ink emulsification, Washout.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Conductivity / TDS Measurements</th>
+                    <td>
+                        Standard Operating Range: <b>1500 to 2000 µS/cm</b> above fresh raw water base.<br>
+                        अगर कंडक्टिविटी $3000\ \mu\text{S/cm}$ पार करे तो पानी ड्रेन करके तुरंत नया डैम्पिंग घोल तैयार करें।
+                    </td>
+                </tr>
             </table>
         </div>
 
-        <!-- QC Topic 3 -->
+        <!-- QC Topic 3: Substrate Testing -->
         <div class="qc-card">
-            <h2>3. Fountain Solution & Chemistry QC</h2>
-            <p><span class="tag">Chemistry Testing</span></p>
+            <h2>3. Substrate & Finished Packaging Testing Methods</h2>
+            <p><span class="tag">Physical Packaging Testing</span></p>
             <table class="tech-table">
-                <tr><th>pH Range</th><td>Standard Safe Range: $4.8 \text{ to } 5.5$<br>• pH $< 4.5$: Slow drying, Plate Blinding.<br>• pH $> 5.8$: Scumming, Ink Emulsification.</td></tr>
-                <tr><th>Conductivity</th><td>Standard Range: $1500 \text{ to } 2000\ \mu\text{S/cm}$ above fresh water.<br>अगर कंडक्टिविटी $3000\ \mu\text{S/cm}$ पार करे तो पानी ड्रेन करके तुरंत नया डैम्पिंग भरें।</td></tr>
-                <tr><th>IPA (Isopropanol) %</th><td>Continuous Dampening: $8\%\text{--}12\%$ | Eco-Dampening Additives: $3\%\text{--}5\%$</td></tr>
-            </table>
-        </div>
-
-        <!-- QC Topic 4 -->
-        <div class="qc-card">
-            <h2>4. Printed Sheet Physical Tests</h2>
-            <p><span class="tag">Post-Print Testing</span></p>
-            <table class="tech-table">
-                <tr><th>Rub / Abrasion Test</th><td>Sutherland Rub Tester का उपयोग करके इंक की पकड़ और कोटिंग रेजिस्टेंस जांची जाती है।</td></tr>
-                <tr><th>Tape Test (Cross-Hatch)</th><td>कोटिंग और लामिनेशन की पपड़ी उखड़ने (Adhesion Failure) को जांचने के लिए 3M Tape का प्रयोग।</td></tr>
-                <tr><th>Creasing & Folding Test</th><td>पैकेजिंग कार्टन को $180^\circ$ पर मोड़कर दरार (Crack) चेक करना।</td></tr>
+                <tr>
+                    <th>GSM & Caliper Math</th>
+                    <td>
+                        • <b>GSM Test:</b> $100\text{ cm}^2$ Cutter से सैंपल काटकर Analytical Balance पर मापें ($W \times 100$).<br>
+                        • <b>Caliper Micrometer:</b> Digital Micrometer से मोटाई Microns ($\mu\text{m}$) में मापी जाती है।
+                    </td>
+                </tr>
+                <tr>
+                    <th>Cobb Water Absorption Test</th>
+                    <td>Cobb-60 Test: 100 ml डिस्टिल्ड वॉटर को 60 सेकंड के लिए बोर्ड पर रखा जाता है। शोषक कागज से पानी सुखाकर ग्राम प्रति वर्ग मीटर ($g/m^2$) में मापते हैं। Standard = $28\text{--}32 \text{ g/m}^2$।</td>
+                </tr>
+                <tr>
+                    <th>Sutherland Rub Test (Abrasion Resistance)</th>
+                    <td>2 lb या 4 lb वेट का उपयोग करके 50–100 स्ट्रोक तक घिसाई की जाती है ताकि इंक या कोटिंग की स्क्रैच-रेजिस्टेंस जांची जा सके।</td>
+                </tr>
             </table>
         </div>
 
