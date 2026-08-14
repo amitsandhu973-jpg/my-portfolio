@@ -3,723 +3,785 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Technical Catalogue - Offset Printing & Packaging</title>
+    <title>Master Printing & Packaging Catalogue (Flipkart Style)</title>
     <style>
         :root {
-            --primary-blue: #0284c7;
-            --dark-navy: #0f172a;
-            --accent-orange: #fb641b;
-            --accent-green: #16a34a;
-            --bg-gray: #f1f5f9;
-            --card-bg: #ffffff;
-            --border-color: #cbd5e1;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --fk-blue: #2874f0;
+            --fk-yellow: #ffe500;
+            --fk-orange: #fb641b;
+            --fk-green: #388e3c;
+            --bg-gray: #f1f3f6;
+            --dark-text: #212121;
+            --muted-text: #878787;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-gray);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            color: var(--dark-text);
         }
 
-        /* Top Header */
+        /* Top Flipkart Navbar */
         header {
-            background: linear-gradient(135deg, var(--dark-navy) 0%, #1e293b 100%);
+            background-color: var(--fk-blue);
             color: white;
-            padding: 20px 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 12px 30px;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        .header-container {
-            max-width: 1280px;
+        .header-content {
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .logo-text span {
+            color: var(--fk-yellow);
+            font-style: normal;
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        /* Category Filter Tabs */
+        .category-nav {
+            background: white;
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cat-chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-chip.active, .cat-chip:hover {
+            background: var(--fk-blue);
+            color: white;
+            border-color: var(--fk-blue);
+        }
+
+        /* Main Container: Split Layout (Flipkart Style) */
+        .main-layout {
+            max-width: 1400px;
+            margin: 15px auto;
+            padding: 0 10px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
             gap: 15px;
         }
 
-        .logo h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-
-        .logo span {
-            color: var(--primary-blue);
-            font-size: 0.85rem;
-            display: block;
-            font-weight: normal;
-        }
-
-        .top-nav {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .top-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.1);
-            transition: all 0.2s;
-        }
-
-        .top-nav a:hover {
-            background: var(--primary-blue);
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-
-        /* Navigation Category Selector */
-        .category-strip {
-            background: white;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .cat-btn {
-            padding: 10px 20px;
-            border: 1px solid var(--border-color);
-            background: #f8fafc;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-            color: var(--text-main);
-        }
-
-        .cat-btn.active, .cat-btn:hover {
-            background: var(--primary-blue);
-            color: white;
-            border-color: var(--primary-blue);
-        }
-
-        /* Product Showcase Layout (Flipkart Style) */
-        .showcase-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            display: grid;
-            grid-template-columns: 440px 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border-color);
-        }
-
-        @media(max-width: 950px) {
-            .showcase-card {
+        @media (max-width: 900px) {
+            .main-layout {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Interactive Diagram / 3D Canvas Box */
-        .canvas-box {
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
+        /* LEFT SIDE: Product List Sidebar */
+        .item-list-sidebar {
+            background: white;
+            border-radius: 4px;
             padding: 15px;
-            background: #f8fafc;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+            max-height: 82vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--muted-text);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .item-card {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        .item-card:hover, .item-card.selected {
+            border-color: var(--fk-blue);
+            box-shadow: 0 2px 8px rgba(40,116,240,0.2);
+            background: #f8faff;
+        }
+
+        .item-thumb {
+            width: 70px;
+            height: 70px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .item-info h4 {
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            margin-bottom: 4px;
+        }
+
+        .item-info p {
+            font-size: 0.8rem;
+            color: var(--muted-text);
+        }
+
+        .badge {
+            background: var(--fk-green);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* RIGHT SIDE: Detailed Product Page */
+        .product-detail-page {
+            background: white;
+            border-radius: 4px;
+            padding: 25px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 1100px) {
+            .product-detail-page {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 3D / Diagram Container */
+        .visual-container {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            background: #fafafa;
             text-align: center;
         }
 
-        .view-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .view-btn {
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+        .diagram-stage {
+            height: 320px;
             background: white;
-            cursor: pointer;
-        }
-
-        .view-btn.active {
-            background: var(--accent-orange);
-            color: white;
-            border-color: var(--accent-orange);
-        }
-
-        .illustration-stage {
-            height: 290px;
-            background: white;
-            border: 1px dashed var(--border-color);
-            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 12px;
         }
 
-        .svg-diagram {
-            width: 85%;
-            height: 220px;
+        .interactive-svg {
+            width: 80%;
+            height: 240px;
             transition: transform 0.3s ease;
         }
 
+        .rotator-box {
+            background: white;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .rotator-box label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         .rotator-slider {
-            width: 85%;
-            margin-top: 10px;
+            width: 100%;
         }
 
-        /* Right Content Area */
-        .item-title {
+        /* Details Content */
+        .detail-header h1 {
             font-size: 1.6rem;
-            margin: 0 0 5px 0;
-            color: var(--dark-navy);
+            color: var(--dark-text);
+            margin-bottom: 5px;
         }
 
-        .item-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+        .category-tag {
+            color: var(--fk-blue);
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Highlights Box */
         .highlights-box {
-            background: #f0f9ff;
-            border-left: 4px solid var(--primary-blue);
+            background: #f0f7ff;
+            border-left: 4px solid var(--fk-blue);
             padding: 12px 15px;
-            margin-bottom: 20px;
+            margin: 18px 0;
             border-radius: 0 6px 6px 0;
         }
 
+        .highlights-box h3 {
+            font-size: 0.95rem;
+            color: var(--fk-blue);
+            margin-bottom: 8px;
+        }
+
         .highlights-box ul {
-            margin: 0;
             padding-left: 20px;
+            font-size: 0.9rem;
         }
 
         .highlights-box li {
-            margin-bottom: 5px;
-            font-size: 0.95rem;
+            margin-bottom: 4px;
         }
 
-        /* Pros & Cons Box */
+        /* Pros & Cons Section */
         .pros-cons-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        .pros-card {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 6px;
+        .pros-box {
+            background: #f1f8e9;
+            border: 1px solid #c8e6c9;
             padding: 12px;
-        }
-
-        .pros-card h4 {
-            margin: 0 0 8px 0;
-            color: var(--accent-green);
-            font-size: 0.95rem;
-        }
-
-        .cons-card {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
             border-radius: 6px;
+        }
+
+        .pros-box h4 {
+            color: var(--fk-green);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .cons-box {
+            background: #fbe9e7;
+            border: 1px solid #ffccbc;
             padding: 12px;
+            border-radius: 6px;
         }
 
-        .cons-card h4 {
-            margin: 0 0 8px 0;
-            color: #dc2626;
-            font-size: 0.95rem;
+        .cons-box h4 {
+            color: #d84315;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
         }
 
-        .pros-card ul, .cons-card ul {
-            margin: 0;
+        .pros-box ul, .cons-box ul {
             padding-left: 18px;
             font-size: 0.85rem;
         }
 
-        /* Full Spec Table */
-        .table-section {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            margin-bottom: 30px;
+        /* Full Specification Table */
+        .spec-table-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--fk-blue);
+            padding-bottom: 4px;
+            display: inline-block;
         }
 
-        .section-heading {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark-navy);
-            border-bottom: 3px solid var(--primary-blue);
-            padding-bottom: 8px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .master-table {
+        .spec-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 8px;
         }
 
-        .master-table tr {
+        .spec-table tr {
             border-bottom: 1px solid var(--border-color);
         }
 
-        .master-table td {
-            padding: 12px;
-            font-size: 0.9rem;
-            vertical-align: top;
+        .spec-table td {
+            padding: 10px;
+            font-size: 0.88rem;
         }
 
-        .master-table td.col-key {
-            color: var(--text-muted);
-            width: 30%;
+        .spec-table td.key {
+            color: var(--muted-text);
+            width: 35%;
+            font-weight: 500;
+            background: #fafafa;
+        }
+
+        .spec-table td.val {
+            color: var(--dark-text);
             font-weight: 600;
-            background: #f8fafc;
+            width: 65%;
         }
 
-        .master-table td.col-val {
-            color: var(--text-main);
-            font-weight: 600;
-            width: 70%;
+        /* Defect Action Box */
+        .defect-solution-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
         }
 
-        /* Defects Specific Grid */
-        .defect-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+        .defect-solution-box h4 {
+            color: #f57f17;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
         }
 
-        .defect-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-left: 5px solid #dc2626;
-            border-radius: 8px;
-            padding: 18px;
-        }
-
-        .defect-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.1rem;
-            color: #b91c1c;
-        }
-
-        .defect-card p {
-            margin: 4px 0;
+        .defect-solution-box p {
             font-size: 0.9rem;
-        }
-
-        .defect-card .badge-fix {
-            background: #dcfce7;
-            color: #15803d;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 0.85rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Top Navbar -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>PRINT & PACKAGING MASTER CYCLOPEDIA</h1>
-                <span>Comprehensive Technical Blueprint for Engineers & Press Operators</span>
+        <div class="header-content">
+            <div class="logo-text">
+                PRINT-PACK CATALOGUE
+                <span>Flipkart-Style Master Spec Hub</span>
             </div>
-            <div class="top-nav">
-                <a href="index.html">🏠 Home Hub</a>
-                <a href="troubleshooting.html">🔧 Troubleshooting</a>
-                <a href="machinery-specs.html">⚙️ Machine Manuals</a>
-                <a href="quality-control.html">🧪 Lab QC</a>
-                <a href="post-press.html">📦 Post-Press</a>
+            <div style="font-size:0.85rem; font-weight:bold; background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:4px;">
+                ⚙️ Industrial Offset Standards
             </div>
         </div>
     </header>
 
-    <div class="container">
+    <!-- Category Filter Bar -->
+    <div class="category-nav">
+        <button class="cat-chip active" onclick="filterCategory('all')">🌐 All Items</button>
+        <button class="cat-chip" onclick="filterCategory('machine')">🖨️ Machines & Components</button>
+        <button class="cat-chip" onclick="filterCategory('material')">📄 Papers & Boards</button>
+        <button class="cat-chip" onclick="filterCategory('ink')">🧪 Inks & Chemicals</button>
+        <button class="cat-chip" onclick="filterCategory('defect')">🚨 Printing Defects (20)</button>
+    </div>
 
-        <!-- Category Buttons Bar -->
-        <div class="category-strip">
-            <button class="cat-btn active" onclick="loadContent('principle')">⚙️ Sheetfed Offset Working Principle</button>
-            <button class="cat-btn" onclick="loadContent('heidelberg')">🖨️ Heidelberg CX 104 Press Specs</button>
-            <button class="cat-btn" onclick="loadContent('ink')">🧪 Printing Inks & Varnish Chemistry</button>
-            <button class="cat-btn" onclick="loadContent('substrate')">📄 Paper, Duplex Board & Films</button>
-            <button class="cat-btn" onclick="loadContent('defects')">🚨 20 Common Defects & Solutions</button>
+    <!-- Main Flipkart-Style Layout -->
+    <div class="main-layout">
+
+        <!-- LEFT SIDEBAR: Item Selector -->
+        <div class="item-list-sidebar">
+            <div class="sidebar-title">Select Material / Machine / Defect:</div>
+            <div id="itemList">
+                <!-- Javascript will render item cards here -->
+            </div>
         </div>
 
-        <!-- Dynamic Main Showcase Layout (Flipkart Style) -->
-        <div class="showcase-card" id="mainShowcase">
+        <!-- RIGHT SIDE: Detailed Product Page -->
+        <div class="product-detail-page" id="detailContainer">
 
-            <!-- LEFT: Interactive 2D/360 Canvas -->
-            <div class="canvas-box">
-                <div class="view-tabs">
-                    <button class="view-btn active" id="btn2D" onclick="setViewMode('2d')">2D Structural Vector</button>
-                    <button class="view-btn" id="btn360" onclick="setViewMode('360')">360° Rotator View</button>
-                </div>
-
-                <div class="illustration-stage">
-                    <svg class="svg-diagram" id="mainSvg" viewBox="0 0 300 200" transform="rotate(0)">
-                        <g id="svgGroup">
-                            <!-- Plate Cylinder -->
-                            <circle cx="150" cy="45" r="32" fill="#e2e8f0" stroke="#0284c7" stroke-width="4"/>
-                            <text x="133" y="49" font-size="10" font-weight="bold" fill="#0f172a">PLATE CYLINDER</text>
-                            
-                            <!-- Blanket Cylinder -->
-                            <circle cx="150" cy="110" r="30" fill="#fed7aa" stroke="#f97316" stroke-width="4"/>
-                            <text x="125" y="114" font-size="9" font-weight="bold" fill="#9a3412">BLANKET CYLINDER</text>
-
-                            <!-- Impression Cylinder -->
-                            <circle cx="150" cy="168" r="26" fill="#cbd5e1" stroke="#475569" stroke-width="4"/>
-                            <text x="120" y="172" font-size="8" font-weight="bold" fill="#1e293b">IMPRESSION CYL.</text>
-
-                            <!-- Paper Sheet -->
-                            <path d="M 70 139 L 230 139" stroke="#16a34a" stroke-width="3" stroke-dasharray="4"/>
-                        </g>
+            <!-- Visual 3D / Diagram Box -->
+            <div class="visual-container">
+                <div class="diagram-stage">
+                    <svg class="interactive-svg" id="svgCanvas" viewBox="0 0 300 200">
+                        <!-- Dynamic SVG Content -->
                     </svg>
-                    <span id="angleLabel" style="font-size:0.75rem; color:#64748b; margin-top:4px;">Rotational Angle: 0°</span>
+                    <span id="angleText" style="font-size:0.75rem; color:var(--muted-text); margin-top:5px;">Interactive Rotational Angle: 0°</span>
                 </div>
 
-                <div id="sliderContainer" style="display:none; margin-top:10px;">
-                    <label style="font-size:0.8rem; font-weight:bold;">🔄 Rotator Control (0° - 360°):</label><br>
-                    <input type="range" class="rotator-slider" id="rotateSlider" min="0" max="360" value="0" oninput="rotateSvg(this.value)">
+                <div class="rotator-box">
+                    <label>🔄 3D / 360° Inspection Rotator:</label>
+                    <input type="range" class="rotator-slider" id="angleSlider" min="0" max="360" value="0" oninput="updateAngle(this.value)">
                 </div>
             </div>
 
-            <!-- RIGHT: Details, Highlights & Pros/Cons -->
+            <!-- Details, Specs, Pros/Cons -->
             <div>
-                <h1 class="item-title" id="displayTitle">3-Cylinder Sheetfed Offset Working Principle</h1>
-                <div class="item-subtitle" id="displaySubtitle">Lithographic Planographic Indirect Image Transfer Physics</div>
+                <div class="detail-header">
+                    <span class="category-tag" id="itemCatTag">MACHINE PRINCIPLE</span>
+                    <h1 id="itemTitle">Sheetfed Offset 3-Cylinder Unit</h1>
+                </div>
 
                 <div class="highlights-box">
-                    <h4 style="margin:0 0 6px 0; color:var(--primary-blue);">Key Technical Highlights:</h4>
-                    <ul id="displayHighlights">
-                        <li><b>Planographic Principle:</b> Image and non-image areas exist on the same flat plane on the CTP plate.</li>
-                        <li><b>Chemical Immiscibility:</b> Based on mutual repulsion of Water (Hydrophilic) and Oil/Ink (Oleophilic).</li>
-                        <li><b>Indirect Printing:</b> Ink transfers from Plate Cylinder $\rightarrow$ Rubber Blanket Cylinder $\rightarrow$ Paper Substrate.</li>
+                    <h3>📌 Key Highlights & Principles:</h3>
+                    <ul id="itemHighlights">
+                        <!-- Highlights -->
                     </ul>
                 </div>
 
-                <!-- Advantages & Disadvantages -->
+                <!-- Pros & Cons -->
                 <div class="pros-cons-grid">
-                    <div class="pros-card">
-                        <h4>✅ Advantages (फ़ायदे):</h4>
-                        <ul id="displayPros">
-                            <li>Sharp dot reproduction on rough paper due to flexible rubber blanket.</li>
-                            <li>High-speed continuous printing ($16,500$ sheets/hr).</li>
-                            <li>Extended plate life as plate does not directly touch rough paper.</li>
-                        </ul>
+                    <div class="pros-box">
+                        <h4>✅ Advantages (फ़ायदे)</h4>
+                        <ul id="itemPros"></ul>
                     </div>
-                    <div class="cons-card">
-                        <h4>❌ Disadvantages (सीमाएं):</h4>
-                        <ul id="displayCons">
-                            <li>Requires strict chemical control over Dampening Water pH and Conductivity.</li>
-                            <li>Risk of Emulsification if Water-Ink balance is disturbed.</li>
-                            <li>Higher initial makeready waste compared to digital printing.</li>
-                        </ul>
+                    <div class="cons-box">
+                        <h4>❌ Disadvantages (सीमाएं)</h4>
+                        <ul id="itemCons"></ul>
                     </div>
                 </div>
+
+                <!-- Defect Fix Box (Only shows for defects) -->
+                <div class="defect-solution-box" id="defectFixBox" style="display:none;">
+                    <h4>🔧 Operator Action / Solution (सटीक समाधान):</h4>
+                    <p id="defectFixText"></p>
+                </div>
+
+                <!-- Full Specification Table -->
+                <div style="margin-top: 20px;">
+                    <div class="spec-table-title">📊 Full Technical Specifications</div>
+                    <table class="spec-table">
+                        <tbody id="specTableBody">
+                            <!-- Specifications -->
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
-        </div>
-
-        <!-- FULL SPECIFICATION TABLE SECTION -->
-        <div class="table-section" id="tableContainer">
-            <h2 class="section-heading" id="tableHeading">Technical Specifications & Working Standards</h2>
-            <table class="master-table">
-                <tbody id="displayTable">
-                    <tr>
-                        <td class="col-key">Plate Cylinder Undercut</td>
-                        <td class="col-val">0.15 mm (0.006 in) True Rolling Standard</td>
-                    </tr>
-                    <tr>
-                        <td class="col-key">Blanket Cylinder Undercut</td>
-                        <td class="col-val">2.30 mm (0.091 in) with standard compressibility</td>
-                    </tr>
-                    <tr>
-                        <td class="col-key">Dampening Solution pH Window</td>
-                        <td class="col-val">4.8 to 5.5 pH at 10°C - 12°C Temperature</td>
-                    </tr>
-                    <tr>
-                        <td class="col-key">Conductivity Target Range</td>
-                        <td class="col-val">1500 to 2000 µS/cm above raw water baseline</td>
-                    </tr>
-                    <tr>
-                        <td class="col-key">Impression Squeeze Pressure</td>
-                        <td class="col-val">0.10 mm to 0.12 mm over paper caliper thickness</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- TOP 20 DEFECTS FULL SECTION (LOADS WHEN SELECTED) -->
-        <div class="table-section" id="defectsContainer" style="display:none;">
-            <h2 class="section-heading">🚨 Top 20 Pressroom Defects, Root Cause Analysis & Solutions</h2>
-            <div class="defect-grid" id="defectGrid">
-                <!-- Javascript will inject 20 defects here -->
-            </div>
         </div>
 
     </div>
 
     <script>
-        // Database
-        const data = {
-            principle: {
-                title: "3-Cylinder Sheetfed Offset Working Principle",
-                subtitle: "Lithographic Planographic Indirect Image Transfer Physics",
+        // Master Database of Items
+        const masterItems = [
+            {
+                id: "item1",
+                category: "machine",
+                title: "Sheetfed Offset 3-Cylinder Unit",
+                icon: "⚙️",
+                catTag: "MACHINE PRINCIPLE",
                 highlights: [
-                    "<b>Planographic Principle:</b> Image areas are Oleophilic (Ink-receptive) and non-image areas are Hydrophilic (Water-receptive).",
-                    "<b>Indirect Printing:</b> Plate transfers ink to compressible Rubber Blanket, which then prints on Paper.",
-                    "<b>Impression Control:</b> Micrometer-adjusted nip squeeze ensures crisp dot transfer."
+                    "Planographic chemical principle: Water (Hydrophilic) vs Oil (Oleophilic) repulsion.",
+                    "Indirect transfer: Ink moves from Plate Cylinder → Rubber Blanket → Substrate.",
+                    "Precision micrometer nip impression squeeze control."
                 ],
                 pros: [
-                    "High print sharpness & fine dot reproduction.",
-                    "Extended plate durability due to indirect rubber contact.",
-                    "Fast makeready and low running unit cost."
+                    "Crisp dot reproduction on rough paper via compressible blanket.",
+                    "High press speed up to 16,500 sheets/hour.",
+                    "Longer plate cylinder lifespan."
                 ],
                 cons: [
-                    "Sensitive to Ink-Water chemical imbalance.",
-                    "Requires strict RH (Humidity) control in pressroom.",
-                    "Higher initial setup waste than digital press."
+                    "Requires continuous fountain solution chemistry balancing.",
+                    "Higher makeready waste compared to digital printing."
                 ],
-                tableHeading: "Offset Principle Working Standards",
-                table: [
-                    ["Printing Method", "Planographic / Indirect Offset Lithography"],
-                    ["Image Transfer Chain", "Dampening Unit → Inking Unit → Plate → Blanket → Substrate"],
-                    ["Dampening Chemistry", "Water + IPA (6-8%) + Fountain Solution (2-3%)"],
-                    ["Dampening pH Window", "4.8 pH to 5.5 pH"],
+                specs: [
+                    ["Printing Tech", "Indirect Offset Lithography"],
+                    ["Dampening pH Window", "4.8 pH - 5.5 pH"],
                     ["Conductivity Target", "1500 - 2000 µS/cm"],
-                    ["Impression Squeeze", "0.10 mm - 0.12 mm Squeeze Thickness"]
-                ]
-            },
-            heidelberg: {
-                title: "Heidelberg Speedmaster CX 104 Press Specifications",
-                subtitle: "German High-Speed Packaging & Commercial Sheetfed Offset Press",
-                highlights: [
-                    "<b>Max Printing Speed:</b> 16,500 Sheets per Hour.",
-                    "<b>Substrate Range:</b> Light paper 0.03 mm up to 1.00 mm Heavy Packaging Board.",
-                    "<b>Inking Unit:</b> 16 Inking Rollers with Chilled Inking Temperature Control."
-                ],
-                pros: [
-                    "Autoplate Pro for ultra-fast automatic plate changing.",
-                    "Prinect Press Center XL3 touchscreen console integration.",
-                    "Dynamic sheet travel with contactless air-cushion transfer."
-                ],
-                cons: [
-                    "High initial machinery capital cost.",
-                    "Requires specialized OEM trained maintenance engineers.",
-                    "High power consumption during peak UV drying."
-                ],
-                tableHeading: "Heidelberg CX 104 Mechanical Specifications",
-                table: [
-                    ["Max Sheet Format", "740 × 1040 mm (29.13 × 40.94 in)"],
-                    ["Min Sheet Format", "340 × 480 mm (13.39 × 18.90 in)"],
                     ["Plate Cylinder Undercut", "0.15 mm"],
                     ["Blanket Cylinder Undercut", "2.30 mm"],
-                    ["Plate Dimensions", "790 × 1030 mm | Thickness: 0.30 mm"],
-                    ["Blanket Dimensions", "860 × 1060 mm | Thickness: 1.95 mm Barred"],
-                    ["Ink Form Roller Nip", "4.0 mm Stripe Width on Plate"],
-                    ["Dampening Roller Nip", "5.0 mm Stripe Width on Plate"]
-                ]
+                    ["Impression Squeeze", "0.10 mm - 0.12 mm"]
+                ],
+                svgType: "cylinders"
             },
-            ink: {
-                title: "Sheetfed Offset Printing Inks & Varnish Chemistry",
-                subtitle: "Pigments, Alkyd Resins, Vegetable Oils & UV Curable Compounds",
+            {
+                id: "item2",
+                category: "machine",
+                title: "Heidelberg Speedmaster CX 104",
+                icon: "🖨️",
+                catTag: "PRINTING PRESS MACHINE",
                 highlights: [
-                    "<b>Ink Formulation:</b> 15-25% Pigment, 50-60% Alkyd Resin/Hard Resin, 15-20% Vegetable Oils (Soybean/Linseed oil).",
-                    "<b>Drying Mechanisms:</b> Oxidation Polymerization + Penetration Absorption + UV Free-Radical Curing.",
-                    "<b>Tack & Viscosity:</b> High tack (12-16 Tack Units) for clean dot sharp reproduction."
+                    "Max speed: 16,500 sheets per hour.",
+                    "Substrate versatility: 0.03 mm thin paper to 1.00 mm heavy board.",
+                    "Autoplate Pro automatic plate changer for fast turnaround."
                 ],
                 pros: [
-                    "Vibrant color density and excellent lightfastness.",
-                    "High gloss finish with oil-based and UV overprint varnishes.",
-                    "Low VOC environment-friendly vegetable oil options."
+                    "Prinect Press Center XL3 touchscreen intelligent operation.",
+                    "Chilled ink temperature control prevents dot gain fluctuation.",
+                    "Contactless sheet travel via air cushion."
                 ],
                 cons: [
-                    "Slow oxidation drying (requires 4-8 hours before conversion).",
-                    "Risk of Set-Off if spray powder is insufficient.",
-                    "Tack reduction needed for weak substrate surface strength."
+                    "High machinery investment cost.",
+                    "Requires strict scheduled preventative maintenance."
                 ],
-                tableHeading: "Offset Ink & Chemistry Technical Specifications",
-                table: [
-                    ["Tack Rating (Cyan / Magenta)", "14 - 16 Tack Units"],
-                    ["Tack Rating (Yellow / Black)", "12 - 14 Tack Units"],
-                    ["Solid Density (Black - K)", "1.70 - 1.85 D"],
-                    ["Solid Density (Cyan - C)", "1.40 - 1.55 D"],
-                    ["Solid Density (Magenta - M)", "1.40 - 1.50 D"],
-                    ["Solid Density (Yellow - Y)", "1.05 - 1.15 D"],
-                    ["Fountain Solution pH", "4.8 - 5.5 pH"],
-                    ["Isopropanol (IPA) Vol %", "6% - 8% Vol"]
-                ]
+                specs: [
+                    ["Max Sheet Format", "740 × 1040 mm"],
+                    ["Min Sheet Format", "340 × 480 mm"],
+                    ["Plate Size", "790 × 1030 mm (0.30 mm thickness)"],
+                    ["Blanket Size", "860 × 1060 mm (1.95 mm thickness)"],
+                    ["Inking Form Rollers", "4 Form Rollers per Unit"],
+                    ["Inking Stripe Nip", "4.0 mm on Plate"]
+                ],
+                svgType: "cylinders"
             },
-            substrate: {
-                title: "Paper, Folding Boxboard (FBB), Duplex & METPET Films",
-                subtitle: "Cellulose Fiber Structure, Coating Layer & Surface Physics",
+            {
+                id: "item3",
+                category: "material",
+                title: "Folding Boxboard (FBB / GC1 / GC2)",
+                icon: "📄",
+                catTag: "SUBSTRATE & BOARD",
                 highlights: [
-                    "<b>Duplex Board (GD2/LWC):</b> Grey back coated board ($230\text{--}450 \text{ g/m}^2$) for FMCG packaging.",
-                    "<b>FBB (Folding Boxboard):</b> Virgin bleached pulp outer layers with mechanical pulp middle layer.",
-                    "<b>METPET Film Board:</b> Metallic Polyester Film laminated on board for high-end cosmetic cartons."
+                    "Virgin bleached chemical pulp outer layers with mechanical pulp inner core.",
+                    "High stiffness and bulk-to-weight ratio for pharmaceutical & FMCG cartons.",
+                    "Smooth pigment-coated top surface for high-gloss print finishing."
                 ],
                 pros: [
-                    "High stiffness and burst strength for structural folding cartons.",
-                    "Excellent surface smoothness for smooth gloss ink laydown.",
-                    "100% Recyclable and eco-friendly options."
+                    "Superior creasing & folding properties without cracking.",
+                    "100% Recyclable and eco-friendly.",
+                    "High brightness for vivid color pop."
                 ],
                 cons: [
-                    "Hygroscopic nature: Expands or curls with humidity changes.",
-                    "METPET requires non-porous UV Inks and Corona Treatment.",
-                    "Risk of cracking on crease lines if moisture content drops below 5%."
+                    "Hygroscopic: Moisture changes cause board curl.",
+                    "Higher cost than recycled greyback duplex board."
                 ],
-                tableHeading: "Substrate Physical Properties & Testing Methods",
-                table: [
-                    ["Grammage (GSM) Standard", "ISO 536 Test Method (g/m²)"],
-                    ["Caliper / Thickness", "Microns (µm) via Digital Micrometer"],
-                    ["Cobb Water Absorption (Cobb-60)", "28 - 32 g/m² Target"],
-                    ["Moisture Content Target", "6.0% - 7.0% RH Balance"],
-                    ["Grain Direction Rule", "Parallel to major carton crease lines"],
-                    ["Surface Tension (METPET/Film)", "≥ 44 dynes/cm (Corona Treated)"]
-                ]
+                specs: [
+                    ["Grammage (GSM) Range", "200 GSM - 450 GSM"],
+                    ["Caliper / Thickness", "280 µm - 650 µm"],
+                    ["Cobb Water Absorption", "28 - 32 g/m²"],
+                    ["Target Moisture Content", "6.5% ± 0.5%"],
+                    ["Top Smoothness (PPS)", "1.2 - 1.8 µm"]
+                ],
+                svgType: "paper"
+            },
+            {
+                id: "item4",
+                category: "ink",
+                title: "Offset Process Cyan Ink & Chemistry",
+                icon: "🧪",
+                catTag: "INKS & VARNISHES",
+                highlights: [
+                    "Formulation: Phthalocyanine Blue Pigment + Alkyd Resins + Soy/Linseed Oil.",
+                    "Drying: Penetration absorption into substrate + Oxidation cross-linking.",
+                    "High tack value for sharp dot separation in wet-on-wet printing."
+                ],
+                pros: [
+                    "Excellent lightfastness and chemical resistance.",
+                    "Environmentally friendly low-VOC vegetable oil base.",
+                    "High color strength requiring thinner ink film."
+                ],
+                cons: [
+                    "Requires 4 to 8 hours full oxidation cure time.",
+                    "Risk of emulsification if water feed is excessive."
+                ],
+                specs: [
+                    ["Tack Value (Cyan)", "14 - 16 Tack Units"],
+                    ["Target Solid Density (SID)", "1.45 - 1.55 D"],
+                    ["Pigment Load", "18% - 22%"],
+                    ["Viscosity", "45 - 65 Pa.s"],
+                    ["Emulsification Limit", "Max 18% Water Pick-up"]
+                ],
+                svgType: "ink"
+            },
+            {
+                id: "item5",
+                category: "defect",
+                title: "1. Scumming (स्कमिंग / प्लेट ग्रीसिंग)",
+                icon: "🚨",
+                catTag: "PRINTING DEFECT",
+                highlights: [
+                    "Non-image area on CTP plate accepts ink and prints dirty background streaks.",
+                    "Occurs when dampening solution fails to keep non-image area hydrophilic."
+                ],
+                pros: [
+                    "Early warning indicator of fountain solution contamination."
+                ],
+                cons: [
+                    "Leads to heavy sheet rejection and customer complaints."
+                ],
+                fix: "Maintain Fountain pH at 4.8-5.2, clean dampening rollers, increase water feed slightly, set roller nip to 5.0 mm.",
+                specs: [
+                    ["Defect Type", "Non-image Area Inking"],
+                    ["Primary Cause", "Low Water / High pH (>5.8) / Glazed Rollers"],
+                    ["Inspection Method", "Visual 10x Magnifier Lens"],
+                    ["Severity", "High (Immediate Press Stop Needed)"]
+                ],
+                svgType: "defect"
+            },
+            {
+                id: "item6",
+                category: "defect",
+                title: "2. Hickies / Bull's Eye (हिकीज़)",
+                icon: "🚨",
+                catTag: "PRINTING DEFECT",
+                highlights: [
+                    "Small white ring with dark ink spot in center on printed solid area.",
+                    "Caused by paper dust, dried ink particles, or roller rubber wear."
+                ],
+                pros: [
+                    "Easy to locate on plate/blanket."
+                ],
+                cons: [
+                    "Ruins luxury packaging solid print solids."
+                ],
+                fix: "Wash blanket cylinder, clean ink duct cheeks, deglaze ink rollers, use dust-free board.",
+                specs: [
+                    ["Defect Type", "Particulate Contamination"],
+                    ["Primary Cause", "Paper Dust / Dried Ink Flakes"],
+                    ["Inspection Method", "Visual Surface Check"],
+                    ["Severity", "Medium"]
+                ],
+                svgType: "defect"
             }
-        };
-
-        const top20Defects = [
-            { name: "1. Hickies / Bull's Eye (हिकीज़)", cause: "Dry ink flakes, paper dust, or roller rubber particles on plate.", fix: "Wash blanket, deglaze rollers, clean duct cheeks." },
-            { name: "2. Scumming (स्कमिंग / प्लेट ग्रीसिंग)", cause: "Non-image area turns oleophilic due to low water or high pH (>5.8).", fix: "Keep pH at 4.8-5.2, increase dampening form roller nip to 5mm." },
-            { name: "3. Tinting (टिंटिंग)", cause: "Ink pigment dissolves in dampening water (Ink-in-Water emulsion).", fix: "Drain water tray, replace fresh ink, check fountain solution chemistry." },
-            { name: "4. Set-Off / Blocking (सेट-ऑफ)", cause: "Ink transfers to reverse side of next sheet in delivery stack.", fix: "Increase Anti-Setoff powder spray (15-25µm), reduce pile height." },
-            { name: "5. Excessive Dot Gain (अत्यधिक डॉट गेन)", cause: "High impression pressure (>0.15mm squeeze) or thin ink viscosity.", fix: "Set impression squeeze to 0.10mm, re-tension blanket to 35 Nm." },
-            { name: "6. Slurring (स्लरींग)", cause: "Slippage between blanket and sheet; dots turn oval-shaped.", fix: "Tighten blanket tension, check cylinder gear play." },
-            { name: "7. Doubling (डबलिंग)", cause: "Ghost image due to loose sheet in grippers or bad register.", fix: "Check gripper pad pressure (2.5 kgf), align side lay." },
-            { name: "8. Mottling (मॉटलिंग / असमान प्रिंट)", cause: "Uneven porosity of paper causing patchy solid ink absorbency.", fix: "Use high viscosity ink, add quick-set varnish." },
-            { name: "9. Ghosting (Mechanical)", cause: "Form roller ink exhaustion on heavy solid blocks.", fix: "Engage oscillating rider rollers, re-orient layout." },
-            { name: "10. Ghosting (Chemical)", cause: "Gas outgassing during oxidation drying alters gloss on reverse page.", fix: "Use chemical ghosting resistant ink, reduce pile height." },
-            { name: "11. Stripping / Roller Blinding", cause: "Inking rollers lose ink-receptive glaze due to gum/acid buildup.", fix: "Wash rollers with deglazer, rinse with warm water." },
-            { name: "12. Chalking (चॉकिंग)", cause: "Ink vehicle absorbs into paper too fast, leaving loose pigment powder on surface.", fix: "Add fast-drying varnish, switch to less absorbent substrate." },
-            { name: "13. Emulsification (इमल्सीफिकेशन)", cause: "Over 20% dampening water mixes into ink duct.", fix: "Reduce dampening feed, check fountain solution pH & conductivity." },
-            { name: "14. Misregister (मिस-रजिस्टर)", cause: "Inaccurate paper positioning at front lay or side lay.", fix: "Calibrate side-lay sensor, check feeder timing belt." },
-            { name: "15. Creasing / Wrinkling (सिलवटें)", cause: "Wavy edges on paper due to moisture imbalance.", fix: "Pre-condition paper in pressroom 24 hours prior to printing." },
-            { name: "16. Picking / Delamination (पिकिंग)", cause: "Ink tack is higher than paper surface coating strength.", fix: "Reduce ink tack with gel reducer / linseed oil." },
-            { name: "17. Slow Ink Drying", cause: "Low fountain pH (<4.5), high RH (>70%), or low room temperature.", fix: "Maintain pressroom temp at 23°C and RH at 55%." },
-            { name: "18. Plate Blinding (प्लेट ब्लाइंडिंग)", cause: "Image area on CTP plate loses ink receptivity.", fix: "Avoid harsh plate cleaners, maintain pH above 4.8." },
-            { name: "19. Fan-Out Effect", cause: "Paper expands in width across color units due to water absorption.", fix: "Use rear plate stretch adjusters on Heidelberg/Komori." },
-            { name: "20. Lamination Delamination Failure", cause: "Excessive anti-setoff powder or high wax in ink prevents glue bonding.", fix: "Use lamination-friendly wax-free ink, minimize spray powder." }
         ];
 
-        function loadContent(key) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+        let selectedItemId = "item1";
+
+        function renderSidebar(items) {
+            const listEl = document.getElementById('itemList');
+            let html = '';
+            items.forEach(item => {
+                const isSel = item.id === selectedItemId ? 'selected' : '';
+                html += `
+                    <div class="item-card ${isSel}" onclick="selectItem('${item.id}')">
+                        <div class="item-thumb">${item.icon}</div>
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.catTag}</p>
+                            <span class="badge">${item.category.toUpperCase()}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            listEl.innerHTML = html;
+        }
+
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
             event.target.classList.add('active');
 
-            const tableContainer = document.getElementById('tableContainer');
-            const defectsContainer = document.getElementById('defectsContainer');
-
-            if (key === 'defects') {
-                tableContainer.style.display = 'none';
-                defectsContainer.style.display = 'block';
-
-                let dHtml = '';
-                top20Defects.forEach(d => {
-                    dHtml += `
-                        <div class="defect-card">
-                            <h3>${d.name}</h3>
-                            <p><b>कारण (Cause):</b> ${d.cause}</p>
-                            <span class="badge-fix">✔️ समाधान (Fix): ${d.fix}</span>
-                        </div>
-                    `;
-                });
-                document.getElementById('defectGrid').innerHTML = dHtml;
-                return;
+            if (cat === 'all') {
+                renderSidebar(masterItems);
+            } else {
+                const filtered = masterItems.filter(i => i.category === cat);
+                renderSidebar(filtered);
             }
+        }
 
-            tableContainer.style.display = 'block';
-            defectsContainer.style.display = 'none';
+        function selectItem(id) {
+            selectedItemId = id;
+            const item = masterItems.find(i => i.id === id);
+            
+            // Highlight selected card
+            document.querySelectorAll('.item-card').forEach(c => c.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
 
-            const item = data[key];
-            document.getElementById('displayTitle').innerText = item.title;
-            document.getElementById('displaySubtitle').innerText = item.subtitle;
+            // Update Details
+            document.getElementById('itemCatTag').innerText = item.catTag;
+            document.getElementById('itemTitle').innerText = item.title;
 
             // Highlights
             let hHtml = '';
             item.highlights.forEach(h => hHtml += `<li>${h}</li>`);
-            document.getElementById('displayHighlights').innerHTML = hHtml;
+            document.getElementById('itemHighlights').innerHTML = hHtml;
 
-            // Pros
+            // Pros & Cons
             let pHtml = '';
             item.pros.forEach(p => pHtml += `<li>${p}</li>`);
-            document.getElementById('displayPros').innerHTML = pHtml;
+            document.getElementById('itemPros').innerHTML = pHtml;
 
-            // Cons
             let cHtml = '';
             item.cons.forEach(c => cHtml += `<li>${c}</li>`);
-            document.getElementById('displayCons').innerHTML = cHtml;
+            document.getElementById('itemCons').innerHTML = cHtml;
 
-            // Table
-            document.getElementById('tableHeading').innerText = item.tableHeading;
-            let tHtml = '';
-            item.table.forEach(r => {
-                tHtml += `
+            // Defect Fix
+            const fixBox = document.getElementById('defectFixBox');
+            if (item.fix) {
+                fixBox.style.display = 'block';
+                document.getElementById('defectFixText').innerText = item.fix;
+            } else {
+                fixBox.style.display = 'none';
+            }
+
+            // Specs Table
+            let sHtml = '';
+            item.specs.forEach(s => {
+                sHtml += `
                     <tr>
-                        <td class="col-key">${r[0]}</td>
-                        <td class="col-val">${r[1]}</td>
+                        <td class="key">${s[0]}</td>
+                        <td class="val">${s[1]}</td>
                     </tr>
                 `;
             });
-            document.getElementById('displayTable').innerHTML = tHtml;
+            document.getElementById('specTableBody').innerHTML = sHtml;
+
+            // Draw SVG Diagram
+            drawSvg(item.svgType);
         }
 
-        function setViewMode(mode) {
-            document.getElementById('btn2D').classList.remove('active');
-            document.getElementById('btn360').classList.remove('active');
+        function drawSvg(type) {
+            const svg = document.getElementById('svgCanvas');
+            if (type === 'cylinders') {
+                svg.innerHTML = `
+                    <circle cx="150" cy="45" r="32" fill="#e2e8f0" stroke="#2874f0" stroke-width="4"/>
+                    <text x="110" y="49" font-size="9" font-weight="bold" fill="#212121">PLATE CYLINDER</text>
 
-            if (mode === '360') {
-                document.getElementById('btn360').classList.add('active');
-                document.getElementById('sliderContainer').style.display = 'block';
+                    <circle cx="150" cy="110" r="30" fill="#ffe0b2" stroke="#fb641b" stroke-width="4"/>
+                    <text x="105" y="114" font-size="9" font-weight="bold" fill="#d84315">BLANKET CYLINDER</text>
+
+                    <circle cx="150" cy="168" r="26" fill="#cfd8dc" stroke="#455a64" stroke-width="4"/>
+                    <text x="105" y="172" font-size="8" font-weight="bold" fill="#212121">IMPRESSION CYL.</text>
+
+                    <path d="M 60 139 L 240 139" stroke="#388e3c" stroke-width="3" stroke-dasharray="4"/>
+                `;
+            } else if (type === 'paper') {
+                svg.innerHTML = `
+                    <rect x="50" y="40" width="200" height="120" rx="6" fill="#ffffff" stroke="#2874f0" stroke-width="3"/>
+                    <rect x="50" y="40" width="200" height="25" fill="#e3f2fd"/>
+                    <text x="80" y="57" font-size="11" font-weight="bold" fill="#1565c0">TOP PIGMENT COATING</text>
+                    <rect x="50" y="65" width="200" height="70" fill="#f5f5f5"/>
+                    <text x="85" y="105" font-size="11" font-weight="bold" fill="#616161">VIRGIN PULP CORE</text>
+                    <rect x="50" y="135" width="200" height="25" fill="#e8f5e9"/>
+                    <text x="75" y="152" font-size="11" font-weight="bold" fill="#2e7d32">BOTTOM BACK COATING</text>
+                `;
+            } else if (type === 'ink') {
+                svg.innerHTML = `
+                    <path d="M 150 30 Q 210 120 150 170 Q 90 120 150 30 Z" fill="#0284c7" stroke="#0369a1" stroke-width="3"/>
+                    <circle cx="150" cy="110" r="15" fill="#ffffff" opacity="0.3"/>
+                    <text x="118" y="185" font-size="10" font-weight="bold" fill="#0369a1">CYAN PIGMENT FLUID</text>
+                `;
             } else {
-                document.getElementById('btn2D').classList.add('active');
-                document.getElementById('sliderContainer').style.display = 'none';
-                rotateSvg(0);
-                document.getElementById('rotateSlider').value = 0;
+                svg.innerHTML = `
+                    <rect x="50" y="40" width="200" height="120" fill="#ffffff" stroke="#d32f2f" stroke-width="3"/>
+                    <circle cx="150" cy="100" r="25" fill="#ffebee" stroke="#d32f2f" stroke-width="2"/>
+                    <circle cx="150" cy="100" r="8" fill="#d32f2f"/>
+                    <text x="105" y="180" font-size="10" font-weight="bold" fill="#d32f2f">DEFECT / HICKY SPOT</text>
+                `;
             }
         }
 
-        function rotateSvg(deg) {
-            document.getElementById('mainSvg').style.transform = `rotate(${deg}deg)`;
-            document.getElementById('angleLabel').innerText = `Rotational Angle: ${deg}°`;
+        function updateAngle(deg) {
+            document.getElementById('svgCanvas').style.transform = `rotate(${deg}deg)`;
+            document.getElementById('angleText').innerText = `Interactive Rotational Angle: ${deg}°`;
         }
+
+        // Initialize
+        renderSidebar(masterItems);
+        selectItem("item1");
     </script>
 </body>
 </html>
