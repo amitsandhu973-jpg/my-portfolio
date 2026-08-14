@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Quality Control & Lab Testing | Offset Printing Manual</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: auto; }
+        .nav-btn { display: inline-block; background: #0284c7; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #0f172a; border-bottom: 3px solid #f59e0b; padding-bottom: 10px; }
+        .qc-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #16a34a; }
+        .qc-card h2 { margin-top: 0; color: #15803d; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .tech-table th, .tech-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; }
+        .tech-table th { background: #f1f5f9; color: #334155; width: 30%; }
+        .tag { background: #dcfce7; color: #166534; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .formula-box { background: #f8fafc; border: 1px dashed #0284c7; padding: 10px; font-family: monospace; font-weight: bold; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-btn">⬅ Home / Main Book Index</a>
+        <h1>Chapter 4: Pressroom Quality Control & Testing (गुणवत्ता नियंत्रण)</h1>
+
+        <!-- QC Topic 1 -->
+        <div class="qc-card">
+            <h2>1. Paper Substrate QC (GSM & Caliper)</h2>
+            <p><span class="tag">Lab Testing</span></p>
+            <table class="tech-table">
+                <tr><th>GSM Test ($10 \text{ cm} \times 10 \text{ cm}$)</th><td>GSM Cutter मशीन से $10 \times 10 \text{ cm}$ का सैंपल काटकर Weighing Scale पर मापा जाता है।<div class="formula-box">Formula: GSM = Weight in grams × 100</div></td></tr>
+                <tr><th>Caliper / Thickness</th><td>Digital Micrometer द्वारा बोर्ड की मोटाई Microns ($\mu\text{m}$) में मापी जाती है। क्रीज़िंग और कटिंग पंचिंग सेटिंग्स के लिए आवश्यक।</td></tr>
+                <tr><th>Grain Direction Check</th><td>• Water Tear Test: पानी की बूंद से जिधर पेपर मुड़े वह Grain Line है।<br>• Bending Test: जिधर पेपर आसानी से मुड़े वह Grain Parallel है।</td></tr>
+            </table>
+        </div>
+
+        <!-- QC Topic 2 -->
+        <div class="qc-card">
+            <h2>2. Color Management & Measurement</h2>
+            <p><span class="tag">Color QC</span></p>
+            <table class="tech-table">
+                <tr><th>Spectrophotometer</th><td>Lab Values ($L^*a^*b^*$) और Delta E ($\Delta E$) मापने के लिए मुख्य उपकरण।</td></tr>
+                <tr><th>Delta E ($\Delta E$) Standards</th><td>• $\Delta E < 1.5$: इंसानी आँख से अंतर पहचानना असंभव (Perfect Match)।<br>• $\Delta E < 3.0$: इंडस्ट्रियल प्रिंटिंग स्वीकृति सीमा (Standard Pass)।<br>• $\Delta E > 4.0$: कलर्स में साफ़ अंतर (Rejection Risk)।</td></tr>
+                <tr><th>Densitometer Readings</th><td>Solid Ink Density (SID) Standards:<br>• Black (K): $1.70\text{--}1.85$<br>• Cyan (C): $1.40\text{--}1.50$<br>• Magenta (M): $1.40\text{--}1.50$<br>• Yellow (Y): $1.05\text{--}1.15$</td></tr>
+            </table>
+        </div>
+
+        <!-- QC Topic 3 -->
+        <div class="qc-card">
+            <h2>3. Fountain Solution & Chemistry QC</h2>
+            <p><span class="tag">Chemistry Testing</span></p>
+            <table class="tech-table">
+                <tr><th>pH Range</th><td>Standard Safe Range: $4.8 \text{ to } 5.5$<br>• pH $< 4.5$: Slow drying, Plate Blinding.<br>• pH $> 5.8$: Scumming, Ink Emulsification.</td></tr>
+                <tr><th>Conductivity</th><td>Standard Range: $1500 \text{ to } 2000\ \mu\text{S/cm}$ above fresh water.<br>अगर कंडक्टिविटी $3000\ \mu\text{S/cm}$ पार करे तो पानी ड्रेन करके तुरंत नया डैम्पिंग भरें।</td></tr>
+                <tr><th>IPA (Isopropanol) %</th><td>Continuous Dampening: $8\%\text{--}12\%$ | Eco-Dampening Additives: $3\%\text{--}5\%$</td></tr>
+            </table>
+        </div>
+
+        <!-- QC Topic 4 -->
+        <div class="qc-card">
+            <h2>4. Printed Sheet Physical Tests</h2>
+            <p><span class="tag">Post-Print Testing</span></p>
+            <table class="tech-table">
+                <tr><th>Rub / Abrasion Test</th><td>Sutherland Rub Tester का उपयोग करके इंक की पकड़ और कोटिंग रेजिस्टेंस जांची जाती है।</td></tr>
+                <tr><th>Tape Test (Cross-Hatch)</th><td>कोटिंग और लामिनेशन की पपड़ी उखड़ने (Adhesion Failure) को जांचने के लिए 3M Tape का प्रयोग।</td></tr>
+                <tr><th>Creasing & Folding Test</th><td>पैकेजिंग कार्टन को $180^\circ$ पर मोड़कर दरार (Crack) चेक करना।</td></tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
