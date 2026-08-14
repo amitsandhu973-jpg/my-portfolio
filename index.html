@@ -3,297 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offset Printing & Packaging Technical Master Handbook</title>
+    <title>Offset Printing & Packaging Equipment Master Technical Catalogue</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #0284c7;
-            --success: #16a34a;
-            --warning: #dc2626;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #334155;
+            --flipkart-blue: #2874f0;
+            --flipkart-yellow: #ff9f00;
+            --flipkart-orange: #fb641b;
+            --text-dark: #212121;
+            --text-gray: #878787;
+            --bg-gray: #f1f3f6;
+            --border-color: #e0e0e0;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
+        /* Flipkart Style Header */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background-color: var(--flipkart-blue);
             color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--accent);
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            margin-top: 10px;
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .chapter-nav {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .nav-card {
-            background: var(--card-bg);
-            border: 1px solid #e2e8f0;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: bold;
+        .header-container {
+            max-width: 1240px;
+            margin: 0 auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            transition: all 0.2s ease;
+            align-items: center;
         }
 
-        .nav-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
-        }
-
-        .tool-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .tool-title {
+        .logo {
             font-size: 1.4rem;
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--accent);
-            padding-left: 12px;
+            font-weight: 700;
+            font-style: italic;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        label {
-            font-weight: 600;
+        .logo span {
+            color: var(--flipkart-yellow);
+            font-size: 0.85rem;
             display: block;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
+            margin-top: -5px;
+            font-style: normal;
         }
 
-        select, input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 1rem;
-            box-sizing: border-box;
-            margin-bottom: 15px;
+        .top-nav {
+            display: flex;
+            gap: 15px;
         }
 
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
-        }
-
-        .btn {
-            background: var(--accent);
+        .top-nav a {
             color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            width: 100%;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.15);
             transition: background 0.2s;
         }
 
-        .btn:hover {
-            background: #0369a1;
+        .top-nav a:hover {
+            background: rgba(255,255,255,0.3);
         }
 
-        .result-box {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
+        /* Main Catalog Layout */
+        .main-wrapper {
+            max-width: 1240px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        /* Equipment Selector Strip */
+        .category-strip {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .cat-btn {
+            padding: 10px 18px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--flipkart-blue);
+            color: white;
+            border-color: var(--flipkart-blue);
+        }
+
+        /* Flipkart Product Card Box */
+        .product-card {
+            background: white;
+            border-radius: 4px;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        @media(max-width: 900px) {
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Side: Visual 2D/360 Illustration Box */
+        .visual-container {
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
+            text-align: center;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .view-mode-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .view-tab {
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .view-tab.active {
+            background: var(--flipkart-orange);
+            color: white;
+            border-color: var(--flipkart-orange);
+        }
+
+        /* Simulated 2D/360 Canvas Box */
+        .interactive-canvas {
+            height: 280px;
+            background: white;
+            border: 1px dashed #cccccc;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        .illustration-svg {
+            width: 80%;
+            height: 180px;
+            transition: transform 0.3s ease;
+        }
+
+        .rotator-slider {
+            width: 80%;
             margin-top: 15px;
-            display: none;
         }
 
-        .result-box h4 {
-            margin-top: 0;
-            color: var(--warning);
+        /* Right Side: Product Details & Specs */
+        .details-container h1 {
+            font-size: 1.5rem;
+            margin: 0 0 8px 0;
+            color: var(--text-dark);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+        .badge-rating {
+            background: #388e3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 10px;
-            text-align: left;
+        .quick-highlights {
+            background: #f8f9fa;
+            border-left: 4px solid var(--flipkart-blue);
+            padding: 12px 15px;
+            margin-bottom: 20px;
             font-size: 0.95rem;
         }
 
-        th {
-            background: #f8fafc;
-            color: var(--primary);
+        .quick-highlights li {
+            margin-bottom: 6px;
         }
 
-        .badge {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+        /* Specs Table Style (Flipkart Exact Look) */
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--flipkart-blue);
+            padding-bottom: 6px;
+            color: var(--flipkart-blue);
+        }
+
+        .flipkart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .flipkart-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .flipkart-table td {
+            padding: 12px 8px;
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        .flipkart-table td.spec-name {
+            color: var(--text-gray);
+            width: 30%;
+            font-weight: 500;
+        }
+
+        .flipkart-table td.spec-val {
+            color: var(--text-dark);
             font-weight: 600;
+            width: 70%;
+        }
+
+        .action-btn {
+            background: var(--flipkart-orange);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+            margin-top: 15px;
+        }
+
+        .action-btn:hover {
+            background: #e65100;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
-        <h1>Offset Printing & Packaging Technical Master Handbook</h1>
-        <p>Ground-Level Machine Specs, Chemical Standards & Precision Diagnostic Tools</p>
+        <div class="header-container">
+            <div class="logo">
+                PRINT-SPEC MASTER
+                <span>Technical Flipkart for Packaging & Offset Machinery</span>
+            </div>
+            <div class="top-nav">
+                <a href="index.html">🏠 Home Catalogue</a>
+                <a href="troubleshooting.html">🔧 Troubleshooting</a>
+                <a href="machinery-specs.html">⚙️ Full Specs</a>
+                <a href="quality-control.html">🧪 Lab QC Manual</a>
+                <a href="post-press.html">📦 Post-Press</a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
+    <div class="main-wrapper">
 
-        <!-- Quick Chapter Navigation -->
-        <div class="chapter-nav">
-            <a href="index.html" class="nav-card">📖 Index (Main Hub) <span>→</span></a>
-            <a href="troubleshooting.html" class="nav-card">🔧 Troubleshooting <span>→</span></a>
-            <a href="machinery-specs.html" class="nav-card">⚙️ Machine Specs <span>→</span></a>
-            <a href="quality-control.html" class="nav-card">🧪 QC & Lab Manual <span>→</span></a>
-            <a href="post-press.html" class="nav-card">📦 Post-Press & Die <span>→</span></a>
+        <!-- Category Filter Strip -->
+        <div class="category-strip">
+            <button class="cat-btn active" onclick="loadEquipment('cx104')">Heidelberg CX 104 (Press)</button>
+            <button class="cat-btn" onclick="loadEquipment('gl40')">Komori Lithrone G40</button>
+            <button class="cat-btn" onclick="loadEquipment('ctp')">Thermal CTP Plate Machine</button>
+            <button class="cat-btn" onclick="loadEquipment('roller')">Dampening & Ink Rollers</button>
+            <button class="cat-btn" onclick="loadEquipment('bobst')">Automatic Die Cutter (BOBST)</button>
         </div>
 
-        <!-- TOOL 1: DYNAMIC TROUBLESHOOTING DIAGNOSTIC ENGINE -->
-        <div class="tool-section">
-            <h2 class="tool-title">🎯 Instant Pressroom Troubleshooting Diagnostic Tool</h2>
-            <p style="margin-top:-10px; font-size:0.95rem; color:#64748b;">मशीन की समस्या चुनें और सटीक चेकपॉइंट और तुरंत समाधान प्राप्त करें:</p>
-            
-            <div class="grid-2">
-                <div>
-                    <label for="defectSelect">1. समस्या (Print Defect) चुनें:</label>
-                    <select id="defectSelect">
-                        <option value="">-- समस्या चुनें --</option>
-                        <option value="hickies">Hickies / White Spot in Print (हिकीज़)</option>
-                        <option value="scumming">Scumming / Non-Image Tinting (स्कमिंग / प्लेट ग्रीसिंग)</option>
-                        <option value="dotgain">Excessive Dot Gain / Dot Blurring (डॉट गेन)</option>
-                        <option value="setoff">Set-off / Ink Transfer to Back Side (सेट-ऑफ)</option>
-                        <option value="doubling">Doubling / Shadow Printing (डबलिंग)</option>
-                    </select>
+        <!-- Main Dynamic Flipkart-Style Product Display Card -->
+        <div class="product-card">
+
+            <!-- LEFT: Interactive 2D/360 Illustration Box -->
+            <div class="visual-container">
+                <div class="view-mode-tabs">
+                    <button class="view-tab active" id="tab2d" onclick="setMode('2d')">2D Structural Diagram</button>
+                    <button class="view-tab" id="tab360" onclick="setMode('360')">360° Rotator View</button>
                 </div>
-                <div>
-                    <label for="machineSelect">2. मशीन मॉडल (Press Type) चुनें:</label>
-                    <select id="machineSelect">
-                        <option value="heidelberg">Heidelberg Speedmaster (CX 104 / CD 102 / SM 74)</option>
-                        <option value="komori">Komori Lithrone (GL 40 / L 29)</option>
-                    </select>
+
+                <div class="interactive-canvas" id="canvasBox">
+                    <!-- SVG Interactive Vector Diagram -->
+                    <svg class="illustration-svg" id="svgGraphic" viewBox="0 0 300 200" transform="rotate(0)">
+                        <!-- Cylinder Group -->
+                        <g id="machineGraphic">
+                            <!-- Plate Cylinder -->
+                            <circle cx="150" cy="50" r="35" fill="#e2e8f0" stroke="#0284c7" stroke-width="4"/>
+                            <text x="135" y="55" font-size="10" font-weight="bold" fill="#0f172a">PLATE</text>
+                            
+                            <!-- Blanket Cylinder -->
+                            <circle cx="150" cy="115" r="32" fill="#fed7aa" stroke="#f97316" stroke-width="4"/>
+                            <text x="128" y="120" font-size="10" font-weight="bold" fill="#9a3412">BLANKET</text>
+
+                            <!-- Impression Cylinder -->
+                            <circle cx="150" cy="172" r="28" fill="#cbd5e1" stroke="#475569" stroke-width="4"/>
+                            <text x="123" y="176" font-size="9" font-weight="bold" fill="#1e293b">IMPRESSION</text>
+
+                            <!-- Paper Path -->
+                            <path d="M 80 144 L 220 144" stroke="#22c55e" stroke-width="3" stroke-dasharray="4"/>
+                        </g>
+                    </svg>
+                    <span id="angleDisplay" style="font-size:0.75rem; color:#666; margin-top:5px;">Angle: 0°</span>
+                </div>
+
+                <div id="rotatorControls" style="display:none; margin-top:10px;">
+                    <label style="font-size:0.8rem; font-weight:bold;">🔄 Drag to Rotate 360° Cylinder Angle:</label><br>
+                    <input type="range" class="rotator-slider" id="angleSlider" min="0" max="360" value="0" oninput="rotateDiagram(this.value)">
                 </div>
             </div>
 
-            <button class="btn" onclick="diagnoseIssue()">सटीक समाधान (Get Exact Solution)</button>
+            <!-- RIGHT: Complete Specifications & Highlights -->
+            <div class="details-container">
+                <span class="badge-rating">ISO 12647-2 Certified Spec ★ 4.9</span>
+                <h1 id="eqTitle">Heidelberg Speedmaster CX 104 (4-Color / 6-Color)</h1>
+                <p id="eqSubtitle" style="color:var(--text-gray); font-size:0.95rem; margin-top:-5px;">Universal High-Performance Packaging & Commercial Press</p>
 
-            <div id="diagnosticResult" class="result-box"></div>
-        </div>
+                <!-- Quick Bullet Highlights -->
+                <div class="quick-highlights">
+                    <ul id="eqHighlights" style="margin:0; padding-left:18px;">
+                        <li><b>Max Speed:</b> 16,500 Sheets/Hour with Auto Plate Change (Autoplate Pro).</li>
+                        <li><b>Substrate Range:</b> 0.03 mm (Light Paper) to 1.00 mm (Heavy Board).</li>
+                        <li><b>Dampening System:</b> Venturi Continuous Auto-Film Dampening with AlcoSmart Control.</li>
+                    </ul>
+                </div>
 
-        <!-- TOOL 2: PAPER WEIGHT & SHEET CALCULATOR -->
-        <div class="tool-section">
-            <h2 class="tool-title">🧮 Paper & Board Weight Precision Calculator</h2>
-            <div class="grid-2">
-                <div>
-                    <label>लंबाई (Length in Inches):</label>
-                    <input type="number" id="paperL" placeholder="e.g. 25">
-                </div>
-                <div>
-                    <label>चौड़ाई (Width in Inches):</label>
-                    <input type="number" id="paperW" placeholder="e.g. 36">
-                </div>
-                <div>
-                    <label>पेपर GSM (Grammage):</label>
-                    <input type="number" id="paperGSM" placeholder="e.g. 300">
-                </div>
-                <div>
-                    <label>कुल शीट्स (Total Sheets Count):</label>
-                    <input type="number" id="paperSheets" placeholder="e.g. 10000">
-                </div>
+                <button class="action-btn" onclick="alert('PDF Manual for this Machine is downloading...')">📥 Download Full Technical PDF Manual</button>
             </div>
-            <button class="btn" onclick="calcPaperWeight()">वजन की गणना करें (Calculate Total Weight)</button>
-            <div id="paperResult" class="result-box" style="background:#e0f2fe; border-color:#0284c7;"></div>
+
         </div>
 
-        <!-- QUICK REFERENCE TABLE: CHEMICAL STANDARDS -->
-        <div class="tool-section">
-            <h2 class="tool-title">⚡ Precision Operating Parameters (Press Floor Standards)</h2>
-            <table>
-                <thead>
+        <!-- DETAILED FLIPKART SPECIFICATION TABLE -->
+        <div style="background:white; padding:25px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+            <div class="spec-title">Detailed Machine Specifications & Engineering Values</div>
+
+            <table class="flipkart-table">
+                <tbody id="specTableBody">
                     <tr>
-                        <th>Parameter</th>
-                        <th>Standard Working Range</th>
-                        <th>High Threshold (Action Required)</th>
-                        <th>Direct Impact on Print</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Dampening pH</b></td>
-                        <td><span class="badge">4.8 - 5.5 pH</span></td>
-                        <td>&lt; 4.5 or &gt; 5.8</td>
-                        <td>Plate stripping, slow ink drying, scumming.</td>
+                        <td class="spec-name">Maximum Sheet Format</td>
+                        <td class="spec-val">740 × 1040 mm (29.13 × 40.94 in)</td>
                     </tr>
                     <tr>
-                        <td><b>Water Conductivity</b></td>
-                        <td><span class="badge">1500 - 2000 µS/cm</span></td>
-                        <td>&gt; 2800 µS/cm</td>
-                        <td>Heavy emulsification, ink bleeding into water.</td>
+                        <td class="spec-name">Minimum Sheet Format</td>
+                        <td class="spec-val">340 × 480 mm (13.39 × 18.90 in)</td>
                     </tr>
                     <tr>
-                        <td><b>IPA (Alcohol) %</b></td>
-                        <td><span class="badge">6% - 8%</span></td>
-                        <td>&gt; 12%</td>
-                        <td>Color gloss reduction, pigment wash, cost waste.</td>
+                        <td class="spec-name">Plate Cylinder Undercut</td>
+                        <td class="spec-val">0.15 mm (0.006 in)</td>
                     </tr>
                     <tr>
-                        <td><b>Impression Squeeze</b></td>
-                        <td><span class="badge">0.10 - 0.12 mm</span></td>
-                        <td>&gt; 0.18 mm</td>
-                        <td>Severe Dot Gain, Slurring, Paper gear-mark lines.</td>
+                        <td class="spec-name">Blanket Cylinder Undercut</td>
+                        <td class="spec-val">2.30 mm (0.091 in)</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-name">Standard Plate Size & Thickness</td>
+                        <td class="spec-val">790 × 1030 mm | Thickness: 0.30 mm</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-name">Blanket Size & Bar Specs</td>
+                        <td class="spec-val">860 × 1060 mm | Thickness: 1.95 mm with Aluminum Metal Bars</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-name">Ink Form Roller Nip Stripe Width</td>
+                        <td class="spec-val">4.0 mm to Plate | 3.5 mm to Steel Oscillating Distributor</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-name">Dampening Form Roller Nip Stripe</td>
+                        <td class="spec-val">5.0 mm to Plate | 4.0 mm to Chrome Metering Roller</td>
+                    </tr>
+                    <tr>
+                        <td class="spec-name">Gripper Margin & Pad Pressure</td>
+                        <td class="spec-val">Gripper Margin: 10 - 12 mm | Pad Pressure Standard: 2.5 kgf</td>
                     </tr>
                 </tbody>
             </table>
@@ -302,100 +416,144 @@
     </div>
 
     <script>
-        function diagnoseIssue() {
-            const defect = document.getElementById('defectSelect').value;
-            const machine = document.getElementById('machineSelect').value;
-            const resBox = document.getElementById('diagnosticResult');
-
-            if (!defect) {
-                alert('कृपया कोई समस्या चुनें!');
-                return;
+        // Database for Equipment
+        const db = {
+            cx104: {
+                title: "Heidelberg Speedmaster CX 104 (Press)",
+                subtitle: "German High-Performance Sheetfed Offset Press",
+                highlights: [
+                    "<b>Max Speed:</b> 16,500 Sheets/Hour with Autoplate Pro.",
+                    "<b>Substrate Thickness:</b> 0.03 mm to 1.00 mm (Light Paper to Heavy Duplex Board).",
+                    "<b>Inking Unit:</b> 16 Ink Rollers with Thermostatically Controlled Chilled Inking."
+                ],
+                specs: [
+                    ["Max Sheet Format", "740 × 1040 mm (29.13 × 40.94 in)"],
+                    ["Min Sheet Format", "340 × 480 mm (13.39 × 18.90 in)"],
+                    ["Plate Cylinder Undercut", "0.15 mm (0.006 in)"],
+                    ["Blanket Cylinder Undercut", "2.30 mm (0.091 in)"],
+                    ["Plate Dimensions", "790 × 1030 mm (Thickness: 0.30 mm)"],
+                    ["Blanket Dimensions", "860 × 1060 mm (Thickness: 1.95 mm Barred)"],
+                    ["Ink Roller Nip Width", "4.0 mm (Roller to Plate) | 3.5 mm (Roller to Steel)"],
+                    ["Dampening Roller Nip", "5.0 mm (Roller to Plate) | 4.0 mm (Roller to Chrome)"]
+                ]
+            },
+            gl40: {
+                title: "Komori Lithrone G40 (GL 40)",
+                subtitle: "Advanced Japanese High-Speed Packaging Offset Press",
+                highlights: [
+                    "<b>Max Speed:</b> 16,500 Sheets/Hour with KHS-AI Auto-Preset System.",
+                    "<b>Substrate Thickness:</b> 0.04 mm to 1.00 mm Thickness.",
+                    "<b>Inking System:</b> Komorimatic Continuous Dampening with Delta Effect."
+                ],
+                specs: [
+                    ["Max Sheet Format", "750 × 1050 mm (29.17 × 41.34 in)"],
+                    ["Min Sheet Format", "360 × 520 mm (14.17 × 20.47 in)"],
+                    ["Plate Cylinder Undercut", "0.36 mm"],
+                    ["Blanket Cylinder Undercut", "2.05 mm"],
+                    ["Plate Dimensions", "800 × 1030 mm (Thickness: 0.30 mm)"],
+                    ["Blanket Dimensions", "900 × 1040 mm (Thickness: 1.90 mm)"],
+                    ["Blanket Tension Torque", "30 Nm with Torque Wrench"],
+                    ["Gripper Pad Height", "2.5 mm above cylinder segment"]
+                ]
+            },
+            ctp: {
+                title: "Thermal CTP Plate Processor (Thermal 830nm Laser)",
+                subtitle: "Pre-press Computer-to-Plate Thermal Laser Setter",
+                highlights: [
+                    "<b>Laser Diode:</b> 830nm Infrared Thermal Laser Diode Array.",
+                    "<b>Resolution & Dot Quality:</b> 2400 DPI / 175 LPI - 250 LPI Sub-FM Screening.",
+                    "<b>Plate Type:</b> Thermal Positive CTP Plate (0.15 mm & 0.30 mm Gauge)."
+                ],
+                specs: [
+                    ["Laser Wavelength", "830 nm Infrared Diode"],
+                    ["Resolution", "1200 DPI / 2400 DPI / 2540 DPI"],
+                    ["Developer Temperature", "23°C - 25°C ± 0.5°C"],
+                    ["Dwell Time in Developer", "20 - 25 Seconds"],
+                    ["Replenisher Rate", "80 - 100 ml/m² during processing"],
+                    ["Gumming Layer", "Synthetic Hydrophilic Protective Gum"]
+                ]
+            },
+            roller: {
+                title: "Inking & Dampening Rubber Rollers Assembly",
+                subtitle: "NBR / Elastomer Rubber Rollers for Offset Press",
+                highlights: [
+                    "<b>Inking Roller Hardness:</b> 30° to 35° Shore A Hardness.",
+                    "<b>Dampening Roller Hardness:</b> 25° to 28° Shore A Hardness.",
+                    "<b>Dynamic Nip Adjustment:</b> Strip Width Calibration using Gauge Strips."
+                ],
+                specs: [
+                    ["Ink Form Roller Hardness", "30° - 35° Shore A"],
+                    ["Dampening Form Hardness", "25° - 28° Shore A"],
+                    ["Chemical Resistance", "Petroleum Washes, IPA, Water-Glycol Solutions"],
+                    ["Glaze Removal Standard", "Calcium Deglazer Treatment every 15 days"],
+                    ["Roller Setting Method", "0.10 mm Steel Gauge / Ink Stripe Test"]
+                ]
+            },
+            bobst: {
+                title: "Automatic Die-Cutter & Creasing Press (BOBST NOVACUT 106)",
+                subtitle: "High-Precision Flatbed Die-Cutting & Embossing Press",
+                highlights: [
+                    "<b>Max Speed:</b> 8,000 Sheets/Hour.",
+                    "<b>Max Cutting Force:</b> 2.6 MN (260 Tonnes Pressure).",
+                    "<b>Substrates:</b> Paper 80 g/m², Cartonboard up to 2,000 g/m², Corrugated up to 4 mm."
+                ],
+                specs: [
+                    ["Max Sheet Size", "760 × 1060 mm"],
+                    ["Min Sheet Size", "350 × 400 mm"],
+                    ["Cutting Rule Height", "23.80 mm"],
+                    ["Matrix Channel Math", "Depth = Board Thickness | Width = (1.5 x Board) + Rule"],
+                    ["Stripping System", "Double Action Automatic Waste Stripping"],
+                    ["Gripper Margin", "9 to 17 mm"]
+                ]
             }
+        };
 
-            let html = '';
+        function loadEquipment(key) {
+            // Update active category button
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-            if (defect === 'hickies') {
-                html = `
-                    <h4 style="color:#dc2626;">🚨 समस्या: Hickies (हिकीज़ / धब्बे)</h4>
-                    <p><b>मुख्य कारण:</b> सुखी हुई इंक के कण, पेपर डस्ट या रोलर के रबर के टुकड़े प्लेट/ब्लैंकेट पर चिपकना।</p>
-                    <p><b>सटीक समाधान (${machine === 'heidelberg' ? 'Heidelberg Specific' : 'Komori Specific'}):</b></p>
-                    <ul>
-                        <li><b>1. Step 1:</b> Automatic Blanket Wash रन करें। ${machine === 'heidelberg' ? 'Heidelberg CPTronic / Prinect कंसोल से Washup Program 2 चुनें।' : 'Komori KHS-AI कंसोल से Blanket Washer Cycle टाइमर बढ़ाएं।'}</li>
-                        <li><b>2. Step 2:</b> इंक डक्ट (Ink Fountain) और साइड चेक्स (Side Cheeks) को चेक करें, सुखी इंक की पपड़ी साफ़ करें।</li>
-                        <li><b>3. Step 3:</b> Calcium Deglazer केमिकल से इंक रोलर्स को डी-ग्लेज़ करें।</li>
-                    </ul>
-                `;
-            } else if (defect === 'scumming') {
-                html = `
-                    <h4 style="color:#dc2626;">🚨 समस्या: Scumming (स्कमिंग / प्लेट पर इंक चढ़ना)</h4>
-                    <p><b>मुख्य कारण:</b> डैम्पिंग वॉटर का कम होना, फाउंटेन सॉल्यूशन pH 5.8 से ऊपर जाना या रोलर प्रेशर ढीला होना।</p>
-                    <p><b>सटीक समाधान:</b></p>
-                    <ul>
-                        <li><b>1. Step 1:</b> डैम्पिंग वॉटर ट्रफ में pH चेक करें। pH <b>4.8 से 5.2</b> के बीच होना चाहिए।</li>
-                        <li><b>2. Step 2:</b> डैम्पिंग फॉर्म रोलर का प्लेट पर निप विड्थ (Nip Width) चेक करें। यह <b>4.5 mm - 5.0 mm</b> होना चाहिए।</li>
-                        <li><b>3. Step 3:</b> Gum Arabic / Acidic Plate Cleaner से प्लेट को वॉश करें।</li>
-                    </ul>
-                `;
-            } else if (defect === 'dotgain') {
-                html = `
-                    <h4 style="color:#dc2626;">🚨 समस्या: Excessive Dot Gain (अत्यधिक डॉट गेन)</h4>
-                    <p><b>मुख्य कारण:</b> ब्लैंकेट इंप्रेशन प्रेशर अधिक होना, इंक का पतला होना या अंडरपैकिंग शीट मोटी होना।</p>
-                    <p><b>सटीक समाधान:</b></p>
-                    <ul>
-                        <li><b>1. Step 1:</b> Sheet Thickness Micrometer से नापें। Imp. Cylinder Squeeze <b>0.10 mm</b> से ज्यादा न रखें।</li>
-                        <li><b>2. Step 2:</b> ${machine === 'heidelberg' ? 'Heidelberg Torque Wrench से ब्लैंकेट टार्क 35 Nm चेक करें।' : 'Komori Aluminum Bar Blanket Tension 30 Nm चेक करें।'}</li>
-                        <li><b>3. Step 3:</b> CTP RIP Curve में Tone Value Increase (TVI) कैलिब्रेट करें।</li>
-                    </ul>
-                `;
-            } else if (defect === 'setoff') {
-                html = `
-                    <h4 style="color:#dc2626;">🚨 समस्या: Set-off (शीट के पीछे इंक छपना)</h4>
-                    <p><b>मुख्य कारण:</b> इंक की लेयर मोटी होना, पाउडर स्प्रे कम होना या डिलीवरी पाइल की ऊंचाई अत्यधिक होना।</p>
-                    <p><b>सटीक समाधान:</b></p>
-                    <ul>
-                        <li><b>1. Step 1:</b> Anti-Setoff Powder Spray का एयर फ्लो 15–20% बढ़ाएं (Duplex Board के लिए 20–25 Micron)।</li>
-                        <li><b>2. Step 2:</b> Delivery Pile की ट्रॉली हाइट कम रखें ताकि शीट पर वजन न पड़े।</li>
-                        <li><b>3. Step 3:</b> IR Dryer (Infrared Dryer) और Hot Air का तापमान बढ़ाएं।</li>
-                    </ul>
-                `;
-            } else if (defect === 'doubling') {
-                html = `
-                    <h4 style="color:#dc2626;">🚨 समस्या: Doubling / Shadow Printing (डबल छपाई)</h4>
-                    <p><b>मुख्य कारण:</b> ग्रिपर पैड का ढीला होना, साइड-ले की गलत टाइमिंग या ब्लैंकेट का शीट पर स्लिप होना।</p>
-                    <p><b>सटीक समाधान:</b></p>
-                    <ul>
-                        <li><b>1. Step 1:</b> Transfer Cylinder और Impression Cylinder के Gripper Pads का प्रेशर चेक करें (2.5 kgf)।</li>
-                        <li><b>2. Step 2:</b> Side Lay Sensor Alignment और Front Lay Sensor Calibration दोबारा करें।</li>
-                    </ul>
-                `;
-            }
+            const item = db[key];
+            document.getElementById('eqTitle').innerHTML = item.title;
+            document.getElementById('eqSubtitle').innerHTML = item.subtitle;
 
-            resBox.innerHTML = html;
-            resBox.style.display = 'block';
+            // Render Highlights
+            let hHtml = '';
+            item.highlights.forEach(h => hHtml += `<li>${h}</li>`);
+            document.getElementById('eqHighlights').innerHTML = hHtml;
+
+            // Render Spec Table
+            let tHtml = '';
+            item.specs.forEach(s => {
+                tHtml += `
+                    <tr>
+                        <td class="spec-name">${s[0]}</td>
+                        <td class="spec-val">${s[1]}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('specTableBody').innerHTML = tHtml;
         }
 
-        function calcPaperWeight() {
-            const l = parseFloat(document.getElementById('paperL').value);
-            const w = parseFloat(document.getElementById('paperW').value);
-            const gsm = parseFloat(document.getElementById('paperGSM').value);
-            const sheets = parseFloat(document.getElementById('paperSheets').value);
-            const resBox = document.getElementById('paperResult');
+        // View Mode Switcher
+        function setMode(mode) {
+            document.getElementById('tab2d').classList.remove('active');
+            document.getElementById('tab360').classList.remove('active');
 
-            if (!l || !w || !gsm || !sheets) {
-                alert('कृपया सभी चार फ़ील्ड सही भरें!');
-                return;
+            if (mode === '360') {
+                document.getElementById('tab360').classList.add('active');
+                document.getElementById('rotatorControls').style.display = 'block';
+            } else {
+                document.getElementById('tab2d').classList.add('active');
+                document.getElementById('rotatorControls').style.display = 'none';
+                rotateDiagram(0);
+                document.getElementById('angleSlider').value = 0;
             }
+        }
 
-            // Formula: (Length_in_inches * Width_in_inches * GSM) / 1550000 = Weight per sheet in kg
-            const weightPerSheet = (l * w * gsm) / 1550000;
-            const totalWeight = weightPerSheet * sheets;
-
-            resBox.innerHTML = `
-                <h3 style="margin-top:0; color:#0369a1;">📊 पेपर कैलकुलेशन परिणाम (Results):</h3>
-                <p>• प्रति शीट वजन (Per Sheet Weight): <b>${weightPerSheet.toFixed(4)} kg</b> (${(weightPerSheet * 1000).toFixed(2)} grams)</p>
-                <p>• कुल वजन (${sheets.toLocaleString()} Sheest Weight): <b style="font-size:1.3rem; color:#16a34a;">${totalWeight.toFixed(2)} kg</b> (${(totalWeight / 1000).toFixed(3)} Tonnes)</p>
-            `;
-            resBox.style.display = 'block';
+        function rotateDiagram(deg) {
+            document.getElementById('svgGraphic').style.transform = `rotate(${deg}deg)`;
+            document.getElementById('angleDisplay').innerText = `Rotation Angle: ${deg}°`;
         }
     </script>
 </body>
