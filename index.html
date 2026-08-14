@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offset Printing Knowledge Hub | Amit Sandhu</title>
+    <title>Offset Printing Encyclopedia | Amit Sandhu</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -25,20 +25,19 @@
         header {
             background: linear-gradient(135deg, var(--primary), #1e293b);
             color: white;
-            padding: 3rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
             border-bottom: 4px solid var(--accent);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: -0.5px;
+            font-size: 2.2rem;
         }
 
         header p {
             margin-top: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #94a3b8;
         }
 
@@ -46,11 +45,12 @@
             background: #1e293b;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             padding: 0.8rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -59,6 +59,7 @@
             font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 6px;
+            background: #334155;
             transition: background 0.3s;
         }
 
@@ -67,275 +68,129 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        .search-box {
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
-        .search-box input {
-            width: 100%;
-            max-width: 700px;
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
-            border: 2px solid #cbd5e1;
-            border-radius: 12px;
-            outline: none;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            margin-top: 3rem;
-        }
-
-        .section-header h2 {
-            color: var(--primary);
-            margin: 0;
+        .banner {
+            background: #e0f2fe;
+            border-left: 6px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        .card {
+        .chapter-card {
             background: white;
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
-            border-top: 4px solid var(--secondary);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 5px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
+        .chapter-card h3 {
             margin-top: 0;
             color: var(--primary);
-            font-size: 1.25rem;
         }
 
-        .badge {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 0.25rem 0.6rem;
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
             border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.2s;
         }
 
-        .label {
-            font-weight: 600;
-            color: #475569;
+        .btn:hover {
+            background: #0369a1;
         }
 
         footer {
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem;
             background: var(--primary);
             color: #94a3b8;
-            margin-top: 5rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Offset Printing Complete Technical Portal</h1>
+        <h1>Offset Printing Complete Digital Encyclopedia</h1>
         <p>Created & Maintained by Amit Sandhu | Production & Packaging Technical Guide</p>
     </header>
 
     <nav>
-        <a href="#materials">Raw Materials</a>
-        <a href="#chemistry">Pressroom Chemistry</a>
-        <a href="#machinery">Machinery Specs</a>
-        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="raw-materials.html">Ch 1: Raw Materials</a>
+        <a href="troubleshooting.html">Ch 2: Troubleshooting</a>
+        <a href="machinery-specs.html">Ch 3: Machine Specs</a>
+        <a href="quality-control.html">Ch 4: Quality Control</a>
     </nav>
 
     <div class="container">
         
-        <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="searchCards()" placeholder="पूरी वेबसाइट में कुछ भी खोजें (e.g. GSM, Blanket, Hickies, SM 74, IPA, Ink)...">
+        <div class="banner">
+            <h2 style="margin-top:0; color: #0369a1;">वेलकम! यह ऑफसेट प्रिंटिंग का डिजिटल टेक्निकल मैन्युअल है।</h2>
+            <p style="margin-bottom:0;">नीचे दिए गए अध्यायों (Chapters) में से जिस विषय के बारे में आप पढ़ना या सीखना चाहते हैं, उसके बटन पर क्लिक करें:</p>
         </div>
 
-        <!-- Section 1: Raw Materials -->
-        <div id="materials" class="section-header">
-            <h2>1. Raw Materials & Consumables</h2>
-            <span class="badge">Module 01</span>
-        </div>
         <div class="grid">
-            <div class="card">
-                <span class="badge">Paperboard</span>
-                <h3>Folding Box Board (FBB) / SBS</h3>
-                <p><span class="label">Specifications:</span> 180 to 400 GSM, Caliper Check (Microns)</p>
-                <p><span class="label">Primary Use:</span> फार्मास्युटिकल कटन्स, कॉस्मेटिक पैकेजिंग और रिटेल डिब्बे।</p>
-                <p><span class="label">Problem:</span> Grain direction misalign होने पर क्रैकिंग होना या फीडर रजिस्ट्रेशन हिलना।</p>
-                <p><span class="label">Solution:</span> प्रिंटिंग से पहले हमेशा Long Grain / Short Grain टेस्ट करें।</p>
+            <div class="chapter-card">
+                <div>
+                    <h3>📘 Chapter 1: Raw Materials</h3>
+                    <p>कागज़ (Paperboard, FBB, Duplex), CTP प्लेट्स, रबर ब्लैंकेट और ऑफसेट इंक की पूरी टेक्निकल स्पेसिफिकेशन और समस्या-समाधान।</p>
+                </div>
+                <a href="raw-materials.html" class="btn">चैप्टर 1 खोलें ➔</a>
             </div>
 
-            <div class="card">
-                <span class="badge">Consumable</span>
-                <h3>Offset Rubber Blanket</h3>
-                <p><span class="label">Specifications:</span> Compressible 4-Ply / 3-Ply (Standard 1.95 mm Thickness)</p>
-                <p><span class="label">Primary Use:</span> प्लेट से शियाही को बिना किसी दबाव दोष के पेपर पर ट्रांसफर करना।</p>
-                <p><span class="label">Problem:</span> Dot Gain, Surface Glazing, Impression Smash</p>
-                <p><span class="label">Solution:</span> Calibrated packing sheets इस्तेमाल करें और नियमित Regenerator Wash से साफ़ करें।</p>
+            <div class="chapter-card">
+                <div>
+                    <h3>🛠️ Chapter 2: Troubleshooting</h3>
+                    <p>Hickies, Scumming, Ghosting, Emulsification और Set-off जैसी 30+ प्रिंटिंग समस्याओं के कारण और ऑपरेटर-लेवल समाधान।</p>
+                </div>
+                <a href="troubleshooting.html" class="btn">चैप्टर 2 खोलें ➔</a>
             </div>
 
-            <div class="card">
-                <span class="badge">Plates</span>
-                <h3>CTP Thermal Plates</h3>
-                <p><span class="label">Specifications:</span> Gauges: 0.15 mm, 0.28 mm, 0.30 mm</p>
-                <p><span class="label">Primary Use:</span> High-resolution इमेज रिप्रोडक्शन (Laser Exposure)।</p>
-                <p><span class="label">Problem:</span> Plate Blinding, Scumming, Fast wear on abrasive paper.</p>
-                <p><span class="label">Solution:</span> Developer pH और Temp नियंत्रित रखें, Baking प्लेट का प्रयोग करें बड़े रन के लिए।</p>
+            <div class="chapter-card">
+                <div>
+                    <h3>⚙️ Chapter 3: Machine Specs</h3>
+                    <p>Heidelberg (SM 74, CX 104, CD 102) और Komori Lithrone G40 के प्लेट साइज़, कट-ऑफ, ग्रीपर मार्जिन और पैकिंग सेटिंग्स।</p>
+                </div>
+                <a href="machinery-specs.html" class="btn">चैप्टर 3 खोलें ➔</a>
             </div>
 
-            <div class="card">
-                <span class="badge">Ink</span>
-                <h3>Sheetfed Process Inks (CMYK)</h3>
-                <p><span class="label">Specifications:</span> Vegetable/Mineral Oil-based, High Tack & Pigmentation</p>
-                <p><span class="label">Primary Use:</span> 4-Color प्रोसेस और पैनटोन कलर प्रिंटिंग।</p>
-                <p><span class="label">Problem:</span> Chalking, Slow Drying, Emulsification</p>
-                <p><span class="label">Solution:</span> Drier (Cobalt/Manganese) सीमित मात्रा में मिलाएं और Ink-Water balance नियंत्रित करें।</p>
-            </div>
-        </div>
-
-        <!-- Section 2: Pressroom Chemistry -->
-        <div id="chemistry" class="section-header">
-            <h2>2. Pressroom Chemistry & Quality Control</h2>
-            <span class="badge">Module 02</span>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <span class="badge">Fountain Solution</span>
-                <h3>Dampening Additive & Water Control</h3>
-                <p><span class="label">Specifications:</span> pH: 4.8 – 5.5 | Conductivity: 1500 – 2000 µS/cm | IPA: 8–12%</p>
-                <p><span class="label">Primary Use:</span> प्लेट के नॉन-इमेज एरिया को पूरी तरह साफ़ और रिपेलेंट रखना।</p>
-                <p><span class="label">Problem:</span> Ink Emulsification (अत्यधिक पानी), Plate Scumming (कम पानी/कम pH)।</p>
-                <p><span class="label">Solution:</span> Dosing system को रोज़ Calibrate करें और TDS/Conductivity मीटर से पानी मापें।</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Spray Powder</span>
-                <h3>Anti-Set-Off Spray Powder</h3>
-                <p><span class="label">Specifications:</span> Starch/Micro-encapsulated (15 to 30 Microns)</p>
-                <p><span class="label">Primary Use:</span> ताज़ा प्रिंटेड शीट्स के बीच एयर-गैप बनाना ताकि इंक पीछे न छपे (Set-off)।</p>
-                <p><span class="label">Problem:</span> अत्यधिक पाउडर डालने से UV Lamination/Coating में पेस्टिंग फ़ेल होना।</p>
-                <p><span class="label">Solution:</span> GSM के हिसाब से micron चुनें (कम GSM = 15-20µm, बोर्ड = 25-30µm)।</p>
-            </div>
-        </div>
-
-        <!-- Section 3: Machinery Specifications -->
-        <div id="machinery" class="section-header">
-            <h2>3. Machinery Specifications & Settings</h2>
-            <span class="badge">Module 03</span>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <span class="badge">Press Specs</span>
-                <h3>Heidelberg Speedmaster SM 74</h3>
-                <p><span class="label">Plate Size:</span> 605 mm × 740 mm</p>
-                <p><span class="label">Plate Thickness:</span> 0.30 mm</p>
-                <p><span class="label">Gripper Margin:</span> 8 – 10 mm</p>
-                <p><span class="label">Max Speed:</span> 15,000 Sheets/Hour</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Press Specs</span>
-                <h3>Heidelberg Speedmaster CX 104</h3>
-                <p><span class="label">Plate Size:</span> 790 mm × 1050 mm</p>
-                <p><span class="label">Plate Thickness:</span> 0.30 mm</p>
-                <p><span class="label">Special Feature:</span> Push-to-Stop Autonomous Printing & Intellistart 3.</p>
-                <p><span class="label">Max Speed:</span> 16,500 Sheets/Hour</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Press Specs</span>
-                <h3>Komori Lithrone G40 (GL-40)</h3>
-                <p><span class="label">Plate Size:</span> 800 mm × 1030 mm</p>
-                <p><span class="label">Special Feature:</span> KHS-AI (Advanced Interface) & PDC-SX Inline Color Control.</p>
-                <p><span class="label">Primary Focus:</span> Fast make-ready for heavy packaging boards.</p>
-            </div>
-        </div>
-
-        <!-- Section 4: Troubleshooting Guide -->
-        <div id="troubleshooting" class="section-header">
-            <h2>4. Pressroom Troubleshooting Guide</h2>
-            <span class="badge">Module 04</span>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <span class="badge">Defect</span>
-                <h3>Hickies (धब्बे / सफ़ेद दाने आना)</h3>
-                <p><span class="label">Cause:</span> सूखी हुई स्याही की पपड़ी, पेपर डस्ट या रोलर का कटा हिस्सा प्लेट पर जमना।</p>
-                <p><span class="label">Solution:</span> Ink duct साफ़ रखें, गीले कपड़े से डैम्पिंग साफ करें, और Hickie Picker रबर रोलर चालू रखें।</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Defect</span>
-                <h3>Mechanical Ghosting (छाया दिखना)</h3>
-                <p><span class="label">Cause:</span> Ink Form Rollers द्वारा बड़े सॉलिड एरियाज के बाद तुरंत इंक री-चार्ज न कर पाना।</p>
-                <p><span class="label">Solution:</span> Form roller का डायामीटर स्ट्रोक बढ़ाएं, Rider Rollers की सेटिंग टाइट करें।</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Defect</span>
-                <h3>Mottling (असमान इंक कवरेज / धब्बेदार प्रिंट)</h3>
-                <p><span class="label">Cause:</span> पेपर की सतह पर इंक एब्जॉर्प्शन अलग-अलग होना या कम इंक टैक होना।</p>
-                <p><span class="label">Solution:</span> हाई-टैक इंक का इस्तेमाल करें, Damping water सप्लाई घटाएं और इंक की विस्कोसिटी सही करें।</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Defect</span>
-                <h3>Moiré Pattern (चेक पैटर्न की गड़बड़ी)</h3>
-                <p><span class="label">Cause:</span> CMYK सी-टी-पी प्लेटों में गलत स्क्रीन एंगल्स का इस्तेमाल होना।</p>
-                <p><span class="label">Solution:</span> Standard angles सेट करें (C: 15°, M: 75°, Y: 0°, K: 45°)।</p>
+            <div class="chapter-card">
+                <div>
+                    <h3>📊 Chapter 4: Quality Control</h3>
+                    <p>GSM & Caliper टेस्टिंग, Spectrophotometer (Delta E), Densitometer रीडिंग्स, pH & Conductivity टेस्ट और लैब QC।</p>
+                </div>
+                <a href="quality-control.html" class="btn">चैप्टर 4 खोलें ➔</a>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 amitsandhu.in | Comprehensive Technical Encyclopedia for Offset Printing Industry</p>
+        <p>&copy; 2026 amitsandhu.in | Technical Knowledge Platform for Offset Printing Industry</p>
     </footer>
 
-    <script>
-        function searchCards() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                let cardText = cards[i].innerText.toLowerCase();
-                if (cardText.includes(input)) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </body>
 </html>
