@@ -3,70 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 5: Post-Press & Finishing | Offset Printing Manual</title>
+    <title>Chapter 5: Post-Press & Finishing Operations | Offset Manual</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 1100px; margin: auto; }
+        .container { max-width: 1200px; margin: auto; }
         .nav-btn { display: inline-block; background: #0284c7; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
-        h1 { color: #0f172a; border-bottom: 3px solid #f59e0b; padding-bottom: 10px; }
-        .finishing-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #8b5cf6; }
-        .finishing-card h2 { margin-top: 0; color: #6d28d9; }
-        .tech-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .tech-table th, .tech-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; }
-        .tech-table th { background: #f1f5f9; color: #334155; width: 30%; }
-        .tag { background: #f3e8ff; color: #6d28d9; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        h1 { color: #0f172a; border-bottom: 3px solid #8b5cf6; padding-bottom: 10px; }
+        .finishing-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid #8b5cf6; }
+        .finishing-card h2 { margin-top: 0; color: #6d28d9; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .tech-table th, .tech-table td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; vertical-align: top; }
+        .tech-table th { background: #f1f5f9; color: #1e293b; width: 28%; font-weight: bold; }
+        .tag { background: #f3e8ff; color: #6d28d9; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="nav-btn">⬅ Home / Main Book Index</a>
-        <h1>Chapter 5: Post-Press & Packaging Finishing (पोस्ट-प्रेस एवं फिनिशिंग)</h1>
+        <h1>Chapter 5: Post-Press Engineering & Conversion Operations</h1>
 
-        <!-- Finishing 1: Lamination -->
+        <!-- LAMINATION -->
         <div class="finishing-card">
-            <h2>1. Thermal & Thermal BOPP Lamination</h2>
-            <p><span class="tag">Surface Protection</span></p>
+            <h2>1. Thermal & Wet Lamination Science</h2>
+            <p><span class="tag">Surface Coating & Protection</span></p>
             <table class="tech-table">
-                <tr><th>Technical Specs</th><td>BOPP Film Thickness: 12 to 15 Microns | Heating Roller Temp: 90°C to 110°C | Pressure: 15 to 20 MPa</td></tr>
-                <tr><th>Primary Use</th><td>कार्टन पैकेजिंग, बुक कवर्स और प्रीमियम डिब्बों को नमी और खरोंच से बचाना।</td></tr>
-                <tr><th>Common Problems</th><td>1. Delamination (फिल्म का छिलना / उखड़ाव)<br>2. Bubbles & Wrinkles (हवा के बुलबुले या सिलवटें)<br>3. Powder Spots (स्प्रे पाउडर के सफेद दाने दिखना)</td></tr>
-                <tr><th>Operator Solution</th><td>• प्रिंटिंग के समय Anti-Set-Off पाउडर का सीमित प्रयोग करें।<br>• इंक पूरी तरह सूखने के बाद ही लामिनेशन करें।<br>• हीटिंग रोलर का तापमान बोर्ड के GSM के हिसाब से बढ़ाएं।</td></tr>
+                <tr>
+                    <th>BOPP / METPET Film Specs</th>
+                    <td>
+                        • <b>Thermal Film Thickness:</b> 12 Micron BOPP + 6 Micron EVA Glue Layer (Total 18 Micron).<br>
+                        • <b>Temperature & Speed:</b> Heating Roller Temp: 95°C to 110°C | Nip Pressure: 15 to 20 MPa.
+                    </td>
+                </tr>
+                <tr>
+                    <th>Delamination Problems & Fixes</th>
+                    <td>
+                        <b>समस्या:</b> लामिनेशन का पपड़ी बनकर उखड़ना (Bonding Failure)।<br>
+                        <b>कारण:</b> प्रिंटिंग इंक में वैक्स (Wax) अधिक होना या पाउडर स्प्रे ज्यादा होना।<br>
+                        <b>समाधान:</b> लामिनेशन-फ्रेंडली इंक का प्रयोग करें। Anti-setoff powder न्यूनतम रखें।
+                    </td>
+                </tr>
             </table>
         </div>
 
-        <!-- Finishing 2: UV Coating -->
+        <!-- DIE CUTTING -->
         <div class="finishing-card">
-            <h2>2. Full UV & Spot UV Coating</h2>
-            <p><span class="tag">High-Gloss Finish</span></p>
+            <h2>2. Automatic Die-Cutting & Creasing Mechanics (BOBST Standard)</h2>
+            <p><span class="tag">Structural Packaging Mechanics</span></p>
             <table class="tech-table">
-                <tr><th>Technical Specs</th><td>Viscosity: 35-45 Sec (Ford Cup 4) | UV Curing Lamps: 80-120 W/cm Mercury Lamps</td></tr>
-                <tr><th>Primary Use</th><td>विशिष्ट लोगो या टेक्स्ट को हाई-ग्लॉस उभार देने के लिए (Spot UV)।</td></tr>
-                <tr><th>Common Problems</th><td>1. Pin-holes / Orange Peel (सतह पर छोटे गड्ढे होना)<br>2. Slow Curing / Sticky Surface (चिपचिपापन रहना)<br>3. Sheet Curling (शीट का मुड़ना)</td></tr>
-                <tr><th>Operator Solution</th><td>• UV लैंप की लाइफ (Hours) जांचें और रिफ्लेक्टर साफ़ करें।<br>• Varnishing Blanket / Anilox Roller का GSM ट्रांसफर कंट्रोल करें।</td></tr>
+                <tr>
+                    <th>Creasing Matrix Channel Math (क्रीज़िंग चैनल कैलकुलेशन)</th>
+                    <td>
+                        क्रीज़िंग मैट्रिक्स विड्थ ($W$) और डेप्थ ($D$) निकालने का अंतर्राष्ट्रीय फॉर्मूला:<br>
+                        • <b>Matrix Depth ($D$):</b> $\text{Board Thickness (Microns)} \div 1000$<br>
+                        • <b>Matrix Width ($W$):</b> $(\text{Board Thickness} \times 1.5) + \text{Creasing Rule Thickness}$
+                    </td>
+                </tr>
+                <tr>
+                    <th>Board Cracking Prevention</th>
+                    <td>क्रीज़िंग लाइन पर बोर्ड फटने से बचाने के लिए Grain Direction हमेशा मुख्य क्रीज़ लाइन के समानांतर रखें। Moisture level 6%–7% सुनिश्चित करें।</td>
+                </tr>
             </table>
         </div>
 
-        <!-- Finishing 3: Die-Cutting -->
+        <!-- FOLDER GLUER -->
         <div class="finishing-card">
-            <h2>3. Automatic Die-Cutting & Punching</h2>
-            <p><span class="tag">Structural Conversion</span></p>
+            <h2>3. Folder Gluer & Cartoning Line Operations</h2>
+            <p><span class="tag">Carton Conversion</span></p>
             <table class="tech-table">
-                <tr><th>Technical Specs</th><td>Cutting Creasing Steel Rules | Matrix Selection | Punching Pressure (Tons)</td></tr>
-                <tr><th>Primary Use</th><td>प्रिंटेड बोर्ड को सटीक शेप में काटना और फोल्डिंग के लिए क्रीज़िंग लाइन बनाना।</td></tr>
-                <tr><th>Common Problems</th><td>1. Creasing Flaking / Cracking (क्रीज लाइन पर बोर्ड फटना)<br>2. Registration Misalignment (कटिंग का आगे-पीछे होना)<br>3. Nick Breaking (गटर बॉन्डिंग टूटना)</td></tr>
-                <tr><th>Operator Solution</th><td>• बोर्ड के Micron Thickness के अनुसार सही Creasing Matrix चैनल चुनें।<br>• Sheet Gripper Margin और Side Lay सेंसर कैलिब्रेट रखें।</td></tr>
-            </table>
-        </div>
-
-        <!-- Finishing 4: Folder Gluer -->
-        <div class="finishing-card">
-            <h2>4. Automatic Folder Gluer (Pasting & Folding)</h2>
-            <p><span class="tag">Final Box Conversion</span></p>
-            <table class="tech-table">
-                <tr><th>Technical Specs</th><td>Cold Glue / Hot Melt Glue Guns | Side-Seam & Crash-Lock Bottom Folding</td></tr>
-                <tr><th>Primary Use</th><td>कट-आउट कार्टन्स को मोड़कर ग्लू (पेस्टिंग) की मदद से फाइनल डिब्बा तैयार करना।</td></tr>
-                <tr><th>Common Problems</th><td>1. Fish-tailing (पेस्टिंग के बाद डिब्बे का तिरछा जुड़ना)<br>2. Glue Flaps Un-bonding (चिपक न पाना)<br>3. Excess Glue Squeezing (ग्‍लू बाहर निकलकर डिब्बे अंदर से चिपकना)</td></tr>
-                <tr><th>Operator Solution</th><td>• लैमिनेटेड/UV वाले हिस्से पर Corona Treater या Wheel Scraper से घिसाई करें।<br>• Glue Gun की डोजिंग और प्रेशर सेटिंग्स ऑटो-स्पीड ट्रैकिंग पर रखें।</td></tr>
+                <tr>
+                    <th>Pasting Adhesion & Corona Treatment</th>
+                    <td>
+                        UV कोटिंग या लामिनेशन वाले फ्लैप पर सादा PVA ग्लू नहीं चिपकता। इसके लिए पेस्टिंग फ्लैप पर <b>Corona Treater (Surface Tension > 44 dynes/cm)</b> या Mechanical Disc Scraper से घिसाई करना अनिवार्य है।
+                    </td>
+                </tr>
             </table>
         </div>
 
