@@ -1,218 +1,423 @@
 <!-- ========================================== -->
 <!-- MASTER PRINTING & PACKAGING TECHNICAL MANUAL -->
+<!-- TOTAL EXPANDED COMPLETE HTML DATA -->
 <!-- ========================================== -->
 
-<!-- SECTION 1: FUNDAMENTALS & MECHANICS -->
-<section class="item-card" style="margin: 20px 0; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
-  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 8px; margin-top: 0;">1. Offset Printing Principle & Mechanics</h2>
-  <p style="color: #333; line-height: 1.5;">
-    ऑफ़सेट प्रिंटिंग का मुख्य सिद्धांत <strong>"तेल और पानी का आपस में न मिलना" (Immiscibility of Oil and Water)</strong> है। यह एक प्लानोग्राफिक (Planographic) प्रक्रिया है, जहाँ प्लेट का इमेज और नॉन-इमेज एरिया एक ही समतल सतह पर होते हैं।
+<!-- SECTION 1: FUNDAMENTALS & OFFSET MECHANICS -->
+<section class="item-card" style="margin: 20px 0; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">1. Fundamentals & Offset Mechanics</h2>
+  
+  <p style="color: #333333; line-height: 1.6; font-size: 15px;">
+    ऑफ़सेट प्रिंटिंग का मुख्य सिद्धांत <strong>"तेल और पानी का आपस में न मिलना" (Immiscibility of Oil and Water)</strong> है[span_0](start_span)[span_0](end_span)। यह एक प्लानोग्राफिक (Planographic) प्रक्रिया है, जहाँ प्लेट का इमेज (Image Area) और नॉन-इमेज (Non-Image Area) एक ही समतल सतह पर स्थित होते हैं[span_1](start_span)[span_1](end_span)।
   </p>
 
-  <h3 style="color: #37474f; margin-top: 15px;">1.1 Surface Characteristics</h3>
-  <ul style="color: #333; line-height: 1.8; padding-left: 20px;">
-    <li><strong>Image Area:</strong> Oleophilic (इंक आकर्षित करने वाला) & Hydrophobic (पानी दूर भगाने वाला)।</li>
-    <li><strong>Non-Image Area:</strong> Hydrophilic (पानी आकर्षित करने वाला) & Oleophobic (इंक दूर भगाने वाला)।</li>
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 15px; font-size: 18px;">1.1 Surface Chemical Characteristics</h3>
+  <p style="color: #333333; line-height: 1.6;">CTP प्लेट की केमिकल प्रॉपर्टीज़ निम्नलिखित दो हिस्सों में विभाजित होती हैं:</p>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Image Area (इमेज एरिया):</strong> Oleophilic (इंक/तेल को आकर्षित करने वाला) और Hydrophobic (पानी को दूर भगाने वाला)[span_2](start_span)[span_2](end_span)।</li>
+    <li><strong>Non-Image Area (नॉन-इमेज एरिया):</strong> Hydrophilic (पानी को आकर्षित करने वाला) और Oleophobic (इंक/तेल को दूर भगाने वाला)[span_3](start_span)[span_3](end_span)।</li>
   </ul>
 
-  <h3 style="color: #37474f; margin-top: 20px;">1.2 Three-Cylinder Transfer System</h3>
-  <div style="overflow-x: auto; margin-top: 10px;">
-    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 20px; font-size: 18px;">1.2 Three-Cylinder Transfer Mechanics</h3>
+  <p style="color: #333333; line-height: 1.6;">
+    ऑफ़सेट प्रिंटिंग को "इनडायरेक्ट प्रिंटिंग" (Indirect Printing) भी कहा जाता है, क्योंकि इसमें प्लेट से इंक सीधे कागज़ पर स्थानांतरित नहीं होती[span_4](start_span)[span_4](end_span)। प्लेट सबसे पहले इंक को एक रबर ब्लैंकेट सिलेंडर पर ट्रांसफर करती है, और फिर ब्लैंकेट सिलेंडर प्रेशर की मदद से उस इंक को कागज़ (Substrate) पर ट्रांसफर करता है[span_5](start_span)[span_5](end_span)।
+  </p>
+
+  <p style="color: #333333; line-height: 1.6; margin-top: 10px;"><strong>Three-Cylinder Workflow Structure:</strong></p>
+  <div style="background-color: #f8f9fa; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 13px; color: #263238; border: 1px solid #cfd8dc; margin-bottom: 15px;">
+    [ PLATE CYLINDER ]  ---> Receives Ink & Water from Rollers<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ink Transfer)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<br>
+    [ BLANKET CYLINDER ] ---> Compressible Rubber Blanket Holds Image<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pressure Squeeze & Print Transfer)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<br>
+    ============ Paper / Packaging Board Substrate ============<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Backing Mechanical Pressure)<br>
+    [ IMPRESSION CYLINDER ] -> Steel Cylinder Support
+  </div>
+
+  <div style="overflow-x: auto; margin-top: 15px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
       <thead>
         <tr style="background-color: #2874f0; color: #ffffff;">
-          <th style="padding: 10px; border: 1px solid #1a237e;">Cylinder Unit</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Primary Function</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Technical Specifications</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Cylinder Unit</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Primary Function</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Standard Technical Specifications</th>
         </tr>
       </thead>
       <tbody>
         <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Plate Cylinder</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Holds CTP plate; receives fountain solution & ink film.</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Undercut: 0.15 mm | Plate Thickness: 0.30 mm</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>1. Plate Cylinder</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">CTP प्लेट को होल्ड करता है और फाउंटेन सॉल्यूशन व इंक फ़िल्म प्राप्त करता है[span_6](start_span)[span_6](end_span)।</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">• Undercut: 0.15 mm[span_7](start_span)[span_7](end_span)<br>• Plate Thickness: 0.30 mm[span_8](start_span)[span_8](end_span)<br>• Packing Sheet: 0.10 - 0.15 mm (अकॉर्डिंग टू ग्रिप कट)</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Blanket Cylinder</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Transfers ink from plate to paper via compressible rubber.</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Undercut: 2.30 mm | Blanket Thickness: 1.95 mm</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>2. Blanket Cylinder</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">प्लेट से इंक लेकर उसे लचीले रबर ब्लैंकेट के माध्यम से पेपर पर ट्रांसफर करता है[span_9](start_span)[span_9](end_span)।</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">• Undercut: 2.30 mm[span_10](start_span)[span_10](end_span)<br>• Blanket Thickness: 1.95 mm (Compressible)[span_11](start_span)[span_11](end_span)<br>• Underlay Packing: 0.45 - 0.50 mm</td>
         </tr>
         <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Impression Cylinder</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Provides mechanical squeeze pressure against paper.</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Hard chrome-plated | Gripper margin: 10 - 12 mm</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>3. Impression Cylinder</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">हार्ड क्रोम-प्लेटेड सिलेंडर जो बोर्ड/पेपर को पीछे से सपोर्ट और आवश्यक मैकेनिकल प्रेशर देता है[span_12](start_span)[span_12](end_span)।</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">• Surface: Hard Chrome Plated[span_13](start_span)[span_13](end_span)<br>• Gripper Margin: 10 - 12 mm[span_14](start_span)[span_14](end_span)<br>• Impression Squeeze: Substrate thickness + 0.10 mm</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h3 style="color: #37474f; margin-top: 20px;">1.3 Nip & Pressure Standards</h3>
-  <ul style="color: #333; line-height: 1.8; padding-left: 20px;">
-    <li><strong>Plate to Blanket Squeeze:</strong> 0.08 mm - 0.12 mm</li>
-    <li><strong>Blanket to Substrate Squeeze:</strong> 0.10 mm - 0.15 mm</li>
-    <li><strong>Ink Form Roller to Plate Nip Width:</strong> 3.0 mm - 4.0 mm</li>
-    <li><strong>Water Form Roller to Plate Nip Width:</strong> 4.0 mm - 5.0 mm</li>
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">1.3 Pressure, Packing & Squeeze Standards</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Plate-to-Blanket Squeeze:</strong> 0.08 mm - 0.12 mm <em>(अगर प्रेशर 0.12 mm से अधिक होगा तो डॉट गेन बढ़ेगा और प्लेट जल्दी घिसेगी)</em>[span_15](start_span)[span_15](end_span)</li>
+    <li><strong>Blanket-to-Substrate Squeeze:</strong> 0.10 mm - 0.15 mm <em>(सही सॉलिड इंक ट्रांसफ़र के लिए बोर्ड की मोटाई के अनुसार प्रेशर एडजस्ट करें)</em>[span_16](start_span)[span_16](end_span)</li>
+    <li><strong>Ink Form Roller to Plate Nip Width:</strong> 3.0 mm - 4.0 mm <em>(स्ट्राइप टेस्ट द्वारा चेक करें)</em>[span_17](start_span)[span_17](end_span)</li>
+    <li><strong>Water Form Roller to Plate Nip Width:</strong> 4.0 mm - 5.0 mm <em>(समान वॉटर फ़िल्म ट्रांसफ़र के लिए)</em>[span_18](start_span)[span_18](end_span)</li>
+  </ul>
+
+  <div style="background-color: #e8f5e9; border-left: 4px solid #2e7d32; padding: 12px 15px; margin-top: 15px; border-radius: 0 4px 4px 0;">
+    <strong style="color: #1b5e20;">Key Operator Best Practices:</strong>
+    <ol style="color: #2e7d32; margin-bottom: 0; margin-top: 5px; padding-left: 20px; line-height: 1.6;">
+      <li><strong>Packing Calculation:</strong> हमेशा माइक्रोमीटर (Micrometer) से ब्लैंकेट और पैकिंग पेपर की मोटाई नापकर ही सिलेंडर चढ़ाएं। गलत पैकिंग से इमेज की लंबाई (Print Length / Stretch) बदल जाती है।</li>
+      <li><strong>Torque Wrench Usage:</strong> ब्लैंकेट को कसते समय हमेशा टॉर्क रिंच (Torque Wrench) का उपयोग करें ताकि पूरे ब्लैंकेट पर समान खिंचाव बना रहे।</li>
+      <li><strong>Impression Cylinder Cleanliness:</strong> इंप्रेशन सिलेंडर के ग्रिपर्स और सतह को हर शिफ्ट में साफ़ करें ताकि बैक-साइड पर इंक का निशान (Set-off/Impression Marks) न आए।</li>
+    </ol>
+  </div>
+
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 20px; font-size: 18px;">1.4 Ink-Water Balance Mechanics & Emulsification</h3>
+  <p style="color: #333333; line-height: 1.6;">
+    ऑफ़सेट प्रिंटिंग में इंक और डैम्पनिंग वॉटर के बीच संतुलित इमल्शन (Emulsion) बनना अनिवार्य है:
+  </p>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Ideal Water Pick-Up Limit:</strong> 18% - 22% (यह इंक की सही ट्रांसफर क्षमता बनाए रखता है)[span_19](start_span)[span_19](end_span)।</li>
+    <li><strong>Over-Emulsification (> 25% Water):</strong> प्रिंट धुंधला (Washed-out) हो जाता है, इंक रोलर्स पर पानी तैरने लगता है और सूखने की गति बहुत धीमी हो जाती है।</li>
+    <li><strong>Under-Emulsification (< 10% Water):</strong> नॉन-इमेज एरिया में इंक चिपकने लगती है और स्कमिंग (Scumming / Greasing) की गंभीर समस्या आती है[span_20](start_span)[span_20](end_span)।</li>
   </ul>
 </section>
 
-<!-- SECTION 2: RAW MATERIALS -->
-<section class="item-card" style="margin: 20px 0; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
-  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 8px; margin-top: 0;">2. Raw Materials Technical Specifications</h2>
+<!-- SECTION 2: RAW MATERIALS & CHEMISTRY -->
+<section class="item-card" style="margin: 20px 0; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">2. Raw Materials Technical Specifications & Chemistry</h2>
   
-  <h3 style="color: #37474f; margin-top: 15px;">2.1 Paper & Board Specifications</h3>
-  <div style="overflow-x: auto; margin-top: 10px;">
-    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+  <h3 style="color: #37474f; margin-top: 15px; font-size: 18px;">2.1 Paper & Packaging Board (Substrate Specifications)</h3>
+  <p style="color: #333333; line-height: 1.6;">पैकेजिंग बोर्ड और पेपर की तकनीकी जाँच पैरामीटर्स और उनके स्टैंडर्ड मान[span_21](start_span)[span_21](end_span):</p>
+  
+  <div style="overflow-x: auto; margin-top: 15px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
       <thead>
         <tr style="background-color: #2874f0; color: #ffffff;">
-          <th style="padding: 10px; border: 1px solid #1a237e;">Property / Parameter</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Standard Target Value</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Testing Standard / Tool</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Property / Parameter</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Standard Target Value</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Testing Standard / Tool</th>
         </tr>
       </thead>
       <tbody>
         <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Grammage (GSM)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">± 3% to ± 5% of Nominal GSM</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">ISO 536 / GSM Scale</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Grammage (GSM)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">± 3% to ± 5% of Nominal GSM[span_22](start_span)[span_22](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">ISO 536 / GSM Scale[span_23](start_span)[span_23](end_span)</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Moisture Content</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">6.0% - 7.0% (at 50-55% RH)</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">ISO 287 / Moisture Meter</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Moisture Content</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">6.0% - 7.0% (at 50-55% RH)[span_24](start_span)[span_24](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">ISO 287 / Moisture Meter[span_25](start_span)[span_25](end_span)</td>
         </tr>
         <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Cobb Value (60s)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Top: 28-32 g/m² | Back: 35-45 g/m²</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">ISO 535 / Cobb Tester</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Cobb Value (60s)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">Top: 28-32 g/m² | Back: 35-45 g/m²[span_26](start_span)[span_26](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">ISO 535 / Cobb Tester[span_27](start_span)[span_27](end_span)</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Roughness (PPS)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">Coated: 1.0-1.8 µm | Uncoated: 3.0-5.0 µm</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">ISO 8791-4 / Parker Print Surf</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Roughness (PPS)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">Coated: 1.0-1.8 µm | Uncoated: 3.0-5.0 µm[span_28](start_span)[span_28](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">ISO 8791-4 / Parker Print Surf[span_29](start_span)[span_29](end_span)</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Ply Bond Strength</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">Min 150 - 200 J/m²</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">TAPPI T 569 / Scott Ply Bond Tester</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h3 style="color: #37474f; margin-top: 20px;">2.2 Dampening Solution, Water Quality & IPA</h3>
-  <div style="overflow-x: auto; margin-top: 10px;">
-    <table style="width: 100%; border-collapse: collapse; text-align: left;">
-      <thead>
-        <tr style="background-color: #2874f0; color: #ffffff;">
-          <th style="padding: 10px; border: 1px solid #1a237e;">Dampening Parameter</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Target Operating Range</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Corrective Measure</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Fountain Solution pH</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">4.8 - 5.5 pH</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">pH &gt; 5.8 होने पर बफ़र बढ़ाएं; pH &lt; 4.5 होने पर इंक ड्राईंग स्लो होगी।</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Conductivity</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">800 - 1500 µS/cm</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">2500 µS/cm से ऊपर जाने पर टैंक का पानी बदलें।</td>
-        </tr>
-        <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>IPA (Isopropyl Alcohol)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">6% - 10%</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">डोसेज यूनिट और अल्कोहल मिक्सर चेक करें।</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Chiller Temperature</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">10°C - 12°C</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">कूलिंग कॉइल्स और ग्लाइकोल लेवल चेक करें।</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
 
-<!-- SECTION 3: DEFECTS & TROUBLESHOOTING -->
-<section class="item-card" style="margin: 20px 0; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
-  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 8px; margin-top: 0;">3. Printing Defects & Troubleshooting</h2>
-
-  <div style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #d32f2f; border-radius: 4px;">
-    <h3 style="color: #d32f2f; margin-top: 0;">3.1 Scumming / Greasing (स्कमिंग)</h3>
-    <ul style="color: #333; line-height: 1.8; padding-left: 20px; margin-bottom: 0;">
-      <li><strong>Root Causes:</strong> pH &gt; 5.8 होना, डैम्पनिंग पानी कम होना, रोलर प्रेशर (Nip) ज़्यादा होना, या रोलर ग्लेज़िंग।</li>
-      <li><strong>Solutions:</strong> pH को 4.8 - 5.2 पर सेट करें, वॉटर स्पीड 3%-5% बढ़ाएं, रोलर का कट 3.5 mm सेट करें, और रोलर डीग्लेज़ करें।</li>
-    </ul>
-  </div>
-
-  <div style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #f57c00; border-radius: 4px;">
-    <h3 style="color: #f57c00; margin-top: 0;">3.2 Hickies / Bull's Eye (हिकीज़)</h3>
-    <ul style="color: #333; line-height: 1.8; padding-left: 20px; margin-bottom: 0;">
-      <li><strong>Root Causes:</strong> कागज़ की कटिंग डस्ट, इंक डक्ट की सूखी पपड़ी, या ब्लैंकेट पर बोर्ड कोटिंग उखड़ना (Picking)।</li>
-      <li><strong>Solutions:</strong> ब्लैंकेट वाश करें, इंक डक्ट साफ़ करें, और फीडर डस्ट रिमूवर चालू करें।</li>
-    </ul>
-  </div>
-
-  <div style="margin-top: 15px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #1976d2; border-radius: 4px;">
-    <h3 style="color: #1976d2; margin-top: 0;">3.3 Set-off & Blocking (सेट-ऑफ और चिपकना)</h3>
-    <ul style="color: #333; line-height: 1.8; padding-left: 20px; margin-bottom: 0;">
-      <li><strong>Root Causes:</strong> एंटी-सेट-ऑफ पाउडर कम होना, हाई इंक डेंसिटी (Over-Inking), या भारी पाइल लोड।</li>
-      <li><strong>Solutions:</strong> पाउडर का छिड़काव (15 - 30 µm) बढ़ाएं, डेंसिटी (SID) सही रखें, और पाइल हाइट कम रखें।</li>
-    </ul>
-  </div>
-</section>
-
-<!-- SECTION 4: QUALITY CONTROL -->
-<section class="item-card" style="margin: 20px 0; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
-  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 8px; margin-top: 0;">4. Quality Control & Color Management</h2>
-
-  <h3 style="color: #37474f; margin-top: 15px;">4.1 Solid Ink Density (SID) Standards</h3>
-  <div style="overflow-x: auto; margin-top: 10px;">
-    <table style="width: 100%; border-collapse: collapse; text-align: left;">
-      <thead>
-        <tr style="background-color: #2874f0; color: #ffffff;">
-          <th style="padding: 10px; border: 1px solid #1a237e;">Process Color</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Coated Board Target</th>
-          <th style="padding: 10px; border: 1px solid #1a237e;">Uncoated Paper Target</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Cyan (C)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.45 - 1.55 D</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.10 - 1.20 D</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Magenta (M)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.45 - 1.50 D</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.10 - 1.20 D</td>
-        </tr>
-        <tr style="background-color: #f8f9fa;">
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Yellow (Y)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.05 - 1.15 D</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">0.85 - 0.95 D</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;"><strong>Black (K)</strong></td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.70 - 1.85 D</td>
-          <td style="padding: 10px; border: 1px solid #e0e0e0;">1.20 - 1.30 D</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- SECTION 5 & 6: MAINTENANCE & ENVIRONMENT -->
-<section class="item-card" style="margin: 20px 0; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
-  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 8px; margin-top: 0;">5. Maintenance & Pressroom Environment</h2>
-
-  <h3 style="color: #37474f; margin-top: 15px;">5.1 Planned Maintenance (PM) Schedule</h3>
-  <ul style="color: #333; line-height: 1.8; padding-left: 20px;">
-    <li><strong>Daily:</strong> ब्लैंकेट वॉश, वॉटर ट्रे सफाई, एयर फ़िल्टर ड्रेन, और सेंसर सफाई।</li>
-    <li><strong>Weekly:</strong> इंक रोलर डीग्लेज़िंग, रोलर हार्डनेस (Shore A) चेक, और एयर/डैम्पनिंग फ़िल्टर सफाई।</li>
-    <li><strong>Monthly:</strong> रोलर निप स्ट्राइप चेक, गियर ग्रीसिंग, और चिलर सेंसर कैलिब्रेशन।</li>
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">2.2 Offset Printing Inks & Sequence Standards</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Tack Value Sequence:</strong> Cyan/Black (14-16 UT) &gt; Magenta (12-14 UT) &gt; Yellow (10-12 UT)[span_30](start_span)[span_30](end_span)। <em>(टैक हमेशा घटते क्रम में होना चाहिए ताकि गीली इंक के ऊपर दूसरी इंक सही से चिपक सके - Ink Trapping)</em></li>
+    <li><strong>Viscosity Range:</strong> 45 - 65 Pa.s (Tested at 32°C)[span_31](start_span)[span_31](end_span)।</li>
+    <li><strong>Water Pick-Up Capacity:</strong> Max 18% - 22%[span_32](start_span)[span_32](end_span)।</li>
+    <li><strong>Drying Process:</strong> Physical Absorption (Paper penetration) + Oxidative Polymerization (ऑक्सीजन के संपर्क से सूखना)[span_33](start_span)[span_33](end_span)।</li>
   </ul>
 
-  <h3 style="color: #37474f; margin-top: 20px;">5.2 Pressroom Environment</h3>
-  <ul style="color: #333; line-height: 1.8; padding-left: 20px;">
-    <li><strong>Ambient Temperature:</strong> 23°C ± 2°C</li>
-    <li><strong>Relative Humidity (RH):</strong> 52% ± 5%</li>
-    <li><strong>Lighting Standard:</strong> D50 Light Source (2000 Lux ± 500 Lux)</li>
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">2.3 Dampening Solution, Water Quality & IPA Standards</h3>
+  <p style="color: #333333; line-height: 1.6;">
+    ऑफ़सेट प्रिंटिंग में इंक-वॉटर बैलेंस बनाए रखने के लिए डैम्पनिंग वॉटर के केमिकल पैरामीटर्स का सही रेंज में होना बेहद ज़रूरी है[span_34](start_span)[span_34](end_span):
+  </p>
+
+  <div style="overflow-x: auto; margin-top: 15px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+      <thead>
+        <tr style="background-color: #2874f0; color: #ffffff;">
+          <th style="padding: 12px; border: 1px solid #1a237e;">Dampening Parameter</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Target Operating Range</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Corrective Measure (Out of Range)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Fountain Solution pH</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">4.8 - 5.5 pH[span_35](start_span)[span_35](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">pH &gt; 5.8 होने पर बफ़र डोसेज बढ़ाएं; pH &lt; 4.5 होने पर इंक ड्राईंग स्लो होगी[span_36](start_span)[span_36](end_span)।</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Conductivity</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">800 - 1500 µS/cm (above raw water)[span_37](start_span)[span_37](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">यदि मान 2500 µS/cm पार कर जाए, तो टैंक का पूरा पानी बदलकर नया फाउंटेन मिक्स बनाएं[span_38](start_span)[span_38](end_span)।</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>IPA (Isopropyl Alcohol)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">6% - 10%[span_39](start_span)[span_39](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">अल्कोहल कम होने पर प्लेट पर वाटर-फ़िल्म समान रूप से नहीं फैलेगी; डोसेज यूनिट चेक करें[span_40](start_span)[span_40](end_span)।</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Chiller Temperature</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">10°C - 12°C[span_41](start_span)[span_41](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">तापमान बढ़ने पर IPA भाप बनकर उड़ता है; कूलिंग कॉइल्स और ग्लाइकोल लेवल साफ़ रखें[span_42](start_span)[span_42](end_span)।</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Water Hardness</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">8°dH - 12°dH (140 - 210 ppm)[span_43](start_span)[span_43](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">हार्ड वॉटर रोलर्स पर कैल्शियम की परत बनाता है; RO वॉटर मिक्सर का उपयोग करें[span_44](start_span)[span_44](end_span)।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">2.4 Coatings & Varnishes Technical Data</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Aqueous Coating (Water-based):</strong> Viscosity 30 - 45 seconds (DIN Cup 4 at 25°C). IR Dryer Temperature setting: 80°C - 90°C. Delivery Pile temp target: 35°C - 38°C.</li>
+    <li><strong>UV Coating:</strong> Viscosity 50 - 70 mPa.s. Curing speed requires 120 W/cm UV Lamp intensity to prevent post-tackiness and bad odor.</li>
+    <li><strong>Blister Varnish:</strong> Coating weight target 5.0 - 7.0 g/m² dry film to ensure high heat-seal strength on blister foil.</li>
   </ul>
 </section>
+
+<!-- SECTION 3: PRINTING DEFECTS & TROUBLESHOOTING -->
+<section class="item-card" style="margin: 20px 0; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">3. Printing Defects & Root Cause Troubleshooting</h2>
+  <p style="color: #333333; line-height: 1.6;">
+    ऑफ़सेट प्रिंटिंग की मुख्य समस्याओं के तकनीकी कारण और ऑपरेटर गाइड[span_45](start_span)[span_45](end_span):
+  </p>
+
+  <!-- DEFECT 1: SCUMMING -->
+  <div style="margin-top: 20px; padding: 18px; background-color: #fff8f8; border-left: 5px solid #d32f2f; border-radius: 4px; border: 1px solid #ffebee; border-left-width: 5px;">
+    <h3 style="color: #d32f2f; margin-top: 0; font-size: 18px;">3.1 Scumming / Greasing (स्कमिंग)</h3>
+    <p style="color: #333333; margin-bottom: 10px;"><strong>Problem Statement:</strong> CTP प्लेट के नॉन-इमेज एरिया में इंक चिपकना और शीट पर बैकग्राउंड धब्बे आना[span_46](start_span)[span_46](end_span) | <strong>Severity Level:</strong> Critical[span_47](start_span)[span_47](end_span)</p>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Root Causes:</strong></p>
+    <ul style="color: #333333; line-height: 1.7; padding-left: 20px; margin-bottom: 10px;">
+      <li>फाउंटेन pH का 5.8 से ऊपर चले जाना[span_48](start_span)[span_48](end_span)।</li>
+      <li>डैम्पनिंग वॉटर फ़िल्म का 1.0 µm से कम होना[span_49](start_span)[span_49](end_span)।</li>
+      <li>इंक/वाटर फॉर्म रोलर्स का प्लेट पर अत्यधिक प्रेशर (Nip Over-tightness)[span_50](start_span)[span_50](end_span)।</li>
+      <li>रोलर्स पर ग्लेज़िंग (Calcium/Ink glazing) की वजह से पानी न रुकना[span_51](start_span)[span_51](end_span)।</li>
+    </ul>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Standard Solutions:</strong></p>
+    <ul style="color: #2e7d32; line-height: 1.7; padding-left: 20px; margin-bottom: 0;">
+      <li>फाउंटेन pH को 4.8 - 5.2 और कंडक्टिविटी को 800 - 1500 µS/cm पर लाएं[span_52](start_span)[span_52](end_span)।</li>
+      <li>वॉटर रोलर स्पीड 3% - 5% बढ़ाएं[span_53](start_span)[span_53](end_span)।</li>
+      <li>इंक फॉर्म रोलर का कट प्लेट पर 3.5 mm सेट करें[span_54](start_span)[span_54](end_span)।</li>
+      <li>डैम्पनिंग रोलर्स को डीग्लेज़र (Deglazer) से साफ़ करें[span_55](start_span)[span_55](end_span)।</li>
+    </ul>
+  </div>
+
+  <!-- DEFECT 2: HICKIES -->
+  <div style="margin-top: 20px; padding: 18px; background-color: #fffde7; border-left: 5px solid #f57c00; border-radius: 4px; border: 1px solid #fff9c4; border-left-width: 5px;">
+    <h3 style="color: #f57c00; margin-top: 0; font-size: 18px;">3.2 Hickies / Bull's Eye (हिकीज़)</h3>
+    <p style="color: #333333; margin-bottom: 10px;"><strong>Problem Statement:</strong> प्रिंटेड सॉलिड एरिया में सफेद छल्ले के बीच काला या रंगीन धब्बा आना[span_56](start_span)[span_56](end_span) | <strong>Severity Level:</strong> High[span_57](start_span)[span_57](end_span)</p>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Root Causes:</strong></p>
+    <ul style="color: #333333; line-height: 1.7; padding-left: 20px; margin-bottom: 10px;">
+      <li>कागज़ की कटिंग डस्ट (Paper Slitting Dust) का बोर्ड पर होना[span_58](start_span)[span_58](end_span)।</li>
+      <li>इंक डक्ट या रोलर्स से सूखी इंक की पपड़ी गिरना[span_59](start_span)[span_59](end_span)।</li>
+      <li>ब्लैंकेट पर बोर्ड की कोटिंग का उखड़ना (Picking Action)[span_60](start_span)[span_60](end_span)।</li>
+    </ul>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Standard Solutions:</strong></p>
+    <ul style="color: #2e7d32; line-height: 1.7; padding-left: 20px; margin-bottom: 0;">
+      <li>ब्लैंकेट सिलेंडर साफ़ करें और लिंट-फ्री कपड़े का उपयोग करें[span_61](start_span)[span_61](end_span)।</li>
+      <li>इंक डक्ट और रोलर चेक्स साफ़ करें[span_62](start_span)[span_62](end_span)।</li>
+      <li>फीडर बोर्ड पर डस्ट रिमूवर ब्रश और वैक्यूम की सेटिंग सही करें[span_63](start_span)[span_63](end_span)।</li>
+    </ul>
+  </div>
+
+  <!-- DEFECT 3: MOTTLING -->
+  <div style="margin-top: 20px; padding: 18px; background-color: #f1f8e9; border-left: 5px solid #388e3c; border-radius: 4px; border: 1px solid #dededd; border-left-width: 5px;">
+    <h3 style="color: #388e3c; margin-top: 0; font-size: 18px;">3.3 Mottling (मॉटलिंग / असमान प्रिंट)</h3>
+    <p style="color: #333333; margin-bottom: 10px;"><strong>Problem Statement:</strong> सॉलिड प्रिंट एरिया में इंक की असमान खपत के कारण धब्बेदार या असमान (Cloudy) दिखना | <strong>Severity Level:</strong> Moderate</p>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Root Causes:</strong></p>
+    <ul style="color: #333333; line-height: 1.7; padding-left: 20px; margin-bottom: 10px;">
+      <li>बोर्ड की अवशोषण क्षमता (Absorbency / Cobb) में असमानता होना[span_64](start_span)[span_64](end_span)।</li>
+      <li>इंक की टैक सीक्वेंस गलत होना[span_65](start_span)[span_65](end_span)।</li>
+      <li>अत्यधिक डैम्पनिंग पानी का उपयोग।</li>
+    </ul>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Standard Solutions:</strong></p>
+    <ul style="color: #2e7d32; line-height: 1.7; padding-left: 20px; margin-bottom: 0;">
+      <li>इंक टैक घटाएं (Tack Reducer मिलाएं)[span_66](start_span)[span_66](end_span)।</li>
+      <li>डैम्पनिंग पानी की मात्रा कम करें[span_67](start_span)[span_67](end_span)।</li>
+      <li>हाई-ट्रैपिंग और रैपिड-सेट इंक का उपयोग करें[span_68](start_span)[span_68](end_span)।</li>
+    </ul>
+  </div>
+
+  <!-- DEFECT 4: SET-OFF & BLOCKING -->
+  <div style="margin-top: 20px; padding: 18px; background-color: #e3f2fd; border-left: 5px solid #1976d2; border-radius: 4px; border: 1px solid #bbdefb; border-left-width: 5px;">
+    <h3 style="color: #1976d2; margin-top: 0; font-size: 18px;">3.4 Set-off & Blocking (सेट-ऑफ और ब्लॉकिंग)</h3>
+    <p style="color: #333333; margin-bottom: 10px;"><strong>Problem Statement:</strong> नीचे की शीट की इंक ऊपर वाली शीट के पीछे छपना या डिलीवरी पाइल में शीट्स का आपस में चिपक जाना[span_69](start_span)[span_69](end_span) | <strong>Severity Level:</strong> High</p>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Root Causes:</strong></p>
+    <ul style="color: #333333; line-height: 1.7; padding-left: 20px; margin-bottom: 10px;">
+      <li>एंटी-सेट-ऑफ पाउडर (Anti-set-off Powder) का कम छिड़काव।</li>
+      <li>ओवर-इंकिंग (High Solid Ink Density / Excessive SID)[span_70](start_span)[span_70](end_span)।</li>
+      <li>डिलीवरी में अत्यधिक भारी पाइल लोड होना।</li>
+    </ul>
+    <p style="color: #333333; margin-bottom: 5px;"><strong>Standard Solutions:</strong></p>
+    <ul style="color: #2e7d32; line-height: 1.7; padding-left: 20px; margin-bottom: 0;">
+      <li>बोर्ड के GSM के अनुसार पाउडर माइक्रोन्स (15 - 30 µm) बढ़ाएं[span_71](start_span)[span_71](end_span)।</li>
+      <li>सॉलिड इंक डेंसिटी (SID) को स्टैंडर्ड रेंज में रखें[span_72](start_span)[span_72](end_span)।</li>
+      <li>डिलीवरी पाइल की ऊंचाई सीमित रखें और एयर-सहायता सही करें।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 4: QUALITY CONTROL & COLOR MANAGEMENT -->
+<section class="item-card" style="margin: 20px 0; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">4. Quality Control & Color Management</h2>
+  <p style="color: #333333; line-height: 1.6;">
+    ISO 12647-2 इंडस्ट्री स्टैंडर्ड के अनुसार प्रिंट क्वालिटी और कलर कंट्रोल के पैरामीटर्स[span_73](start_span)[span_73](end_span):
+  </p>
+
+  <h3 style="color: #37474f; margin-top: 20px; font-size: 18px;">4.1 Solid Ink Density (SID) Target Standards</h3>
+  <div style="overflow-x: auto; margin-top: 15px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+      <thead>
+        <tr style="background-color: #2874f0; color: #ffffff;">
+          <th style="padding: 12px; border: 1px solid #1a237e;">Process Color</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Coated Paper / Board Target</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Uncoated Paper Target</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Tolerance Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Cyan (C)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.45 - 1.55[span_74](start_span)[span_74](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.15 - 1.25</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">± 0.05</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Magenta (M)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.45 - 1.50[span_75](start_span)[span_75](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.15 - 1.20</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">± 0.05</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Yellow (Y)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.05 - 1.15[span_76](start_span)[span_76](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">0.85 - 0.95</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">± 0.04</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Black (K)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.70 - 1.85[span_77](start_span)[span_77](end_span)</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">1.25 - 1.35</td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">± 0.05</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">4.2 Color Difference (Delta E - ΔE) & Dot Gain (TVI)</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Delta E (ΔE00) Target:</strong> ΔE ≤ 1.5 (परफ़ेक्ट मैचिंग) | Max Limit: ΔE ≤ 3.0 (कस्टमर अप्रूवल स्वीकार्य मान)[span_78](start_span)[span_78](end_span)।</li>
+    <li><strong>Tone Value Increase (Dot Gain @ 50% Dot Area):</strong> 
+      <ul>
+        <li>Coated Paper / Art Board: 14% - 18% (Target Dot Visible: 64% - 68%)[span_79](start_span)[span_79](end_span)।</li>
+        <li>Uncoated Paper: 20% - 25% (Target Dot Visible: 70% - 75%)[span_80](start_span)[span_80](end_span)।</li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h3 style="color: #37474f; margin-top: 25px; font-size: 18px;">4.3 First Sheet OK Approval Checklist</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Registration Check:</strong> फोर-कलर रजिस्ट्रेशन 0.05 mm के भीतर होना आवश्यक है (20x लूप का प्रयोग करें)।</li>
+    <li><strong>Barcode Readability:</strong> बारकोड स्कैनिंग ग्रेड ANSI A या B (Grade 3.0 to 4.0) पर पास होना चाहिए।</li>
+    <li><strong>Shade Card Matching:</strong> D50 स्टैंडर्ड लाइट सोर्स (2000 Lux) के तहत ओके शीट और अप्रूव्ड शेड कार्ड का मिलान करें[span_81](start_span)[span_81](end_span)।</li>
+  </ul>
+</section>
+
+<!-- SECTION 5 & 6: MACHINE MAINTENANCE & ENVIRONMENT AUDIT -->
+<section class="item-card" style="margin: 20px 0; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">5. Machine Planned Maintenance (PM) Schedule</h2>
+  <p style="color: #333333; line-height: 1.6;">
+    मशीन की लाइफ और प्रिंटिंग एक्यूरेसी बनाए रखने के लिए पीएम शेड्यूल का पालन करें[span_82](start_span)[span_82](end_span):
+  </p>
+
+  <div style="overflow-x: auto; margin-top: 15px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+      <thead>
+        <tr style="background-color: #2874f0; color: #ffffff;">
+          <th style="padding: 12px; border: 1px solid #1a237e;">Frequency</th>
+          <th style="padding: 12px; border: 1px solid #1a237e;">Maintenance Activities & Key Checkpoints</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Daily (Per Shift)</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">ब्लैंकेट वॉश करें, वॉटर ट्रे/पैन साफ़ करें, न्यूमेटिक एयर फ़िल्टर का मॉइश्चर ड्रेन करें, ग्रिपर बार और ऑप्टिकल सेंसर्स साफ़ करें[span_83](start_span)[span_83](end_span)।</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Weekly</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">इंक रोलर्स को डीग्लेज़ (Calcium Remover) करें[span_84](start_span)[span_84](end_span), रोलर्स की हार्डनेस (Shore A) चेक करें[span_85](start_span)[span_85](end_span), फीडर एयर फ़िल्टर्स और डैम्पनिंग रीसर्कुलेशन फ़िल्टर्स साफ़ करें[span_86](start_span)[span_86](end_span)।</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Monthly</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">रोलर निप प्रेशर (Inking & Dampening Nip Width) चेक करें[span_87](start_span)[span_87](end_span), मेन ड्राइव गियर ट्रेन में ग्रीसिंग करें[span_88](start_span)[span_88](end_span), चिलर सेंसर्स और ग्लाइकोल टैंक कैलिब्रेट करें[span_89](start_span)[span_89](end_span)।</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;"><strong>Quarterly / Annual</strong></td>
+          <td style="padding: 12px; border: 1px solid #e0e0e0;">डैम्पनिंग रोलर स्लीव्स बदलें[span_90](start_span)[span_90](end_span), सिलेंडर्स का पैरेललिज्म (Parallelism) री-अलाइन करें[span_91](start_span)[span_91](end_span), CTP-टू-प्रेस लीनियराइजेशन कर्व कैलिब्रेट करें[span_92](start_span)[span_92](end_span)।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eeeeee;">
+
+  <h2 style="color: #2874f0; border-bottom: 2px solid #2874f0; padding-bottom: 10px; margin-top: 0; font-size: 24px;">6. Pressroom Environment & Audit Compliance</h2>
+  
+  <h3 style="color: #37474f; margin-top: 20px; font-size: 18px;">6.1 Environmental Control Standards</h3>
+  <ul style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Pressroom Temperature:</strong> 23°C ± 2°C[span_93](start_span)[span_93](end_span)</li>
+    <li><strong>Relative Humidity (RH):</strong> 52% ± 5%[span_94](start_span)[span_94](end_span)</li>
+    <li><strong>Standard Lighting (D50 Color Viewer):</strong> 2000 Lux ± 500 Lux (ISO 3664 Matching Booth)[span_95](start_span)[span_95](end_span)</li>
+  </ul>
+
+  <h3 style="color: #37474f; margin-top: 20px; font-size: 18px;">6.2 Audit Compliance Checklist (ISO 12647-2 & BRCGS)</h3>
+  <ol style="color: #333333; line-height: 1.8; padding-left: 20px;">
+    <li><strong>Line Clearance:</strong> नया जॉब शुरू करने से पहले पिछले जॉब के सभी बचे हुए बोर्ड, वेस्ट शीट्स और प्लेट्स को प्रेस एरिया से पूरी तरह हटाना[span_96](start_span)[span_96](end_span)।</li>
+    <li><strong>Chemical Storage:</strong> IPA, फाउंटेन और वॉश केमिकल्स को सेकेंडरी कंटेनमेंट सेफ्टी ट्रे में रखना।</li>
+    <li><strong>Traceability Tagging:</strong> हर ओके पैलेट पर जॉब कार्ड नंबर, ऑपरेटर नाम, डेट और शीट काउंट का अप्रूव्ड टैग लगाना[span_97](start_span)[span_97](end_span)।</li>
+  </ol>
+</section>
+<!-- ========================================== -->
