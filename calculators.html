@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offset Printing Calculators | Amit Sandhu</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; }
+        .nav-btn { display: inline-block; background: #0284c7; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #0f172a; border-bottom: 3px solid #f59e0b; padding-bottom: 10px; }
+        .calc-card { background: white; border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #0284c7; }
+        .calc-card h2 { margin-top: 0; color: #0369a1; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #475569; }
+        input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
+        button { background: #0284c7; color: white; border: none; padding: 12px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 10px; }
+        button:hover { background: #0369a1; }
+        .result-box { margin-top: 15px; padding: 15px; background: #e0f2fe; border-radius: 6px; font-size: 18px; font-weight: bold; color: #0369a1; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-btn">⬅ Home / Main Book Index</a>
+        <h1>Offset Pressroom Interactive Calculators</h1>
+
+        <!-- Calculator 1: Paper Weight -->
+        <div class="calc-card">
+            <h2>1. Paper Weight Calculator (कागज़ का वजन ज्ञात करें)</h2>
+            <div class="form-group">
+                <label>Length (इंच में, जैसे 22):</label>
+                <input type="number" id="length" placeholder="Length in inches">
+            </div>
+            <div class="form-group">
+                <label>Width (इंच में, जैसे 32):</label>
+                <input type="number" id="width" placeholder="Width in inches">
+            </div>
+            <div class="form-group">
+                <label>GSM (जैसे 300):</label>
+                <input type="number" id="gsm" placeholder="Paper GSM">
+            </div>
+            <div class="form-group">
+                <label>Total Sheets (कुल शीट्स की संख्या):</label>
+                <input type="number" id="sheets" placeholder="Total number of sheets">
+            </div>
+            <button onclick="calculatePaperWeight()">वजन कैलकुलेट करें (Calculate Weight)</button>
+            <div id="paperResult" class="result-box" style="display:none;"></div>
+        </div>
+
+        <!-- Calculator 2: Blanket Packing -->
+        <div class="calc-card">
+            <h2>2. Cylinder Packing Calculator (पैकिंग शीट की मोटाई)</h2>
+            <div class="form-group">
+                <label>Cylinder Undercut (सिलेंडर अंडरकट - mm में, जैसे 2.30):</label>
+                <input type="number" step="0.01" id="undercut" placeholder="Undercut in mm">
+            </div>
+            <div class="form-group">
+                <label>Required Squeeze / Pressure (mm में, जैसे 0.10):</label>
+                <input type="number" step="0.01" id="squeeze" placeholder="Squeeze pressure in mm">
+            </div>
+            <div class="form-group">
+                <label>Blanket Thickness (ब्लैंकेट की मोटाई - mm में, जैसे 1.95):</label>
+                <input type="number" step="0.01" id="blanket" placeholder="Blanket thickness in mm">
+            </div>
+            <button onclick="calculatePacking()">अंडरपैकिंग मोटाई निकालें (Calculate Packing)</button>
+            <div id="packingResult" class="result-box" style="display:none;"></div>
+        </div>
+
+    </div>
+
+    <script>
+        function calculatePaperWeight() {
+            let L = parseFloat(document.getElementById('length').value);
+            let W = parseFloat(document.getElementById('width').value);
+            let GSM = parseFloat(document.getElementById('gsm').value);
+            let S = parseFloat(document.getElementById('sheets').value);
+
+            if (L && W && GSM && S) {
+                // Formula: (Length x Width x GSM x Sheets) / (1550000) for Kg
+                let weightKg = (L * W * GSM * S) / 1550000;
+                let resultDiv = document.getElementById('paperResult');
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = "कुल वजन (Total Weight): " + weightKg.toFixed(2) + " Kg";
+            } else {
+                alert("कृपया सभी वैल्यू सही भरें!");
+            }
+        }
+
+        function calculatePacking() {
+            let UC = parseFloat(document.getElementById('undercut').value);
+            let SQ = parseFloat(document.getElementById('squeeze').value);
+            let BL = parseFloat(document.getElementById('blanket').value);
+
+            if (UC && SQ && BL) {
+                // Formula: Packing = Undercut + Squeeze - Blanket Thickness
+                let packingNeeded = (UC + SQ) - BL;
+                let resultDiv = document.getElementById('packingResult');
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = "आवश्यक अंडरपैकिंग पेपर मोटाई: " + packingNeeded.toFixed(2) + " mm";
+            } else {
+                alert("कृपया सभी वैल्यू सही भरें!");
+            }
+        }
+    </script>
+</body>
+</html>
