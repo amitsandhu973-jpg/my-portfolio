@@ -417,9 +417,12 @@
       </div>
     </div>
   </div>
-<!-- Live Search Bar -->
-<div style="margin: 20px 0;">
-  <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में कुछ भी सर्च करें (उदा. Ink, pH, Gripper)..." onkeyup="searchContent()" style="width: 100%; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
+  <!-- Search Bar with Button -->
+<div style="margin: 20px 0; display: flex; gap: 8px;">
+  <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
+  <button onclick="searchContent()" style="padding: 14px 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Search</button>
+</div>
+
 </div>
 
   <!-- TAB NAVIGATION BUTTONS -->
@@ -894,21 +897,30 @@
     if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
     updateSlideUI();
   }
-</script>
-<!-- Live Search Function -->
+
 <script>
 function searchContent() {
-  let input = document.getElementById('searchInput').value.toLowerCase();
+  let input = document.getElementById('searchInput').value.toLowerCase().trim();
+  if (!input) return;
+
   let textNodes = document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3');
-  
+  let found = false;
+
   textNodes.forEach(node => {
-    if (input !== "" && node.innerText.toLowerCase().includes(input)) {
-      node.style.backgroundColor = "rgba(0, 242, 254, 0.2)";
+    node.style.backgroundColor = "";
+    if (node.innerText.toLowerCase().includes(input)) {
+      node.style.backgroundColor = "rgba(0, 242, 254, 0.3)";
       node.style.borderRadius = "4px";
-    } else {
-      node.style.backgroundColor = "";
+      if (!found) {
+        node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        found = true;
+      }
     }
   });
+
+  if (!found) {
+    alert("कोई परिणाम नहीं मिला / No match found");
+  }
 }
 </script>
 
