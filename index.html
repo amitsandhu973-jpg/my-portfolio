@@ -898,43 +898,48 @@
     updateSlideUI();
   }
 
-<!-- Live Search Function with Auto-Tab Open -->
+<!-- Final Fixed Search Function -->
 <script>
 function searchContent() {
   let input = document.getElementById('searchInput').value.toLowerCase().trim();
   if (!input) return;
 
-  let allElements = document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td');
-  let foundElement = null;
+  let slides = Array.from(document.querySelectorAll('.slide-panel'));
+  let foundNode = null;
+  let targetSlideIndex = -1;
 
+  // Clear previous highlights
   document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
     el.style.backgroundColor = "";
   });
 
-  for (let el of allElements) {
-    if (el.innerText && el.innerText.toLowerCase().includes(input)) {
-      foundElement = el;
-      break;
-    }
-  }
-
-  if (foundElement) {
-    let parentSlide = foundElement.closest('.slide-panel');
-    if (parentSlide) {
-      let slideId = parentSlide.id;
-      if (typeof openSlide === 'function') {
-        openSlide(null, slideId);
-      } else {
-        document.querySelectorAll('.slide-panel').forEach(s => s.classList.remove('active'));
-        parentSlide.classList.add('active');
+  // Search through each slide
+  for (let i = 0; i < slides.length; i++) {
+    let textNodes = slides[i].querySelectorAll('p, li, h2, h3, h4, td');
+    for (let node of textNodes) {
+      if (node.innerText && node.innerText.toLowerCase().includes(input)) {
+        foundNode = node;
+        targetSlideIndex = i;
+        break;
       }
     }
+    if (foundNode) break;
+  }
 
-    foundElement.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
-    foundElement.style.borderRadius = "4px";
+  if (foundNode && targetSlideIndex !== -1) {
+    // 1. Switch to the correct Tab/Page
+    if (typeof slides !== 'undefined' && typeof tabs !== 'undefined') {
+      currentSlideIndex = targetSlideIndex;
+      updateSlideUI();
+    }
+
+    // 2. Highlight and Scroll to the word
+    foundNode.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
+    foundNode.style.borderRadius = "4px";
+    
     setTimeout(() => {
-      foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 200);
+      foundNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
   } else {
     alert("कोई परिणाम नहीं मिला / Word not found: " + input);
   }
