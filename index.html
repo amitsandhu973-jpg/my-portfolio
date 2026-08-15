@@ -381,7 +381,7 @@
 
 <div class="manual-container">
 
-  <!-- HEADER WITH PHOTO UPLOADER -->
+  <!-- HEADER WITH PERMANENT PHOTO UPLOADER -->
   <div class="header-banner">
     <div class="header-title">
       <h1>Offset Printing & Packaging Technical Manual</h1>
@@ -814,17 +814,33 @@
 
 </div>
 
-<!-- JAVASCRIPT FOR DYNAMIC TAB SWITCHING AND IMAGE UPLOAD -->
+<!-- JAVASCRIPT FOR DYNAMIC TAB SWITCHING & PERMANENT PHOTO STORAGE -->
 <script>
-  // Image Upload Logic
+  // Automatic Photo Load from LocalStorage on Page Open/Refresh
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedPhoto = localStorage.getItem('amitSandhuPhoto');
+    if (savedPhoto) {
+      document.getElementById('userPhoto').src = savedPhoto;
+    }
+  });
+
+  // Photo Upload and Save to LocalStorage Logic
   function loadPhoto(event) {
-    const reader = new FileReader();
-    reader.onload = function() {
-      const output = document.getElementById('userPhoto');
-      output.src = reader.result;
-    };
-    if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const base64Image = reader.result;
+        // 1. Update Profile Image on Screen immediately
+        document.getElementById('userPhoto').src = base64Image;
+        // 2. Save image permanently in Browser's Local Storage
+        try {
+          localStorage.setItem('amitSandhuPhoto', base64Image);
+        } catch (e) {
+          console.error("Storage limit exceeded", e);
+        }
+      };
+      reader.readAsDataURL(file);
     }
   }
 
