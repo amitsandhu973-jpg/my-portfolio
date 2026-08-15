@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical Hints & Master Tips - Amit Sandhu</title>
+  <title>Master Technical Hints & Advanced Offset Handbook - Amit Sandhu</title>
   <style>
     :root {
       --bg-main: #090d16;
@@ -15,32 +15,57 @@
     }
     * { box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-main);
       color: #fff;
       margin: 0;
       padding: 20px;
+      line-height: 1.6;
     }
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .back-btn {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 10px 22px;
       background: var(--card-bg);
       color: var(--accent-neon);
       text-decoration: none;
       border: 1px solid var(--accent-neon);
-      border-radius: 6px;
-      margin-bottom: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
       font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: var(--accent-neon);
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
     }
     .page-title {
       color: var(--accent-neon);
       border-bottom: 2px solid var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 25px;
+      padding-bottom: 12px;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+    .section-header {
+      background: linear-gradient(90deg, #1e293b, transparent);
+      padding: 10px 15px;
+      border-left: 5px solid var(--accent-blue);
+      margin: 35px 0 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .section-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--accent-blue);
     }
     .hint-card {
       background: var(--card-bg);
@@ -51,25 +76,49 @@
       border-right: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
     .hint-card h3 {
       color: var(--accent-blue);
       margin-top: 0;
       font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .hint-card p, .hint-card ul {
       color: #cbd5e1;
-      font-size: 14px;
+      font-size: 14.5px;
       line-height: 1.6;
     }
     .hint-card ul { padding-left: 20px; }
+    .hint-card li { margin-bottom: 6px; }
     .badge {
       background: rgba(0, 242, 254, 0.15);
       color: var(--accent-neon);
-      padding: 3px 8px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
       font-size: 12px;
       font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .formula-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px dashed var(--accent-blue);
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #38bdf8;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 50px;
     }
   </style>
 </head>
@@ -78,33 +127,154 @@
 <div class="container">
   <a href="index.html" class="back-btn">⬅ Back to Main Technical Manual</a>
 
-  <h1 class="page-title">💡 Technical Hints & Master Tips (Advanced Offset Engineering)</h1>
+  <h1 class="page-title">💡 Master Technical Hints & Advanced Offset Handbook</h1>
+  <p class="subtitle">Comprehensive Encyclopedia of Offset Press Engineering, Chemistry, Physics, Prepress & Packaging Quality Control (35 Technical Master Hints)</p>
 
-  <!-- HINT 1 -->
+  <!-- SECTION 1 -->
+  <div class="section-header">
+    <h2>1. Ink Mechanics, Dynamic Rheology & Surface Chemistry</h2>
+  </div>
+
   <div class="hint-card">
     <h3><span class="badge">HINT #01</span> Dynamic Ink-Water Emulsification Window</h3>
-    <p><strong>Micro Chemistry:</strong> इंक में पानी का सही संतुलन (Water-in-Oil Emulsification) <strong>15% से 20%</strong> होना चाहिए।</p>
+    <p><strong>Micro Chemistry:</strong> ऑफ़सेट प्रिंटिंग में इंक और पानी का सही इमल्सीफिकेशन (Water-in-Oil Emulsification) <strong>15% से 20%</strong> होना चाहिए।</p>
     <ul>
       <li><strong>&lt; 15% Water:</strong> Plate Scumming, Toning और Tinting का डिफ़ेक्ट आएगा क्योंकि Non-image area पूरी तरह गीला नहीं होगा।</li>
-      <li><strong>&gt; 20% Water:</strong> Roller Stripping, Slow Ink Drying, और Ink Washout (Density loss) होगी।</li>
+      <li><strong>&gt; 20% Water:</strong> Roller Stripping, Slow Ink Drying, Bleeding और Ink Washout (Density loss) होगी।</li>
       <li><strong>Master Solution:</strong> IPA / Replacer की मदद से Dynamic Surface Tension को <strong>35–45 dynes/cm</strong> पर कंट्रोल रखें।</li>
     </ul>
   </div>
 
-  <!-- HINT 2 -->
   <div class="hint-card">
-    <h3><span class="badge">HINT #02</span> Flexo Coater & Anilox BCM Calculation</h3>
-    <p><strong>Coating Science:</strong> अनिलॉक्स रोलर से बोर्ड पर सिर्फ <strong>25% से 35% Wet Coating Transfer</strong> होती है।</p>
+    <h3><span class="badge">HINT #02</span> Ink Tack Sequence & Wet-on-Wet Trapping Dynamics</h3>
+    <p><strong>Multi-color Printing Mechanics:</strong> 4-Color या 6-Color प्रेस पर प्रिंट करते समय पहली यूनिट से आखिरी यूनिट तक इंक की Tack Value (Chipness) हमेशा घटते क्रम (Decreasing Order) में होनी चाहिए।</p>
     <ul>
-      <li><strong>BCM Selection:</strong> Drip-off / Matt Varnish के लिए 10–12 BCM, High Gloss Aqueous Coating के लिए 6–8 BCM इस्तेमाल करें।</li>
-      <li><strong>Wet Film Thickness Formula:</strong> $\text{WFT (microns)} \approx \text{Anilox BCM} \times 0.30$</li>
-      <li><strong>Blade Pressure Tip:</strong> Chamber Doctor Blade पर ओवर-प्रेशर देने से <i>Blade Lines</i> आती हैं और Blade लाइफ 50% घट जाती है।</li>
+      <li><strong>Standard Tack Sequence:</strong> Black (Tack 14–15) &gt; Cyan (Tack 12–13) &gt; Magenta (Tack 10–11) &gt; Yellow (Tack 8–9)।</li>
+      <li><strong>Back-trapping Fault:</strong> अगर बाद वाली यूनिट की इंक का Tack पहली यूनिट से ज़्यादा होगा, तो रोलर पिछले छपे हुए गीले इंक को वापस खींच लेंगे (Back-trapping / Ink Pick-off)।</li>
     </ul>
   </div>
 
-  <!-- HINT 3 -->
   <div class="hint-card">
-    <h3><span class="badge">HINT #03</span> Mechanical Sheet Arrival & Gripper Timing</h3>
+    <h3><span class="badge">HINT #03</span> Thixotropy & Ink Temperature Control</h3>
+    <p><strong>Ink Rheology:</strong> ऑफ़सेट इंक थिक्सोट्रोपिक (Thixotropic) होती है, यानी जब इस पर शियर स्ट्रेस (Shear Stress) पड़ता है, तो इसकी श्यानता (Viscosity) कम हो जाती है।</p>
+    <ul>
+      <li><strong>Temperature Limit:</strong> इनकिंग रोलर का तापमान <strong>25°C से 28°C</strong> के बीच रहना चाहिए।</li>
+      <li><strong>Overheating Danger:</strong> 32°C से ऊपर तापमान जाने पर इंक की श्यानता अत्यधिक गिर जाती है जिससे Ink Flying (Misting) और Dot Gain बढ़ जाता है।</li>
+      <li><strong>Solution:</strong> Roller Chilling System (Chilled Water Circulation) का टेम्परेचर 18°C-20°C सेट रखें।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #04</span> Pigment Concentration vs Ink Film Thickness (IFT)</h3>
+    <p><strong>Color Density Physics:</strong> कागज़ पर इंक की मोटाई (Ink Film Thickness) हमेशा <strong>0.7 से 1.2 माइक्रोन (µm)</strong> होनी चाहिए।</p>
+    <ul>
+      <li><strong>Excessive IFT:</strong> अगर सॉलिड डेंसिटी पाने के लिए IFT &gt; 1.5 µm की जाती है, तो Wet Ink Setoff, Mottling और Slow Drying की समस्या आएगी।</li>
+      <li><strong>Low Pigment Ink:</strong> अगर सस्ती इंक उपयोग की जाए जिसमें पिगमेंट कम हो, तो ऑपरेटर को डेंसिटी लाने के लिए IFT बढ़ानी पड़ती है, जिससे डॉट गेन 25% पार कर जाता है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #05</span> Oxydative Drying vs Absorption Drying</h3>
+    <p><strong>Drying Chemistry:</strong> Conventional Sheetfed Ink दो चरणों में सूखती है: पहले एब्जॉर्प्शन (Initial Set: 10-15 मिनट) और फिर ऑक्सिडेटिव पॉलीमराइजेशन (Final Hard Dry: 4-8 घंटे)।</p>
+    <ul>
+      <li><strong>Cobalt & Manganese Driers:</strong> कोबाल्ट ड्रायर सरफेस ड्राइंग (Top Layer) बढ़ाता है और मैंगनीज ड्रायर थ्रू-ड्राइंग (Deep Layer) बढ़ाता है।</li>
+      <li><strong>High Relative Humidity (&gt;70% RH):</strong> नमी बढ़ने पर ऑक्सिडेटिव ड्राइंग 50% धीमी हो जाती है।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-header">
+    <h2>2. Fountain Solution, pH, Conductivity & Water Chemistry</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #06</span> Fountain Solution pH Calibration Buffer</h3>
+    <p><strong>Dampening Chemistry:</strong> फव्वारे के पानी (Fountain Solution) का आइडियल pH मान हमेशा <strong>4.8 से 5.5</strong> के बीच होना चाहिए।</p>
+    <ul>
+      <li><strong>pH &lt; 4.8 (Too Acidic):</strong> प्लेट का नॉन-इमेज एरिया कोरोड (Corrode) होगा, इंक की ड्राइंग रुक जाएगी और प्लेट की रन-लेंथ आधी रह जाएगी।</li>
+      <li><strong>pH &gt; 5.5 (Too Alkaline):</strong> इंक का इमल्सीफिकेशन तेजी से होगा, प्लेट पर Scumming आएगी और डैम्पिंग रोलर ग्रीसी (Greasy) हो जाएंगे।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #07</span> Electrical Conductivity & Total Dissolved Solids (TDS)</h3>
+    <p><strong>Water Quality Metrics:</strong> पानी की शुद्धता और बफर कंसंट्रेशन मापने के लिए कन्डक्टिविटी (Conductivity) सबसे सटीक पैमाना है।</p>
+    <ul>
+      <li><strong>Ideal Operating Range:</strong> 800 से 1500 µS/cm (Micro-Siemens)।</li>
+      <li><strong>Fresh Water Base:</strong> RO Water की बेस कन्डक्टिविटी 50–150 µS/cm होनी चाहिए।</li>
+      <li><strong>Dumping Threshold:</strong> जब टैंक की कन्डक्टिविटी ताज़े घोल से **1000 µS/cm अधिक** हो जाए (इंक, पेपर डस्ट और गम का प्रदूषण), तो पूरे फाउंटेन सॉल्यूशन को तुरंत बदल देना चाहिए।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #08</span> Alcohol (IPA) Reduction & Surface Tension Reduction</h3>
+    <p><strong>Dampening Efficiency:</strong> Isopropyl Alcohol (IPA) का मुख्य काम पानी के सरफेस टेंशन को **72 dynes/cm से घटाकर 35-40 dynes/cm** करना है।</p>
+    <ul>
+      <li><strong>IPA Replacement (Substitutes):</strong> 8-12% IPA की जगह 2-3% Surfactant-based Glycol-ether Replacer का इस्तेमाल करें।</li>
+      <li><strong>Viscosity Shift:</strong> बिना IPA के डैम्पिंग वॉटर की विस्कोसिटी कम हो जाती है, इसलिए डैम्पिंग रोलर की स्पीड 5% से 8% बढ़ानी पड़ती है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #09</span> Calcium Carbonate & Glazing Attack</h3>
+    <p><strong>Paper Chemistry Hazard:</strong> अल्कलाइन / रीसाइक्लिंग पेपर से कैल्शियम कार्बोनेट (CaCO3) निकलकर फाउंटेन सॉल्यूशन में घुल जाता है।</p>
+    <ul>
+      <li><strong>Roller Glazing:</strong> यह कैल्शियम इनकिंग और डैम्पिंग रोलर के पोर्स में जम जाता है, जिससे रोलर कांच जैसे चिकने (Glaze) हो जाते हैं और इंक-वाटर ट्रांसफर बंद हो जाता है।</li>
+      <li><strong>Prevention:</strong> हफ़्ते में एक बार कैल्शियम डि-ग्लेज़िंग वॉश (Acidic Roller Wash) का इस्तेमाल करें।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-header">
+    <h2>3. Flexo Coater, Anilox Mechanics & UV/LED Curing</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #10</span> Flexo Coater & Anilox BCM Calculation</h3>
+    <p><strong>Coating Science:</strong> अनिलॉक्स रोलर से बोर्ड पर सिर्फ <strong>25% से 35% Wet Coating Transfer</strong> होती है।</p>
+    <div class="formula-box">Wet Film Thickness (WFT in microns) ≈ Anilox BCM × 0.30</div>
+    <ul>
+      <li><strong>BCM Selection:</strong> Drip-off / Matt Varnish के लिए 10–12 BCM, High Gloss Aqueous Coating के लिए 6–8 BCM इस्तेमाल करें।</li>
+      <li><strong>Blade Pressure Tip:</strong> Chamber Doctor Blade पर ओवर-प्रेशर देने से Blade Lines आती हैं और Blade लाइफ 50% घट जाती है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #11</span> UV / LED-UV Curing Physics & Wavelength Matching</h3>
+    <p><strong>Photo-polymerization:</strong> UV इंक और वार्निश सूखती नहीं हैं, बल्कि प्रकाश की किरणों से तुरंत पॉलिमर (Solid) में बदलती हैं।</p>
+    <ul>
+      <li><strong>Mercury Lamp (Conventional UV):</strong> 200–400 nm स्पेक्ट्रम छोड़ता है। बहुत गर्मी पैदा करता है (IR radiation)।</li>
+      <li><strong>LED-UV System:</strong> केवल मोनोक्रोमैटिक <strong>385 nm या 395 nm</strong> वेवलेंथ छोड़ता है। इसमें हीट न के बराबर होती है जिससे Thin Plastic और MetPET Board डिस्टॉर्ट नहीं होते।</li>
+      <li><strong>Photoinitiators:</strong> LED-UV इंक में विशेष फोटो-इनिशिएटर होने चाहिए जो 385/395nm पर एक्टिवेट हों।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #12</span> Oxygen Inhibition in UV Curing</h3>
+    <p><strong>Surface Tackiness Issue:</strong> फ्री-रेडिकल UV Curing में हवा की ऑक्सीजन इंक की सबसे ऊपरी सतह पर Curing Process को रोक देती है।</p>
+    <ul>
+      <li><strong>Symptom:</strong> इंक अंदर से सूख जाती है लेकिन छूने पर ऊपर चिपचिपाहट (Surface Tacky) महसूस होती है।</li>
+      <li><strong>Solution:</strong> Lamp Intensity (Watt/cm) बढ़ाएं या उच्च क्षमता वाले Gallium-doped UV lamps का उपयोग करें।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #13</span> Viscosity Control for Aqueous & UV Coating</h3>
+    <p><strong>Coater Fluid Mechanics:</strong> कोटिंग की विस्कोसिटी DIN Cup #4 से मापी जाती है।</p>
+    <ul>
+      <li><strong>Aqueous Gloss Coating:</strong> 18 से 22 सेकंड (DIN Cup 4 @ 25°C)।</li>
+      <li><strong>UV Matt / Gloss Varnish:</strong> 35 से 55 सेकंड।</li>
+      <li><strong>Temperature Sensitivity:</strong> कोटिंग सर्कुलेशन टैंक का टेम्परेचर 20°C-25°C बनाए रखें। ठंडा वार्निश लेवलिंग खराब करेगा जिससे Orange Peel डिफ़ेक्ट आएगा।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-header">
+    <h2>4. High-Speed Press Engineering, Mechanical Registration & Feeder</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #14</span> Mechanical Sheet Arrival & Gripper Timing</h3>
     <p><strong>High Speed Registration:</strong> शीट का Front Lay पर पहुँचने का परफेक्ट टाइमिंग Press Degree rotation पर निर्भर करता है।</p>
     <ul>
       <li><strong>Arrival Window:</strong> शीट को Gripper Close होने से <strong>10° से 15° पहले</strong> Front Lay पर ठहर जाना चाहिए।</li>
@@ -112,9 +282,51 @@
     </ul>
   </div>
 
-  <!-- HINT 4 -->
   <div class="hint-card">
-    <h3><span class="badge">HINT #04</span> CIP3 / CIP4 Ink Key Automation Efficiency</h3>
+    <h3><span class="badge">HINT #15</span> Side Lay Pull vs Push Pressure Adjustment</h3>
+    <p><strong>Feeder Registration Alignment:</strong> शीट को साइड से एलाइन करने का प्रेशर कागज़ की मोटाई पर तय होता है।</p>
+    <ul>
+      <li><strong>Light Paper (60 - 120 GSM):</strong> Side lay का Spring Tension बहुत हल्का रखें, वर्ना शीट का किनारा मुड़ जाएगा (Buckling)।</li>
+      <li><strong>Heavy Packaging Board (300 - 450 GSM):</strong> Spring Tension बढ़ाएं ताकि भारी शीट पूरी तरह साइड स्टॉप ब्लॉक से टच हो सके।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #16</span> Ultrasonic vs Electromechanical Double Sheet Detection</h3>
+    <p><strong>Feeder Security Electronics:</strong> दोहरी शीट को मशीन में जाने से रोकने के लिए सेंसर्स का सही चयन ज़रूरी है।</p>
+    <ul>
+      <li><strong>Ultrasonic Sensor:</strong> यह साउंड वेव भेजकर शीट के बीच की एयर गैप मापता है। यह MetPET, प्लास्टिक, फॉइल और डार्क शीट्स पर काम करता है जहाँ लाइट पास नहीं होती।</li>
+      <li><strong>Mechanical Felt/Rocker Pin:</strong> यह बहुत पतले पेपर (40-60 GSM) के लिए सबसे एक्यूरेट होता है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #17</span> Cylinder Packing & Pitch Line True Rolling</h3>
+    <p><strong>Impression Geometry:</strong> प्लेट सिलिंडर और ब्लैंकेट सिलिंडर के बीच "True Rolling" होना आवश्यक है।</p>
+    <div class="formula-box">Total Plate Packing = Bare Cylinder Undercut + Plate Thickness + Underlay Paper</div>
+    <ul>
+      <li><strong>Over-packing Warning:</strong> अगर प्लेट या ब्लैंकेट को 0.05 mm भी ओवर-पैक किया गया, तो स्लिपेज होगी जिससे Dot Elongation (Gearing Slur) आएगा।</li>
+      <li><strong>Under-packing Warning:</strong> कम पैकिंग से प्रिंट प्रेशर घटेगा जिससे सॉलिड पैच में HIC (Holidays) और Un-printed Pin-holes दिखेंगे।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #18</span> Anti-Setoff Powder Micron Calibration vs Board GSM</h3>
+    <p><strong>Delivery Stacking Science:</strong> पाउडर की मात्रा और उसका Micron Size कागज़ की रफनेस और बोर्ड के वजन पर निर्भर करता है।</p>
+    <ul>
+      <li><strong>Light Paper (&lt; 150 GSM):</strong> 15 से 20 Micron (Calcium Carbonate based) स्प्रे पाउडर का उपयोग करें।</li>
+      <li><strong>Heavy Folding Carton (300 - 450 GSM):</strong> 30 से 45 Micron (Starch based) पाउडर का उपयोग करें ताकि शीट का वजन नीचे की शीट पर इंक को चिपकाए (Setoff) न दे।</li>
+      <li><strong>Warning:</strong> ओवर-पाउडरिंग से लमिनेशन और फॉइलिंग (Foiling Sticking Failure) में बबल्स आ जाते हैं।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section-header">
+    <h2>5. Prepress, CTP Calibration, CIP3 Automation & Color Management</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #19</span> CIP3 / CIP4 Ink Key Automation Efficiency</h3>
     <p><strong>Prepress to Press Integration:</strong> CTP RIP से जनरेट PPF फाइल सीधे कंसोल में डेंसिटी प्री-सेट करती है।</p>
     <ul>
       <li><strong>Make-ready Waste Reduction:</strong> Ink Duct Keys 80% एक्यूरेसी के साथ ऑटोमैटिक खुल जाती हैं।</li>
@@ -122,15 +334,166 @@
     </ul>
   </div>
 
-  <!-- HINT 5 -->
   <div class="hint-card">
-    <h3><span class="badge">HINT #05</span> UV Polymerization & Oxygen Inhibition</h3>
-    <p><strong>Curing Mechanics:</strong> UV/LED इंक photo-polymerization प्रक्रिया से 0.1 सेकंड में सूखे बिना क्योर (Cure) होती है।</p>
+    <h3><span class="badge">HINT #20</span> Thermal CTP Laser & Developer Chemistry Calibration</h3>
+    <p><strong>Prepress Precision:</strong> Offset Plate पर 1% Dot से लेकर 99% Dot का सही बनना CTP Diode Intensity और Developer Temperature पर निर्भर करता है।</p>
     <ul>
-      <li><strong>Oxygen Inhibition Error:</strong> हवा की ऑक्सीजन UV इंक की ऊपरी लेयर को चिपिचपा (Tacky) छोड़ देती है।</li>
-      <li><strong>Solution:</strong> 385nm/395nm Wavelength के LED UV Curing System का उपयोग करें ताकि Heat-sensitive Substrates (MetPET, PVC) डिस्टॉर्ट न हों।</li>
+      <li><strong>Developer Chemistry Limits:</strong> Developer का तापमान <strong>23°C - 24°C</strong> और Conductivity 65 - 75 mS/cm होनी चाहिए।</li>
+      <li><strong>Dot Gain/Loss Correction:</strong> CTP प्लेट में 0.5% का भी फ़र्क आने पर प्रेस में 5% से 10% का Shade Variation (Color Drift) आ जाएगा।</li>
     </ul>
   </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #21</span> ISO 12647-2 Target Solid Densities (Status T)</h3>
+    <p><strong>Spectrophotometry Standards:</strong> अंतरराष्ट्रीय मानक ISO 12647-2 के अनुसार मानक प्रिंट डेंसिटी:</p>
+    <ul>
+      <li><strong>Black (K):</strong> 1.70 - 1.85 D</li>
+      <li><strong>Cyan (C):</strong> 1.40 - 1.50 D</li>
+      <li><strong>Magenta (M):</strong> 1.45 - 1.55 D</li>
+      <li><strong>Yellow (Y):</strong> 1.05 - 1.15 D</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #22</span> Delta E (ΔE 2000) Tolerance Limits in Packaging</h3>
+    <p><strong>Color Consistency Metric:</strong> ΔE मान दो रंगों के बीच का अंतर बताता है।</p>
+    <ul>
+      <li><strong>ΔE &lt; 1.0:</strong> इंसान की आँख इस अंतर को बिल्कुल नहीं देख सकती (Perfect Match)।</li>
+      <li><strong>ΔE 1.0 - 2.5:</strong> FMCG & Pharma Packaging का अप्रूव्ड टॉलरेंस बैंड।</li>
+      <li><strong>ΔE &gt; 3.0:</strong> ब्रांड द्वारा रिजेक्शन (Customer Reject)।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #23</span> AM Screening vs FM (Stochastic) Screening</h3>
+    <p><strong>Halftone Dot Geometry:</strong> हाफ़टोन डॉट बनाने की दो प्रमुख तकनीकें:</p>
+    <ul>
+      <li><strong>AM Screening (Amplitude Modulated):</strong> डॉट का साइज़ बदलता है, दूरी समान रहती है (उदा. 175 LPI / 200 LPI)। यह ऑफ़सेट के लिए स्टैंडर्ड है।</li>
+      <li><strong>FM Screening (Frequency Modulated):</strong> डॉट का साइज़ छोटा और फिक्स (20 माइक्रोन) रहता है, डॉट की संख्या बदलती है। इसमें मोइरे (Moiré) पैटर्न नहीं बनता और फोटो जैसी क्लैरिटी आती है।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section-header">
+    <h2>6. Paper, Board, MetPET Substrates & Humidity Dynamics</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #24</span> Relative Humidity (RH) & Paper Grain Direction</h3>
+    <p><strong>Substrate Physics:</strong> प्रेस रूम का तापमान <strong>23°C ± 2°C</strong> और RH <strong>55% ± 5%</strong> होना चाहिए।</p>
+    <ul>
+      <li><strong>Grain Direction Alignment:</strong> बोर्ड की Grain Direction हमेशा प्लेट सिलिंडर के समानांतर (Parallel to Cylinder Axis / Short Grain) होनी चाहिए ताकि क्रीज़िंग (Creasing) और डाइ-कटिंग में क्रैकिंग न हो।</li>
+      <li><strong>Wavy Edges:</strong> अगर कागज़ ड्राई प्रेस रूम में आए तो किनारे हवा से नमी सोखकर लहरदार (Wavy Edges) हो जाते हैं जिससे फिर साइड-ले और रजिस्टर की गंभीर समस्या आती है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #25</span> MetPET Board Printing & UV Primer Application</h3>
+    <p><strong>Metallized Polyester Packaging:</strong> नॉन-पोरस (MetPET) बोर्ड पर इंक सोखती नहीं है।</p>
+    <ul>
+      <li><strong>Surface Energy (Dyne Level):</strong> MetPET फिल्म का Dyne Level कम से कम <strong>38 से 42 dynes/cm</strong> होना चाहिए।</li>
+      <li><strong>Corona Treatment:</strong> अगर डाइन लेवल कम हो, तो इन-लाइन कोरोना ट्रीटमेंट या UV Primer की कोट चढ़ाएं ताकि इंक का चिपकना (Adhesion) पक्का हो।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #26</span> Cobb Value Calibration for Water Absorption</h3>
+    <p><strong>Quality Control Testing:</strong> कॉब टेस्ट (Cobb Test) 1 वर्ग मीटर बोर्ड द्वारा 60 सेकंड में सोखे गए पानी का वजन (ग्राम में) मापता है।</p>
+    <ul>
+      <li><strong>Top Liner Cobb (Cobb 60):</strong> 30 - 40 g/m² आइडियल है।</li>
+      <li><strong>High Cobb (&gt;50):</strong> अगर कॉब ज़्यादा होगा तो एक्वियस कोटिंग का पानी बोर्ड सोख लेगा और बोर्ड ढीला (Soggy) पड़ जाएगा।</li>
+      <li><strong>Low Cobb (&lt;25):</strong> वॉटर-बेस्ड इंक और कोटिंग का चिपकना मुश्किल होगा।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #27</span> Smoothness / Roughness (Bekk / Bendtsen Seconds)</h3>
+    <p><strong>Printability Metric:</strong> कागज़ की सतह जितनी चिकनी होगी, इंक ट्रांसफर उतना ही एकसमान होगा।</p>
+    <ul>
+      <li><strong>Coated Paper (Art Paper/Board):</strong> Bekk Smoothness &gt; 300 सेकंड होनी चाहिए।</li>
+      <li><strong>Uncoated / Craft Board:</strong> Bekk Smoothness 25-50 सेकंड होती है, जहाँ डेंसिटी पाने के लिए ज़्यादा इंक और सॉफ्ट ब्लैंकेट की आवश्यकता होती है।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section-header">
+    <h2>7. Quality Auditing, Defect Diagnostics & Troubleshooting</h2>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #28</span> Cross-Hatch Tape Test (ASTM D3359) for Ink Adhesion</h3>
+    <p><strong>Post-Press Adhesion Audit:</strong> UV प्रिंटेड या कोेटेड बोर्ड पर 3M 610/810 टेप चिपकाकर 90° एंगल पर तेजी से खींचा जाता है।</p>
+    <ul>
+      <li><strong>Class 5B (Perfect):</strong> 0% इंक छिलती है।</li>
+      <li><strong>Class 0B (Total Failure):</strong> 65% से ज़्यादा इंक उखड़ जाती है। इसका कारण कम UV Curing या कम Dyne level होता है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #29</span> Rub Resistance / Abrasion Testing (Sutherland Rub Tester)</h3>
+    <p><strong>Pharma & FMCG Carton Audit:</strong> कार्टन ट्रांसपोर्टेशन में घर्षण से छपाई न मिटे, इसके लिए रब टेस्ट किया जाता है।</p>
+    <ul>
+      <li><strong>Dry Rub Test:</strong> 4 lb वज़न के साथ 100 से 500 स्ट्रोक्स।</li>
+      <li><strong>Wet / Alcohol Rub Test:</strong> पानी या 70% IPA के साथ 20-50 स्ट्रोक्स। अगर वार्निश उखड़ती है तो Curing / Polymerization कमज़ोर है।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #30</span> Slurred Dots vs Doubling Diagnostics</h3>
+    <p><strong>Print Defect Identification:</strong> सूक्ष्मदर्शी (Magnifier / Loupe 30X) से डिफ़ेक्ट पहचानें:</p>
+    <ul>
+      <li><strong>Slur (स्लर):</strong> डॉट गोल होने के बजाय एक तरफ अंडाकार (Deformed Oval/Comet Tail) खिंच जाता है। कारण: सिलिंडर Slippage या Blanket Slackness।</li>
+      <li><strong>Doubling (डबलिंग):</strong> एक मुख्य डॉट के बगल में दूसरा हल्का शैडो डॉट बनता है। कारण: Gripper Loose होने से बैक-ट्रैपिंग या शीट का अन-इक्वल ट्रांसफर।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #31</span> Ghosting (Mechanical vs Chemical Ghosting)</h3>
+    <p><strong>Image Fading Fault:</strong> प्रिंट में बैकग्राउंड पर छुपा हुआ इमेज पैटर्न दिखने लगता है।</p>
+    <ul>
+      <li><strong>Mechanical Ghosting:</strong> भारी सॉलिड पैच और पतली लाइनों के कारण इनकिंग रोलर पर इंक ख़त्म (Ink Starvation) होना। उपाय: Form Rollers की Oscillating Stroke बढ़ाएं।</li>
+      <li><strong>Chemical Ghosting:</strong> पाईल्ड शीट्स में इंक के सूखने के दौरान निकलने वाली गैसें ऊपर वाली शीट की इंक को प्रभावित करती हैं।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #32</span> Stripping / Roller Bleaching Remedies</h3>
+    <p><strong>Ink Rollers Rejecting Ink:</strong> इनकिंग रोलर पर इंक चिपकना बंद हो जाती है और नंगे मेटल/रबर रोलर दिखने लगते हैं।</p>
+    <ul>
+      <li><strong>Root Cause:</strong> अत्यधिक एसिडिक फाउंटेन सॉल्यूशन (&lt;4.2 pH) या पानी का रोलर पर परत बना लेना (Hydrophilic Film)।</li>
+      <li><strong>Remedy:</strong> रोलर को वॉश करके Gum-strip Chemical या De-glaze Wash से रोलर्स की ओलिओफिलिक (Oleophilic - Oil Receptive) सतह को री-स्टोर करें।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #33</span> HIC (Holidays In Coating) Pin-hole Pinpointing</h3>
+    <p><strong>Coating Defect:</strong> वार्निश चढ़ाने के बाद बोर्ड पर छोटे-छोटे गोल बिना कोटिंग वाले धब्बे (Pin-holes) रह जाते हैं।</p>
+    <ul>
+      <li><strong>Root Cause:</strong> कोटिंग में बहुत ज़्यादा एंटी-फोम (Anti-foam) मिलाना, अत्यधिक एंटी-सेटऑफ़ पाउडर जमना, या कोटिंग का Surface Tension बोर्ड से ज़्यादा होना।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #34</span> Creasing Matrix Depth & Channel Width Formula</h3>
+    <p><strong>Post-Press Die-Cutting Engineering:</strong> कार्टन मुड़ते समय टूटे नहीं, इसके लिए सही क्रीज़िंग चैनल चुनना ज़रूरी है।</p>
+    <div class="formula-box">Creasing Channel Width = (Board Thickness × 1.5) + Creasing Rule Thickness</div>
+    <ul>
+      <li><strong>Matrix Depth:</strong> बोर्ड की मोटाई (Board Thickness) के बराबर होनी चाहिए।</li>
+    </ul>
+  </div>
+
+  <div class="hint-card">
+    <h3><span class="badge">HINT #35</span> BRCGS & ISO 22000 Food Packaging Migration Limits</h3>
+    <p><strong>Food Safety Packaging Standard:</strong> भोजन और दवाइयों की पैकेजिंग के लिए विशेष लो-माइग्रेशन (Low-Migration / Mineral Oil Free) इंक का प्रयोग होता है।</p>
+    <ul>
+      <li><strong>Overall Migration Limit (OML):</strong> &lt; 10 mg/dm² या 60 ppm से कम।</li>
+      <li><strong>No Mineral Oils (MOSH / MOAH Free):</strong> फ़ूड कार्टन्स में वेजीटेबल ऑयल बेस्ड या UV LED Low-migration इंक ही स्वीकृत हैं।</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© Amit Sandhu | Master Offset Printing & Packaging Engineering Manual | Professional Digital Portfolio</p>
+  </footer>
 
 </div>
 
