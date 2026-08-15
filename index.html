@@ -839,69 +839,55 @@
 
 <!-- JAVASCRIPT FOR DYNAMIC TAB SWITCHING & PERMANENT PHOTO STORAGE -->
 <script>
-  // Automatic Photo Load from LocalStorage on Page Open/Refresh
-  window.addEventListener('DOMContentLoaded', () => {
-    const savedPhoto = localStorage.getItem('amitSandhuPhoto');
-    if (savedPhoto) {
-      document.getElementById('userPhoto').src = savedPhoto;
-    }
+// --- AUTOMATIC PHOTO LOAD ---
+window.addEventListener('DOMContentLoaded', () => {
+  const savedPhoto = localStorage.getItem('amitUserPhoto');
+  if (savedPhoto) {
+    const photoEl = document.getElementById('userPhoto');
+    if (photoEl) photoEl.src = savedPhoto;
+  }
+});
+
+// --- SLIDE NAVIGATION LOGIC ---
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageIndicator = document.getElementById('pageIndicator');
+
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide-panel');
+const tabs = document.querySelectorAll('.tab-navigation .tab-btn');
+
+function updateSlideUI() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    if (tabs[index]) tabs[index].classList.remove('active');
   });
 
-  // Photo Upload and Save to LocalStorage Logic
-  function loadPhoto(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        const base64Image = reader.result;
-        // 1. Update Profile Image on Screen immediately
-        document.getElementById('userPhoto').src = base64Image;
-        // 2. Save image permanently in Browser's Local Storage
-        try {
-          localStorage.setItem('amitSandhuPhoto', base64Image);
-        } catch (e) {
-          console.error("Storage limit exceeded", e);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.add('active');
+  if (tabs[currentSlideIndex]) tabs[currentSlideIndex].classList.add('active');
 
-  // Slide Switching Logic
-  let currentSlideIndex = 0;
-  const slides = document.querySelectorAll('.slide-panel');
-  const tabs = document.querySelectorAll('.tab-btn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const pageIndicator = document.getElementById('pageIndicator');
+  if (pageIndicator) pageIndicator.innerText = `Page ${currentSlideIndex + 1} of ${slides.length}`;
+  if (prevBtn) prevBtn.disabled = currentSlideIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentSlideIndex === slides.length - 1;
+}
 
-  function updateSlideUI() {
-    slides.forEach((slide, index) => {
-      slide.classList.remove('active');
-      tabs[index].classList.remove('active');
-    });
-    slides[currentSlideIndex].classList.add('active');
-    tabs[currentSlideIndex].classList.add('active');
-
-    pageIndicator.innerText = `Page ${currentSlideIndex + 1} of ${slides.length}`;
-    prevBtn.disabled = currentSlideIndex === 0;
-    nextBtn.disabled = currentSlideIndex === slides.length - 1;
-  }
-
-  function openSlide(event, slideId) {
-    const slideArray = Array.from(slides);
-    currentSlideIndex = slideArray.findIndex(s => s.id === slideId);
+function openSlide(event, slideId) {
+  const slideArray = Array.from(slides);
+  const targetIndex = slideArray.findIndex(s => s.id === slideId);
+  if (targetIndex !== -1) {
+    currentSlideIndex = targetIndex;
     updateSlideUI();
   }
+}
 
-  function changeSlide(direction) {
-    currentSlideIndex += direction;
-    if (currentSlideIndex < 0) currentSlideIndex = 0;
-    if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
-    updateSlideUI();
-  
- <!-- Multi-Result Search Script -->
-<script>
+function changeSlide(direction) {
+  currentSlideIndex += direction;
+  if (currentSlideIndex < 0) currentSlideIndex = 0;
+  if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
+  updateSlideUI();
+}
+
+// --- MULTI-RESULT SEARCH FUNCTION ---
 function searchContent() {
   let input = document.getElementById('searchInput').value.toLowerCase().trim();
   let resultsBox = document.getElementById('searchResultsBox');
@@ -922,7 +908,7 @@ function searchContent() {
     el.style.backgroundColor = "";
   });
 
-  // Search all pages
+  // Search across all slides
   allSlides.forEach((slide, slideIdx) => {
     let nodes = slide.querySelectorAll('p, li, h2, h3, h4, td');
     nodes.forEach(node => {
@@ -981,7 +967,3 @@ function searchContent() {
 
 </body>
 </html>
-
-
-
-        
