@@ -898,31 +898,49 @@
     updateSlideUI();
   }
 
+<!-- Live Search Function with Auto-Tab Open -->
 <script>
 function searchContent() {
   let input = document.getElementById('searchInput').value.toLowerCase().trim();
   if (!input) return;
 
-  let textNodes = document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3');
-  let found = false;
+  let allElements = document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td');
+  let foundElement = null;
 
-  textNodes.forEach(node => {
-    node.style.backgroundColor = "";
-    if (node.innerText.toLowerCase().includes(input)) {
-      node.style.backgroundColor = "rgba(0, 242, 254, 0.3)";
-      node.style.borderRadius = "4px";
-      if (!found) {
-        node.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        found = true;
-      }
-    }
+  document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
+    el.style.backgroundColor = "";
   });
 
-  if (!found) {
-    alert("कोई परिणाम नहीं मिला / No match found");
+  for (let el of allElements) {
+    if (el.innerText && el.innerText.toLowerCase().includes(input)) {
+      foundElement = el;
+      break;
+    }
+  }
+
+  if (foundElement) {
+    let parentSlide = foundElement.closest('.slide-panel');
+    if (parentSlide) {
+      let slideId = parentSlide.id;
+      if (typeof openSlide === 'function') {
+        openSlide(null, slideId);
+      } else {
+        document.querySelectorAll('.slide-panel').forEach(s => s.classList.remove('active'));
+        parentSlide.classList.add('active');
+      }
+    }
+
+    foundElement.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
+    foundElement.style.borderRadius = "4px";
+    setTimeout(() => {
+      foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  } else {
+    alert("कोई परिणाम नहीं मिला / Word not found: " + input);
   }
 }
 </script>
+
 
 <!-- Floating Contact Buttons -->
 <div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 9999;">
