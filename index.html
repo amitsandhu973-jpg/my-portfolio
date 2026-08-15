@@ -5,94 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Master Offset Printing & Packaging Technical Manual - By Amit Sandhu</title>
   <style>
+    :root {
+      --bg-main: #090d16;
+      --card-bg: #131b2e;
+      --accent-blue: #38bdf8;
+      --accent-neon: #00f2fe;
+      --border-color: rgba(56, 189, 248, 0.2);
+      --text-muted: #94a3b8;
+    }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #0f172a;
-      color: #333333;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: #e2e8f0;
       margin: 0;
       padding: 20px;
     }
+
     .manual-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
       overflow: hidden;
     }
-    /* HEADER & AUTHOR PROFILE CARD */
+
+    /* GLASSMORPHISM HEADER */
     .header-banner {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: #ffffff;
-      padding: 25px 30px;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      backdrop-filter: blur(10px);
+      padding: 25px 35px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
-      border-bottom: 4px solid #2563eb;
+      border-bottom: 3px solid var(--accent-neon);
     }
+
     .header-title h1 {
       margin: 0;
-      font-size: 24px;
-      color: #60a5fa;
+      font-size: 26px;
+      background: linear-gradient(90deg, #38bdf8, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
     .header-title p {
-      margin: 5px 0 0 0;
-      color: #94a3b8;
+      margin: 6px 0 0 0;
+      color: var(--text-muted);
       font-size: 14px;
     }
+
+    /* AUTHOR PROFILE CARD WITH USER PHOTO */
     .author-card {
       display: flex;
       align-items: center;
-      gap: 15px;
-      background: rgba(255, 255, 255, 0.07);
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     }
+
     .author-img {
-      width: 75px;
-      height: 75px;
+      width: 85px;
+      height: 85px;
       border-radius: 50%;
-      border: 3px solid #60a5fa;
+      border: 3px solid var(--accent-neon);
       object-fit: cover;
-      background-color: #334155;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
     }
+
     .author-info {
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
+
     .author-info h3 {
-      margin: 0 0 4px 0;
-      font-size: 16px;
-      color: #38bdf8;
+      margin: 0 0 2px 0;
+      font-size: 18px;
+      color: #ffffff;
     }
+
     .author-badge {
       display: inline-block;
-      background-color: #2563eb;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
       color: #ffffff;
-      padding: 2px 8px;
-      border-radius: 4px;
+      padding: 2px 10px;
+      border-radius: 20px;
       font-size: 11px;
       font-weight: bold;
+      letter-spacing: 0.5px;
       margin-bottom: 4px;
     }
 
-    /* TAB NAVIGATION */
+    /* NAV TABS */
     .tab-navigation {
       display: flex;
       flex-wrap: wrap;
-      background-color: #1e293b;
+      background-color: #0b1120;
+      border-bottom: 1px solid var(--border-color);
     }
+
     .tab-btn {
       flex: 1;
-      min-width: 150px;
-      padding: 16px 10px;
+      min-width: 160px;
+      padding: 18px 12px;
       background: none;
       border: none;
-      color: #cbd5e1;
+      color: var(--text-muted);
       font-weight: 600;
       font-size: 13px;
       cursor: pointer;
@@ -100,92 +127,171 @@
       text-align: center;
       border-right: 1px solid rgba(255, 255, 255, 0.05);
     }
+
     .tab-btn:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(56, 189, 248, 0.1);
       color: #ffffff;
     }
+
     .tab-btn.active {
-      background-color: #ffffff;
-      color: #2563eb;
-      border-bottom: 3px solid #2563eb;
+      background-color: var(--card-bg);
+      color: var(--accent-neon);
+      border-bottom: 3px solid var(--accent-neon);
       font-weight: bold;
     }
 
     /* SLIDE PANELS */
     .slide-panel {
       display: none;
-      padding: 30px;
-      animation: fadeIn 0.4s ease;
+      padding: 35px;
+      animation: fadeIn 0.4s ease-in-out;
     }
+
     .slide-panel.active {
       display: block;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 3D VISUAL CONTAINERS */
+    /* UNIQUE 3D VISUAL STAGE */
     .visual-3d-box {
-      background: linear-gradient(145deg, #1e293b, #0f172a);
-      border-radius: 12px;
+      background: linear-gradient(145deg, #0b1120, #131b2e);
+      border-radius: 14px;
       padding: 30px;
-      margin: 20px 0;
-      color: white;
+      margin: 25px 0;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      perspective: 1000px;
     }
+
     .cylinder-3d-stage {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 18px;
+      margin-top: 25px;
+      perspective: 1000px;
     }
+
     .cylinder-3d {
-      width: 260px;
-      height: 60px;
-      border-radius: 30px;
+      width: 300px;
+      height: 65px;
+      border-radius: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
       font-size: 14px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-      box-shadow: inset 0 10px 15px rgba(255,255,255,0.4), inset 0 -10px 15px rgba(0,0,0,0.6), 0 8px 15px rgba(0,0,0,0.4);
-      transform: rotateX(15deg) rotateY(-5deg);
-      transition: transform 0.5s;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+      box-shadow: inset 0 12px 18px rgba(255,255,255,0.35), inset 0 -12px 18px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.5);
+      transform: rotateX(20deg) rotateY(-5deg);
+      transition: all 0.5s ease;
     }
-    .cylinder-3d:hover {
-      transform: rotateX(0deg) rotateY(0deg) scale(1.03);
-    }
-    .cyl-plate { background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7); color: white; }
-    .cyl-blanket { background: linear-gradient(90deg, #d97706, #fbbf24, #d97706); color: white; }
-    .cyl-impression { background: linear-gradient(90deg, #475569, #94a3b8, #475569); color: white; }
 
-    /* FOOTER CONTROL */
+    .cylinder-3d:hover {
+      transform: rotateX(0deg) rotateY(0deg) scale(1.04);
+    }
+
+    .cyl-plate { background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7); color: #fff; }
+    .cyl-blanket { background: linear-gradient(90deg, #d97706, #fbbf24, #d97706); color: #fff; }
+    .cyl-impression { background: linear-gradient(90deg, #475569, #94a3b8, #475569); color: #fff; }
+
+    /* CARD GRID FOR DEFECTS */
+    .defect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .defect-card {
+      background-color: #0b1120;
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 5px solid var(--accent-blue);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-right: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .defect-card h4 {
+      margin: 0 0 10px 0;
+      font-size: 17px;
+      color: var(--accent-neon);
+    }
+
+    .defect-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin: 6px 0;
+      color: #cbd5e1;
+    }
+
+    .action-text {
+      color: #4ade80 !important;
+      font-weight: 600;
+    }
+
+    /* TABLES DESIGN */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+      background: #0b1120;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .custom-table th {
+      background: #1e293b;
+      color: var(--accent-blue);
+      padding: 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .custom-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #cbd5e1;
+    }
+
+    .custom-table tr:hover {
+      background-color: rgba(56, 189, 248, 0.05);
+    }
+
+    /* FOOTER NAV */
     .slide-footer-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 30px;
-      background-color: #f8fafc;
-      border-top: 1px solid #e2e8f0;
+      padding: 20px 35px;
+      background-color: #0b1120;
+      border-top: 1px solid var(--border-color);
     }
+
     .nav-btn {
-      padding: 10px 20px;
-      background-color: #2563eb;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #2563eb, #00f2fe);
       color: white;
       border: none;
-      border-radius: 6px;
-      font-weight: 600;
+      border-radius: 8px;
+      font-weight: bold;
       cursor: pointer;
+      transition: opacity 0.3s ease;
     }
+
     .nav-btn:disabled {
-      background-color: #cbd5e1;
+      background: #334155;
       cursor: not-allowed;
+      opacity: 0.5;
     }
   </style>
 </head>
@@ -193,342 +299,351 @@
 
 <div class="manual-container">
 
-  <!-- TOP HEADER WITH PROFILE CORNER CARD -->
+  <!-- HEADER WITH AMIT SANDHU'S ORIGINAL PHOTO -->
   <div class="header-banner">
     <div class="header-title">
       <h1>Offset Printing & Packaging Technical Manual</h1>
-      <p>Advanced Engineering Standards, Operations & Quality Control System</p>
+      <p>Advanced Engineering Standards, Deep Chemistry & 14 Analytical Defect Solutions</p>
     </div>
     
     <!-- AUTHOR PROFILE CARD -->
     <div class="author-card">
-      <img src="https://via.placeholder.com/90" alt="Amit Sandhu" class="author-img">
+      <!-- YOUR PHOTO EMBEDDED DIRECTLY -->
+      <img src="https://i.ibb.co/3sX8M8P/amit-sandhu.jpg" alt="Amit Sandhu" class="author-img">
       <div class="author-info">
         <span class="author-badge">CREATED BY AMIT SANDHU</span>
         <h3>Amit Sandhu</h3>
         <div><strong>Role:</strong> Production Supervisor</div>
         <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
-        <div><strong>Edu:</strong> B.Tech (Printing & Packaging Tech)</div>
-        <div><strong>Exp:</strong> 6+ Years Industry Experience</div>
+        <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
+        <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
       </div>
     </div>
   </div>
 
   <!-- TAB NAVIGATION BUTTONS -->
   <div class="tab-navigation">
-    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">Page 1: Fundamentals & 3D Mechanics</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide2')">Page 2: Raw Materials Chemistry</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide3')">Page 3: Printing Defects (14 Defect Solutions)</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide4')">Page 4: Quality & ISO Standards</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide5')">Page 5: Maintenance & Audits</button>
+    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">Page 1: Deep Offset Mechanics & 3D</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide2')">Page 2: Materials Chemistry & Substrates</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide3')">Page 3: 14 Printing Defects Solutions</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide4')">Page 4: Color Standards & ISO 12647-2</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide5')">Page 5: Preventive Maintenance & Audits</button>
   </div>
 
-  <!-- SLIDE 1: FUNDAMENTALS & 3D MECHANICS -->
+  <!-- SLIDE 1: DEEP OFFSET MECHANICS & 3D -->
   <div id="slide1" class="slide-panel active">
-    <h2 style="color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 12px; margin-top: 0;">1. Offset Printing Fundamentals & Advanced Mechanics</h2>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Deep Offset Printing Mechanics & Physical Principles</h2>
     
-    <p style="line-height: 1.8; font-size: 15px;">
-      ऑफ़सेट लिथोग्राफी का मूल आधार <strong>"तेल और पानी का आपस में न मिलना" (Chemical Immiscibility of Oil and Water)</strong> है। यह एक प्लानोग्राफिक (Planographic) प्रक्रिया है, जहाँ CTP (Computer-to-Plate) प्लेट की सतह पर इमेज एरिया (Image Area) और नॉन-इमेज एरिया (Non-Image Area) दोनों एक ही समतल ऊंचाई पर मौजूद होते हैं।
+    <p style="line-height: 1.8; font-size: 15px; color: #cbd5e1;">
+      ऑफ़सेट लिथोग्राफी का मूल सिद्धांत <strong>Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना)</strong> पर आधारित है। CTP (Computer-to-Plate) प्लेट की सतह समतल (Planographic) होती है। रासायनिक दृष्टि से:
     </p>
+    <ul>
+      <li><strong>Image Area (इमेज क्षेत्र):</strong> Photopolymer Layer से ढका होता है जो <strong>Oleophilic (तेल/इंक-आकर्षक)</strong> तथा <strong>Hydrophobic (जल-विरोधी)</strong> होता है। surface energy लगभग 30-35 mN/m होती है।</li>
+      <li><strong>Non-Image Area (नॉन-इमेज क्षेत्र):</strong> Anodized Aluminum Oxide ($Al_2O_3$) की माइक्रो-पोरस सतह होती है जो <strong>Hydrophilic (जल-आकर्षक)</strong> तथा <strong>Oleophobic (तेल-विरोधी)</strong> होती है। इसकी surface energy 70+ mN/m होती है।</li>
+    </ul>
 
     <!-- 3D CYLINDER MECHANICS MODEL -->
     <div class="visual-3d-box">
-      <h3 style="margin-top:0; color: #38bdf8;">3D Interactive Representation of Three-Cylinder Mechanics</h3>
-      <p style="font-size: 13px; color: #cbd5e1;">Plate Cylinder → Blanket Cylinder → Substrate (Paper/Board) ← Impression Cylinder</p>
+      <h3 style="margin-top:0; color: var(--accent-blue);">3D Mechanical Transfer Simulation</h3>
+      <p style="font-size: 13px; color: #94a3b8;">Plate Cylinder (0.30mm CTP) ➔ Blanket Cylinder (1.95mm Rubber) ➔ Impression Cylinder (Steel Compression)</p>
       
       <div class="cylinder-3d-stage">
-        <div class="cylinder-3d cyl-plate">PLATE CYLINDER (CTP Plate Installed)</div>
-        <div style="color: #38bdf8; font-weight: bold; font-size: 12px;">↓ Image Transfer Nip (Squeeze 0.08 - 0.12 mm) ↓</div>
-        <div class="cylinder-3d cyl-blanket">BLANKET CYLINDER (Micro-ground Rubber)</div>
+        <div class="cylinder-3d cyl-plate">PLATE CYLINDER (CTP Plate Unit)</div>
+        <div style="color: var(--accent-neon); font-weight: bold; font-size: 12px;">↓ Image Transfer Nip (Squeeze Depth: 0.08 - 0.12 mm) ↓</div>
+        <div class="cylinder-3d cyl-blanket">BLANKET CYLINDER (Micro-ground Compressible)</div>
         <div style="color: #fbbf24; font-weight: bold; font-size: 12px;">================ Paper / Packaging Board ================</div>
-        <div class="cylinder-3d cyl-impression">IMPRESSION CYLINDER (Chrome Steel)</div>
+        <div class="cylinder-3d cyl-impression">IMPRESSION CYLINDER (Hard Chrome Precision)</div>
       </div>
     </div>
 
-    <h3>1.1 Surface Chemical & Physical Characteristics</h3>
-    <ul>
-      <li><strong>Image Area (इमेज एरिया):</strong> Oleophilic (ऑयल/इंक आकर्षित करने वाला) और Hydrophobic (पानी को दूर भगाने वाला)।</li>
-      <li><strong>Non-Image Area (नॉन-इमेज एरिया):</strong> Hydrophilic (पानी आकर्षित करने वाला) और Oleophobic (इंक/तेल को दूर भगाने वाला)।</li>
-    </ul>
+    <h3>1.1 Undercut & Packing Calculation Formulas</h3>
+    <p>सिलिंडर पर सही रोलिंग कांटेक्ट (Pitch Diameter) बनाए रखने के लिए पैकिंग की गणना अत्यंत सटीक होनी चाहिए:</p>
+    <blockquote style="background: #0b1120; padding: 15px; border-left: 4px solid var(--accent-blue); margin: 15px 0;">
+      <strong>Packing Squeeze Formula:</strong><br>
+      Total Blanket Pressure Squeeze = $(Thickness_{blanket} + Thickness_{underlay}) - Undercut_{cylinder}$<br>
+      <em>Standard Target Value: 0.08 mm to 0.12 mm MAX.</em>
+    </blockquote>
 
-    <h3>1.2 Three-Cylinder Setup Specifications</h3>
-    <div style="overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
-        <thead>
-          <tr style="background-color: #2563eb; color: #ffffff;">
-            <th style="padding: 12px; border: 1px solid #1d4ed8;">Cylinder Unit</th>
-            <th style="padding: 12px; border: 1px solid #1d4ed8;">Primary Function</th>
-            <th style="padding: 12px; border: 1px solid #1d4ed8;">Machine Specs & Undercut</th>
-            <th style="padding: 12px; border: 1px solid #1d4ed8;">Packing Setup & Materials</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>1. Plate Cylinder</strong></td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">CTP प्लेट को माउंट करता है।</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• Undercut: 0.15 - 0.30 mm<br>• Plate: 0.30 mm Standard</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• Polyester / Calibrated Paper<br>• Packing: 0.10 - 0.15 mm</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>2. Blanket Cylinder</strong></td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">इंक को बोर्ड/पेपर पर ट्रांसफर करता है।</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• Undercut: 2.30 - 3.20 mm<br>• Blanket: 1.95 mm (Compressible)</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• Underlay Packing Paper Sheets<br>• Underlay: 0.45 - 0.55 mm</td>
-          </tr>
-          <tr>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>3. Impression Cylinder</strong></td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">शीट को बैकसाइड सपोर्ट और स्क्वीज प्रेशर देता है।</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• Double-diameter Hard Chrome<br>• Gripper Margin: 10 - 12 mm</td>
-            <td style="padding: 12px; border: 1px solid #e2e8f0;">• No packing required (Precision Steel)<br>• Squeeze = Caliper + 0.10 mm</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Cylinder Unit</th>
+          <th>Mechanical Role</th>
+          <th>Undercut Specs</th>
+          <th>Standard Packing Material</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Plate Cylinder</strong></td>
+          <td>CTP प्लेट को होल्ड करता है और डैम्पनिंग/इंकिंग लेयर रिसीव करता है।</td>
+          <td>0.15 mm - 0.30 mm</td>
+          <td>Polyester Calibrated Shims (0.05, 0.10, 0.15 mm)</td>
+        </tr>
+        <tr>
+          <td><strong>2. Blanket Cylinder</strong></td>
+          <td>सॉफ्ट रबर लेयर के ज़रिए इंक को बिना कागज़ की रिजिडिटी बिगाड़े ट्रांसफर करता है।</td>
+          <td>2.30 mm - 3.20 mm</td>
+          <td>Compressible Underlay Paper Sheets (Density: 1.35 g/cm³)</td>
+        </tr>
+        <tr>
+          <td><strong>3. Impression Cylinder</strong></td>
+          <td>बोर्ड को बैकसाइड से सपोर्ट करके प्रेशर निप (Nip) पर इंक सोखने में मदद करता है।</td>
+          <td>0.00 mm (Precision Steel)</td>
+          <td>No Packing required. Grip Margin: 10 - 12 mm</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- SLIDE 2: RAW MATERIALS -->
+  <!-- SLIDE 2: MATERIALS CHEMISTRY & SUBSTRATES -->
   <div id="slide2" class="slide-panel">
-    <h2 style="color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 12px; margin-top: 0;">2. Raw Materials Technical Specifications & Chemistry</h2>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">2. Raw Materials Chemistry & Technical Specifications</h2>
     
-    <h3>2.1 Paper & Packaging Board Lab Standards</h3>
+    <h3>2.1 Packaging Paperboard Technical Parameters</h3>
     <ul>
-      <li><strong>GSM Tolerance:</strong> ± 3% to ± 5% of Nominal GSM (ISO 536 Standard).</li>
-      <li><strong>Moisture Content:</strong> 6.0% - 7.0% at 50-55% Pressroom RH.</li>
-      <li><strong>Cobb Value (60 Sec):</strong> Top Coated: 28-32 g/m² | Back Side: 35-45 g/m².</li>
-      <li><strong>Surface Roughness (PPS):</strong> Coated Board: 1.0 - 1.8 µm | Uncoated: 3.0 - 5.0 µm.</li>
+      <li><strong>GSM Tolerance (Grammage):</strong> ISO 536 के तहत Target GSM का ±3% से ±5% स्वीकृत है।</li>
+      <li><strong>Moisture Content:</strong> 6.0% - 7.0% (जब प्रेस रूम RH 50-55% और Temp 23°C हो)।</li>
+      <li><strong>Cobb Value ($Cobb_{60}$ Absorption):</strong> Coated Top Side: 28–32 g/m² | Back Side: 35–45 g/m²।</li>
+      <li><strong>Surface Smoothness (PPS - Parker Print Surf):</strong> Coated Board: 1.0 - 1.8 µm | Uncoated: 3.0 - 5.0 µm।</li>
     </ul>
 
-    <h3>2.2 Dampening Solution Chemistry</h3>
-    <div style="overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
-        <thead>
-          <tr style="background-color: #2563eb; color: #ffffff;">
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Parameter</th>
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Operating Target</th>
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Out-of-Range Impact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>pH Level</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">4.80 - 5.30 pH</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">High pH = Scumming | Low pH = Ink Slow Drying</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Conductivity</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">800 - 1500 µS/cm</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">&gt; 2200 µS/cm = Heavy Ink Emulsification</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>IPA Alcohol</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">6% - 9% Vol</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">Low IPA = Water Film Breakdown</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>2.2 Fountain Solution Buffer Chemistry</h3>
+    <p>डैम्पनिंग सॉल्यूशन में फास्फोरिक एसिड और साइट्रिक एसिड बफर होते हैं जो प्लेट के एल्युमिनियम ऑक्साइड लेयर को रिपेयर करते हैं:</p>
+    
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Chemical Parameter</th>
+          <th>Optimal Operating Window</th>
+          <th>Out-of-Range Risk & Mechanism</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>pH Value</strong></td>
+          <td>4.80 - 5.30 pH</td>
+          <td>pH &gt; 5.50 ➔ Scumming & Plate Corrosion<br>pH &lt; 4.50 ➔ Ink Drier Inhibition & Paper Stripping</td>
+        </tr>
+        <tr>
+          <td><strong>Conductivity</strong></td>
+          <td>800 - 1500 µS/cm (Micro-Siemens)</td>
+          <td>&gt; 2200 µS/cm ➔ Heavy Ink Emulsification & Color Shift</td>
+        </tr>
+        <tr>
+          <td><strong>IPA (Isopropanol) Vol%</strong></td>
+          <td>6% - 9% Volume</td>
+          <td>&lt; 5% ➔ Surface tension rises above 45 mN/m (Water bead formation)</td>
+        </tr>
+        <tr>
+          <td><strong>Chiller Temperature</strong></td>
+          <td>10°C - 12°C</td>
+          <td>&gt; 15°C ➔ IPA Evaporation & Ink Viscosity Drop</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- SLIDE 3: PRINTING DEFECTS (14 DEFECTS COMPLETE) -->
+  <!-- SLIDE 3: 14 PRINTING DEFECTS SOLUTIONS -->
   <div id="slide3" class="slide-panel">
-    <h2 style="color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 12px; margin-top: 0;">3. Comprehensive Printing Defects & Analytical Solutions (14 Defects)</h2>
-    <p>प्रेस रूम में आने वाले 14 मुख्य दोष, उनके तकनीकी कारण और तुरंत समाधान:</p>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">3. Comprehensive Printing Defects Solutions (14 Defects Deep Analysis)</h2>
+    <p style="color: #cbd5e1;">प्रेस रूम में आने वाली 14 मुख्य प्रिंटिंग समस्याएं, उनके मूल कारण और ऑपरेटर एक्शन प्लान:</p>
 
-    <!-- DEFECT 1 -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fef2f2; border-left: 5px solid #ef4444; border-radius: 6px;">
-      <h4 style="margin: 0; color: #dc2626; font-size: 16px;">1. Scumming / Greasing (स्कमिंग / ग्रीसिंग)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> प्लेट के नॉन-इमेज एरिया में इंक की पकड़ बनने से बैकग्राउंड में धुंधलापन आना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> High pH (&gt;5.5), Low Dampening Water, Tight Form Roller Pressure (Nip &gt; 5mm)।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Fountain pH 4.8-5.2 पर लाएं, Dampening 3-5% बढ़ाएं, Form Roller Nip 3.5mm सेट करें।</p>
+    <div class="defect-grid">
+      <!-- DEFECT 1 -->
+      <div class="defect-card">
+        <h4>1. Scumming / Greasing (स्कमिंग)</h4>
+        <p><strong>Problem:</strong> प्लेट के नॉन-इमेज एरिया में इंक की पकड़ बनने से बैकग्राउंड में धुंधलापन आना।</p>
+        <p><strong>Root Cause:</strong> High Fountain pH (&gt;5.5), Low Dampening Feed, Hydrophilic layer damage.</p>
+        <p class="action-text">Action: pH 4.8-5.2 सेट करें, Dampening 3-5% बढ़ाएं, Form Roller Nip 3.5mm कैलिब्रेट करें।</p>
+      </div>
+
+      <!-- DEFECT 2 -->
+      <div class="defect-card">
+        <h4>2. Hickies / Bull's Eye (हिकीज़)</h4>
+        <p><strong>Problem:</strong> सॉलिड प्रिंटेड एरिया में सफ़ेद रिंग के साथ बीच में इंक का धब्बा बनना।</p>
+        <p><strong>Root Cause:</strong> पेपर कटिंग डस्ट, सुखी इंक की पपड़ी या एनवायरनमेंटल डस्ट।</p>
+        <p class="action-text">Action: Blanket & Plate साफ़ करें, Dust Collector ऑन करें, Ink में 1% Tack Reducer मिलाएं।</p>
+      </div>
+
+      <!-- DEFECT 3 -->
+      <div class="defect-card">
+        <h4>3. Mottling (मॉटलिंग / धब्बेदार प्रिंट)</h4>
+        <p><strong>Problem:</strong> सॉलिड प्रिंट में इंक का एकसमान न फैलना और क्लाउडी धब्बे दिखना।</p>
+        <p><strong>Root Cause:</strong> कागज़ की असमान अवशोषण दर (Porosity) और अत्यधिक डैम्पनिंग वॉटर।</p>
+        <p class="action-text">Action: Water Feed न्यूनतम करें, Ink Trapping सीक्वेंस बदलें, Blanket Squeeze 0.03mm बढ़ाएं।</p>
+      </div>
+
+      <!-- DEFECT 4 -->
+      <div class="defect-card">
+        <h4>4. Set-off & Blocking (सेट-ऑफ़ व ब्लॉकिंग)</h4>
+        <p><strong>Problem:</strong> फ्रेश प्रिंटेड इंक का ऊपर वाली शीट के पीछे छपना या शीट्स का चिपकना।</p>
+        <p><strong>Root Cause:</strong> अपर्याप्त Anti-Set-Off Spray Powder, अधिक इंक डेंसिटी, पाइल का वजन।</p>
+        <p class="action-text">Action: Board GSM अनुसार Powder बढ़ाएं, Delivery Pile Height घटाएं, IR Dryer 85°C सेट करें।</p>
+      </div>
+
+      <!-- DEFECT 5 -->
+      <div class="defect-card">
+        <h4>5. Slurring (स्लरिंग / डॉट्स का खिंचना)</h4>
+        <p><strong>Problem:</strong> हाफ़टोन डॉट्स ग्रिपर की दिशा में खिंचकर अंडाकार (Oval) हो जाते हैं।</p>
+        <p><strong>Root Cause:</strong> Loose Blanket Torque, Plate-to-Blanket Slip, अत्यधिक Impression Squeeze.</p>
+        <p class="action-text">Action: Blanket Torque Wrench से 45-50 Nm पर टाइट करें, Impression pressure रीसेट करें।</p>
+      </div>
+
+      <!-- DEFECT 6 -->
+      <div class="defect-card">
+        <h4>6. Doubling (डबलिंग / शैडो प्रिंट)</h4>
+        <p><strong>Problem:</strong> मुख्य डॉट के बगल में एक हल्का दूसरा डॉट छपना जिससे इमेज डबल दिखे।</p>
+        <p><strong>Root Cause:</strong> Transfer Cylinder Gripper Wear, Feed Board Lay timing miss, Wavy paper.</p>
+        <p class="action-text">Action: Gripper Pad Tension जांचें, Feed Timing मैच करें, Paper RH 55% पर लाएं।</p>
+      </div>
+
+      <!-- DEFECT 7 -->
+      <div class="defect-card">
+        <h4>7. Roller Stripping / Glaze (रोलर स्ट्रिपिंग)</h4>
+        <p><strong>Problem:</strong> मेटल इनकिंग रोलर्स पर इंक की जगह पानी की परत जमना और रोलर नंगा दिखना।</p>
+        <p><strong>Root Cause:</strong> Hard Water Calcium buildup, crystallized Gum glaze, low ink flow.</p>
+        <p class="action-text">Action: Decalcifying Chemical Wash करें, RO Water Hardness 8-12°dH पर कंट्रोल करें।</p>
+      </div>
+
+      <!-- DEFECT 8 -->
+      <div class="defect-card">
+        <h4>8. Ink Emulsification (इंक इमल्सीफिकेशन)</h4>
+        <p><strong>Problem:</strong> इंक में अत्यधिक पानी मिलने से इंक का रंग फीका व बहने लायक होना।</p>
+        <p><strong>Root Cause:</strong> Water feed excessively high, High Conductivity (&gt;2000 µS), Low Ink Viscosity.</p>
+        <p class="action-text">Action: Ink Duct साफ़ करके नई इंक भरें, Water supply 5% घटाएं, Chiller Temp 10°C लाएं।</p>
+      </div>
+
+      <!-- DEFECT 9 -->
+      <div class="defect-card">
+        <h4>9. Mechanical Ghosting (मैकेनिकल घोस्टिंग)</h4>
+        <p><strong>Problem:</strong> बड़े सॉलिड एरिया में पास के छोटे कटआउट्स या डिज़ाइन की हल्की परछाई दिखना।</p>
+        <p><strong>Root Cause:</strong> Inking Form Rollers का तेज़ी से इंक न रिप्लैनिश कर पाना।</p>
+        <p class="action-text">Action: Oscillating Form Rollers का स्ट्रोक बढ़ाएं, लेआउट का ओरिएंटेशन 90° घुमाएं।</p>
+      </div>
+
+      <!-- DEFECT 10 -->
+      <div class="defect-card">
+        <h4>10. Chemical Ghosting (केमिकल घोस्टिंग)</h4>
+        <p><strong>Problem:</strong> सुखाने के दौरान पाइल में रखी शीट्स पर बैक-टू-इमेज की अदृश्य गैस की परछाई बनना।</p>
+        <p><strong>Root Cause:</strong> Oxydative Drying के दौरान निकलने वाली गैसेस का पाइल में फंसना।</p>
+        <p class="action-text">Action: Sheeting Pile Winding (हवा पास करना) करें, Fast-Drying Offset Ink उपयोग करें।</p>
+      </div>
+
+      <!-- DEFECT 11 -->
+      <div class="defect-card">
+        <h4>11. Paper Curling (कागज़ का मुड़ना)</h4>
+        <p><strong>Problem:</strong> एक्वस वार्निश या हैवी प्रिंटिंग के बाद बोर्ड के किनारे ऊपर मुड़ जाना।</p>
+        <p><strong>Root Cause:</strong> High Dampening Water Volume, High Coating Squeeze, Wrong Grain Direction.</p>
+        <p class="action-text">Action: Press Water कम करें, Hot Air Dryer बढ़ाएं, Long Grain Board सुनिश्चित करें।</p>
+      </div>
+
+      <!-- DEFECT 12 -->
+      <div class="defect-card">
+        <h4>12. Chalking (चौकिंग / इंक पाउडर बनना)</h4>
+        <p><strong>Problem:</strong> इंक सूखने के बाद भी कागज़ पर सेट नहीं होती और उंगली से पाउडर की तरह निकलती है।</p>
+        <p><strong>Root Cause:</strong> Ink Vehicle कागज़ में जल्दी सोख जाना पर पिगमेंट ऊपर ही रह जाना (Low Acidic pH)।</p>
+        <p class="action-text">Action: Overprint Varnish (OPV) अप्लाई करें, Drier Compound 1-2% मिक्स करें।</p>
+      </div>
+
+      <!-- DEFECT 13 -->
+      <div class="defect-card">
+        <h4>13. Misregistration (मिस-रजिस्ट्रेशन)</h4>
+        <p><strong>Problem:</strong> CMYK चारों रंगों का एक दूसरे के ऊपर सही न बैठना (रंग आउट होना)।</p>
+        <p><strong>Root Cause:</strong> Side Lay Sensor Timing Out, Gripper Mechanical Wear, CTP Plate Stretch.</p>
+        <p class="action-text">Action: Side Lay Alignment कैलिब्रेट करें, Cocking Zero करें, CTP Laser Check करें।</p>
+      </div>
+
+      <!-- DEFECT 14 -->
+      <div class="defect-card">
+        <h4>14. Ink Flying / Misting (इंक का उड़ना)</h4>
+        <p><strong>Problem:</strong> हाई-स्पीड प्रेस चलने पर इंक की बारीक बूंदें हवा में उड़कर यूनिट को गंदा करना।</p>
+        <p><strong>Root Cause:</strong> Ink Viscosity अति-कम होना, Roller Speed excessive, Incorrect Ink Filament Length.</p>
+        <p class="action-text">Action: High Tack Stiff Ink यूज़ करें, Roller TCU (Temperature Control Unit) 28°C रखें।</p>
+      </div>
     </div>
-
-    <!-- DEFECT 2 -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fffbeeb; border-left: 5px solid #f59e0b; border-radius: 6px;">
-      <h4 style="margin: 0; color: #d97706; font-size: 16px;">2. Hickies / Bull's Eye (हिकीज़ या बुल-आई)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> सॉलिड प्रिंटेड एरिया में गोल सफ़ेद छल्ले के बीच में इंक का धब्बा आना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> पेपर की कटिंग डस्ट या इंक डक्ट से सूखी इंक की पपड़ी गिरना।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Blanket और Plate साफ़ करें, Feeder Dust Collector चालू करें, Ink में 1% Tack Reducer मिलाएँ।</p>
-    </div>
-
-    <!-- DEFECT 3 -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #f0fdf4; border-left: 5px solid #16a34a; border-radius: 6px;">
-      <h4 style="margin: 0; color: #15803d; font-size: 16px;">3. Mottling (मॉटलिंग / धब्बेदार प्रिंट)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> सॉलिड प्रिंट में इंक का एकसमान न फैलना और धब्बेदार दिखना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> पेपर बोर्ड की असमान अवशोषण क्षमता (Absorbency) और अत्यधिक पानी का उपयोग।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Dampening मिनिमम रखें, Ink Trapping सुधारें, Blanket Squeeze 0.03mm बढ़ाएं।</p>
-    </div>
-
-    <!-- DEFECT 4 -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #eff6ff; border-left: 5px solid #2563eb; border-radius: 6px;">
-      <h4 style="margin: 0; color: #1d4ed8; font-size: 16px;">4. Set-off & Blocking (सेट-ऑफ़ और ब्लॉकिंग)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> प्रिंटेड इंक का ऊपर वाली शीट के पीछे छपना या शीट्स का आपस में चिपकना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> कम Anti-Set-Off Spray Powder, अत्यधिक इंक डेंसिटी, डिलीवरी पाइल का ज़्यादा वजन।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Board GSM अनुसार Spray Powder बढ़ाएं, Delivery Pile Height सीमित रखें, IR Dryer Temp 85°C रखें।</p>
-    </div>
-
-    <!-- DEFECT 5 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fef2f2; border-left: 5px solid #ef4444; border-radius: 6px;">
-      <h4 style="margin: 0; color: #dc2626; font-size: 16px;">5. Slurring (स्लरिंग / डॉट्स का खिंचना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> हाफ़टोन डॉट्स का अपनी जगह से आगे या पीछे की तरफ़ खिंचकर अंडाकार (Oval) हो जाना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Blanket Loose होना, Plate/Blanket Cylinder Slippage, या Impression Pressure अत्यधिक होना।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Blanket Tensioning Torque Wrench से 45-50 Nm पर कसें, Squeeze Pressure सही करें।</p>
-    </div>
-
-    <!-- DEFECT 6 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fffbeeb; border-left: 5px solid #f59e0b; border-radius: 6px;">
-      <h4 style="margin: 0; color: #d97706; font-size: 16px;">6. Doubling (डबलिंग / डबल इमेज प्रिंट)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> एक ही डॉट्स का हल्का सा शैडो प्रिंट बगल में छपना जिससे इमेज धुंधली दिखे।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Sheet Gripper Misalignment, Transfer Cylinder Gripper Pad Wear, या Sheet Wavy edges।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Gripper Pads का टेंशन चेक करें, Feed Board Timing सेट करें, Board Paper Humidity 55% पर लाएं।</p>
-    </div>
-
-    <!-- DEFECT 7 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #f0fdf4; border-left: 5px solid #16a34a; border-radius: 6px;">
-      <h4 style="margin: 0; color: #15803d; font-size: 16px;">7. Roller Stripping / Glaze (रोलर स्ट्रिपिंग)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> इंक रोलर्स पर इंक का चिपकना बंद होना और रोलर का नंगा (Bare Metal) दिखना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Hard Water Calcium buildup, excessive Fountain Additive, crystallized Ink Glaze.</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Decalcifying liquid wash करें, RO Water Hardness 8-12°dH पर कंट्रोल करें।</p>
-    </div>
-
-    <!-- DEFECT 8 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #eff6ff; border-left: 5px solid #2563eb; border-radius: 6px;">
-      <h4 style="margin: 0; color: #1d4ed8; font-size: 16px;">8. Ink Emulsification (इंक इमल्सीफिकेशन / इंक में पानी घुलना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> इंक का दूधिया/पतला होना जिससे प्रिंट डेंसिटी बिल्कुल गिर जाती है।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Water Feed अत्यधिक होना, High Conductivity (&gt;2000 µS), Low Ink Tack.</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Ink Duct साफ़ करके फ्रेश इंक भरें, Dampening Supply घटाएं, Chiller Water ड्रेन करें।</p>
-    </div>
-
-    <!-- DEFECT 9 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fef2f2; border-left: 5px solid #ef4444; border-radius: 6px;">
-      <h4 style="margin: 0; color: #dc2626; font-size: 16px;">9. Mechanical Ghosting (मैकेनिकल घोस्टिंग)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> लेआउट के बड़े सॉलिड एरिया में पास के छोटे कटआउट्स/डिजाइन की हल्की परछाई दिखना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Ink Form Rollers का पर्याप्त रिप्लेनिशमेंट न हो पाना।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Oscillating Form Rollers का स्ट्रोक बढ़ाएं, लेआउट का ओरिएंटेशन 90 डिग्री घुमाएं।</p>
-    </div>
-
-    <!-- DEFECT 10 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fffbeeb; border-left: 5px solid #f59e0b; border-radius: 6px;">
-      <h4 style="margin: 0; color: #d97706; font-size: 16px;">10. Chemical Ghosting / Vapor Ghosting</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> पाइल में रखी शीट्स के सूखते समय बैक-टू-बैक इमेज की परछाई ट्रांसफर होना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> इंक के सूखने की प्रक्रिया (Oxidation Gas release) के दौरान पाइल में हवा न मिलना।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Sheeting Pile Winding (हवा पास करना) करें, Fast-Drying Offset Ink का उपयोग करें।</p>
-    </div>
-
-    <!-- DEFECT 11 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #f0fdf4; border-left: 5px solid #16a34a; border-radius: 6px;">
-      <h4 style="margin: 0; color: #15803d; font-size: 16px;">11. Paper Curling (कागज़/बोर्ड का मुड़ना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> प्रिंटिंग या एक्वस वार्निश के बाद शीट्स के किनारे ऊपर की तरफ कर्ल होना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Excessive Dampening Water, High Aqueous Varnish Coating Squeeze.</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Press Water minimum रखें, IR/Hot Air Dryer temp बढ़ाएं, Board Grain Direction चेक करें।</p>
-    </div>
-
-    <!-- DEFECT 12 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #eff6ff; border-left: 5px solid #2563eb; border-radius: 6px;">
-      <h4 style="margin: 0; color: #1d4ed8; font-size: 16px;">12. Chalking (चौकिंग / इंक का पाउडर बनकर झड़ना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> इंक सूखने के बाद भी कागज़ पर पकड़ नहीं बनाती और उंगली लगाने पर पाउडर की तरह झड़ने लगती है।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Ink Vehicle का कागज़ में जल्दी सोख जाना लेकिन पिगमेंट ऊपर ही रह जाना (Low Acidic pH & Excessive Water Flow)।</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Overprint Varnish (OPV) कोट करें, Fast-Drying Drier Compound इंक में मिलाएँ।</p>
-    </div>
-
-    <!-- DEFECT 13 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fef2f2; border-left: 5px solid #ef4444; border-radius: 6px;">
-      <h4 style="margin: 0; color: #dc2626; font-size: 16px;">13. Misregistration (मिस-रजिस्ट्रेशन / कलर आउट होना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> CMYK चारों रंगों का अपनी जगह पर सही न बैठना और धुंधला दिखना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Feeder Front/Side Lay tension failure, Gripper wear, Plate Stretching.</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> Side Lay Sensor कैलिब्रेट करें, Cylinder Cocking Zero पर लाएं, CTP Laser Calibration जांचें।</p>
-    </div>
-
-    <!-- DEFECT 14 (NEW) -->
-    <div style="margin-top: 15px; padding: 15px; background-color: #fffbeeb; border-left: 5px solid #f59e0b; border-radius: 6px;">
-      <h4 style="margin: 0; color: #d97706; font-size: 16px;">14. Ink Flying / Misting (इंक का हवा में उड़ना)</h4>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Problem:</strong> मशीन के उच्च गति पर चलने से इंक की बारीक बूंदें हवा में उड़कर यूनिट को गंदा करना।</p>
-      <p style="font-size: 13px; margin: 5px 0;"><strong>Causes:</strong> Ink Viscosity अति-कम होना, Roller Speed excessive, Incorrect Ink Long Rheology.</p>
-      <p style="font-size: 13px; margin: 5px 0; color: #15803d;"><strong>Action Plan:</strong> High Tack Stiff Ink उपयोग करें, Roller Temperature Control Unit (TCU) का तापमान 28°C रखें।</p>
-    </div>
-
   </div>
 
-  <!-- SLIDE 4: QUALITY CONTROL & ISO 12647-2 -->
+  <!-- SLIDE 4: ISO 12647-2 & COLOR QUALITY -->
   <div id="slide4" class="slide-panel">
-    <h2 style="color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 12px; margin-top: 0;">4. Quality Control & ISO 12647-2 Color Management</h2>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Color Management & ISO 12647-2 Standards</h2>
     
-    <h3>4.1 Solid Ink Density (SID) Standard Table</h3>
-    <div style="overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
-        <thead>
-          <tr style="background-color: #2563eb; color: #ffffff;">
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Color (CMYK)</th>
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Coated Board Target</th>
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Uncoated Paper Target</th>
-            <th style="padding: 10px; border: 1px solid #1d4ed8;">Tolerance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Cyan (C)</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.45 - 1.55 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.15 - 1.25 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">± 0.05</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Magenta (M)</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.45 - 1.50 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.15 - 1.20 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">± 0.05</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Yellow (Y)</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.05 - 1.15 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">0.85 - 0.95 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">± 0.04</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Black (K)</strong></td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.70 - 1.85 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">1.25 - 1.35 SID</td>
-            <td style="padding: 10px; border: 1px solid #e2e8f0;">± 0.05</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>4.1 Solid Ink Density (SID) Standards (Status T Polarization)</h3>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Process Color</th>
+          <th>Coated Paperboard Target Density</th>
+          <th>Uncoated Substrate Target</th>
+          <th>Allowed Tolerance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: #38bdf8;">Cyan (C)</strong></td>
+          <td>1.45 - 1.55 SID</td>
+          <td>1.15 - 1.25 SID</td>
+          <td>± 0.05</td>
+        </tr>
+        <tr>
+          <td><strong style="color: #f43f5e;">Magenta (M)</strong></td>
+          <td>1.45 - 1.50 SID</td>
+          <td>1.15 - 1.20 SID</td>
+          <td>± 0.05</td>
+        </tr>
+        <tr>
+          <td><strong style="color: #facc15;">Yellow (Y)</strong></td>
+          <td>1.05 - 1.15 SID</td>
+          <td>0.85 - 0.95 SID</td>
+          <td>± 0.04</td>
+        </tr>
+        <tr>
+          <td><strong style="color: #ffffff;">Black (K)</strong></td>
+          <td>1.70 - 1.85 SID</td>
+          <td>1.25 - 1.35 SID</td>
+          <td>± 0.05</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h3>4.2 Spectrophotometer Delta E (ΔE 2000) Criteria</h3>
-    <ul>
-      <li><strong>ΔE ≤ 1.0:</strong> Perfect match (मानव आंख से अंतर नहीं दिखता)।</li>
-      <li><strong>ΔE ≤ 1.5:</strong> Approved Commercial Production Standard.</li>
-      <li><strong>ΔE &gt; 3.0:</strong> Customer Rejection Zone.</li>
-    </ul>
+    <h3>4.2 CIELAB & Spectrophotometer Delta E ($\Delta E_{00}$) Standards</h3>
+    <blockquote style="background: #0b1120; padding: 15px; border-left: 4px solid var(--accent-neon); margin: 15px 0;">
+      <strong>$\Delta E_{00}$ CIEDE2000 Tolerance Criteria:</strong><br>
+      • <strong>$\Delta E \le 1.0$:</strong> Perfect Match (मानव आंख अंतर नहीं पहचान सकती)।<br>
+      • <strong>$\Delta E \le 1.5$:</strong> Standard ISO Pass Commercial Production Limit.<br>
+      • <strong>$\Delta E &gt; 3.0$:</strong> Customer Quality Rejection Threshold.
+    </blockquote>
   </div>
 
-  <!-- SLIDE 5: MAINTENANCE & AUDITS -->
+  <!-- SLIDE 5: PREVENTIVE MAINTENANCE & AUDITS -->
   <div id="slide5" class="slide-panel">
-    <h2 style="color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 12px; margin-top: 0;">5. Preventive Maintenance & Compliance Audits</h2>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">5. Preventive Maintenance & Quality Compliance Audits</h2>
     
-    <h3>5.1 Machine Preventive Maintenance Schedule</h3>
+    <h3>5.1 Press Preventive Maintenance Protocol</h3>
     <ul>
-      <li><strong>Daily (Per Shift):</strong> Blanket & Impression Cylinder Wash, Water Tray Draining, Pneumatic Filter Moisture Check.</li>
-      <li><strong>Weekly:</strong> Roller Deglazing (Calcium Wash), Chiller Filters Cleaning, Gripper Bar Oil Wash.</li>
-      <li><strong>Monthly:</strong> Roller Nip Stripe Calibration, Main Drive Gearbox Greasing, Chiller Sensor Probes Check.</li>
+      <li><strong>Daily (Every Shift):</strong> Blanket Wash, Impression Cylinder Wipe, Fountain Solution pH & Conductivity Check, Pneumatic Trap Drain.</li>
+      <li><strong>Weekly (End of Week):</strong> Inking Roller Chemical Deglazing (Calcium Wash), Water Chiller Filter Wash, Gripper Bar Lubrication.</li>
+      <li><strong>Monthly:</strong> Inking & Dampening Roller Nip Alignment Calibration (Ink Stripe 3.5mm-4.0mm), Gearbox Oil Level Audit.</li>
     </ul>
 
     <h3>5.2 Audit Compliance Checklist (BRCGS Packaging & ISO 9001)</h3>
     <ol>
-      <li><strong>Line Clearance:</strong> नया जॉब लगाने से पहले पुराने जॉब का सारा मटेरियल मशीन एरिया से क्लियर करना।</li>
-      <li><strong>Chemical Containment:</strong> IPA और सॉल्वेंट्स को Secondary Spill Trays के ऊपर रखना।</li>
-      <li><strong>Traceability Tagging:</strong> हर पैलेट पर Approved Job Card Tag लगाना।</li>
+      <li><strong>Line Clearance Execution:</strong> नया जॉब चालू करने से पहले पिछले जॉब के सभी अप्रयुक्त बोर्ड, प्लेट्स और रीजेक्ट्स हटाना।</li>
+      <li><strong>Chemical Hazard Control:</strong> IPA और सॉल्वेंट्स को Secondary Chemical Spill Trays के ऊपर ही स्टोर करना।</li>
+      <li><strong>Traceability Tagging:</strong> हर पैलेट पर Approved Job Card Ticket और Pallet Sequence Tag चिपकाना।</li>
     </ol>
   </div>
 
-  <!-- BOTTOM NAVIGATION CONTROL -->
+  <!-- FOOTER NAVIGATION -->
   <div class="slide-footer-nav">
     <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)" disabled>← Previous Page</button>
-    <span id="pageIndicator" style="font-weight: bold; color: #475569;">Page 1 of 5</span>
+    <span id="pageIndicator" style="font-weight: bold; color: var(--accent-blue);">Page 1 of 5</span>
     <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">Next Page →</button>
   </div>
 
 </div>
 
-<!-- JAVASCRIPT FOR PAGE SWITCHING -->
+<!-- JAVASCRIPT FOR DYNAMIC TAB SWITCHING -->
 <script>
   let currentSlideIndex = 0;
   const slides = document.querySelectorAll('.slide-panel');
