@@ -417,10 +417,14 @@
       </div>
     </div>
   </div>
-  <!-- Search Bar with Button -->
-<div style="margin: 20px 0; display: flex; gap: 8px;">
-  <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
-  <button onclick="searchContent()" style="padding: 14px 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Search</button>
+  <!-- Search Bar with Results Box -->
+<div style="margin: 20px 0; position: relative;">
+  <div style="display: flex; gap: 8px;">
+    <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें (उदा. Ink, pH, Plate)..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
+    <button onclick="searchContent()" style="padding: 14px 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Search</button>
+  </div>
+  <!-- Search Results Dropdown -->
+  <div id="searchResultsBox" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; border: 1px solid #38bdf8; border-radius: 8px; max-height: 300px; overflow-y: auto; z-index: 10000; margin-top: 5px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);"></div>
 </div>
 
 </div>
@@ -897,56 +901,84 @@
     if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
     updateSlideUI();
   }
-</script>
 
-<!-- Final Fixed Search Function -->
+<!-- Smart Multi-Result Search Function -->
 <script>
 function searchContent() {
   let input = document.getElementById('searchInput').value.toLowerCase().trim();
-  if (!input) return;
+  let resultsBox = document.getElementById('searchResultsBox');
+  resultsBox.innerHTML = "";
+  
+  if (!input) {
+    resultsBox.style.display = "none";
+    return;
+  }
 
   let allSlides = Array.from(document.querySelectorAll('.slide-panel'));
-  let foundNode = null;
-  let targetIndex = -1;
+  let matches = [];
 
+  // Clear previous highlights
   document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
     el.style.backgroundColor = "";
   });
 
-  for (let i = 0; i < allSlides.length; i++) {
-    let nodes = allSlides[i].querySelectorAll('p, li, h2, h3, h4, td');
-    for (let node of nodes) {
+  // Find ALL occurrences across all pages
+  allSlides.forEach((slide, slideIdx) => {
+    let nodes = slide.querySelectorAll('p, li, h2, h3, h4, td');
+    nodes.forEach(node => {
       if (node.innerText && node.innerText.toLowerCase().includes(input)) {
-        foundNode = node;
-        targetIndex = i;
-        break;
+        matches.push({
+          slideIndex: slideIdx,
+          element: node,
+          text: node.innerText.substring(0, 80) + "..." // Short preview
+        });
       }
-    }
-    if (foundNode) break;
-  }
+    });
+  });
 
-  if (foundNode && targetIndex !== -1) {
-    currentSlideIndex = targetIndex;
-    updateSlideUI();
+  if (matches.length > 0) {
+    resultsBox.style.display = "block";
+    let countHeader = document.createElement('div');
+    countHeader.style.cssText = "padding: 10px; background: #1e293b; color: #00f2fe; font-weight: bold; border-bottom: 1px solid #334155;";
+    countHeader.innerText = `कुल ${matches.length} परिणाम मिले (Click to Jump):`;
+    resultsBox.appendChild(countHeader);
 
-    foundNode.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
-    foundNode.style.borderRadius = "4px";
-    
-    setTimeout(() => {
-      foundNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 300);
+    matches.forEach((item, idx) => {
+      let itemDiv = document.createElement('div');
+      itemDiv.style.cssText = "padding: 10px; border-bottom: 1px solid #1e293b; color: #e2e8f0; cursor: pointer; font-size: 14px;";
+      itemDiv.innerHTML = `<strong>Page ${item.slideIndex + 1}:</strong> ${item.text}`;
+      
+      itemDiv.onmouseover = () => itemDiv.style.background = "rgba(0, 242, 254, 0.15)";
+      itemDiv.onmouseout = () => itemDiv.style.background = "transparent";
+      
+      itemDiv.onclick = () => {
+        currentSlideIndex = item.slideIndex;
+        updateSlideUI();
+        
+        item.element.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
+        item.element.style.borderRadius = "4px";
+        
+        setTimeout(() => {
+          item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+        
+        resultsBox.style.display = "none";
+      };
+
+      resultsBox.appendChild(itemDiv);
+    });
   } else {
-    alert("कोई परिणाम नहीं मिला / Word not found: " + input);
+    resultsBox.style.display = "block";
+    resultsBox.innerHTML = `<div style="padding: 12px; color: #ef4444;">कोई परिणाम नहीं मिला / No match found for: "${input}"</div>`;
   }
 }
+
+// Close search results if clicked outside
+document.addEventListener('click', function(e) {
+  let box = document.getElementById('searchResultsBox');
+  let input = document.getElementById('searchInput');
+  if (box && !box.contains(e.target) && e.target !== input) {
+    box.style.display = 'none';
+  }
+});
 </script>
-
-<!-- Floating Contact Buttons -->
-<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 9999;">
-  <a href="tel:+918059002339" style="width: 50px; height: 50px; border-radius: 50%; background-color: #00f2fe; color: #000; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="Direct Call">📞</a>
-  <a href="mailto:amitsandhu973@gmail.com" style="width: 50px; height: 50px; border-radius: 50%; background-color: #ea4335; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="Send Email">✉️</a>
-  <a href="https://wa.me/918059002339?text=Hello%20Amit%20Bhai,%20I%20visited%20your%20Offset%20Printing%20Manual." style="width: 50px; height: 50px; border-radius: 50%; background-color: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" target="_blank" title="WhatsApp Chat">💬</a>
-</div>
-
-</body>
-</html>
