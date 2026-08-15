@@ -897,6 +897,7 @@
     if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
     updateSlideUI();
   }
+</script>
 
 <!-- Final Fixed Search Function -->
 <script>
@@ -904,36 +905,30 @@ function searchContent() {
   let input = document.getElementById('searchInput').value.toLowerCase().trim();
   if (!input) return;
 
-  let slides = Array.from(document.querySelectorAll('.slide-panel'));
+  let allSlides = Array.from(document.querySelectorAll('.slide-panel'));
   let foundNode = null;
-  let targetSlideIndex = -1;
+  let targetIndex = -1;
 
-  // Clear previous highlights
   document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
     el.style.backgroundColor = "";
   });
 
-  // Search through each slide
-  for (let i = 0; i < slides.length; i++) {
-    let textNodes = slides[i].querySelectorAll('p, li, h2, h3, h4, td');
-    for (let node of textNodes) {
+  for (let i = 0; i < allSlides.length; i++) {
+    let nodes = allSlides[i].querySelectorAll('p, li, h2, h3, h4, td');
+    for (let node of nodes) {
       if (node.innerText && node.innerText.toLowerCase().includes(input)) {
         foundNode = node;
-        targetSlideIndex = i;
+        targetIndex = i;
         break;
       }
     }
     if (foundNode) break;
   }
 
-  if (foundNode && targetSlideIndex !== -1) {
-    // 1. Switch to the correct Tab/Page
-    if (typeof slides !== 'undefined' && typeof tabs !== 'undefined') {
-      currentSlideIndex = targetSlideIndex;
-      updateSlideUI();
-    }
+  if (foundNode && targetIndex !== -1) {
+    currentSlideIndex = targetIndex;
+    updateSlideUI();
 
-    // 2. Highlight and Scroll to the word
     foundNode.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
     foundNode.style.borderRadius = "4px";
     
@@ -945,7 +940,6 @@ function searchContent() {
   }
 }
 </script>
-
 
 <!-- Floating Contact Buttons -->
 <div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 9999;">
