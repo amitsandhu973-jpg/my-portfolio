@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Hints & Master Tips - Amit Sandhu</title>
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --card-bg: #131b2e;
+      --accent-blue: #38bdf8;
+      --accent-neon: #00f2fe;
+      --border-color: rgba(56, 189, 248, 0.2);
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-main);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--card-bg);
+      color: var(--accent-neon);
+      text-decoration: none;
+      border: 1px solid var(--accent-neon);
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .page-title {
+      color: var(--accent-neon);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+    .hint-card {
+      background: var(--card-bg);
+      padding: 22px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-neon);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+    .hint-card h3 {
+      color: var(--accent-blue);
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .hint-card p, .hint-card ul {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .hint-card ul { padding-left: 20px; }
+    .badge {
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--accent-neon);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back-btn">⬅ Back to Main Technical Manual</a>
+
+  <h1 class="page-title">💡 Technical Hints & Master Tips (Advanced Offset Engineering)</h1>
+
+  <!-- HINT 1 -->
+  <div class="hint-card">
+    <h3><span class="badge">HINT #01</span> Dynamic Ink-Water Emulsification Window</h3>
+    <p><strong>Micro Chemistry:</strong> इंक में पानी का सही संतुलन (Water-in-Oil Emulsification) <strong>15% से 20%</strong> होना चाहिए।</p>
+    <ul>
+      <li><strong>&lt; 15% Water:</strong> Plate Scumming, Toning और Tinting का डिफ़ेक्ट आएगा क्योंकि Non-image area पूरी तरह गीला नहीं होगा।</li>
+      <li><strong>&gt; 20% Water:</strong> Roller Stripping, Slow Ink Drying, और Ink Washout (Density loss) होगी।</li>
+      <li><strong>Master Solution:</strong> IPA / Replacer की मदद से Dynamic Surface Tension को <strong>35–45 dynes/cm</strong> पर कंट्रोल रखें।</li>
+    </ul>
+  </div>
+
+  <!-- HINT 2 -->
+  <div class="hint-card">
+    <h3><span class="badge">HINT #02</span> Flexo Coater & Anilox BCM Calculation</h3>
+    <p><strong>Coating Science:</strong> अनिलॉक्स रोलर से बोर्ड पर सिर्फ <strong>25% से 35% Wet Coating Transfer</strong> होती है।</p>
+    <ul>
+      <li><strong>BCM Selection:</strong> Drip-off / Matt Varnish के लिए 10–12 BCM, High Gloss Aqueous Coating के लिए 6–8 BCM इस्तेमाल करें।</li>
+      <li><strong>Wet Film Thickness Formula:</strong> $\text{WFT (microns)} \approx \text{Anilox BCM} \times 0.30$</li>
+      <li><strong>Blade Pressure Tip:</strong> Chamber Doctor Blade पर ओवर-प्रेशर देने से <i>Blade Lines</i> आती हैं और Blade लाइफ 50% घट जाती है।</li>
+    </ul>
+  </div>
+
+  <!-- HINT 3 -->
+  <div class="hint-card">
+    <h3><span class="badge">HINT #03</span> Mechanical Sheet Arrival & Gripper Timing</h3>
+    <p><strong>High Speed Registration:</strong> शीट का Front Lay पर पहुँचने का परफेक्ट टाइमिंग Press Degree rotation पर निर्भर करता है।</p>
+    <ul>
+      <li><strong>Arrival Window:</strong> शीट को Gripper Close होने से <strong>10° से 15° पहले</strong> Front Lay पर ठहर जाना चाहिए।</li>
+      <li><strong>Gripper Bite Limit:</strong> Gripper Bite <strong>8mm से 10mm</strong> सेट रखें। Torsion bar का प्रेशर हर फिंगर पर बराबर होना चाहिए ताकि High-speed running में Register Shift न हो।</li>
+    </ul>
+  </div>
+
+  <!-- HINT 4 -->
+  <div class="hint-card">
+    <h3><span class="badge">HINT #04</span> CIP3 / CIP4 Ink Key Automation Efficiency</h3>
+    <p><strong>Prepress to Press Integration:</strong> CTP RIP से जनरेट PPF फाइल सीधे कंसोल में डेंसिटी प्री-सेट करती है।</p>
+    <ul>
+      <li><strong>Make-ready Waste Reduction:</strong> Ink Duct Keys 80% एक्यूरेसी के साथ ऑटोमैटिक खुल जाती हैं।</li>
+      <li><strong>Efficiency Gain:</strong> Make-ready sheets की बर्बादी 200 शीट से घटकर केवल <strong>30–50 शीट</strong> रह जाती है।</li>
+    </ul>
+  </div>
+
+  <!-- HINT 5 -->
+  <div class="hint-card">
+    <h3><span class="badge">HINT #05</span> UV Polymerization & Oxygen Inhibition</h3>
+    <p><strong>Curing Mechanics:</strong> UV/LED इंक photo-polymerization प्रक्रिया से 0.1 सेकंड में सूखे बिना क्योर (Cure) होती है।</p>
+    <ul>
+      <li><strong>Oxygen Inhibition Error:</strong> हवा की ऑक्सीजन UV इंक की ऊपरी लेयर को चिपिचपा (Tacky) छोड़ देती है।</li>
+      <li><strong>Solution:</strong> 385nm/395nm Wavelength के LED UV Curing System का उपयोग करें ताकि Heat-sensitive Substrates (MetPET, PVC) डिस्टॉर्ट न हों।</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
