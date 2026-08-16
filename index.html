@@ -402,6 +402,71 @@
       cursor: not-allowed;
       opacity: 0.5;
     }
+    /* Interactive Squeeze Calculator & Tools UI */
+.interactive-card {
+  background: #1e293b;
+  border: 1px solid #38bdf8;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,242,254,0.15);
+}
+.calc-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #00f2fe;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.calc-btn {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #000;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.result-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+.res-success { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid #22c55e; }
+.res-error { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+/* Accordion Styling */
+.accordion-item {
+  background: #131b2e;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion-header {
+  padding: 15px;
+  background: #1e293b;
+  color: #00f2fe;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion-body {
+  padding: 15px;
+  display: none;
+  color: #cbd5e1;
+  font-size: 14px;
+  border-top: 1px solid #334155;
+}
+
   </style>
 </head>
 <body>
@@ -414,7 +479,136 @@
       <h1>Offset Printing & Packaging Technical Manual</h1>
       <p>Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
     </div>
-    
+
+    <!-- ================= 1. LIVE SQUEEZE CALCULATOR ================= -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">📊 Live Blanket Packing & Squeeze Calculator</h3>
+  <label>Blanket Thickness (mm):</label>
+  <input type="number" id="blanketThick" class="calc-input" placeholder="e.g. 1.95" step="0.01">
+  
+  <label>Underlay Sheet Thickness (mm):</label>
+  <input type="number" id="underlayThick" class="calc-input" placeholder="e.g. 0.30" step="0.01">
+  
+  <label>Blanket Cylinder Undercut (mm):</label>
+  <input type="number" id="undercutVal" class="calc-input" placeholder="e.g. 2.15" step="0.01">
+  
+  <button onclick="calculateSqueeze()" class="calc-btn">Calculate Total Squeeze</button>
+  <div id="squeezeResult"></div>
+</div>
+
+<!-- ================= 2. SPECTROPHOTOMETER: LAB vs LCH ================= -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">🔬 Spectrophotometer Technical Masterclass</h3>
+  
+  <h4 style="color:#38bdf8;">1. CIELAB (L* a* b*) Color Space</h4>
+  <p>कलर डिफरेंस ($\Delta E$) मापने का इंटरनेशनल स्टैंडर्ड।</p>
+  <ul>
+    <li><b>L* (Luminance):</b> 0 (Black) से 100 (White) तक की ब्राइटनेस।</li>
+    <li><b>a* Axis:</b> $+a$ (Red / लाल) से $-a$ (Green / हरा)।</li>
+    <li><b>b* Axis:</b> $+b$ (Yellow / पीला) से $-b$ (Blue / नीला)।</li>
+    <li><b>$\Delta E_{ab}$ Tolerance:</b> Offset Printing में Commercial Standard $\Delta E < 2.5$ और Packaging Target $\Delta E < 1.5$ होना चाहिए।</li>
+  </ul>
+
+  <h4 style="color:#38bdf8;">2. LCH (Lightness, Chroma, Hue) Color Space</h4>
+  <p>इंक फॉर्मुलेशन और प्रेस ऑपरेटर के लिए समझने में सबसे आसान सिस्टम।</p>
+  <ul>
+    <li><b>L (Lightness):</b> कलर का हल्का या गहरापन।</li>
+    <li><b>C (Chroma):</b> कलर की शुद्धता/सैचुरेशन (Vibrancy)।</li>
+    <li><b>H (Hue Angle):</b> कलर व्हील पर वास्तविक रंग का कोण ($0^\circ$ Red, $90^\circ$ Yellow, $180^\circ$ Green, $270^\circ$ Blue)।</li>
+  </ul>
+
+  <h4 style="color:#38bdf8;">3. Critical Geometry & Illuminants</h4>
+  <ul>
+    <li><b>Measurement Geometry:</b> 45°/0° (Offset Standard for Gloss/Density) या d/8° (Sphere for Metallic/Packaging).</li>
+    <li><b>Standard Illuminant:</b> D50 (Daylight 5000K) - Print Industry Standard.</li>
+    <li><b>Standard Observer:</b> 2° Observer angle.</li>
+  </ul>
+</div>
+
+<!-- ================= 3. PANTONE MATCHING SYSTEM (PMS) RECIPES ================= -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">🎨 Essential Pantone Ink Mixing Recipes</h3>
+  <p style="font-size:13px; color:#94a3b8;">14 Standard Base Inks पर आधारित सटीक प्रतिशत प्रतिशत (Percentage Mixing):</p>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Warm Red C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Warm Red Base: 87.5%<br>
+      • Yellow Base: 12.5%
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Reflex Blue C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Reflex Blue Base: 100% (Pure Pigment)<br>
+      <i>Note: Drier और Anti-Bronzeing Additive 1-2% मिलाएँ।</i>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Green C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Phthalo Green Base: 50.0%<br>
+      • Process Yellow Base: 50.0%
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone 185 C (Standard Bright Red) <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Warm Red Base: 75.0%<br>
+      • Rubine Red Base: 25.0%
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone 021 C (Bright Orange) <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Orange Base: 100% (Or 50% Yellow + 50% Warm Red)
+    </div>
+  </div>
+</div>
+
+<!-- ================= 4. JAVASCRIPT FOR CALCULATOR & ACCORDION ================= -->
+<script>
+function calculateSqueeze() {
+  var b = parseFloat(document.getElementById('blanketThick').value) || 0;
+  var u = parseFloat(document.getElementById('underlayThick').value) || 0;
+  var uc = parseFloat(document.getElementById('undercutVal').value) || 0;
+  
+  if(b === 0 || uc === 0) {
+    alert("कृपया Blanket Thickness और Undercut सही दर्ज करें!");
+    return;
+  }
+  
+  var totalSqueeze = (b + u) - uc;
+  var resDiv = document.getElementById('squeezeResult');
+  
+  if(totalSqueeze >= 0.08 && totalSqueeze <= 0.12) {
+    resDiv.className = "result-box res-success";
+    resDiv.innerHTML = "✅ Perfect Squeeze: " + totalSqueeze.toFixed(3) + " mm (Standard 0.08 - 0.12 mm Range)";
+  } else {
+    resDiv.className = "result-box res-error";
+    resDiv.innerHTML = "⚠️ Squeeze Out of Range: " + totalSqueeze.toFixed(3) + " mm (Target: 0.08 - 0.12 mm)";
+  }
+}
+
+function toggleAcc(element) {
+  var body = element.nextElementSibling;
+  if (body.style.display === "block") {
+    body.style.display = "none";
+  } else {
+    body.style.display = "block";
+  }
+}
+</script>
+
     <!-- AUTHOR PROFILE CARD -->
     <div class="author-card">
       <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
