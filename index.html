@@ -12,14 +12,16 @@
 </script>
   <!-- Website Password Lock -->
   <script>
-    var password = "Amit@2255"; // 👈 अमित भाई, "Amit@2255" की जगह अपना गुप्त पासवर्ड लिखें
-    var pass1 = prompt('यह अमित संधू का पर्सनल मैन्युअल है। कृपया पासवर्ड दर्ज करें:');
-    if (pass1 === password) {
-        alert('पासवर्ड सही है!');
-    } else {
-        alert('गलत पासवर्ड!');
-        window.location.href = "about:blank";
+      <script>
+    var password = "Amit@2255"; // 👈 यहाँ अपना पासवर्ड लिखें
+    var pass1 = prompt('यह अमित संधू का पर्सनल मैन्युअल है। कृपया पासवर्ड डालें:');
+    
+    if (pass1 !== password) {
+        alert('गलत पासवर्ड! कृपया पुनः प्रयास करें।');
+        location.reload(); // यह पेज को बंद करने के बजाय दोबारा लोड कर देगा
     }
+  </script>
+
   </script>
 
   <meta charset="UTF-8">
