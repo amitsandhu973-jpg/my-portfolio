@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head> 
@@ -483,705 +484,122 @@
           
 </script>
 
-  <!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offset Printing & Packaging Technical Manual | Amit Sandhu</title>
-  <style>
-    :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --accent-blue: #38bdf8;
-      --accent-neon: #00f2fe;
-      --text-light: #f8fafc;
-      --border-color: #334155;
-    }
+    <!-- AUTHOR PROFILE CARD -->
+    <div class="author-card">
+      <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
+        <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+          
+        <div class="photo-upload-overlay">+</div>
+        <input type="file" id="imageInput" accept="image/*" onchange="loadPhoto(event)">
+      </div>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      padding: 15px;
-      line-height: 1.6;
-    }
-
-    .header-title h1 {
-      color: var(--accent-neon);
-      font-size: 22px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .header-title p {
-      color: #94a3b8;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    /* AUTHOR PROFILE CARD FIX */
-    .author-card {
-      background: var(--card-bg);
-      border: 1px solid var(--accent-blue);
-      border-radius: 14px;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .profile-photo-wrapper {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .user-photo {
-      width: 80px !important;
-      height: 80px !important;
-      border-radius: 50%;
-      border: 3px solid var(--accent-neon);
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-upload-overlay {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background: var(--accent-neon);
-      color: #000;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .author-info h3 { color: #fff; font-size: 18px; }
-    .author-badge { background: #0284c7; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 4px; }
-    .author-info div { font-size: 12px; color: #cbd5e1; }
-
-    /* SEARCH BAR */
-    .search-container {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .search-input {
-      flex: 1;
-      padding: 12px;
-      background: #0f172a;
-      border: 1px solid var(--border-color);
-      color: var(--accent-neon);
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .search-btn {
-      background: var(--accent-neon);
-      color: #000;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* NAVIGATION TABS */
-    .nav-tabs {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 25px;
-    }
-
-    .tab-btn {
-      background: #1e293b;
-      color: var(--text-light);
-      border: 1px solid var(--border-color);
-      padding: 14px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .tab-btn.active {
-      background: var(--accent-blue);
-      color: #0f172a;
-    }
-
-    .page-section {
-      display: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    .page-section.active { display: block; }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .pantone-card {
-      background: #0f172a;
-      border: 1px solid var(--accent-blue);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .swatch {
-      height: 90px;
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-      padding: 8px;
-      font-weight: bold;
-    }
-
-    .card-details { padding: 12px; }
-    .p-number { font-size: 18px; font-weight: bold; color: var(--accent-neon); }
-    .recipe-title { font-size: 12px; font-weight: bold; color: var(--accent-blue); margin: 6px 0 4px 0; }
-    .recipe-list { list-style: none; font-size: 13px; }
-    .recipe-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #334155; padding: 2px 0; }
-  </style>
-</head>
-<body>
-
-  <div class="header-title">
-    <h1>OFFSET PRINTING & PACKAGING TECHNICAL MANUAL</h1>
-    <p>Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
-  </div>
-
-  <!-- SINGLE AUTHOR PROFILE CARD -->
-  <div class="author-card">
-    <div class="profile-photo-wrapper">
-      <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="user-photo">
-      <div class="photo-upload-overlay">+</div>
-    </div>
-    <div class="author-info">
-      <span class="author-badge">CREATED BY AMIT SANDHU</span>
-      <h3>Amit Sandhu</h3>
-      <div><strong>Role:</strong> Production Supervisor</div>
-      <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
-      <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
-      <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
+      <div class="author-info">
+        <div class="author-badge">CREATED BY AMIT SANDHU</div>
+        <h3>Amit Sandhu</h3>
+        <div><strong>Role:</strong> Production Supervisor</div>
+        <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
+        <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
+        <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
+      </div>
     </div>
   </div>
 
-  <!-- SEARCH BAR -->
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="🔍 पूरे मैनुअल में सर्च करें (उदा. Ink, pH, Plate)...">
-    <button class="search-btn">Search</button>
-  </div>
+     <!-- AUTHOR PROFILE CARD के ठीक नीचे यह पेस्ट करें -->
 
-  <!-- NAVIGATION TABS -->
-  <div class="nav-tabs">
-    <div class="tab-btn active" onclick="showPage(1)">Page 1: Offset Mechanics & 3D</div>
-    <div class="tab-btn" onclick="showPage(2)">Page 2: Machine Parts & Function</div>
-    <div class="tab-btn" onclick="showPage(3)">Page 3: SPM, Ink & Color Consistency</div>
-    <div class="tab-btn" onclick="showPage(4)">Page 4: Deep 14 Defect Solutions</div>
-    <div class="tab-btn" onclick="showPage(5)">Page 5: Materials, ISO & Audits</div>
-    <div class="tab-btn" onclick="showPage(6)">Page 6: Technical Hints & Master Tips</div>
-    <div class="tab-btn" onclick="showPage(7)" style="border: 1px solid var(--accent-neon); color: var(--accent-neon);">🎨 Page 7: Spectrophotometer & 2,300+ Pantone Search Engine</div>
-  </div>
+<!-- 1. LIVE SQUEEZE CALCULATOR -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">📊 Live Blanket Packing & Squeeze Calculator</h3>
+  <label>Blanket Thickness (mm):</label>
+  <input type="number" id="blanketThick" class="calc-input" placeholder="e.g. 1.95" step="0.01">
+  
+  <label>Underlay Sheet Thickness (mm):</label>
+  <input type="number" id="underlayThick" class="calc-input" placeholder="e.g. 0.30" step="0.01">
+  
+  <label>Blanket Cylinder Undercut (mm):</label>
+  <input type="number" id="undercutVal" class="calc-input" placeholder="e.g. 2.15" step="0.01">
+  
+  <button onclick="calculateSqueeze()" class="calc-btn">Calculate Total Squeeze</button>
+  <div id="squeezeResult"></div>
+</div>
 
-  <!-- PAGES CONTENT -->
-  <div id="page1" class="page-section active">
-    <h2 style="color:var(--accent-neon);">1. Deep Offset Printing Mechanics</h2>
-    <p style="margin-top:10px;">ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना) पर आधारित है।</p>
-  </div>
+<!-- 2. SPECTROPHOTOMETER: LAB vs LCH -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">🔬 Spectrophotometer Technical Masterclass</h3>
+  
+  <h4 style="color:#38bdf8;">1. CIELAB (L* a* b*) Color Space</h4>
+  <p>कलर डिफरेंस (Delta E) मापने का इंटरनेशनल स्टैंडर्ड।</p>
+  <ul>
+    <li><b>L* (Luminance):</b> 0 (Black) से 100 (White) तक की ब्राइटनेस।</li>
+    <li><b>a* Axis:</b> +a (Red / लाल) से -a (Green / हरा)।</li>
+    <li><b>b* Axis:</b> +b (Yellow / पीला) से -b (Blue / नीला)।</li>
+    <li><b>Delta E Tolerance:</b> Offset Printing में Commercial Standard Delta E &lt; 2.5 और Packaging Target Delta E &lt; 1.5 होना चाहिए।</li>
+  </ul>
 
-  <div id="page2" class="page-section">
-    <h2 style="color:var(--accent-neon);">2. Machine Parts & Mechanical Functions</h2>
-    <p style="margin-top:10px;">Feeder, Registration, Impression Cylinder और Delivery Unit की टेक्निकल जानकारी।</p>
-  </div>
+  <h4 style="color:#38bdf8;">2. LCH (Lightness, Chroma, Hue) Color Space</h4>
+  <p>इंक फॉर्मुलेशन और प्रेस ऑपरेटर के लिए समझने में सबसे आसान सिस्टम।</p>
+  <ul>
+    <li><b>L (Lightness):</b> कलर का हल्का या गहरापन।</li>
+    <li><b>C (Chroma):</b> कलर की शुद्धता/सैचुरेशन (Vibrancy)।</li>
+    <li><b>H (Hue Angle):</b> कलर व्हील पर वास्तविक रंग का कोण (0° Red, 90° Yellow, 180° Green, 270° Blue)।</li>
+  </ul>
 
-  <div id="page3" class="page-section">
-    <h2 style="color:var(--accent-neon);">3. Standard Press Medium (SPM)</h2>
-    <p style="margin-top:10px;">फ़ाउंटेन सॉल्यूशन का pH (4.8 - 5.5) और Conductivity कंट्रोल।</p>
-  </div>
+  <h4 style="color:#38bdf8;">3. Critical Geometry & Illuminants</h4>
+  <ul>
+    <li><b>Measurement Geometry:</b> 45°/0° (Offset Standard for Gloss/Density) या d/8° (Sphere for Metallic/Packaging)।</li>
+    <li><b>Standard Illuminant:</b> D50 (Daylight 5000K) - Print Industry Standard।</li>
+    <li><b>Standard Observer:</b> 2° Observer angle।</li>
+  </ul>
+</div>
 
-  <div id="page4" class="page-section">
-    <h2 style="color:var(--accent-neon);">4. Deep 14 Defect Solutions</h2>
-    <p style="margin-top:10px;">Hicking, Ghosting, Emulsification जैसे डिफ़ेक्ट्स के समाधान।</p>
-  </div>
+<!-- 3. PANTONE MATCHING SYSTEM (PMS) RECIPES -->
+<div class="interactive-card">
+  <h3 style="color:#00f2fe; margin-top:0;">🎨 Essential Pantone Ink Mixing Recipes</h3>
+  <p style="font-size:13px; color:#94a3b8;">14 Standard Base Inks पर आधारित सटीक प्रतिशत (Percentage Mixing):</p>
 
-  <div id="page5" class="page-section">
-    <h2 style="color:var(--accent-neon);">5. Materials, ISO & Audits</h2>
-    <p style="margin-top:10px;">Paper GSM, ISO 12647-2 Standard और क्वालिटी चेक्स।</p>
-  </div>
-
-  <div id="page6" class="page-section">
-    <h2 style="color:var(--accent-neon);">6. Technical Hints & Master Tips</h2>
-    <p style="margin-top:10px;">प्रेस फ्लोर ऑपरेशन्स के लिए मास्टर टिप्स।</p>
-  </div>
-
-  <!-- PAGE 7 CONTENT -->
-  <div id="page7" class="page-section">
-    <h2 style="color:var(--accent-neon);">🎨 Page 7: Spectrophotometer Science & Pantone Search</h2>
-    
-    <div style="background: #0f172a; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid var(--border-color);">
-      <b style="color: var(--accent-blue);">🔬 L*a*b* & Delta E Quick Notes:</b>
-      <ul style="margin-left: 20px; font-size: 13px; color: #cbd5e1; margin-top:5px;">
-        <li><b>L*a*b*:</b> L* (Brightness), a* (+Red / -Green), b* (+Yellow / -Blue)।</li>
-        <li><b>Delta E:</b> Commercial Offset &lt; 2.5, Pharma/Packaging &lt; 1.5।</li>
-      </ul>
-    </div>
-
-    <div style="background: #0f172a; padding: 12px; border-radius: 8px; border: 1px solid var(--accent-neon);">
-      <b style="color: var(--accent-neon);">🔍 Search Pantone Recipe (100 C to 7771 C)</b>
-      <input type="text" id="pSearchInput" class="search-input" placeholder="Pantone No. दर्ज करें (उदा: 293, 2023, 1655, 185)..." onkeyup="searchPantoneInPage()" style="margin-top:8px;">
-    </div>
-
-    <div class="grid-container" id="pGridContainer"></div>
-  </div>
-
-  <script>
-    function showPage(pageNum) {
-      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
-
-      document.getElementById('page' + pageNum).classList.add('active');
-      document.querySelectorAll('.tab-btn')[pageNum - 1].classList.add('active');
-    }
-
-    const baseInksList = ["Pantone Yellow", "Pantone Yellow 012", "Pantone Orange 021", "Pantone Warm Red", "Pantone Red 032", "Pantone Rubine Red", "Pantone Rhodamine Red", "Pantone Purple", "Pantone Violet", "Pantone Blue 072", "Pantone Reflex Blue", "Pantone Process Blue", "Pantone Green", "Pantone Black", "Pantone Transparent White"];
-    
-    const masterDB = {
-      "2023": { num: "Pantone 2023 C", hex: "#FF8B53", recipe: [["Pantone Orange 021", "12.5%"], ["Pantone Yellow", "12.5%"], ["Pantone Transparent White", "75.0%"]] },
-      "1655": { num: "Pantone 1655 C", hex: "#FF5800", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] },
-      "293": { num: "Pantone 293 C", hex: "#003DA5", recipe: [["Pantone Reflex Blue", "75.0%"], ["Pantone Process Blue", "25.0%"]] },
-      "185": { num: "Pantone 185 C", hex: "#E4002B", recipe: [["Pantone Warm Red", "75.0%"], ["Pantone Rubine Red", "25.0%"]] },
-      "485": { num: "Pantone 485 C", hex: "#DA291C", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] }
-    };
-
-    function getPantoneData(numStr) {
-      if (masterDB[numStr]) return masterDB[numStr];
-      const n = parseInt(numStr);
-      if (isNaN(n) || n < 100 || n > 9000) return null;
-
-      let b1 = baseInksList[n % 14], b2 = baseInksList[(n * 3) % 14];
-      let p1 = 50 + (n % 40), p2 = 100 - p1;
-      let r = 200, g = 100, b = 100;
-
-      if (n >= 100 && n < 200) { r = 255; g = 200 - (n % 100); b = 0; }
-      else if (n >= 200 && n < 300) { r = 0; g = 80 + (n % 100); b = 200 + (n % 55); }
-      else if (n >= 300 && n < 400) { r = 0; g = 150 + (n % 100); b = 80; }
-      else { r = (n * 37) % 255; g = (n * 59) % 255; b = (n * 83) % 255; }
-
-      let hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-      return { num: `Pantone ${n} C`, hex: hex, recipe: [[b1, `${p1}.0%`], [b2, `${p2}.0%`]] };
-    }
-
-    function renderPantoneGrid(list) {
-      const grid = document.getElementById('pGridContainer');
-      grid.innerHTML = '';
-      if (!list || list.length === 0) {
-        grid.innerHTML = '<div style="color: #94a3b8; grid-column: 1/-1; text-align: center; padding: 15px;">⚠️ पैनटोन नंबर नहीं मिला।</div>';
-        return;
-      }
-      list.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'pantone-card';
-        let recipeHTML = '';
-        item.recipe.forEach(r => recipeHTML += `<li><span>${r[0]}</span><b>${r[1]}</b></li>`);
-        card.innerHTML = `
-          <div class="swatch" style="background-color: ${item.hex};">
-            <span style="background:rgba(0,0,0,0.8); color:#fff; padding:2px 6px; border-radius:4px; font-size:11px;">${item.hex}</span>
-          </div>
-          <div class="card-details">
-            <div class="p-number">${item.num}</div>
-            <div class="recipe-title">🧪 Formula:</div>
-            <ul class="recipe-list">${recipeHTML}</ul>
-          </div>`;
-        grid.appendChild(card);
-      });
-    }
-
-    function searchPantoneInPage() {
-      const q = document.getElementById('pSearchInput').value.toLowerCase().trim();
-      if (!q) {
-        renderPantoneGrid(["293", "2023", "1655", "185", "485"].map(n => masterDB[n]));
-        return;
-      }
-      const cleanNum = q.replace('pantone', '').replace('c', '').trim();
-      const res = getPantoneData(cleanNum);
-      renderPantoneGrid(res ? [res] : []);
-    }
-
-    searchPantoneInPage();
-  </script>
-</body>
-</html>
-  <
-       
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offset Printing & Packaging Technical Master Manual | Amit Sandhu</title>
-  <style>
-    :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --accent-blue: #38bdf8;
-      --accent-neon: #00f2fe;
-      --text-light: #f8fafc;
-      --border-color: #334155;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      padding: 15px;
-      line-height: 1.6;
-    }
-
-    /* Profile Header */
-    .profile-card {
-      background: var(--card-bg);
-      border: 1px solid var(--accent-blue);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .profile-img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 2px solid var(--accent-neon);
-      object-fit: cover;
-    }
-
-    .profile-info h2 { color: var(--text-light); font-size: 20px; }
-    .profile-info p { font-size: 13px; color: #94a3b8; }
-
-    /* Search Bar */
-    .search-container {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .search-input {
-      flex: 1;
-      padding: 12px;
-      background: #0f172a;
-      border: 1px solid var(--border-color);
-      color: var(--accent-neon);
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .search-btn {
-      background: var(--accent-neon);
-      color: #000;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Page Navigation Tabs */
-    .nav-tabs {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-bottom: 25px;
-    }
-
-    .tab-btn {
-      background: #1e293b;
-      color: var(--text-light);
-      border: 1px solid var(--border-color);
-      padding: 14px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .tab-btn:hover, .tab-btn.active {
-      background: var(--accent-blue);
-      color: #0f172a;
-      border-color: var(--accent-neon);
-    }
-
-    /* Section Content */
-    .page-section {
-      display: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    .page-section.active { display: block; }
-
-    .page-section h2 { color: var(--accent-neon); font-size: 20px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-
-    /* Page 7 Specific Styles */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .pantone-card {
-      background: #0f172a;
-      border: 1px solid var(--accent-blue);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .swatch {
-      height: 100px;
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-      padding: 8px;
-      font-weight: bold;
-    }
-
-    .card-details { padding: 12px; }
-    .p-number { font-size: 18px; font-weight: bold; color: var(--accent-neon); }
-    .recipe-title { font-size: 12px; font-weight: bold; color: var(--accent-blue); margin: 8px 0 4px 0; }
-    .recipe-list { list-style: none; font-size: 13px; }
-    .recipe-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #334155; padding: 2px 0; }
-  </style>
-</head>
-<body>
-
-  <!-- PROFILE HEADER -->
-  <div class="profile-card">
-    <img src="https://via.placeholder.com/70" alt="Amit Sandhu" class="profile-img">
-    <div class="profile-info">
-      <h2>Amit Sandhu</h2>
-      <p><b>Role:</b> Production Supervisor</p>
-      <p><b>Company:</b> Kumar Printers Pvt. Ltd.</p>
-      <p><b>Degree:</b> B.Tech (Printing & Packaging Tech)</p>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Warm Red C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Warm Red Base: 87.5%<br>
+      • Yellow Base: 12.5%
     </div>
   </div>
 
-  <!-- SEARCH BAR -->
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="🔍 पूरे मैनुअल में सर्च करें (उदा. Ink, pH, Plate)...">
-    <button class="search-btn">Search</button>
-  </div>
-
-  <!-- NAVIGATION TABS (PAGE 1 TO PAGE 7 IN ORDER) -->
-  <div class="nav-tabs">
-    <div class="tab-btn active" onclick="showPage(1)">Page 1: Offset Mechanics & 3D</div>
-    <div class="tab-btn" onclick="showPage(2)">Page 2: Machine Parts & Function</div>
-    <div class="tab-btn" onclick="showPage(3)">Page 3: SPM, Ink & Color Consistency</div>
-    <div class="tab-btn" onclick="showPage(4)">Page 4: Deep 14 Defect Solutions</div>
-    <div class="tab-btn" onclick="showPage(5)">Page 5: Materials, ISO & Audits</div>
-    <div class="tab-btn" onclick="showPage(6)">Page 6: Technical Hints & Master Tips</div>
-    <div class="tab-btn" onclick="showPage(7)" style="border: 1px solid var(--accent-neon); color: var(--accent-neon);">🎨 Page 7: Spectrophotometer & 2,300+ Pantone Search Engine</div>
-  </div>
-
-  <!-- PAGE 1 CONTENT -->
-  <div id="page1" class="page-section active">
-    <h2>1. Deep Offset Printing Mechanics & Physical Principles</h2>
-    <p>ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना) पर आधारित है। CTP प्लेट की सतह समतल (Planographic) होती है।</p>
-    <br>
-    <ul>
-      <li><b>Image Area:</b> Photopolymer Layer जो Oleophilic (इंक-आकर्षक) और Hydrophobic होती है।</li>
-      <li><b>Non-Image Area:</b> Anodized Aluminum Oxide Layer जो Hydrophilic (पानी-आकर्षक) होती है।</li>
-    </ul>
-  </div>
-
-  <!-- PAGE 2 CONTENT -->
-  <div id="page2" class="page-section">
-    <h2>2. Machine Parts & Mechanical Functions</h2>
-    <p>ऑफ़सेट प्रिंटिंग मशीन के मुख्य घटक जैसे Feeder, Registration Board, Impression Cylinder, और Delivery Unit की विस्तृत कार्यप्रणाली।</p>
-  </div>
-
-  <!-- PAGE 3 CONTENT -->
-  <div id="page3" class="page-section">
-    <h2>3. Standard Press Medium (SPM) & Ink Consistency</h2>
-    <p>फ़ाउंटेन सॉल्यूशन का pH 4.8 - 5.5 और Conductivity 800 - 1500 µS/cm के बीच होना चाहिए।</p>
-  </div>
-
-  <!-- PAGE 4 CONTENT -->
-  <div id="page4" class="page-section">
-    <h2>4. 14 Major Printing Defects & Practical Solutions</h2>
-    <p>Hicking, Ghosting, Emulsification, Stripping, और Scuffing जैसे 14 प्रमुख डिफ़ेक्ट्स के कारण और समाधान।</p>
-  </div>
-
-  <!-- PAGE 5 CONTENT -->
-  <div id="page5" class="page-section">
-    <h2>5. Materials Science, Paper GSM & ISO Standards</h2>
-    <p>Paper Board GSM, ISO 12647-2 Standard, और Quality Control Audits का पूरा विवरण।</p>
-  </div>
-
-  <!-- PAGE 6 CONTENT -->
-  <div id="page6" class="page-section">
-    <h2>6. Technical Hints & Master Production Tips</h2>
-    <p>सुपरवाइज़र और ऑपरेटरों के लिए रोज़ाना प्रेस फ्लोर पर काम आने वाले मास्टर टिप्स और ट्रिक्स।</p>
-  </div>
-
-  <!-- PAGE 7 CONTENT (INLINED DIRECTLY BELOW PAGE 6) -->
-  <div id="page7" class="page-section">
-    <h2>🎨 Page 7: Spectrophotometer Science & Complete Pantone Engine</h2>
-    
-    <div style="background: #0f172a; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border-color);">
-      <h3 style="color: var(--accent-blue); font-size: 16px; margin-bottom: 8px;">🔬 Spectrophotometer Lab & LCH Notes</h3>
-      <ul style="margin-left: 20px; font-size: 13px; color: #cbd5e1;">
-        <li><b>L*a*b* Standard:</b> L* (Brightness 0-100), a* (+a Red / -a Green), b* (+b Yellow / -b Blue)।</li>
-        <li><b>Delta E Standard:</b> Commercial Offset Delta E &lt; 2.5, Packaging/Pharma Delta E &lt; 1.5।</li>
-        <li><b>LCH System:</b> Lightness, Chroma (Saturation), Hue Angle (0° Red, 90° Yellow, 180° Green, 270° Blue)।</li>
-      </ul>
-    </div>
-
-    <!-- PANTONE SEARCH ENGINE -->
-    <div style="background: #0f172a; padding: 15px; border-radius: 8px; border: 1px solid var(--accent-neon);">
-      <h3 style="color: var(--accent-neon); font-size: 16px; margin-bottom: 8px;">🔍 Search Pantone Recipe (100 C to 7771 C)</h3>
-      <input type="text" id="pSearchInput" class="search-input" placeholder="Pantone No. दर्ज करें (उदा: 293, 2023, 1655, 185, 485)..." onkeyup="searchPantoneInPage()">
-    </div>
-
-    <div class="grid-container" id="pGridContainer">
-      <!-- Search Results Render Here -->
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Reflex Blue C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Reflex Blue Base: 100% (Pure Pigment)<br>
+      <i>Note: Drier और Anti-Bronzeing Additive 1-2% मिलाएँ।</i>
     </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
-    // Tab Switch Logic
-    function showPage(pageNum) {
-      const sections = document.querySelectorAll('.page-section');
-      const tabs = document.querySelectorAll('.tab-btn');
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone Green C <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Phthalo Green Base: 50.0%<br>
+      • Process Yellow Base: 50.0%
+    </div>
+  </div>
 
-      sections.forEach(sec => sec.classList.remove('active'));
-      tabs.forEach(tab => tab.classList.remove('active'));
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone 185 C (Standard Bright Red) <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Warm Red Base: 75.0%<br>
+      • Rubine Red Base: 25.0%
+    </div>
+  </div>
 
-      document.getElementById('page' + pageNum).classList.add('active');
-      tabs[pageNum - 1].classList.add('active');
-    }
-
-    // Pantone Generator Engine for Page 7
-    const baseInksList = [
-      "Pantone Yellow", "Pantone Yellow 012", "Pantone Orange 021", "Pantone Warm Red", 
-      "Pantone Red 032", "Pantone Rubine Red", "Pantone Rhodamine Red", "Pantone Purple", 
-      "Pantone Violet", "Pantone Blue 072", "Pantone Reflex Blue", "Pantone Process Blue", 
-      "Pantone Green", "Pantone Black", "Pantone Transparent White"
-    ];
-
-    const masterDB = {
-      "2023": { num: "Pantone 2023 C", hex: "#FF8B53", recipe: [["Pantone Orange 021", "12.5%"], ["Pantone Yellow", "12.5%"], ["Pantone Transparent White", "75.0%"]] },
-      "1655": { num: "Pantone 1655 C", hex: "#FF5800", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] },
-      "293": { num: "Pantone 293 C", hex: "#003DA5", recipe: [["Pantone Reflex Blue", "75.0%"], ["Pantone Process Blue", "25.0%"]] },
-      "185": { num: "Pantone 185 C", hex: "#E4002B", recipe: [["Pantone Warm Red", "75.0%"], ["Pantone Rubine Red", "25.0%"]] },
-      "485": { num: "Pantone 485 C", hex: "#DA291C", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] }
-    };
-
-    function getPantoneData(numStr) {
-      if (masterDB[numStr]) return masterDB[numStr];
-
-      const n = parseInt(numStr);
-      if (isNaN(n) || n < 100 || n > 9000) return null;
-
-      let b1 = baseInksList[n % 14];
-      let b2 = baseInksList[(n * 3) % 14];
-      let p1 = 50 + (n % 40);
-      let p2 = 100 - p1;
-
-      let r = 200, g = 100, b = 100;
-      if (n >= 100 && n < 200) { r = 255; g = 200 - (n % 100); b = 0; }
-      else if (n >= 200 && n < 300) { r = 0; g = 80 + (n % 100); b = 200 + (n % 55); }
-      else if (n >= 300 && n < 400) { r = 0; g = 150 + (n % 100); b = 80; }
-      else if (n >= 400 && n < 500) { r = 180; g = 50 + (n % 80); b = 30; }
-      else if (n >= 500 && n < 600) { r = 120; g = 40; b = 150 + (n % 80); }
-      else if (n >= 600 && n < 750) { r = 100 + (n % 100); g = 100 + (n % 100); b = 100 + (n % 100); }
-      else { r = (n * 37) % 255; g = (n * 59) % 255; b = (n * 83) % 255; }
-
-      let hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-
-      return {
-        num: `Pantone ${n} C`,
-        hex: hex,
-        recipe: [[b1, `${p1}.0%`], [b2, `${p2}.0%`]]
-      };
-    }
-
-    function renderPantoneGrid(list) {
-      const grid = document.getElementById('pGridContainer');
-      grid.innerHTML = '';
-
-      if (!list || list.length === 0) {
-        grid.innerHTML = '<div style="color: #94a3b8; grid-column: 1/-1; text-align: center; padding: 20px;">⚠️ यह पैनटोन नंबर दर्ज नहीं है। कृपया कोई अन्य नंबर टाइप करें।</div>';
-        return;
-      }
-
-      list.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'pantone-card';
-        let recipeHTML = '';
-        item.recipe.forEach(r => {
-          recipeHTML += `<li><span>${r[0]}</span><b>${r[1]}</b></li>`;
-        });
-
-        card.innerHTML = `
-          <div class="swatch" style="background-color: ${item.hex};">
-            <span style="background:rgba(0,0,0,0.8); color:#fff; padding:2px 6px; border-radius:4px; font-size:11px;">${item.hex}</span>
-          </div>
-          <div class="card-details">
-            <div class="p-number">${item.num}</div>
-            <div class="recipe-title">🧪 Official PMS Formula:</div>
-            <ul class="recipe-list">${recipeHTML}</ul>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function searchPantoneInPage() {
-      const q = document.getElementById('pSearchInput').value.toLowerCase().trim();
-      if (!q) {
-        const defaults = ["293", "2023", "1655", "185", "485"].map(n => masterDB[n]);
-        renderPantoneGrid(defaults);
-        return;
-      }
-      const cleanNum = q.replace('pantone', '').replace('c', '').trim();
-      const res = getPantoneData(cleanNum);
-      renderPantoneGrid(res ? [res] : []);
-    }
-
-    // Load defaults on page load
-    searchPantoneInPage();
-  </script>
-</body>
-</html>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Pantone 021 C (Bright Orange) <span>▼</span></div>
+    <div class="accordion-body">
+      <b>Base Mix:</b><br>
+      • Orange Base: 100% (Or 50% Yellow + 50% Warm Red)
+    </div>
+  </div>
+</div>
 
 <!-- JAVASCRIPT FOR CALCULATOR & ACCORDION -->
 <script>
