@@ -884,16 +884,13 @@
   };
 
 // Send OTP - Temporarily Bypassing for testing
-// Send OTP - Temporarily Bypassing for testing
 function sendOTP() {
   const mob = document.getElementById('mobile').value;
   
   if (mob === "8059002339") {
-    // टेस्ट नंबर के लिए डायरेक्ट बाईपास
     document.getElementById('otp-section').style.display = 'block';
     alert("टेस्टिंग मोड: OTP बॉक्स खुल गया है, 223344 डालें!");
   } else if (mob.length === 10) {
-    // असली नंबर के लिए Firebase SMS (original mode)
     const phoneNumber = "+91" + mob;
     const appVerifier = window.recaptchaVerifier;
 
@@ -908,6 +905,8 @@ function sendOTP() {
   } else {
     alert("कृपया 10 अंकों का सही नंबर डालें!");
   }
+}
+
 }
 
 }
