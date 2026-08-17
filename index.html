@@ -32,7 +32,7 @@
 
     <!-- Main Content Container (Initially hidden until OTP is verified) -->
 
- <div id="main-content" style="filter: blur(8px); pointer-events: none; user-select: none;" class="="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl border border-slate-800 text-center" style="display: none;">
+  <div id="main-content" style="filter: blur(8px); pointer-events: none; user-select: none; height: 300px; overflow: hidden;" class="="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl border border-slate-800 text-center" style="display: none;">
         <span class="text-4xl">🔒</span>
         <h2 class="text-2xl font-bold mt-2 mb-2 text-cyan-400">अमित संधू टेक्निकल लैब</h2>
         <p class="text-xs text-gray-400 mb-6">ऑफसेट प्रिंटिंग और पैकेजिंग मैनुअल</p>
@@ -99,11 +99,16 @@
                 "currency": "INR",
                 "name": "Amit Sandhu Technical Lab",
                 "description": "Offset Printing & Packaging Guide Access",
-                "handler": function (response){
-                    alert("पेमेंट सफल रहा! Payment ID: " + response.razorpay_payment_id);
-                  document.getElementById("main-content").style.display = "block";
-                },
-                "prefill": {
+               "handler": function (response){
+    alert("पेमेंट सफल रहा!");
+    var content = document.getElementById("main-content");
+    content.style.filter = "none";           // ब्लर हटा दिया
+    content.style.pointerEvents = "auto";    // क्लिक/स्क्रॉल वापस चालू
+    content.style.height = "auto";           // ऊंचाई वापस पूरी कर दी
+    content.style.overflow = "visible";      // स्क्रॉलिंग वापस चालू
+},
+              
+                      "prefill": {
                     "name": "Amit Sandhu",
                     "email": "amitsandhu@gmail.com",
                     "contact": "8059002339"
