@@ -884,27 +884,7 @@
   };
 
 // Send OTP - Temporarily Bypassing for testing
-function sendOTP() {
-  const mob = document.getElementById('mobile').value;
-  
-  if (mob === "8059002339") {
-    document.getElementById('otp-section').style.display = 'block';
-    alert("टेस्टिंग मोड: OTP बॉक्स खुल गया है, 223344 डालें!");
-  } else if (mob.length === 10) {
-    const phoneNumber = "+91" + mob;
-    const appVerifier = window.recaptchaVerifier;
 
-    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        confirmationResultObj = confirmationResult;
-        document.getElementById('otp-section').style.display = 'block';
-        alert("OTP भेज दिया गया है!");
-      }).catch((error) => {
-        alert("समस्या: " + error.message);
-      });
-  } else {
-    alert("कृपया 10 अंकों का सही नंबर डालें!");
-  }
 }
 
 }
