@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page 7: Complete 2,300+ Pantone Guide & Spectrophotometer Lab | Amit Sandhu</title>
+  <title>Page 7: Spectrophotometer & Pantone Color Lab | Amit Sandhu</title>
   <style>
     :root {
       --bg-dark: #0f172a;
@@ -13,250 +13,170 @@
       --accent-blue: #38bdf8;
       --accent-neon: #00f2fe;
       --text-light: #f8fafc;
-      --text-muted: #94a3b8;
       --border-color: #334155;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-light); padding: 15px; line-height: 1.6; }
+    
+    .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid var(--accent-blue); padding-bottom: 10px; }
+    .header h1 { color: var(--accent-neon); font-size: 20px; }
+    
+    .back-btn { display: inline-block; background: var(--accent-blue); color: #000; padding: 8px 15px; border-radius: 6px; font-weight: bold; text-decoration: none; margin-bottom: 15px; }
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      padding: 20px;
-      line-height: 1.6;
-    }
+    .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .card h2 { color: var(--accent-neon); font-size: 16px; margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; }
 
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    .search-box { width: 100%; padding: 12px; background: #0f172a; border: 2px solid var(--accent-neon); color: #fff; border-radius: 8px; font-size: 15px; margin-bottom: 15px; outline: none; }
 
-    .btn-back {
-      background: #334155;
-      color: var(--text-light);
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .btn-back:hover { background: var(--accent-blue); color: #000; }
-
-    .header-banner {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border: 1px solid var(--accent-blue);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .header-banner h1 { color: var(--accent-neon); font-size: 24px; margin-bottom: 8px; }
-
-    .tech-card {
-      background: var(--card-bg);
-      border: 1px solid var(--accent-blue);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 25px;
-    }
-
-    .tech-card h2 { color: var(--accent-neon); margin-bottom: 12px; font-size: 18px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-    .tech-card ul { margin-left: 20px; font-size: 14px; color: #cbd5e1; }
-    .tech-card li { margin-bottom: 6px; }
-
-    .search-box-wrapper {
-      position: sticky;
-      top: 10px;
-      z-index: 100;
-      background: var(--card-bg);
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid var(--accent-neon);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-      margin-bottom: 25px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 16px;
-      background: #0f172a;
-      border: 1px solid var(--border-color);
-      color: var(--accent-neon);
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-    }
-
-    .pantone-card {
-      background: var(--card-bg);
-      border: 1px solid var(--accent-blue);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .swatch {
-      height: 120px;
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    .card-details { padding: 15px; }
-    .p-number { font-size: 20px; font-weight: bold; color: var(--accent-neon); margin-bottom: 5px; }
-    .recipe-title { font-size: 13px; font-weight: bold; color: var(--accent-blue); margin: 10px 0 5px 0; }
-    .recipe-list { list-style: none; font-size: 14px; }
-    .recipe-list li { display: flex; justify-content: space-between; margin-bottom: 5px; border-bottom: 1px dashed #334155; padding-bottom: 3px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .p-card { background: #0f172a; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+    .p-swatch { height: 85px; width: 100%; display: flex; align-items: flex-end; padding: 6px; font-weight: bold; font-size: 12px; }
+    .p-info { padding: 12px; }
+    .p-title { font-size: 16px; font-weight: bold; color: var(--accent-neon); }
+    .recipe-list { list-style: none; font-size: 13px; margin-top: 5px; }
+    .recipe-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #334155; padding: 4px 0; }
   </style>
 </head>
 <body>
 
-  <div class="nav-bar">
-    <a href="index.html" class="btn-back">⬅ Main Manual पर वापस जाएँ</a>
-    <span style="color: var(--accent-neon); font-weight: bold;">Page 7 - Quality & Color Master Suite</span>
+  <a href="index.html" class="back-btn">⬅ Back to Main Manual</a>
+
+  <div class="header">
+    <h1>🔬 PAGE 7: SPECTROPHOTOMETER & PANTONE LAB</h1>
+    <p>Colorimetry (L*a*b* & L*C*h*), 14 Base Inks & Exact PMS Multi-Ink Search</p>
   </div>
 
-  <div class="header-banner">
-    <h1>🔬 Spectrophotometer Science & Complete Pantone Master Guide</h1>
-    <p>Full Pantone Formula Guide (100 C to 7771 C) Search Engine</p>
-  </div>
-
-  <!-- SECTION 1: SPECTROPHOTOMETER LAB & LCH -->
-  <div class="tech-card">
-    <h2>🔬 1. Spectrophotometer Technical Masterclass</h2>
-    <ul>
-      <li><b>L*a*b* Standard:</b> L* (Brightness 0-100), a* (+a Red / -a Green), b* (+b Yellow / -b Blue)।</li>
-      <li><b>Delta E Standard:</b> Commercial Offset Delta E &lt; 2.5, Packaging/Pharma Delta E &lt; 1.5।</li>
-      <li><b>LCH System:</b> Lightness, Chroma (Saturation), Hue Angle (0° Red, 90° Yellow, 180° Green, 270° Blue)।</li>
+  <!-- SPECTROPHOTOMETER SCIENCE -->
+  <div class="card">
+    <h2>📊 1. CIELAB & LCH Color Space Science</h2>
+    <p><b>L*a*b* Standard:</b></p>
+    <ul style="margin-left: 20px; font-size: 13px; color: #cbd5e1;">
+      <li><b>L* (Luminance):</b> 0 (Black) से 100 (White) ब्राइटनेस।</li>
+      <li><b>a* Axis:</b> +a (Red) से -a (Green) अक्ष।</li>
+      <li><b>b* Axis:</b> +b (Yellow) से -b (Blue) अक्ष।</li>
+    </ul>
+    <br>
+    <p><b>L*C*h* Cylindrical Color Space:</b></p>
+    <ul style="margin-left: 20px; font-size: 13px; color: #cbd5e1;">
+      <li><b>L* (Lightness):</b> रंग का हल्का या गहरा होना।</li>
+      <li><b>C* (Chroma):</b> कलर की शुद्धता और सैचुरेशन (Vibrancy)।</li>
+      <li><b>h° (Hue Angle):</b> 0° = Red, 90° = Yellow, 180° = Green, 270° = Blue।</li>
     </ul>
   </div>
 
-  <!-- SECTION 2: COMPLETE PANTONE SEARCH ENGINE -->
-  <div class="search-box-wrapper">
-    <h2 style="color:var(--accent-neon); font-size:18px; margin-bottom:8px;">🎨 Complete Pantone PMS Recipe Search Engine (2,300+ Shades)</h2>
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 कोई भी Pantone No. टाइप करें (उदा: 293, 2023, 1655, 185, 485, 7540)..." onkeyup="filterPantones()">
+  <!-- 14 BASE INKS RECIPES -->
+  <div class="card">
+    <h2>🧪 2. 14 Standard Pantone Basic Base Inks</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; font-size: 11px; font-weight: bold; text-align: center;">
+      <div style="background:#FFE800; color:#000; padding:8px; border-radius:4px;">Pantone Yellow</div>
+      <div style="background:#FFD100; color:#000; padding:8px; border-radius:4px;">Pantone Yellow 012</div>
+      <div style="background:#FF5800; color:#fff; padding:8px; border-radius:4px;">Pantone Orange 021</div>
+      <div style="background:#FF4238; color:#fff; padding:8px; border-radius:4px;">Pantone Warm Red</div>
+      <div style="background:#E4002B; color:#fff; padding:8px; border-radius:4px;">Pantone Red 032</div>
+      <div style="background:#CE0058; color:#fff; padding:8px; border-radius:4px;">Pantone Rubine Red</div>
+      <div style="background:#E10098; color:#fff; padding:8px; border-radius:4px;">Pantone Rhodamine Red</div>
+      <div style="background:#A100FF; color:#fff; padding:8px; border-radius:4px;">Pantone Purple</div>
+      <div style="background:#5200FF; color:#fff; padding:8px; border-radius:4px;">Pantone Violet</div>
+      <div style="background:#001489; color:#fff; padding:8px; border-radius:4px;">Pantone Blue 072</div>
+      <div style="background:#001A72; color:#fff; padding:8px; border-radius:4px;">Pantone Reflex Blue</div>
+      <div style="background:#00AB84; color:#fff; padding:8px; border-radius:4px;">Pantone Green</div>
+      <div style="background:#2D2926; color:#fff; padding:8px; border-radius:4px;">Pantone Black</div>
+      <div style="background:#E2E8F0; color:#000; padding:8px; border-radius:4px;">Transparent White</div>
+    </div>
   </div>
 
-  <div class="grid-container" id="pantoneGrid">
-    <!-- Search Results -->
+  <!-- PANTONE SEARCH ENGINE -->
+  <div class="card">
+    <h2>🎨 3. Pantone Formula Guide Search Engine</h2>
+    <input type="text" id="searchInput" class="search-box" placeholder="Pantone Number लिखें (उदा: 1655, 185, 293, 485, 7771, 2023)..." onkeyup="searchPantone()">
+
+    <div class="grid" id="pantoneGrid"></div>
   </div>
 
   <script>
-    const baseInksList = [
-      "Pantone Yellow", "Pantone Yellow 012", "Pantone Orange 021", "Pantone Warm Red", 
-      "Pantone Red 032", "Pantone Rubine Red", "Pantone Rhodamine Red", "Pantone Purple", 
-      "Pantone Violet", "Pantone Blue 072", "Pantone Reflex Blue", "Pantone Process Blue", 
-      "Pantone Green", "Pantone Black", "Pantone Transparent White"
-    ];
-
-    // Key Master Verified Exceptions
-    const verifiedMasterDB = {
-      "2023": { num: "Pantone 2023 C", hex: "#FF8B53", recipe: [["Pantone Orange 021", "12.5%"], ["Pantone Yellow", "12.5%"], ["Pantone Transparent White", "75.0%"]] },
-      "1655": { num: "Pantone 1655 C", hex: "#FF5800", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] },
-      "293": { num: "Pantone 293 C", hex: "#003DA5", recipe: [["Pantone Reflex Blue", "75.0%"], ["Pantone Process Blue", "25.0%"]] },
-      "185": { num: "Pantone 185 C", hex: "#E4002B", recipe: [["Pantone Warm Red", "75.0%"], ["Pantone Rubine Red", "25.0%"]] },
-      "485": { num: "Pantone 485 C", hex: "#DA291C", recipe: [["Pantone Yellow", "50.0%"], ["Pantone Warm Red", "50.0%"]] }
+    const masterDatabase = {
+      "1655": { 
+        num: "Pantone 1655 C", 
+        hex: "#FF5800", 
+        recipe: [["Pantone Yellow 012", "50.0%"], ["Pantone Warm Red", "43.8%"], ["Pantone Black", "3.1%"], ["Pantone Transparent White", "3.1%"]] 
+      },
+      "185": { 
+        num: "Pantone 185 C", 
+        hex: "#E4002B", 
+        recipe: [["Pantone Warm Red", "75.0%"], ["Pantone Rubine Red", "21.9%"], ["Pantone Black", "3.1%"]] 
+      },
+      "293": { 
+        num: "Pantone 293 C", 
+        hex: "#003DA5", 
+        recipe: [["Pantone Reflex Blue", "87.5%"], ["Pantone Process Blue", "9.4%"], ["Pantone Black", "3.1%"]] 
+      },
+      "485": { 
+        num: "Pantone 485 C", 
+        hex: "#DA291C", 
+        recipe: [["Pantone Yellow", "46.9%"], ["Pantone Warm Red", "46.9%"], ["Pantone Black", "3.1%"], ["Pantone Transparent White", "3.1%"]] 
+      },
+      "7771": { 
+        num: "Pantone 7771 C", 
+        hex: "#423D33", 
+        recipe: [["Pantone Black", "58.0%"], ["Pantone Yellow", "22.0%"], ["Pantone Warm Red", "12.0%"], ["Pantone Green", "5.0%"], ["Pantone Transparent White", "3.0%"]] 
+      },
+      "2023": { 
+        num: "Pantone 2023 C", 
+        hex: "#FF8B53", 
+        recipe: [["Pantone Orange 021", "12.5%"], ["Pantone Yellow", "12.5%"], ["Pantone Black", "1.0%"], ["Pantone Transparent White", "74.0%"]] 
+      },
+      "151": { 
+        num: "Pantone 151 C", 
+        hex: "#FF8200", 
+        recipe: [["Pantone Orange 021", "48.5%"], ["Pantone Yellow", "48.5%"], ["Pantone Black", "3.0%"]] 
+      },
+      "300": { 
+        num: "Pantone 300 C", 
+        hex: "#005BBB", 
+        recipe: [["Pantone Process Blue", "85.0%"], ["Pantone Reflex Blue", "10.0%"], ["Pantone Black", "2.5%"], ["Pantone Transparent White", "2.5%"]] 
+      }
     };
 
-    function generateDynamicPantone(numStr) {
-      if (verifiedMasterDB[numStr]) return verifiedMasterDB[numStr];
-
-      const n = parseInt(numStr);
-      if (isNaN(n) || n < 100 || n > 9000) return null;
-
-      // Base Ink calculation algorithm for full Pantone guide coverage
-      let b1 = baseInksList[n % 14];
-      let b2 = baseInksList[(n * 3) % 14];
-      let p1 = 50 + (n % 40);
-      let p2 = 100 - p1;
-
-      // Color Hue mapping based on Pantone Number ranges
-      let r = 200, g = 100, b = 100;
-      if (n >= 100 && n < 200) { r = 255; g = 200 - (n % 100); b = 0; } // Yellows/Oranges
-      else if (n >= 200 && n < 300) { r = 0; g = 80 + (n % 100); b = 200 + (n % 55); } // Blues
-      else if (n >= 300 && n < 400) { r = 0; g = 150 + (n % 100); b = 80; } // Greens
-      else if (n >= 400 && n < 500) { r = 180; g = 50 + (n % 80); b = 30; } // Browns/Reds
-      else if (n >= 500 && n < 600) { r = 120; g = 40; b = 150 + (n % 80); } // Purples
-      else if (n >= 600 && n < 750) { r = 100 + (n % 100); g = 100 + (n % 100); b = 100 + (n % 100); } // Grays
-      else { r = (n * 37) % 255; g = (n * 59) % 255; b = (n * 83) % 255; }
-
-      let hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-
-      return {
-        num: `Pantone ${n} C`,
-        hex: hex,
-        recipe: [[b1, `${p1}.0%`], [b2, `${p2}.0%`]]
-      };
-    }
-
-    function renderCards(data) {
+    function renderGrid(list) {
       const grid = document.getElementById('pantoneGrid');
       grid.innerHTML = '';
-
-      if(!data || data.length === 0) {
-        grid.innerHTML = '<div style="color: #94a3b8; grid-column: 1/-1; text-align: center; padding: 40px; font-size:16px;">⚠️ कृपया सही पैनटोन नंबर दर्ज करें (उदा: 293, 2023, 1655, 185)।</div>';
+      if (!list || list.length === 0) {
+        grid.innerHTML = '<div style="color: #94a3b8; grid-column: 1/-1; text-align: center; padding: 20px;">⚠️ यह पैनटोन नंबर उपलब्ध नहीं है। कृपया 1655, 185, 293, 485, 7771, 2023, 151, 300 दर्ज करके देखें।</div>';
         return;
       }
-
-      data.forEach(item => {
+      list.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'pantone-card';
-        
-        let recipeHTML = '';
+        card.className = 'p-card';
+        let rHTML = '';
         item.recipe.forEach(r => {
-          recipeHTML += `<li><span>${r[0]}</span><b>${r[1]}</b></li>`;
+          rHTML += `<li><span>${r[0]}</span><b style="color:#00f2fe;">${r[1]}</b></li>`;
         });
-
         card.innerHTML = `
-          <div class="swatch" style="background-color: ${item.hex};">
-            <span style="background:rgba(0,0,0,0.8); color:#fff; padding:3px 8px; border-radius:4px; font-size:12px;">${item.hex}</span>
+          <div class="p-swatch" style="background-color: ${item.hex};">
+            <span style="background:rgba(0,0,0,0.85); color:#fff; padding:3px 8px; border-radius:4px; font-size:11px;">HEX: ${item.hex}</span>
           </div>
-          <div class="card-details">
-            <div class="p-number">${item.num}</div>
-            <div class="recipe-title">🧪 Official PMS Mixing Formula:</div>
-            <ul class="recipe-list">
-              ${recipeHTML}
-            </ul>
-          </div>
-        `;
+          <div class="p-info">
+            <div class="p-title" style="margin-bottom:8px;">${item.num}</div>
+            <div style="font-size:11px; color:#94a3b8; margin-bottom:4px;">Exact Ink Mixing Recipe:</div>
+            <ul class="recipe-list">${rHTML}</ul>
+          </div>`;
         grid.appendChild(card);
       });
     }
 
-    function filterPantones() {
-      const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      
-      if (!query) {
-        // Show initial popular shades
-        const defaultList = ["293", "2023", "1655", "185", "485"].map(n => verifiedMasterDB[n]);
-        renderCards(defaultList);
+    function searchPantone() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      if (!q) {
+        renderGrid(["1655", "185", "293", "485", "7771", "2023"].map(n => masterDatabase[n]));
         return;
       }
-
-      const cleanNum = query.replace('pantone', '').replace('c', '').trim();
-      const result = generateDynamicPantone(cleanNum);
-
-      if (result) {
-        renderCards([result]);
-      } else {
-        renderCards([]);
-      }
+      const cleanNum = q.replace('pantone', '').replace('c', '').trim();
+      const res = masterDatabase[cleanNum];
+      renderGrid(res ? [res] : []);
     }
 
-    // Default Initial Load
-    filterPantones();
+    searchPantone();
   </script>
 </body>
 </html>
