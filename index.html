@@ -281,30 +281,31 @@
 
   <!-- AUTHENTICATION & ₹499 PAYMENT SYSTEM OVERLAY -->
   <div id="auth-overlay">
-    <!-- STEP 1: MOBILE & PASSWORD OTP BOX -->
+    
+    <!-- 1. Phone & OTP Box -->
     <div class="auth-card" id="login-box">
       <h2>🔒 Secure Manual Access</h2>
-      <p>अमित संधू के टेक्निकल मैन्युअल को अनलॉक करने के लिए डिटेल्स भरें</p>
+      <p>अमित संधू के टेक्निकल मैनुअल को अनलॉक करने के लिए डिटेल्स भरें</p>
       
-      <input type="tel" id="mobile" class="input-field" placeholder="Mobile Number (+91)" maxlength="10">
-      <input type="password" id="pass" class="input-field" placeholder="Enter Security Password">
+      <input type="tel" id="mobile" class="input-field" placeholder="10-अंकों का मोबाइल नंबर" maxlength="10">
       
-      <button class="auth-btn" onclick="sendOTP()">Get OTP / Verify</button>
+      <button class="auth-btn" onclick="sendOTP()">Send OTP</button>
 
       <div id="otp-section" style="display:none; margin-top:15px;">
-        <input type="text" id="otp" class="input-field" placeholder="Enter 4-Digit OTP" maxlength="4">
-        <button class="auth-btn pay-btn" onclick="checkAccess()">Verify OTP & Continue</button>
+        <input type="text" id="otp" class="input-field" placeholder="6-अंकों का OTP दर्ज करें" maxlength="6">
+        <button class="auth-btn pay-btn" onclick="checkAccess()">Verify OTP</button>
       </div>
     </div>
 
-    <!-- STEP 2: PAYMENT GATEWAY (₹499) BOX -->
+    <!-- 2. Payment Gateway (₹499) Box -->
     <div class="auth-card" id="pay-box" style="display:none;">
       <h2>💳 Access Locked</h2>
-      <p>Master Offset Technical Manual का लाइफटाइम एक्सेस पाने के लिए सदस्यता लें।</p>
-      <div style="font-size: 34px; font-weight: 800; color: #38ef7d; margin: 15px 0;">₹499 <span style="font-size: 14px; color: #94a3b8;">/ Lifetime Access</span></div>
-      <button class="auth-btn pay-btn" onclick="processPayment()">Pay ₹499 & Unlock Manual</button>
+      <p>Master Offset Technical Manual का लाइफटाइम एक्सेस पाने के लिए ₹499 का भुगतान करें</p>
+      <button class="auth-btn pay-btn" onclick="processPayment()">Pay ₹499 Now</button>
     </div>
+
   </div>
+
 
   <!-- MAIN MANUAL CONTAINER (YOUR ORIGINAL COMPLETE DATA) -->
   <div class="manual-container" id="manualContainer">
