@@ -882,42 +882,33 @@
       'size': 'invisible'
     });
   };
-
- // Send OTP
+// Send OTP - Temporarily Bypassing for testing
 function sendOTP() {
   const mob = document.getElementById('mobile').value;
   
-  if (mob.length === 10) {
+  if (mob === "8059002339") {
+    // टेस्ट नंबर के लिए डायरेक्ट बाईपास
+    document.getElementById('otp-section').style.display = 'block';
+    alert("टेस्टिंग मोड: OTP बॉक्स खुल गया है, 223344 डालें!");
+  } else if (mob.length === 10) {
+    // असली नंबर के लिए Firebase SMS (original mode)
     const phoneNumber = "+91" + mob;
-    
-    // Check if recaptcha container exists
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-        'size': 'invisible',
-        'callback': (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber
-        }
-      });
-    }
-
     const appVerifier = window.recaptchaVerifier;
 
     firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
       .then((confirmationResult) => {
         confirmationResultObj = confirmationResult;
         document.getElementById('otp-section').style.display = 'block';
-        alert("आपके मोबाइल नंबर पर 6-अंकों का OTP भेज दिया गया है!");
+        alert("OTP भेज दिया गया है!");
       }).catch((error) => {
-        console.error(error);
-        alert("OTP भेजने में समस्या: " + error.message);
-        // Reset recaptcha on error
-        window.recaptchaVerifier.render().then(function(widgetId) {
-          grecaptcha.reset(widgetId);
-        });
+        alert("समस्या: " + error.message);
       });
   } else {
-    alert("कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें!");
+    alert("कृपया 10 अंकों का सही नंबर डालें!");
   }
+}
+
+ 
 }
   }
   }
