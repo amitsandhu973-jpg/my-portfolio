@@ -11,19 +11,112 @@
 
   gtag('config', 'G-G7X5MMBXGF');
 </script>
-  <!-- Website Password Lock -->
-  <script>
-      <script>
-    var password = "Amit@2255"; // 👈 यहाँ अपना पासवर्ड लिखें
-    var pass1 = prompt('यह अमित संधू का पर्सनल मैन्युअल है। कृपया पासवर्ड डालें:');
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Sandhu Technical Lab - Offset Printing & Packaging</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    if (pass1 !== password) {
-        alert('गलत पासवर्ड! कृपया पुनः प्रयास करें।');
-        location.reload(); // यह पेज को बंद करने के बजाय दोबारा लोड कर देगा
-    }
-  </script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
 
-  </script>
+    <!-- Recaptcha Container for Firebase OTP -->
+    <div id="recaptcha-container"></div>
+
+    <!-- Main Content Container (Initially hidden until OTP is verified) -->
+    <div id="main-content" class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl border border-slate-800 text-center" style="display: none;">
+        <span class="text-4xl">🔒</span>
+        <h2 class="text-2xl font-bold mt-2 mb-2 text-cyan-400">अमित संधू टेक्निकल लैब</h2>
+        <p class="text-xs text-gray-400 mb-6">ऑफसेट प्रिंटिंग और पैकेजिंग मैनुअल</p>
+
+        <!-- Razorpay Payment Section -->
+        <div class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700">
+            <h3 class="text-lg font-semibold mb-3">फुल एक्सेस अनलॉक करें</h3>
+            <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold rounded-lg shadow-lg transition duration-200">
+                Pay Now (₹100)
+            </button>
+        </div>
+    </div>
+
+    <!-- Script for Firebase OTP and Razorpay Integration -->
+    <script>
+        // आपकी असली Firebase कॉन्फ़िगरेशन डिटेल्स
+        const firebaseConfig = {
+            apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+            authDomain: "offset-manual-otp.firebaseapp.com",
+            projectId: "offset-manual-otp",
+            storageBucket: "offset-manual-otp.firebasestorage.app",
+            messagingSenderId: "311405464749",
+            appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
+            measurementId: "G-D4GK61ZXQD"
+        };
+
+        if (!firebase.apps.length) { 
+            firebase.initializeApp(firebaseConfig); 
+        }
+
+        window.onload = function () {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+
+            // पेज खुलते ही OTP प्रोसेस शुरू होगा
+            let userPhone = prompt("टेक्निकल मैनुअल देखने के लिए 10-अंकों का मोबाइल नंबर दर्ज करें:");
+            if(userPhone && userPhone.length === 10) {
+                firebase.auth().signInWithPhoneNumber('+91' + userPhone, window.recaptchaVerifier)
+                    .then(function (confirmationResult) {
+                        let code = prompt("आपके नंबर पर आया 6-अंकों का OTP दर्ज करें:");
+                        if(code) {
+                            return confirmationResult.confirm(code);
+                        }
+                    }).then(function (result) {
+                        // OTP सही होने पर वेबसाइट का कंटेंट दिख जाएगा
+                        alert("लॉगिन सफल रहा!");
+                        document.getElementById('main-content').style.display = 'block';
+                    }).catch(function (error) {
+                        alert('ऑथेंटिकेशन असफल: ' + error.message);
+                        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied!</h2>";
+                    });
+            } else {
+                alert("गलत नंबर दर्ज किया गया।");
+                document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied!</h2>";
+            }
+        };
+
+        // Razorpay Payment Script Logic
+        document.getElementById('pay-btn').onclick = function(e){
+            var options = {
+                "key": "rzp_test_TQhCeEkQqFITW0", // आपकी Razorpay टेस्ट की
+                "amount": "10000", // ₹100 (10000 paise)
+                "currency": "INR",
+                "name": "Amit Sandhu Technical Lab",
+                "description": "Offset Printing & Packaging Guide Access",
+                "handler": function (response){
+                    alert("पेमेंट सफल रहा! Payment ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "name": "Amit Sandhu",
+                    "email": "amitsandhu@gmail.com",
+                    "contact": "8059002339"
+                },
+                "theme": {
+                    "color": "#06b6d4"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
