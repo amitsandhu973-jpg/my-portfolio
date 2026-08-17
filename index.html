@@ -885,12 +885,13 @@
 
   // Send OTP
   function sendOTP() {
-    const mob = document.getElementById('mobile').value.trim();
-    if(mob.length === 10) {
-      const phoneNumber = "+91" + mob;
-      const appVerifier = window.recaptchaVerifier;
+      const mob = document.getElementById('mobile').value;
+  if (mob.length === 10) {
+    const phoneNumber = "+91" + mob;
+    const appVerifier = window.recaptchaVerifier;
 
-      firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+
         .then((confirmationResult) => {
           confirmationResultObj = confirmationResult;
           document.getElementById('otp-section').style.display = 'block';
