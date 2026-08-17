@@ -883,33 +883,7 @@
     });
   };
 
-// Send OTP - Temporarily Bypassing for testing
 
-}
-
-}
-
-}
-
- 
-}
-  }
-  }
-
-  // Verify OTP
-  function checkAccess() {
-    const otp = document.getElementById('otp').value.trim();
-    if(otp.length === 6 && confirmationResultObj) {
-      confirmationResultObj.confirm(otp).then((result) => {
-        alert("OTP वेरीफाई हो गया!");
-        document.getElementById('login-box').style.display = 'none';
-        document.getElementById('pay-box').style.display = 'block';
-      }).catch((error) => {
-        alert("गलत OTP दर्ज किया गया है!");
-      });
-    } else {
-      alert("कृपया 6-अंकों का OTP सही दर्ज करें।");
-    }
   }
 
   // Payment Function
