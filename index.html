@@ -100,12 +100,12 @@
                 "name": "Amit Sandhu Technical Lab",
                 "description": "Offset Printing & Packaging Guide Access",
                "handler": function (response){
-    alert("पेमेंट सफल रहा!");
-var content = document.getElementById("manual-content");
-content.style.filter = "none";
-content.style.pointerEvents = "auto";
-content.style.height = "auto";
-content.style.overflow = "visible";
+    alert("पेमेंट सफल रहा!"); 
+    // 1. ब्लर हटाएँ 
+   document.getElementById("manual-content").classList.remove("locked-content"); 
+    // 2. स्क्रॉल वापस चालू करें
+    document.body.style.overflow = "auto"; 
+
               
                       "prefill": {
                     "name": "Amit Sandhu",
@@ -566,12 +566,15 @@ content.style.overflow = "visible";
   font-size: 14px;
   border-top: 1px solid #334155;
 }
-
+.locked-content {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}
   </style>
 </head>
 <body>
-
-<div id="manual-content" class="manual-container" style="filter: blur(8px); pointer-events: none; user-select: none; height: 300px; overflow: hidden;">
+<div id="manual-content" class="manual-container locked-content">
   <!-- HEADER WITH PERMANENT PHOTO UPLOADER -->
   <div class="header-banner">
     <div class="header-title">
