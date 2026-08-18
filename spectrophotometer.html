@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Sandhu Technical Lab - Page 7: Spectrophotometer & Lab Color Management</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<!-- PAGE 7: SPECTROPHOTOMETER & L*a*b* CONTAINER -->
+<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+    
+    <!-- Top Header -->
+    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
+        <div>
+            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 7: स्पेक्ट्रोफोटोमीटर और L*a*b* कलर लैब</span>
+            <h1 class="text-2xl font-extrabold text-white mt-2">Spectrophotometer, CIELAB Color Space & Delta E (ΔE)</h1>
+        </div>
+        <span class="text-xs text-slate-400 font-mono">Shop-Floor Technical Data</span>
+    </div>
+
+    <!-- Technical Sections -->
+    <div class="space-y-4">
+        
+        <!-- Section 1 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. स्पेक्ट्रोफोटोमीटर का कार्य सिद्धांत (Spectrophotometer Principle)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                यह डिवाइस प्रिंटेड शीट पर रोशनी डालकर उससे रिफ्लेक्ट (Reflect) होने वाली वेववलेंथ (Wavelengths) को मापता है। यह केवल दिखने वाले रंगों का आंकलन नहीं करता, बल्कि हर रंग के स्पेक्ट्रल डेटा को रिकॉर्ड करके सटीक संख्यात्मक मान (Numerical Values) प्रदान करता है, जिससे ऑपरेटर प्रेस कंसोल पर तुरंत इंक की डेंसिटी को कैलिब्रेट कर सकता है।
+            </p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2">2. CIELAB कलर स्पेस और L*a*b* वैल्यू (CIELAB Space)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">यह मॉडल मानव आँख की तरह रंगों को तीन कोऑर्डिनेट्स में बांटता है:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
+                    <span class="text-xs font-bold text-cyan-400 block mb-1">L* (Lightness)</span>
+                    <p class="text-xs text-slate-300">चमक या लाइटनेस को दर्शाता है (0 = काला, 100 = शुद्ध सफेद)।</p>
+                </div>
+                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
+                    <span class="text-xs font-bold text-cyan-400 block mb-1">a* (Green to Red Axis)</span>
+                    <p class="text-xs text-slate-300">ऋनात्मक मान हरापन (-) और धनात्मक मान लालपन (+) दिखाता है।</p>
+                </div>
+                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
+                    <span class="text-xs font-bold text-cyan-400 block mb-1">b* (Blue to Yellow Axis)</span>
+                    <p class="text-xs text-slate-300">ऋनात्मक मान नीलापन (-) और धनात्मक मान पीलापन (+) दिखाता है।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. डेल्टा ई (ΔE - Color Difference)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                <strong>तकनीकी महत्व:</strong> डेल्टा ई (ΔE) दो रंगों के बीच के अंतर को मापता है (मास्टर स्टैंडर्ड और प्रिंटेड सैंपल के बीच)। पैकेजिंग इंडस्ट्री में, कड़े गुणवत्ता मानकों के तहत ΔE < 2.0 या ΔE < 1.5 को स्वीकार्य माना जाता है। अगर वैल्यू इससे ज्यादा है, तो इसका मतलब है कि रंग स्टैंडर्ड से भटक रहा है।
+            </p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">4. सॉलिड इंक डेंसिटी (SID) और डॉट गेन (Dot Gain / TVI)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                स्पेक्ट्रोफोटोमीटर के जरिए सीएमવાયके (CMYK) के सॉलिड पैच की डेंसिटी (যেমন Black: 1.65 - 1.75) और मिड-टोन (50%) पर डॉट गेन की प्रतिशत जांच की जाती है, ताकि प्रेस पर प्रिंटिंग टोन एकदम संतुलित रहे।
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer Note -->
+    <div class="mt-8 text-center border-t border-slate-800 pt-4">
+        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    </div>
+
+</div>
+
+</body>
+</html>
