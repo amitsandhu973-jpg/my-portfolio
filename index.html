@@ -56,22 +56,9 @@
         </button>
     </div>
 </div>
-
-<!-- 2. नीचे का हिस्सा: ऑफसेट मैनुअल डेटा (यह ब्लर और लॉक रहेगा जब तक पेमेंट न हो) -->
+!-- 2. नीचे का हिस्सा: ऑफसेट मैनुअल डेटा (यह ब्लर और लॉक रहेगा जब तक पेमेंट न हो) -->
 <div id="manual-content" class="manual-container locked-content">
 
-    <!-- Razorpay Payment Section (Initially Hidden until OTP is verified) -->
-    <div id="payment-section" class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
-        <h3 class="text-lg font-semibold mb-3">फुल एक्सेस अनलॉक करें</h3>
-        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg">
-            Pay Now (₹399)
-        </button>
-    </div>
-</div>
-
-<!-- 2. यह नीचे वाला मैनुअल डेटा है (यह अब अलग है, इसलिए यही सिर्फ ब्लर और लॉक रहेगा) -->
-<div id="manual-content" class="manual-container locked-content">
-    <!-- यहाँ से आपका नीचे का सारा ऑफसेट मैनुअल डेटा शुरू होगा -->
     <!-- Script for Firebase OTP and Razorpay Integration -->
     <script>
         // आपकी असली Firebase कॉन्फ़िगरेशन डिटेल्स
@@ -94,32 +81,48 @@
                 'size': 'invisible'
             });
 
-            // पेज खुलते ही OTP प्रोसेस शुरू होगा
-            let userPhone = prompt("टेक्निकल मैनुअल देखने के लिए 10-अंकों का मोबाइल नंबर दर्ज करें:");
-            if(userPhone && userPhone.length === 10) {
-                firebase.auth().signInWithPhoneNumber('+91' + userPhone, window.recaptchaVerifier)
-                    .then(function (confirmationResult) {
-                        let code = prompt("आपके नंबर पर आया 6-अंकों का OTP दर्ज करें:");
-                        if(code) {
-                            return confirmationResult.confirm(code);
-                        }
-                    }).then(function (result) {
-                        // OTP सही होने पर वेबसाइट का कंटेंट दिख जाएगा
-                        alert("लॉगिन सफल रहा!");
-                        document.getElementById('main-content').style.display = 'block';
-                    }).catch(function (error) {
-                        alert('ऑथेंटिकेशन असफल: ' + error.message);
-                        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied!</h2>";
-                    });
-            } else {
-                alert("गलत नंबर दर्ज किया गया।");
-                document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:red;'>Access Denied!</h2>";
-            }
-        };
+window.onload = function () {
+    // रीकैप्चा सेट करना
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible'
+    });
+};
 
-        // Razorpay Payment Script Logic
-        document.getElementById('pay-btn').onclick = function(e){
-            var options = {
+// 'OTP भेजें' बटन का काम
+document.getElementById('send-otp-btn').onclick = function() {
+    let userPhone = document.getElementById('phone').value;
+    if(userPhone && userPhone.length >= 10) {
+        firebase.auth().signInWithPhoneNumber('+91' + userPhone, window.recaptchaVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP भेज दिया गया है!");
+                document.getElementById('otp-box').style.display = 'block'; // OTP वाला बॉक्स दिखाएगा
+            }).catch(function (error) {
+                alert("OTP भेजने में एरर: " + error.message);
+                grecaptcha.reset(window.recaptchaVerifier);
+            });
+    } else {
+        alert("कृपया सही मोबाइल नंबर दर्ज करें।");
+    }
+};
+
+// 'OTP वेरीफाई करें' बटन का काम
+document.getElementById('verify-otp-btn').onclick = function() {
+    let code = document.getElementById('otp').value;
+    if(code) {
+        window.confirmationResult.confirm(code).then(function (result) {
+            alert("लॉगिन सफल रहा! अब पेमेंट कर सकते हैं।");
+            document.getElementById('otp-box').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'block'; // अब पेमेंट बटन दिखाएगा
+        }).catch(function (error) {
+            alert("गलत OTP! कृपया दोबारा चेक करें।");
+        });
+    } else {
+        alert("कृपया OTP दर्ज करें।");
+    }
+};
+
+          
                 "key": "rzp_test_TQhCeEkQqFITW0", // आपकी Razorpay टेस्ट की
                 "amount": "10000", // ₹100 (10000 paise)
                 "currency": "INR",
