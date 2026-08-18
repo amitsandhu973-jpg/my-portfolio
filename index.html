@@ -3,133 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Master Manual Dashboard</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Offset Printing & Packaging Technical Manual - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .profile-glow { box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<!-- MAIN DASHBOARD CONTAINER -->
-<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+<div class="w-full max-w-2xl space-y-4">
     
-    <!-- Header -->
-    <div class="text-center mb-8 border-b border-slate-800 pb-6">
-        <span class="text-5xl">🖨️</span>
-        <h1 class="text-3xl font-extrabold mt-3 text-cyan-400">अमित संधु टेक्निकल लैब</h1>
-        <p class="text-sm text-slate-300 mt-1">ऑफ़सेट प्रिंटिंग और पैकेजिंग मास्टर टेक्निकल मैनुअल (डैशबोर्ड)</p>
-        <p class="text-xs text-emerald-400 mt-2 font-semibold">🔒 फुल एक्सेस स्थिति: <span id="access-status">जाँच की जा रही है...</span></p>
+    <!-- HEADER TITLE -->
+    <div class="text-center space-y-1 mb-4">
+        <h1 class="text-xl md:text-2xl font-black text-cyan-400 tracking-wide uppercase">Offset Printing & Packaging Technical Manual</h1>
+        <p class="text-xs text-slate-400">Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
     </div>
 
-    <!-- Quick Navigation Grid (All 14 Pages Links with href) -->
-    <h2 class="text-sm font-bold text-cyan-300 uppercase tracking-wider mb-4">मैनुअल के सभी चैप्टर्स (Chapters Navigation)</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- Page 1 & 2 -->
-        <a href="auth-payment.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 1 & 2</span>
-            <h3 class="text-sm font-bold text-white mt-1">लॉगिन, OTP और पेमेंट गेटवे</h3>
-        </a>
-
-        <!-- Page 3 -->
-        <a href="author-card.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 3</span>
-            <h3 class="text-sm font-bold text-white mt-1">ऑथर और क्रिएटर प्रोफाइल (Amit Sandhu)</h3>
-        </a>
-
-        <!-- Page 4 -->
-        <a href="principles.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 4</span>
-            <h3 class="text-sm font-bold text-white mt-1">ऑफ़सेट प्रिंटिंग मूल सिद्धांत (Principles)</h3>
-        </a>
-
-        <!-- Page 5 -->
-        <a href="machine-specs.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 5</span>
-            <h3 class="text-sm font-bold text-white mt-1">मशीन स्पेसिफिकेशन्स और पार्ट्स (Heidelberg/Komori)</h3>
-        </a>
-
-        <!-- Page 6 -->
-        <a href="ink-chemistry.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 6</span>
-            <h3 class="text-sm font-bold text-white mt-1">इंक केमिस्ट्री, डेंसिटी, विस्कोसिटी और टैक</h3>
-        </a>
-
-        <!-- Page 7 -->
-        <a href="spectrophotometer.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 7</span>
-            <h3 class="text-sm font-bold text-white mt-1">स्पेक्ट्रोफोटोमीटर, Lab वैल्यू और ΔE</h3>
-        </a>
-
-        <!-- Page 8 -->
-        <a href="defects.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 8</span>
-            <h3 class="text-sm font-bold text-white mt-1">30 प्रिंटिंग डिफेक्ट्स और ट्रबलशूटिंग</h3>
-        </a>
-
-        <!-- Page 9 -->
-        <a href="raw-materials.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 9</span>
-            <h3 class="text-sm font-bold text-white mt-1">रॉ मटेरियल: पेपर, बोर्ड और कोटिंग्स</h3>
-        </a>
-
-        <!-- Page 10 -->
-        <a href="quality-control.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 10</span>
-            <h3 class="text-sm font-bold text-white mt-1">क्वालिटी कंट्रोल और शॉप-फ्लोर टेस्ट्स</h3>
-        </a>
-
-        <!-- Page 11 -->
-        <a href="pantone-recipe.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 11</span>
-            <h3 class="text-sm font-bold text-white mt-1">पेंटोन गाइड और 14 बेस कलर रेसिपी</h3>
-        </a>
-
-        <!-- Page 12 -->
-        <a href="tech-hints.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 12</span>
-            <h3 class="text-sm font-bold text-white mt-1">40 टेक्निकल हिंट्स और सीक्रेट्स</h3>
-        </a>
-
-        <!-- Page 13 -->
-        <a href="experiments.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
-            <span class="text-xs font-bold text-cyan-400">पेज 13</span>
-            <h3 class="text-sm font-bold text-white mt-1">10 नए प्रिंटिंग एक्सपेरिमेंट्स</h3>
-        </a>
-
-        <!-- Page 14 -->
-        <a href="questions-answers.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block md:col-span-2">
-            <span class="text-xs font-bold text-cyan-400">पेज 14</span>
-            <h3 class="text-sm font-bold text-white mt-1">150 एडवांस टेक्निकल क्वेश्चंस और सेपरेट आंसर बैंक</h3>
-        </a>
-
+    <!-- PROFILE CARD -->
+    <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <div class="relative">
+                <div class="w-20 h-20 rounded-full p-0.5 bg-gradient-to-tr from-cyan-400 to-blue-600 profile-glow flex items-center justify-center overflow-hidden">
+                    <span class="text-3xl bg-slate-900 w-full h-full rounded-full flex items-center justify-center">👨‍💻</span>
+                </div>
+                <span class="absolute bottom-0 right-0 bg-cyan-500 text-slate-950 text-xs font-bold px-1.5 py-0.5 rounded-full">✓</span>
+            </div>
+            
+            <div class="text-center sm:text-left space-y-1">
+                <span class="text-[10px] font-bold bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded-full border border-cyan-800 uppercase tracking-wider">Created By Amit Sandhu</span>
+                <h2 class="text-lg font-bold text-white">Amit Sandhu</h2>
+                <p class="text-xs text-slate-300"><b>Role:</b> Production Supervisor</p>
+                <p class="text-xs text-slate-300"><b>Company:</b> Kumar Printers Pvt. Ltd.</p>
+                <p class="text-xs text-slate-300"><b>Degree:</b> B.Tech (Printing & Packaging Tech)</p>
+                <p class="text-xs text-slate-300"><b>Experience:</b> 6+ Years Technical Industry Exp.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <div class="mt-8 text-center border-t border-slate-800 pt-4">
-        <p class="text-xs font-bold text-slate-400 tracking-wider">CREATED BY AMIT SANDHU | MASTER TECHNICAL MANUAL</p>
+    <!-- ALL 14 CHAPTERS NAVIGATION BUTTONS -->
+    <div class="space-y-2 pt-2">
+        <a href="auth-payment.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-cyan-400 transition shadow-md">
+            Page 1 & 2: Login, OTP & Payment Gateway
+        </a>
+        <a href="author-card.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 3: Author & Creator Profile
+        </a>
+        <a href="principles.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 4: Offset Mechanics & Physical Principles
+        </a>
+        <a href="machine-specs.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 5: Machine Specifications & Parts (Heidelberg/Komori)
+        </a>
+        <a href="ink-chemistry.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 6: Ink Chemistry, Density, Viscosity & Tack
+        </a>
+        <a href="spectrophotometer.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 7: Spectrophotometer, Lab Values & ΔE
+        </a>
+        <a href="defects.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 8: Deep 30 Defect Solutions & Troubleshooting
+        </a>
+        <a href="raw-materials.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 9: Raw Materials: Paper, Board & Coatings
+        </a>
+        <a href="quality-control.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 10: Quality Control & Shop-Floor Tests
+        </a>
+        <a href="pantone-recipe.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 11: Pantone Guide & 14 Base Color Recipes
+        </a>
+        <a href="tech-hints.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 12: 40 Technical Hints & Secrets
+        </a>
+        <a href="experiments.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-cyan-400 transition shadow-md">
+            Page 13: 10 Printing Experiments
+        </a>
+        <a href="questions-answers.html" class="block w-full py-2.5 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-xs font-bold text-cyan-400 transition shadow-md">
+            Page 14: 150 Advanced Technical Questions & Answer Bank
+        </a>
+    </div>
+
+    <!-- SAMPLE CONTENT SECTION -->
+    <div class="glass-card p-6 rounded-2xl border border-slate-800 mt-6 space-y-4">
+        <h2 class="text-base font-extrabold text-cyan-400">1. Deep Offset Printing Mechanics & Physical Principles</h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना) पर आधारित है। CTP प्लेट की सतह समतल (Planographic) होती है:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-xs text-slate-300">
+            <li><b>Image Area (इमेज क्षेत्र):</b> Photopolymer Layer जो Oleophilic (इंक-आकर्षक) तथा Hydrophobic (जल-विरोधी) होता है। इसकी सरफेस एनर्जी लगभग 30-35 mN/m होती है।</li>
+        </ul>
+    </div>
+
+    <div class="text-center pt-4">
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Amit Sandhu Technical Lab - Master Manual</p>
     </div>
 
 </div>
-
-<!-- Script to check access -->
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('isManualUnlocked') === 'true') {
-            document.getElementById('access-status').innerText = 'अनलक्ड (Unlocked)';
-            document.getElementById('access-status').className = 'text-xs text-emerald-400 font-semibold';
-        } else {
-            document.getElementById('access-status').innerText = 'लॉक है - पहले पेज 1/2 से पेमेंट करें (Locked)';
-            document.getElementById('access-status').className = 'text-xs text-amber-400 font-semibold';
-        }
-    });
-</script>
 
 </body>
 </html>
