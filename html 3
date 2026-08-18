@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offset Printing & Packaging Technical Manual - Amit Sandhu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .author-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        @media (min-width: 640px) { .author-card { flex-direction: row; text-align: left; } }
+        .profile-photo-wrapper { position: relative; width: 80px; height: 80px; border-radius: 9999px; cursor: pointer; padding: 2px; background: linear-gradient(to top right, #22d3ee, #2563eb); box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .author-img { width: 100%; height: 100%; object-fit: cover; border-radius: 9999px; }
+        .photo-upload-overlay { position: absolute; bottom: 0; right: 0; background-color: #06b6d4; color: #030712; font-size: 12px; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid #0f172a; }
+        .locked { cursor: not-allowed; opacity: 0.5; pointer-events: none; border: 1px solid #334155; }
+        .unlocked { cursor: pointer; opacity: 1; border: 1px solid #22d3ee; }
+        .vip-badge { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #fff; border: 1px solid #38bdf8; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+<div class="w-full max-w-2xl space-y-4">
+    
+    <!-- HEADER TITLE & VIP COMPLIANCE BADGE -->
+    <div class="text-center space-y-2 mb-2">
+        <h1 class="text-xl md:text-2xl font-black text-cyan-400 tracking-wide uppercase">Offset Printing & Packaging Technical Manual</h1>
+        <p class="text-xs text-slate-400">Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
+        <div class="inline-block vip-badge text-[10px] px-3 py-1 rounded-full font-mono uppercase tracking-wider mt-1">
+            Industrial Standard Compliant | ISO & G7 Calibration Reference Manual
+        </div>
+    </div>
+
+    <!-- LOGIN & OTP / PAYMENT ACCESS BAR -->
+    <div id="statusHeader" class="glass-card p-4 rounded-2xl flex flex-col gap-3 border border-cyan-500/30">
+        <div id="userStatus" class="text-xs font-bold text-amber-400 text-center">Status: 🔒 Locked (Login via OTP & Pay to Unlock)</div>
+        
+        <!-- Step 1: Mobile Input & Send OTP -->
+        <div id="mobileStep" class="flex flex-col sm:flex-row gap-2">
+            <input type="text" id="mobileNumber" placeholder="Enter Mobile (+91...)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
+            <button onclick="sendOTP()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
+                Send OTP / Login
+            </button>
+        </div>
+
+        <!-- Step 2: Enter OTP (Hidden initially) -->
+        <div id="otpStep" class="hidden flex flex-col sm:flex-row gap-2">
+            <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
+            <button onclick="verifyOTP()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
+                Verify OTP & Pay ₹499
+            </button>
+        </div>
+    </div>
+
+    <!-- Invisible Recaptcha Container -->
+    <div id="recaptcha-container"></div>
+
+    <!-- AUTHOR PROFILE CARD -->
+    <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
+        <div class="author-card">
+            <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
+                <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+                <div class="photo-upload-overlay">+</div>
+                <input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="loadPhoto(event)">
+            </div>
+
+            <div class="author-info space-y-1 text-center sm:text-left">
+                <div class="text-[10px] font-bold bg-cyan-950 text-cyan-400 px-2.5 py-0.5 rounded-full border border-cyan-800 uppercase tracking-wider inline-block">CREATED BY AMIT SANDHU</div>
+                <h3 class="text-lg font-bold text-white">Amit Sandhu</h3>
+                <p class="text-xs text-slate-300"><strong>Role:</strong> Production Supervisor</p>
+                <p class="text-xs text-slate-300"><strong>Company:</strong> Kumar Printers Pvt. Ltd.</p>
+                <p class="text-xs text-slate-300"><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</p>
+                <p class="text-xs text-slate-300"><strong>Experience:</strong> 6+ Years Technical Industry Exp.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11 CHAPTERS NAVIGATION BUTTONS (LOCKED BY DEFAULT) -->
+    <div id="chaptersList" class="space-y-2.5 pt-2">
+        <a href="machine-specs.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 1: Machine Specifications & Parts (Heidelberg/Komori)</a>
+        <a href="ink-chemistry.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 2: Ink Chemistry, Density, Viscosity & Tack</a>
+        <a href="spectrophotometer.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 3: Spectrophotometer, Lab Values & ΔE</a>
+        <a href="defects.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 4: Deep 30 Defect Solutions & Troubleshooting</a>
+        <a href="raw-materials.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 5: Raw Materials: Paper, Board & Coatings</a>
+        <a href="quality-control.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 6: Quality Control & Shop-Floor Tests</a>
+        <a href="pantone-recipe.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 7: Pantone Guide & 14 Base Color Recipes</a>
+        <a href="tech-hints.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 8: 40 Technical Hints & Secrets</a>
+        <a href="experiments.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 9: 10 Printing Experiments</a>
+        <a href="questions-answers.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 10: 150 Advanced Technical Questions & Answer Bank</a>
+        <a href="calculations.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 11: Packaging Calculations & Estimation Formulae</a>
+    </div>
+
+    <!-- VIP SECURE FOOTER WATERMARK -->
+    <div class="text-center pt-4 space-y-1">
+        <p class="text-[10px] text-cyan-400 font-mono tracking-wider">Authorized Copy — Licensed & Secured for Professional Use © 2026</p>
+        <p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Amit Sandhu Technical Lab — Kumar Printers Standard</p>
+    </div>
+
+</div>
+
+<script>
+    // Firebase Initialization
+    const firebaseConfig = {
+        apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+        authDomain: "offset-manual-otp.firebaseapp.com",
+        projectId: "offset-manual-otp",
+        storageBucket: "offset-manual-otp.appspot.com",
+        messagingSenderId: "311405464749",
+        appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
+        measurementId: "G-D4GK61ZXQD"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // 🔴 यहाँ अपना खुद का मोबाइल नंबर दर्ज करें (बिना +91 के, जैसे "8059002339")
+    const ADMIN_MOBILE = "8059002339"; 
+
+    // फोटो अपलोड फंक्शन
+    function loadPhoto(event) {
+        const reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById('userPhoto').src = reader.result;
+        };
+        if(event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
+
+    // Send OTP / Admin Bypass Function
+    function sendOTP() {
+        let phoneNumber = document.getElementById('mobileNumber').value.trim();
+        
+        if(phoneNumber.length < 10) {
+            alert('कृपया सही मोबाइल नंबर दर्ज करें!');
+            return;
+        }
+
+        // 👉 अगर नंबर आपका (Admin) है, तो सब कुछ डायरेक्ट अनलॉक कर दो (Bypass)
+        if(phoneNumber.includes(ADMIN_MOBILE)) {
+            alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
+            grantFullAccess("Admin Mode (Bypassed)");
+            return;
+        }
+
+        // 🟢 आम ग्राहकों के लिए नॉर्मल Firebase OTP चालू रहेगा
+        if(!phoneNumber.startsWith('+')) {
+            phoneNumber = '+91' + phoneNumber;
+        }
+
+        if(!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+        }
+
+        const appVerifier = window.recaptchaVerifier;
+        auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
+                document.getElementById('mobileStep').classList.add('hidden');
+                document.getElementById('otpStep').classList.remove('hidden');
+                document.getElementById('userStatus').innerText = "Status: Enter the OTP received on your phone";
+            })
+            .catch(function (error) {
+                console.error("SMS Error: ", error);
+                alert("OTP भेजने में विफल: " + error.message);
+            });
+    }
+
+    // Verify OTP for Customers & Trigger Razorpay
+    function verifyOTP() {
+        let otp = document.getElementById('otpInput').value;
+        if(otp.length < 6) {
+            alert('कृपया पूरा 6-अंकों का OTP दर्ज करें!');
+            return;
+        }
+
+        window.confirmationResult.confirm(otp).then(function (result) {
+            alert("मोबाइल नंबर वेरिफाई हो गया! अब पेमेंट प्रक्रिया शुरू हो रही है।");
+            startPayment();
+        }).catch(function (error) {
+            alert("गलत OTP! कृपया दोबारा प्रयास करें।");
+        });
+    }
+
+    // Razorpay Payment Gateway for Customers
+    function startPayment() {
+        var options = {
+            "key": "rzp_test_TRMTWkjgDFBoz3", 
+            "amount": "49900", // ₹499
+            "currency": "INR",
+            "name": "Amit Sandhu Technical Manual",
+            "description": "Full Access to 11 Technical Chapters",
+            "image": "1774396860127.png",
+            "handler": function (response){
+                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                grantFullAccess("Paid Customer");
+            },
+            "theme": {
+                "color": "#06b6d4"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+
+    // Common function to unlock everything
+    function grantFullAccess(modeText) {
+        document.getElementById('userStatus').innerText = "Status: ✅ Unlocked (" + modeText + ")";
+        document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
+        document.getElementById('mobileStep').classList.add('hidden');
+        document.getElementById('otpStep').classList.add('hidden');
+
+        // ताले हटाकर सारे चैप्टर्स खोलना
+        document.querySelectorAll('.chapter-link').forEach(link => {
+            link.classList.replace('locked', 'unlocked');
+            link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
+            link.innerText = link.innerText.replace('🔒', '📖');
+        });
+    }
+</script>
+
+</body>
+</html>
