@@ -23,16 +23,20 @@
         .photo-upload-overlay { position: absolute; bottom: 0; right: 0; background-color: #06b6d4; color: #030712; font-size: 12px; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid #0f172a; }
         .locked { cursor: not-allowed; opacity: 0.5; pointer-events: none; border: 1px solid #334155; }
         .unlocked { cursor: pointer; opacity: 1; border: 1px solid #22d3ee; }
+        .vip-badge { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #fff; border: 1px solid #38bdf8; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
 <div class="w-full max-w-2xl space-y-4">
     
-    <!-- HEADER TITLE -->
-    <div class="text-center space-y-1 mb-4">
+    <!-- HEADER TITLE & VIP COMPLIANCE BADGE -->
+    <div class="text-center space-y-2 mb-2">
         <h1 class="text-xl md:text-2xl font-black text-cyan-400 tracking-wide uppercase">Offset Printing & Packaging Technical Manual</h1>
         <p class="text-xs text-slate-400">Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
+        <div class="inline-block vip-badge text-[10px] px-3 py-1 rounded-full font-mono uppercase tracking-wider mt-1">
+            Industrial Standard Compliant | ISO & G7 Calibration Reference Manual
+        </div>
     </div>
 
     <!-- LOGIN & OTP / PAYMENT ACCESS BAR -->
@@ -91,11 +95,13 @@
         <a href="tech-hints.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 8: 40 Technical Hints & Secrets</a>
         <a href="experiments.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 9: 10 Printing Experiments</a>
         <a href="questions-answers.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 10: 150 Advanced Technical Questions & Answer Bank</a>
-        <a href="calculations.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 11: Advanced Packaging Standard Procedures</a>
+        <a href="calculations.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 11: Packaging Calculations & Estimation Formulae</a>
     </div>
 
-    <div class="text-center pt-4">
-        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Amit Sandhu Technical Lab - Master Manual</p>
+    <!-- VIP SECURE FOOTER WATERMARK -->
+    <div class="text-center pt-4 space-y-1">
+        <p class="text-[10px] text-cyan-400 font-mono tracking-wider">Authorized Copy — Licensed & Secured for Professional Use © 2026</p>
+        <p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Amit Sandhu Technical Lab — Kumar Printers Standard</p>
     </div>
 
 </div>
@@ -225,4 +231,3 @@
 
 </body>
 </html>
-
