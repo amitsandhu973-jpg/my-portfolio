@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head> 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G7X5MMBXGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G7X5MMBXGF');
+</script>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Sandhu Technical Lab - Offset Printing & Packaging</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+ <!-- Recaptcha Container (Firebase OTP के लिए जरूरी है) -->
+<div id="recaptcha-container"></div>
+
+<!-- लॉगिन और पेमेंट बॉक्स -->
+<div class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl mb-6">
+    <span class="text-4xl">🔒</span>
+    <h2 class="text-2xl font-bold mt-2 mb-2 text-cyan-400">अमित संधु टेक्निकल लैब</h2>
+    <p class="text-xs text-gray-400 mb-4">लॉगिन करने के लिए मोबाइल नंबर दर्ज करें</p>
+    
+    <!-- Phone Number Input -->
+    <div class="mb-4">
+        <input type="tel" id="phone" placeholder="मोबाइल नंबर दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
+        <button id="send-otp-btn" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg">OTP भेजें</button>
+    </div>
+
+    <!-- OTP Input Box (Initially Hidden) -->
+    <div id="otp-box" class="mb-4" style="display: none;">
+        <input type="text" id="otp" placeholder="6-अंकों का OTP दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
+        <button id="verify-otp-btn" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg">OTP वेरीफाई करें</button>
+    </div>
+
+    <!-- Razorpay Payment Section (Initially Hidden) -->
+    <div id="payment-section" class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
+        <h3 class="text-lg font-semibold mb-3">फुल एक्सेस अनलॉक करें</h3>
+        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg">
+            Pay Now (₹399)
+        </button>
+    </div>
+</div>
+
+<!-- नीचे का मैनुअल डेटा जो ब्लर और लॉक रहेगा -->
+<div id="manual-content" class="manual-container locked-content">
+    <!-- Script for Firebase OTP and Razorpay Integration -->
+    <script>
+        // आपकी असली Firebase कॉन्फ़िगरेशन डिटेल्स
+        const firebaseConfig = {
+            apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+            authDomain: "offset-manual-otp.firebaseapp.com",
+            projectId: "offset-manual-otp",
+            storageBucket: "offset-manual-otp.firebasestorage.app",
+            messagingSenderId: "311405464749",
+            appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
+            measurementId: "G-D4GK61ZXQD"
+        };
+
+        if (!firebase.apps.length) { 
+            firebase.initializeApp(firebaseConfig); 
+        }
+
+        window.onload = function () {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+
+window.onload = function () {
+    // रीकैप्चा सेट करना
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible'
+    });
+};
+
+// 'OTP भेजें' बटन का काम
+document.getElementById('send-otp-btn').onclick = function() {
+    let rawPhone = document.getElementById('phone').value.trim();
+    
+    // अगर नंबर के आगे +91 नहीं लगा है, तो अपने आप जोड़ देगा
+    let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
+
+    if(userPhone.length >= 12) {
+        firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP भेज दिया गया है!");
+                document.getElementById('otp-box').style.display = 'block'; 
+            }).catch(function (error) {
+                alert("OTP भेजने में एरर: " + error.message);
+                grecaptcha.reset(window.recaptchaVerifier);
+            });
+    } else {
+        alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
+    }
+};
+
+// 'OTP वेरीफाई करें' बटन का काम
+document.getElementById('verify-otp-btn').onclick = function() {
+    let code = document.getElementById('otp').value;
+    if(code) {
+        window.confirmationResult.confirm(code).then(function (result) {
+            alert("लॉगिन सफल रहा! अब पेमेंट कर सकते हैं।");
+            document.getElementById('otp-box').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'block'; // अब पेमेंट बटन दिखाएगा
+        }).catch(function (error) {
+            alert("गलत OTP! कृपया दोबारा चेक करें।");
+        });
+    } else {
+        alert("कृपया OTP दर्ज करें।");
+    }
+};
+
+          
+                "key": "rzp_test_TQhCeEkQqFITW0", // आपकी Razorpay टेस्ट की
+                "amount": "10000", // ₹100 (10000 paise)
+                "currency": "INR",
+                "name": "Amit Sandhu Technical Lab",
+                "description": "Offset Printing & Packaging Guide Access",
+               "handler": function (response){
+    alert("पेमेंट सफल रहा!"); 
+    // 1. ब्लर हटाएँ 
+   document.getElementById("manual-content").classList.remove("locked-content"); 
+    // 2. स्क्रॉल वापस चालू करें
+    document.body.style.overflow = "auto"; 
+
+              
+                      "prefill": {
+                    "name": "Amit Sandhu",
+                    "email": "amitsandhu@gmail.com",
+                    "contact": "8059002339"
+                },
+                "theme": {
+                    "color": "#06b6d4"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Offset Printing & Packaging Technical Manual - By Amit Sandhu</title>
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --card-bg: #131b2e;
+      --accent-blue: #38bdf8;
+      --accent-neon: #00f2fe;
+      --border-color: rgba(56, 189, 248, 0.2);
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: #e2e8f0;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .manual-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      width: 100%;
+    }
+
+    /* GLASSMORPHISM HEADER */
+    .header-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-bottom: 3px solid var(--accent-neon);
+    }
+
+    @media(min-width: 768px) {
+      .header-banner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 35px;
+      }
+    }
+
+    .header-title h1 {
+      margin: 0;
+      font-size: 22px;
+      background: linear-gradient(90deg, #38bdf8, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      word-break: break-word;
+    }
+
+    @media(min-width: 768px) {
+      .header-title h1 {
+        font-size: 26px;
+      }
+    }
+
+    .header-title p {
+      margin: 6px 0 0 0;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* AUTHOR PROFILE CARD */
+    .author-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      width: 100%;
+    }
+
+    @media(min-width: 768px) {
+      .author-card {
+        width: auto;
+      }
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .author-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-neon);
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+      background-color: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      color: var(--accent-neon);
+    }
+
+    .photo-upload-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: var(--accent-neon);
+      color: #000;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      border: 2px solid #000;
+    }
+
+    #imageInput {
+      display: none;
+    }
+
+    .author-info {
+      font-size: 12px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .author-info h3 {
+      margin: 0 0 2px 0;
+      font-size: 17px;
+      color: #ffffff;
+    }
+
+    .author-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    /* NAV TABS */
+    .tab-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #0b1120;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      flex: 1 1 100%;
+      padding: 14px 10px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    @media(min-width: 600px) {
+      .tab-btn {
+        flex: 1 1 50%;
+      }
+    }
+
+    @media(min-width: 900px) {
+      .tab-btn {
+        flex: 1;
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    .tab-btn:hover {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: #ffffff;
+    }
+
+    .tab-btn.active {
+      background-color: var(--card-bg);
+      color: var(--accent-neon);
+      border-bottom: 3px solid var(--accent-neon);
+      font-weight: bold;
+    }
+
+    /* SLIDE PANELS */
+    .slide-panel {
+  display: none;
+  padding: 20px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+}
+
+    }
+
+    @media(min-width: 768px) {
+      .slide-panel {
+        padding: 35px;
+      }
+    }
+
+    .slide-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 3D VISUAL STAGE */
+    .visual-3d-box {
+      background: linear-gradient(145deg, #0b1120, #131b2e);
+      border-radius: 14px;
+      padding: 20px 10px;
+      margin: 20px 0;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .cylinder-3d-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .cylinder-3d {
+      width: 100%;
+      max-width: 320px;
+      height: 55px;
+      border-radius: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+      box-shadow: inset 0 10px 15px rgba(255,255,255,0.3), inset 0 -10px 15px rgba(0,0,0,0.7), 0 8px 15px rgba(0,0,0,0.5);
+    }
+
+    .cyl-plate { background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7); color: #fff; }
+    .cyl-blanket { background: linear-gradient(90deg, #d97706, #fbbf24, #d97706); color: #fff; }
+    .cyl-impression { background: linear-gradient(90deg, #475569, #94a3b8, #475569); color: #fff; }
+
+    /* CARD GRID FOR DEFECTS */
+    .defect-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media(min-width: 768px) {
+      .defect-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+    }
+
+    .defect-card {
+      background-color: #0b1120;
+      border-radius: 10px;
+      padding: 16px;
+      border-left: 5px solid var(--accent-blue);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-right: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .defect-card h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: var(--accent-neon);
+    }
+
+    .defect-card p {
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 6px 0;
+      color: #cbd5e1;
+    }
+
+    .action-text {
+      color: #4ade80 !important;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE TABLE WRAPPER */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+
+    .custom-table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: #0b1120;
+      border-radius: 8px;
+    }
+
+    .custom-table th {
+      background: #1e293b;
+      color: var(--accent-blue);
+      padding: 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .custom-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #cbd5e1;
+    }
+
+    /* FOOTER NAV */
+    .slide-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #0b1120;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .nav-btn {
+      padding: 10px 16px;
+      background: linear-gradient(90deg, #2563eb, #00f2fe);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .nav-btn:disabled {
+      background: #334155;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    /* Interactive Squeeze Calculator & Tools UI */
+.interactive-card {
+  background: #1e293b;
+  border: 1px solid #38bdf8;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,242,254,0.15);
+}
+.calc-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #00f2fe;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.calc-btn {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #000;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.result-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+.res-success { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid #22c55e; }
+.res-error { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+/* Accordion Styling */
+.accordion-item {
+  background: #131b2e;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.accordion-header {
+  padding: 15px;
+  background: #1e293b;
+  color: #00f2fe;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion-body {
+  padding: 15px;
+  display: none;
+  color: #cbd5e1;
+  font-size: 14px;
+  border-top: 1px solid #334155;
+}
+.locked-content {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}
+  </style>
+</head>
+<body>
+<div id="manual-content" class="manual-container locked-content">
+  <!-- HEADER WITH PERMANENT PHOTO UPLOADER -->
+  <div class="header-banner">
+    <div class="header-title">
+      <h1>Offset Printing & Packaging Technical Manual</h1>
+      <p>Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
+    </div>
+
+          
+</script>
+
+    <!-- AUTHOR PROFILE CARD -->
+    <div class="author-card">
+      <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
+        <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+          
+        <div class="photo-upload-overlay">+</div>
+        <input type="file" id="imageInput" accept="image/*" onchange="loadPhoto(event)">
+      </div>
+
+      <div class="author-info">
+        <div class="author-badge">CREATED BY AMIT SANDHU</div>
+        <h3>Amit Sandhu</h3>
+        <div><strong>Role:</strong> Production Supervisor</div>
+        <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
+        <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
+        <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- JAVASCRIPT FOR CALCULATOR & ACCORDION -->
+<script>
+function calculateSqueeze() {
+  var b = parseFloat(document.getElementById('blanketThick').value) || 0;
+  var u = parseFloat(document.getElementById('underlayThick').value) || 0;
+  var uc = parseFloat(document.getElementById('undercutVal').value) || 0;
+  
+  if(b === 0 || uc === 0) {
+    alert("कृपया Blanket Thickness और Undercut सही दर्ज करें!");
+    return;
+  }
+  
+  var totalSqueeze = (b + u) - uc;
+  var resDiv = document.getElementById('squeezeResult');
+  
+  if(totalSqueeze >= 0.08 && totalSqueeze <= 0.12) {
+    resDiv.className = "result-box res-success";
+    resDiv.innerHTML = "✅ Perfect Squeeze: " + totalSqueeze.toFixed(3) + " mm (Standard 0.08 - 0.12 mm Range)";
+  } else {
+    resDiv.className = "result-box res-error";
+    resDiv.innerHTML = "⚠️ Squeeze Out of Range: " + totalSqueeze.toFixed(3) + " mm (Target: 0.08 - 0.12 mm)";
+  }
+}
+
+function toggleAcc(element) {
+  var body = element.nextElementSibling;
+  if (body.style.display === "block") {
+    body.style.display = "none";
+  } else {
+    body.style.display = "block";
+  }
+}
+</script>
+ 
+<!-- Search Bar with Results Dropdown Box -->
+<div style="margin: 20px 0; position: relative;">
+  <div style="display: flex; gap: 8px;">
+    <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें (उदा. Ink, pH, Plate)..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
+    <button onclick="searchContent()" type="button" style="padding: 14px 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Search</button>
+  </div>
+  <!-- Multi-Result Dropdown Box -->
+  <div id="searchResultsBox" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; border: 1px solid #38bdf8; border-radius: 8px; max-height: 300px; overflow-y: auto; z-index: 10000; margin-top: 5px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);"></div>
+</div>
+
+  <!-- TAB NAVIGATION BUTTONS -->
+  <div class="tab-navigation">
+    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">Page 1: Offset Mechanics & 3D</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide2')">Page 2: Machine Parts & Function</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide3')">Page 3: SPM, Ink & Color Consistency</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide4')">Page 4: Deep 14 Defect Solutions</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide5')">Page 5: Materials, ISO & Audits</button>
+
+    <a href="tech-hints.html" class="tab-btn">Page 6: Technical Hints & Master Tips</a>
+<a href="color-lab.html" class="tab-btn">Page 7: Spectrophotometer & 2,300+ Pantone Search Engine</a>
+
+  </div>
+
+
+  <!-- SLIDE 1: DEEP OFFSET MECHANICS & 3D -->
+  <div id="slide1" class="slide-panel active">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Deep Offset Printing Mechanics & Physical Principles</h2>
+    
+    <p style="line-height: 1.7; font-size: 14px; color: #cbd5e1;">
+      ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना) पर आधारित है। CTP प्लेट की सतह समतल (Planographic) होती है:
+    </p>
+    <ul>
+      <li><strong>Image Area (इमेज क्षेत्र):</strong> Photopolymer Layer जो Oleophilic (इंक-आकर्षक) तथा Hydrophobic (जल-विरोधी) होता है। इसकी सरफेस एनर्जी लगभग 30-35 mN/m होती है।</li>
+      <li><strong>Non-Image Area (नॉन-इमेज क्षेत्र):</strong> Anodized Aluminum Oxide Layer (Al2O3) जो Hydrophilic (जल-आकर्षक) तथा Oleophobic (इंक-विरोधी) होता है। इसकी सरफेस एनर्जी 70+ mN/m होती है।</li>
+    </ul>
+
+    <!-- 3D CYLINDER MECHANICS MODEL -->
+    <div class="visual-3d-box">
+      <h3 style="margin-top:0; color: var(--accent-blue); font-size: 16px;">3D Mechanical Transfer Simulation</h3>
+      <p style="font-size: 12px; color: #94a3b8;">Plate Cylinder (0.30mm CTP) ➔ Blanket Cylinder (1.95mm Rubber) ➔ Impression Cylinder</p>
+      
+      <div class="cylinder-3d-stage">
+        <div class="cylinder-3d cyl-plate">PLATE CYLINDER (CTP Plate Unit)</div>
+        <div style="color: var(--accent-neon); font-weight: bold; font-size: 11px;">↓ Image Transfer Nip (Squeeze: 0.08 - 0.12 mm) ↓</div>
+        <div class="cylinder-3d cyl-blanket">BLANKET CYLINDER (Compressible)</div>
+        <div style="color: #fbbf24; font-weight: bold; font-size: 11px;">================ Paper Board ================</div>
+        <div class="cylinder-3d cyl-impression">IMPRESSION CYLINDER (Hard Steel)</div>
+      </div>
+    </div>
+
+    <h3>1.1 Undercut & Packing Calculation Formulas</h3>
+    <blockquote style="background: #0b1120; padding: 12px; border-left: 4px solid var(--accent-blue); margin: 15px 0; font-size: 13px;">
+      <strong>Packing Squeeze Formula:</strong><br>
+      Total Blanket Squeeze = (Blanket Thickness + Underlay Sheet Thickness) - Cylinder Undercut<br>
+      <em>Standard Target Range: 0.08 mm to 0.12 mm Maximum Limit.</em>
+    </blockquote>
+
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Cylinder Unit</th>
+            <th>Mechanical Role</th>
+            <th>Undercut Specs</th>
+            <th>Standard Packing Material</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Plate Cylinder</strong></td>
+            <td>CTP प्लेट होल्ड करता है और इंक-वॉटर लेयर रिसीव करता है।</td>
+            <td>0.15 mm - 0.30 mm</td>
+            <td>Polyester Calibrated Shims (0.05 - 0.15 mm)</td>
+          </tr>
+          <tr>
+            <td><strong>2. Blanket Cylinder</strong></td>
+            <td>इंक को कागज़ पर सुचारू रूप से ट्रांसफर करता है।</td>
+            <td>2.30 mm - 3.20 mm</td>
+            <td>Compressible Underlay Paper Sheets (1.35 g/cm3)</td>
+          </tr>
+          <tr>
+            <td><strong>3. Impression Cylinder</strong></td>
+            <td>बोर्ड को बैकसाइड से सपोर्ट करके प्रेशर निप पर इंक सोखने में मदद करता है।</td>
+            <td>0.00 mm (Precision Steel)</td>
+            <td>No Packing Required. Grip Margin: 10 - 12 mm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: MACHINE PARTS & FUNCTION -->
+  <div id="slide2" class="slide-panel">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">2. Offset Printing Machine Specification (Every Part Name & Function)</h2>
+    <p style="font-size: 13.5px; color: #cbd5e1;">हीडलबर्ग और कोमोरी जैसी मॉडर्न offset मशीनों के मुख्य पार्ट्स, उनका मैकेनिकल डिज़ाइन और सटीक काम:</p>
+
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Machine Section / Part Name</th>
+            <th>Technical Specification & Location</th>
+            <th>Exact Operational Function & Mechanism</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Feeder Head (Suckers)</strong></td>
+            <td>Pneumatic Vacuum Pick-up System</td>
+            <td>कागज़ के ढेरों (Pile) में से एक-एक शीट उठाकर फीड ट्रैक पर बिना डबल शीट भेजे आगे बढ़ाना।</td>
+          </tr>
+          <tr>
+            <td><strong>2. Suction Belt Feed Table</strong></td>
+            <td>Perforated Vacuum Transport Belts</td>
+            <td>शीट्स को बिना खरोंच लगाए सीधी रेखा में हाई-स्पीड पर रजिस्ट्रेशन यूनिट तक पहुंचाना।</td>
+          </tr>
+          <tr>
+            <td><strong>3. Front Lays & Side Lays</strong></td>
+            <td>Optical & Mechanical Alignment Sensors</td>
+            <td>हर एक शीट को ग्रिपर में पकड़े जाने से पहले Micro-Level Registration (0.01mm) पर अलाइन करना।</td>
+          </tr>
+          <tr>
+            <td><strong>4. Inking Duct & Zone Screws</strong></td>
+            <td>Laser-controlled Segmented Ink Keys</td>
+            <td>डिजाइन के अनुसार प्लेट की चौड़ाई पर अलग-अलग जोन में इंक की सही मात्रा सप्लाई करना।</td>
+          </tr>
+          <tr>
+            <td><strong>5. Ink Form Rollers (4 Rollers)</strong></td>
+            <td>Elastomer Rubber Rollers (30-35 Shore A)</td>
+            <td>प्लेट सिलिंडर के इमेज एरिया पर बारीक इंक की फिल्म (2-4 माइक्रोन) को एकसमान चढ़ाना।</td>
+          </tr>
+          <tr>
+            <td><strong>6. Dampening Bridge Roller</strong></td>
+            <td>Hydrophilic Chrome/Rubber Roller</td>
+            <td>इंक और पानी के बैलेंस को कंट्रोल करके प्लेट के नॉन-इमेज एरिया को पूरी तरह साफ़ रखना।</td>
+          </tr>
+          <tr>
+            <td><strong>7. Plate Cylinder Clamp Unit</strong></td>
+            <td>Pneumatic Quick Action Auto-Plate Clamps</td>
+            <td>CTP प्लेट को 0.001mm की सटीकता से सिलिंडर पर लॉक करना और डायगोनल कॉकिंग की सुविधा देना।</td>
+          </tr>
+          <tr>
+            <td><strong>8. Blanket Cylinder Lock System</strong></td>
+            <td>Torque-wrench Tension Bar System</td>
+            <td>रबर ब्लैंकेट को सिलिंडर पर 45-50 Nm टॉर्क पर कसना ताकि स्लरिंग या डॉट स्ट्रेच न हो।</td>
+          </tr>
+          <tr>
+            <td><strong>9. Impression Cylinder Gripper Bar</strong></td>
+            <td>High-Tension Steel Gripper Fingers</td>
+            <td>कागज़ के बोर्ड को ग्रिप मार्जिन पर मजबूती से पकड़कर प्रिंटिंग निप से गुजारना।</td>
+          </tr>
+          <tr>
+            <td><strong>10. Transfer Drums / Skeleton Cylinders</strong></td>
+            <td>Venturi Air-Cushioning Jackets</td>
+            <td>गिले प्रिंटेड बोर्ड को बिना इंक स्मज हुए एक प्रिंटिंग यूनिट से दूसरी यूनिट में ट्रांसफर करना।</td>
+          </tr>
+          <tr>
+            <td><strong>11. Anti-Set-off Powder Sprayer</strong></td>
+            <td>Electrostatic Powder Nozzles</td>
+            <td>शीट के ऊपर माइक्रो-पाउडर छिड़कना ताकि डिलीवरी पाइल में शीट्स आपस में न चिपकें।</td>
+          </tr>
+          <tr>
+            <td><strong>12. Delivery Gripper Cassette & Decurler</strong></td>
+            <td>Mechanical Vacuum Brake & Mechanical Decurler</td>
+            <td>हाई-स्पीड शीट्स को ब्रेक लगाकर मोड़ सीधा करते हुए डिलीवरी टेबल पर व्यवस्थित स्टैक करना।</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: SPM, INK & COLOR CONSISTENCY -->
+  <div id="slide3" class="slide-panel">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">3. Machine SPM, Ink Dynamics & Color Consistency</h2>
+    
+    <h3>3.1 SPM (Sheets Per Hour) Press Speed Optimization</h3>
+    <p style="font-size: 13.5px; color: #cbd5e1;">मशीन की स्पीड (SPM) बढ़ाने के साथ प्रिंटिंग पैरामीटर्स में निम्नलिखित बदलाव करने ज़रूरी हैं:</p>
+    <ul>
+      <li><strong>10,000 - 12,000 SPH:</strong> स्टैंडर्ड पैकेजिंग बोर्ड (300 GSM) के लिए बेसिक डैम्पनिंग और नॉर्मल डक्ट स्पीड सेटिंग्स।</li>
+      <li><strong>15,000 - 18,000 SPH (High Speed):</strong>
+        <ul>
+          <li><strong>Water Feed Compensation:</strong> स्पीड के साथ वाटर रोलर की रिस्पॉन्स स्पीड 3% से 5% बढ़ानी पड़ती है ताकि सेंट्रीफ्यूगल फ़ोर्स की वजह से पानी उड़ने पर स्कमिंग न आए।</li>
+          <li><strong>Powder Spray Adjustment:</strong> हवा का दबाव और पाउडर की मात्रा 15% बढ़ानी होगी क्योंकि डिलीवरी पाइल में शीट्स तेज़ी से गिरती हैं।</li>
+          <li><strong>IR & Hot Air Dryer Temperature:</strong> ड्रायर का तापमान 75°C से बढ़ाकर 85°C - 90°C करना होगा।</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>3.2 Offset Ink Rheology & Physical Dynamics</h3>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Ink Property Parameter</th>
+            <th>Ideal Range / Value</th>
+            <th>Technical Impact on Printing Quality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Ink Tack (Tackiness)</strong></td>
+            <td>12 - 16 Inkometer Units</td>
+            <td>अगर Tack ज्यादा होगा तो पेपर पिकिंग (कागज़ फटना) होगी। कम होगा तो इंक ट्रांसफर खराब होगा।</td>
+          </tr>
+          <tr>
+            <td><strong>2. Ink Viscosity</strong></td>
+            <td>40 -70 Pa.s (Pascal-seconds)</td>
+            <td>इंक का गाढ़ापन। तापमान बढ़ने पर Viscosity कम होती है (हर 1°C पर 5% Viscosity गिरती है)।</td>
+          </tr>
+          <tr>
+            <td><strong>3. Thixotropy</strong></td>
+            <td>Shear-thinning Property</td>
+            <td>रोलर पर घूमने से इंक पतली होती है, और शीट पर पहुँचते ही वापस गाढ़ी होकर फैलने से रुकती है।</td>
+          </tr>
+          <tr>
+            <td><strong>4. Emulsification Limit</strong></td>
+            <td>15% - 22% Water Content Max</td>
+            <td>इंक में पानी समाने की क्षमता। 25% से ऊपर पानी जाने पर इंक धोकर बहने लगती है (Washout)।</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.3 Color Consistency & Closed-Loop Control Systems</h3>
+    <p style="font-size: 13.5px; color: #cbd5e1;">पुरी रनिंग के दौरान कलर कंसिस्टेंसी बनाए रखने के 3 मुख्य नियम:</p>
+    <blockquote style="background: #0b1120; padding: 12px; border-left: 4px solid var(--accent-neon); margin: 15px 0; font-size: 13px;">
+      <strong>1. Spectrophotometric Target Control:</strong> CIELAB सिस्टम में Delta E (ΔE2000) का मान 1.5 से अधिक नहीं होना चाहिए।<br>
+      <strong>2. Solid Ink Density (SID) Stability:</strong> CMYK डेंसिटी में ±0.05 से ज़्यादा उतार-चढ़ाव नहीं आना चाहिए।<br>
+      <strong>3. Roller Temperature Control (TCU):</strong> इनकिंग रोलर्स की कूलिंग 26°C से 28°C के बीच फ़िक्स रहनी चाहिए ताकि इंक की Tack न बदले।
+    </blockquote>
+  </div>
+
+  <!-- SLIDE 4: DEEP 14 DEFECT SOLUTIONS -->
+  <div id="slide4" class="slide-panel">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Comprehensive Printing Defects Solutions (14 Defects Deep Analysis)</h2>
+    <p style="color: #cbd5e1; font-size: 13.5px;">प्रेस रूम में आने वाली 14 मुख्य प्रिंटिंग समस्याएं, उनके मूल कारण और ऑपरेटर एक्शन प्लान:</p>
+
+    <div class="defect-grid">
+      <!-- DEFECT 1 -->
+      <div class="defect-card">
+        <h4>1. Scumming / Greasing (स्कमिंग)</h4>
+        <p><strong>Problem:</strong> प्लेट के नॉन-इमेज एरिया में इंक की पकड़ बनने से बैकग्राउंड में धुंधलापन आना।</p>
+        <p><strong>Root Cause:</strong> High Fountain pH (>5.5), Low Dampening Feed, Hydrophilic layer damage.</p>
+        <p class="action-text">Action: pH 4.8-5.2 सेट करें, Dampening 3-5% बढ़ाएं, Form Roller Nip 3.5mm कैलिब्रेट करें। Plate Cleaner से प्लेट वॉश करें।</p>
+      </div>
+
+      <!-- DEFECT 2 -->
+      <div class="defect-card">
+        <h4>2. Hickies / Bull's Eye (हिकीज़)</h4>
+        <p><strong>Problem:</strong> सॉलिड प्रिंटेड एरिया में सफ़ेद रिंग के साथ बीच में इंक का धब्बा बनना।</p>
+        <p><strong>Root Cause:</strong> पेपर कटिंग डस्ट, सूखी इंक की पपड़ी या एनवायरनमेंटल डस्ट।</p>
+        <p class="action-text">Action: Blanket & Plate साफ़ करें, Feed Table पर Dust Collector ऑन करें, Ink Duct में 1% Tack Reducer मिलाएं।</p>
+      </div>
+
+      <!-- DEFECT 3 -->
+      <div class="defect-card">
+        <h4>3. Mottling (मॉटलिंग / धब्बेदार प्रिंट)</h4>
+        <p><strong>Problem:</strong> सॉलिड प्रिंट में इंक का एकसमान न फैलना और क्लाउडी धब्बे दिखना।</p>
+        <p><strong>Root Cause:</strong> कागज़ की असमान अवशोषण दर (Porosity) और अत्यधिक डैम्पनिंग वॉटर।</p>
+        <p class="action-text">Action: Water Feed न्यूनतम करें, Ink Trapping सीक्वेंस बदलें, Blanket Squeeze 0.03mm बढ़ाएं। Soft Ink का इस्तेमाल करें।</p>
+      </div>
+
+      <!-- DEFECT 4 -->
+      <div class="defect-card">
+        <h4>4. Set-off & Blocking (सेट-ऑफ़ व ब्लॉकिंग)</h4>
+        <p><strong>Problem:</strong> फ्रेश प्रिंटेड इंक का ऊपर वाली शीट के पीछे छपना या शीट्स का आपस में चिपकना।</p>
+        <p><strong>Root Cause:</strong> अपर्याप्त Anti-Set-Off Spray Powder, अत्यधिक इंक डेंसिटी, डिलीवरी पाइल का ज़्यादा वजन।</p>
+        <p class="action-text">Action: Board GSM अनुसार Powder बढ़ाएं, Delivery Pile Height घटाएं, IR Dryer 85°C और Hot Air Air-Knife ऑन करें।</p>
+      </div>
+
+      <!-- DEFECT 5 -->
+      <div class="defect-card">
+        <h4>5. Slurring (स्लरिंग / डॉट्स का खिंचना)</h4>
+        <p><strong>Problem:</strong> हाफ़टोन डॉट्स ग्रिपर की दिशा में खिंचकर अंडाकार (Oval) हो जाते हैं।</p>
+        <p><strong>Root Cause:</strong> Loose Blanket Torque, Plate-to-Blanket Slip, अत्यधिक Impression Squeeze.</p>
+        <p class="action-text">Action: Blanket Torque Wrench से 45-50 Nm पर टाइट करें, Packing Sheet मोटाई जांचें और Impression pressure रीसेट करें।</p>
+      </div>
+
+      <!-- DEFECT 6 -->
+      <div class="defect-card">
+        <h4>6. Doubling (डबलिंग / शैडो प्रिंट)</h4>
+        <p><strong>Problem:</strong> मुख्य डॉट के बगल में एक हल्का दूसरा डॉट छपना जिससे इमेज डबल दिखे।</p>
+        <p><strong>Root Cause:</strong> Transfer Cylinder Gripper Wear, Feed Board Lay timing miss, Wavy paper.</p>
+        <p class="action-text">Action: Gripper Pad Tension जांचें, Feed Timing मैच करें, Paper RH 55% पर लाएं और कागज़ की अकड़न सही करें।</p>
+      </div>
+
+      <!-- DEFECT 7 -->
+      <div class="defect-card">
+        <h4>7. Roller Stripping / Glaze (रोलर स्ट्रिपिंग)</h4>
+        <p><strong>Problem:</strong> मेटल इनकिंग रोलर्स पर इंक की जगह पानी की परत जमना और रोलर नंगा दिखना।</p>
+        <p><strong>Root Cause:</strong> Hard Water Calcium buildup, crystallized Gum glaze, low ink flow.</p>
+        <p class="action-text">Action: Decalcifying Chemical Wash करें, Acidic Wash से गम साफ़ करें, RO Water Hardness 8-12°dH पर कंट्रोल करें।</p>
+      </div>
+
+      <!-- DEFECT 8 -->
+      <div class="defect-card">
+        <h4>8. Ink Emulsification (इंक इमल्सीफिकेशन)</h4>
+        <p><strong>Problem:</strong> इंक में अत्यधिक पानी मिलने से इंक का रंग फीका व बहने लायक होना।</p>
+        <p><strong>Root Cause:</strong> Water feed excessively high, High Conductivity (>2000 µS), Low Ink Viscosity.</p>
+        <p class="action-text">Action: Ink Duct साफ़ करके नई इंक भरें, Water supply 5% घटाएं, Chiller Temp 10°C लाएं, IPA 8% स्थिर रखें।</p>
+      </div>
+
+      <!-- DEFECT 9 -->
+      <div class="defect-card">
+        <h4>9. Mechanical Ghosting (मैकेनिकल घोस्टिंग)</h4>
+        <p><strong>Problem:</strong> बड़े सॉलिड एरिया में पास के छोटे कटआउट्स या डिज़ाइन की हल्की परछाई दिखना।</p>
+        <p><strong>Root Cause:</strong> Inking Form Rollers का तेज़ी से इंक न रिप्लैनिश कर पाना।</p>
+        <p class="action-text">Action: Oscillating Form Rollers का स्ट्रोक बढ़ाएं, लेआउट का ओरिएंटेशन 90° घुमाएं, Rider Roller प्रेशर एडजस्ट करें।</p>
+      </div>
+
+      <!-- DEFECT 10 -->
+      <div class="defect-card">
+        <h4>10. Chemical Ghosting (केमिकल घोस्टिंग)</h4>
+        <p><strong>Problem:</strong> सुखाने के दौरान पाइल में रखी शीट्स पर बैक-टू-इमेज की अदृश्य गैस की परछाई बनना।</p>
+        <p><strong>Root Cause:</strong> Oxydative Drying के दौरान निकलने वाली गैसेस का पाइल में फंसना।</p>
+        <p class="action-text">Action: Sheeting Pile Winding (हवा पास करना) करें, Fast-Drying Offset Ink उपयोग करें, पाइल का तापमान 35°C से ऊपर न जाने दें।</p>
+      </div>
+
+      <!-- DEFECT 11 -->
+      <div class="defect-card">
+        <h4>11. Paper Curling (कागज़ का मुड़ना)</h4>
+        <p><strong>Problem:</strong> एक्वस वार्निश या हैवी प्रिंटिंग के बाद बोर्ड के किनारे ऊपर मुड़ जाना।</p>
+        <p><strong>Root Cause:</strong> High Dampening Water Volume, High Coating Squeeze, Wrong Grain Direction.</p>
+        <p class="action-text">Action: Press Water कम करें, Hot Air Dryer बढ़ाएं, Delivery Decurler व्हील एक्टिवेट करें, Long Grain Board इस्तेमाल करें।</p>
+      </div>
+
+      <!-- DEFECT 12 -->
+      <div class="defect-card">
+        <h4>12. Chalking (चौकिंग / इंक पाउडर बनना)</h4>
+        <p><strong>Problem:</strong> इंक सूखने के बाद भी कागज़ पर सेट नहीं होती और उंगली से पाउडर की तरह निकलती है।</p>
+        <p><strong>Root Cause:</strong> Ink Vehicle कागज़ में जल्दी सोख जाना पर पिगमेंट ऊपर ही रह जाना (Low Acidic pH).</p>
+        <p class="action-text">Action: Overprint Varnish (OPV) अप्लाई करें, Drier Compound (Cobalt/Manganese) 1-2% मिक्स करें, Fountain pH 5.0 पर लाएं।</p>
+      </div>
+
+      <!-- DEFECT 13 -->
+      <div class="defect-card">
+        <h4>13. Misregistration (मिस-रजिस्ट्रेशन)</h4>
+        <p><strong>Problem:</strong> CMYK चारों रंगों का एक दूसरे के ऊपर सही न बैठना (रंग आउट होना)।</p>
+        <p><strong>Root Cause:</strong> Side Lay Sensor Timing Out, Gripper Mechanical Wear, CTP Plate Stretch.</p>
+        <p class="action-text">Action: Side Lay Alignment कैलिब्रेट करें, Cocking Zero करें, Plate Cylinder Register Pin चेक करें, CTP Laser Beam Check करें।</p>
+      </div>
+
+      <!-- DEFECT 14 -->
+      <div class="defect-card">
+        <h4>14. Ink Flying / Misting (इंक का उड़ना)</h4>
+        <p><strong>Problem:</strong> हाई-स्पीड प्रेस चलने पर इंक की बारीक बूंदें हवा में उड़कर यूनिट को गंदा करना।</p>
+        <p><strong>Root Cause:</strong> Ink Viscosity अति-कम होना, Roller Speed excessive, Incorrect Ink Filament Length.</p>
+        <p class="action-text">Action: High Tack Stiff Ink यूज़ करें, Roller TCU (Temperature Control Unit) 28°C रखें, विस्कोसिटी बैलेंस करने हेतु वर्निश मिलाएं।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: MATERIALS, ISO & AUDITS -->
+  <div id="slide5" class="slide-panel">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">5. Materials Chemistry, ISO Standards & Audits</h2>
+    
+    <h3>5.1 Raw Materials Chemistry Specifications</h3>
+    <ul>
+      <li><strong>Paperboard GSM Tolerance:</strong> ISO 536 अनुसार Target GSM का ±3% से ±5%।</li>
+      <li><strong>Moisture Content:</strong> 6.0% - 7.0% (Pressroom RH 50-55% पर)।</li>
+      <li><strong>Cobb Value (Cobb60 Absorption):</strong> Coated Top: 28–32 g/m2 | Back: 35–45 g/m2।</li>
+      <li><strong>Fountain Solution Buffer:</strong> pH 4.80 - 5.30 | Conductivity: 800 - 1500 µS/cm | IPA: 6% - 9% Volume।</li>
+    </ul>
+
+    <h3>5.2 ISO 12647-2 Solid Density & Color Standards</h3>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Process Color</th>
+            <th>Coated Board Target</th>
+            <th>Uncoated Target</th>
+            <th>Tolerance Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #38bdf8;">Cyan (C)</strong></td>
+            <td>1.45 - 1.55 SID</td>
+            <td>1.15 - 1.25 SID</td>
+            <td>± 0.05</td>
+          </tr>
+          <tr>
+            <td><strong style="color: #f43f5e;">Magenta (M)</strong></td>
+            <td>1.45 - 1.50 SID</td>
+            <td>1.15 - 1.20 SID</td>
+            <td>± 0.05</td>
+          </tr>
+          <tr>
+            <td><strong style="color: #facc15;">Yellow (Y)</strong></td>
+            <td>1.05 - 1.15 SID</td>
+            <td>0.85 - 0.95 SID</td>
+            <td>± 0.04</td>
+          </tr>
+          <tr>
+            <td><strong style="color: #ffffff;">Black (K)</strong></td>
+            <td>1.70 - 1.85 SID</td>
+            <td>1.25 - 1.35 SID</td>
+            <td>± 0.05</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.3 Preventive Maintenance & Quality Compliance Audits</h3>
+    <ul>
+      <li><strong>Daily Shift Checklist:</strong> Blanket Wash, Impression Wipe, Fountain pH & Conductivity Check.</li>
+      <li><strong>Weekly Maintenance:</strong> Roller Calcium Wash, Chiller Filter Cleaning, Gripper Bar Lubrication.</li>
+      <li><strong>Monthly Calibration:</strong> Inking & Dampening Nip Stripe Check (3.5mm-4.0mm width).</li>
+      <li><strong>BRCGS & ISO Audit Rule:</strong> Line Clearance करना, IPA ट्रेश ट्रे में रखना, और हर पैलेट पर Approved Job Card लगाना अनिवार्य है।</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER NAVIGATION -->
+  <div class="slide-footer-nav">
+    <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)" disabled>← Prev</button>
+    <div id="pageIndicator" style="font-weight: bold; color: var(--accent-blue); font-size: 13px;">Page 1 of 5</div>
+    <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">Next →</button>
+  </div>
+
+</div>
+
+<!-- JAVASCRIPT FOR DYNAMIC TAB SWITCHING & PERMANENT PHOTO STORAGE -->
+<script>
+// --- AUTOMATIC PHOTO LOAD ---
+window.addEventListener('DOMContentLoaded', () => {
+  const savedPhoto = localStorage.getItem('amitUserPhoto');
+  if (savedPhoto) {
+    const photoEl = document.getElementById('userPhoto');
+    if (photoEl) photoEl.src = savedPhoto;
+  }
+});
+
+// --- SLIDE NAVIGATION LOGIC ---
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageIndicator = document.getElementById('pageIndicator');
+
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide-panel');
+const tabs = document.querySelectorAll('.tab-navigation .tab-btn');
+
+function updateSlideUI() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    if (tabs[index]) tabs[index].classList.remove('active');
+  });
+
+  if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.add('active');
+  if (tabs[currentSlideIndex]) tabs[currentSlideIndex].classList.add('active');
+
+  if (pageIndicator) pageIndicator.innerText = `Page ${currentSlideIndex + 1} of ${slides.length}`;
+  if (prevBtn) prevBtn.disabled = currentSlideIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentSlideIndex === slides.length - 1;
+}
+
+function openSlide(event, slideId) {
+  const slideArray = Array.from(slides);
+  const targetIndex = slideArray.findIndex(s => s.id === slideId);
+  if (targetIndex !== -1) {
+    currentSlideIndex = targetIndex;
+    updateSlideUI();
+  }
+}
+
+function changeSlide(direction) {
+  currentSlideIndex += direction;
+  if (currentSlideIndex < 0) currentSlideIndex = 0;
+  if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
+  updateSlideUI();
+}
+
+// --- MULTI-RESULT SEARCH FUNCTION ---
+function searchContent() {
+  let input = document.getElementById('searchInput').value.toLowerCase().trim();
+  let resultsBox = document.getElementById('searchResultsBox');
+  if (!resultsBox) return;
+
+  resultsBox.innerHTML = "";
+  
+  if (!input) {
+    resultsBox.style.display = "none";
+    return;
+  }
+
+  let allSlides = Array.from(document.querySelectorAll('.slide-panel'));
+  let matches = [];
+
+  // Clear previous highlights
+  document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
+    el.style.backgroundColor = "";
+  });
+
+  // Search across all slides
+  allSlides.forEach((slide, slideIdx) => {
+    let nodes = slide.querySelectorAll('p, li, h2, h3, h4, td');
+    nodes.forEach(node => {
+      if (node.innerText && node.innerText.toLowerCase().includes(input)) {
+        matches.push({
+          slideIndex: slideIdx,
+          element: node,
+          text: node.innerText.substring(0, 70) + "..."
+        });
+      }
+    });
+  });
+
+  if (matches.length > 0) {
+    resultsBox.style.display = "block";
+    
+    let header = document.createElement('div');
+    header.style.cssText = "padding: 10px; background: #1e293b; color: #00f2fe; font-weight: bold; border-bottom: 1px solid #334155;";
+    header.innerText = `कुल ${matches.length} जगह मिला (किसी पर भी क्लिक करें):`;
+    resultsBox.appendChild(header);
+
+    matches.forEach(item => {
+      let itemDiv = document.createElement('div');
+      itemDiv.style.cssText = "padding: 10px; border-bottom: 1px solid #1e293b; color: #e2e8f0; cursor: pointer; font-size: 14px;";
+      itemDiv.innerHTML = `<strong style="color:#00f2fe;">Page ${item.slideIndex + 1}:</strong> ${item.text}`;
+      
+      itemDiv.onclick = function() {
+        currentSlideIndex = item.slideIndex;
+        updateSlideUI();
+        
+        item.element.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
+        item.element.style.borderRadius = "4px";
+        
+        setTimeout(() => {
+          item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+        
+        resultsBox.style.display = "none";
+      };
+
+      resultsBox.appendChild(itemDiv);
+    });
+  } else {
+    resultsBox.style.display = "block";
+    resultsBox.innerHTML = `<div style="padding: 12px; color: #ef4444;">कोई परिणाम नहीं मिला / No match found</div>`;
+  }
+}
+</script>
+
+<!-- Floating Contact Buttons - Fixed Position Above Navigation -->
+<div style="position: fixed; bottom: 90px; right: 15px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+  <a href="tel:+918059002339" style="width: 42px; height: 42px; border-radius: 50%; background-color: #00f2fe; color: #000; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Direct Call">📞</a>
+  <a href="mailto:amitsandhu973@gmail.com" style="width: 42px; height: 42px; border-radius: 50%; background-color: #ea4335; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Send Email">✉️</a>
+  <a href="https://wa.me/918059002339?text=Hello%20Amit%20Bhai,%20I%20visited%20your%20Offset%20Printing%20Manual." style="width: 42px; height: 42px; border-radius: 50%; background-color: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" target="_blank" title="WhatsApp Chat">💬</a>
+</div>
+
+
+</body>
+</html>
