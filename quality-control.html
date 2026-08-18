@@ -3,70 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Page 10: Quality Control & Tests</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Page 6: Quality Control & Shop-Floor Tests - Amit Sandhu Master Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background: #0f172a; color: #22d3ee; border-bottom: 2px solid #0284c7; }
+        .data-table td { border-bottom: 1px solid #1e293b; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<!-- PAGE 10: QUALITY CONTROL CONTAINER -->
-<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+<div class="w-full max-w-4xl space-y-6">
     
-    <!-- Top Header -->
-    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
-        <div>
-            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 10: क्वालिटी कंट्रोल और टेस्ट</span>
-            <h1 class="text-2xl font-extrabold text-white mt-2">Print Quality Control & Shop-Floor Testing Protocols</h1>
+    <!-- NAVIGATION HEADER -->
+    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
+        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
+        <div class="text-right">
+            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">ISO 12647-2 STANDARD</span>
         </div>
-        <span class="text-xs text-slate-400 font-mono">Shop-Floor Testing Data</span>
     </div>
 
-    <!-- Content Sections -->
-    <div class="space-y-4">
+    <!-- MAIN MODULE BOX -->
+    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
         
-        <!-- Test 1 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. स्मैश और रब रेजिस्टेंस टेस्ट (Rub / Abrasion Resistance Test)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>प्रक्रिया:</strong> इस टेस्ट में प्रिंटेड सतह को एक तय वजन और घर्षण (Sutherland Rub Tester या मैनुअल रबिंग) के जरिए परखा जाता है ताकि यह सुनिश्चित हो सके कि हैंडलिंग या ट्रांसपोर्ट के दौरान इंक छूटेगी या फैलेगी नहीं।
-            </p>
+        <!-- TITLE & AUTHOR WATERMARK -->
+        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 6: QUALITY CONTROL & SHOP-FLOOR TESTING</h1>
+                <p class="text-xs text-cyan-400 font-medium mt-1">Print Density Targets, Dot Gain Standards, Register Accuracy & Visual Inspection Protocols</p>
+            </div>
+            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
+                <span class="text-[10px] text-slate-400 block">Verified By:</span>
+                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
+            </div>
         </div>
 
-        <!-- Test 2 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">2. क्रीज और फोल्ड क्रैकिंग टेस्ट (Crease & Fold Integrity Test)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>प्रक्रिया:</strong> पैकेजिंग बॉक्स (कार्टन) के फोल्डिंग और क्रीजिंग एरिया पर यह देखा जाता है कि मोड़ने पर कोटिंग या इंक क्रैक (फटी तो नहीं) तो नहीं हो रही है। खासकर कॉस्मेटिक और फार्मा बॉक्सेस के लिए यह बेहद महत्वपूर्ण है।
-            </p>
+        <!-- SECTION 1: DENSITY & ISO TARGET STANDARDS -->
+        <div class="space-y-3">
+            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
+                <span>📊</span> 1. Solid Ink Density (SID) & ISO 12647-2 Reference Targets
+            </h3>
+            <p class="text-xs text-slate-300">Standard reflection density limits for offset printing on coated art paper (measured via densitometer):</p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs data-table">
+                    <thead>
+                        <tr>
+                            <th class="p-3">Process Color</th>
+                            <th class="p-3">ISO Status T Density Range</th>
+                            <th class="p-3">Dot Gain Tolerance (50% Dot)</th>
+                            <th class="p-3">Primary Inspection Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <tr>
+                            <td class="p-3 font-bold text-cyan-300">Cyan (C)</td>
+                            <td class="p-3 font-mono">1.30 - 1.60</td>
+                            <td class="p-3 font-mono">18% (±4%)</td>
+                            <td class="p-3">Check for slurring and plate wear.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-magenta-400 text-pink-400">Magenta (M)</td>
+                            <td class="p-3 font-mono">1.30 - 1.60</td>
+                            <td class="p-3 font-mono">19% (±4%)</td>
+                            <td class="p-3">Monitor emulsification balance.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-yellow-300">Yellow (Y)</td>
+                            <td class="p-3 font-mono">1.00 - 1.30</td>
+                            <td class="p-3 font-mono">19% (±4%)</td>
+                            <td class="p-3">Check transparency and trap value.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-100">Black (K)</td>
+                            <td class="p-3 font-mono">1.60 - 1.95</td>
+                            <td class="p-3 font-mono">21% (±4%)</td>
+                            <td class="p-3">Critical for fine text sharpness & contrast.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- Test 3 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. फाउंटेन सॉल्यूशन pH और कंडक्टिविटी मॉनिटरिंग</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>प्रक्रिया:</strong> हर शिफ्ट में डिजिटल मीटर से फाउंटेन सॉल्यूशन का pH (आदर्श: 4.8 से 5.2) और कंडक्टिविटी (μS/cm) की जांच की जाती है, ताकि प्लेट पर प्लेट ब्लेंडिंग या स्कमिंग की समस्या न आए।
-            </p>
+        <!-- SECTION 2: CRITICAL SHOP-FLOOR TESTS -->
+        <div class="space-y-3">
+            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
+                <span>🔍</span> 2. Daily Pressroom Quality Verification Tests
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                
+                <div class="bg-substrate bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-white text-sm block">Thumb Nail / Scratch Resistance Test</strong>
+                    <p class="text-slate-300">Checks ink drying and curing adequacy on heavy coverage board. Performed after 15–20 minutes of delivery stacking to ensure no scuffing occurs during post-press turning.</p>
+                </div>
+
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-white text-sm block">Fountain Solution Conductivity & pH</strong>
+                    <p class="text-slate-300">Must be monitored continuously using a digital meter. Standard dampening water pH: <span class="text-cyan-300 font-mono">4.8 – 5.5</span>, and Conductivity: <span class="text-cyan-300 font-mono">800 – 1200 µS/cm</span> depending on IPA dosage.</p>
+                </div>
+
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-white text-sm block">Register & Cross-Perpendicularity Check</strong>
+                    <p class="text-slate-300">Using a 10x illuminated magnifying glass on registration crosshairs at the sheet corners. Ensures multi-color front-to-back and unit-to-unit alignment within <span class="text-cyan-300 font-mono">0.02 - 0.04 mm</span>.</p>
+                </div>
+
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-white text-sm block">Tack-O-Scope & Viscosity Audit</strong>
+                    <p class="text-slate-300">Ensures proper ink tack sequence (Black &gt; Cyan &gt; Magenta &gt; Yellow) to prevent wet-on-wet back-trapping and contamination of ink fountain units.</p>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Test 4 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">4. रजिस्टर और कटिंग एक्यूरेसी (Register & Die-Cut Quality)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>प्रक्रिया:</strong> मैग्नीफाइंग ग्लास (Loupe) की मदद से सीएमवायके (CMYK) डॉट्स के ओवरलैप और रजिस्ट्रेशन की जांच की जाती है ताकि कोई कलर मिसमैच (Ghost/Doubling) न हो।
+        <!-- EXPERT SUPERVISOR'S GOLDEN RULE -->
+        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5">
+            <div class="flex items-center gap-2 text-cyan-400 font-bold">
+                <span>💡</span>
+                <span>Amit Sandhu's Quality Control Standard:</span>
+            </div>
+            <p class="text-slate-200">
+                Never approve a press run based solely on visual appearance under ambient mobile flashlight or office tube lights. Always evaluate press sheets inside a standardized lighting booth at <span class="text-white font-bold">D50 (5000K daylight)</span> color temperature to accurately detect metamerism, cast shifts, and trap variations before bulk production runs.
             </p>
         </div>
 
     </div>
 
-    <!-- Footer Note -->
-    <div class="mt-8 text-center border-t border-slate-800 pt-4">
-        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    <!-- FOOTER SIGNATURE -->
+    <div class="text-center pt-2">
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
     </div>
 
 </div>
