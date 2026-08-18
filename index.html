@@ -27,10 +27,10 @@
 </head>
 <body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
 
-    <!-- Recaptcha Container for Firebase OTP -->
-    <div id="recaptcha-container"></div>
+   <!-- Recaptcha Container for Firebase OTP -->
+<div id="recaptcha-container"></div>
 
- <!-- 1. मोबाइल नंबर और OTP वेरिफिकेशन बॉक्स -->
+<!-- 1. ऊपर का हिस्सा: मोबाइल नंबर, OTP और पेमेंट बटन (यह हमेशा साफ़ दिखेगा) -->
 <div class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl mb-6">
     <span class="text-4xl">🔒</span>
     <h2 class="text-2xl font-bold mt-2 mb-2 text-cyan-400">अमित संधु टेक्निकल लैब</h2>
@@ -38,7 +38,7 @@
     
     <!-- Phone Number Input -->
     <div class="mb-4">
-        <input type="text" id="phone" placeholder="मोबाइल नंबर (+91)" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
+        <input type="tel" id="phone" placeholder="मोबाइल नंबर (+91)" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
         <button id="send-otp-btn" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg">OTP भेजें</button>
     </div>
 
@@ -47,6 +47,18 @@
         <input type="text" id="otp" placeholder="6-अंकों का OTP दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
         <button id="verify-otp-btn" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg">OTP वेरीफाई करें</button>
     </div>
+
+    <!-- Razorpay Payment Section (Initially Hidden until OTP is verified) -->
+    <div id="payment-section" class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
+        <h3 class="text-lg font-semibold mb-3">फुल एक्सेस अनलॉक करें</h3>
+        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg">
+            Pay Now (₹399)
+        </button>
+    </div>
+</div>
+
+<!-- 2. नीचे का हिस्सा: ऑफसेट मैनुअल डेटा (यह ब्लर और लॉक रहेगा जब तक पेमेंट न हो) -->
+<div id="manual-content" class="manual-container locked-content">
 
     <!-- Razorpay Payment Section (Initially Hidden until OTP is verified) -->
     <div id="payment-section" class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
