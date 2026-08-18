@@ -393,28 +393,47 @@
         });
     };
 
-    // OTP भेजें बटन
-    document.getElementById('send-otp-btn').onclick = function() {
-        let rawPhone = document.getElementById('phone').value.trim();
-        let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
+// 'OTP भेजें' वाला बटन
+document.getElementById('send-otp-btn').onclick = function() {
+    let phoneNumber = document.getElementById('phone').value.trim();
+    
+    // अगर नंबर आपका (एडमिन) है, तो OTP की कोई जरूरत नहीं, डायरेक्ट खोल दें!
+    if (phoneNumber === "8059002339" || phoneNumber === "+918059002339") {
+        localStorage.setItem('isAdminLoggedIn', 'true');
+        alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट अनलॉक कर दिया गया है।");
+        
+        let loginContainer = document.getElementById('login-container');
+        if(loginContainer) loginContainer.style.display = 'none';
+        
+        let manualContent = document.getElementById("manual-content");
+        if(manualContent) manualContent.classList.remove("locked-content");
+        return; // यहीं से प्रोसेस रोक दें ताकि Firebase पर रिक्वेस्ट न जाए
+    }
 
-        if(userPhone.length >= 12) {
-            firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
-                .then(function (confirmationResult) {
-                    window.confirmationResult = confirmationResult;
-                    alert("OTP successfully sent to your mobile number!");
-                    document.getElementById('otp-box').style.display = 'block'; 
-                }).catch(function (error) {
-                    alert("Error sending OTP: " + error.message);
-                    if(window.recaptchaVerifier) {
-                        grecaptcha.reset(window.recaptchaVerifier);
-                    }
-                });
-        } else {
-            alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
-        }
-    };
+    // बाकी सभी आम यूज़र्स के लिए नॉर्मल Firebase OTP सिस्टम काम करेगा
+    if(phoneNumber.length === 10) {
+        let formattedPhone = "+91" + phoneNumber;
+        
+        // रीकैप्चा और ओटीपी भेजने का कोड
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('send-otp-btn', {
+            'size': 'invisible'
+        });
 
+        firebase.auth().signInWithPhoneNumber(formattedPhone, window.recaptchaVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP successfully sent to your mobile number.");
+                document.getElementById('otp-box').style.display = 'block';
+            }).catch(function (error) {
+                alert("Error sending OTP: " + error.message);
+                if(window.recaptchaVerifier) {
+                    grecaptcha.reset(window.recaptchaVerifier);
+                }
+            });
+    } else {
+        alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
+    }
+};
     // OTP वेरीफाई करें बटन
 document.getElementById('verify-otp-btn').onclick = function() {
     let code = document.getElementById('otp').value;
