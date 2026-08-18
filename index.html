@@ -90,19 +90,23 @@ window.onload = function () {
 
 // 'OTP भेजें' बटन का काम
 document.getElementById('send-otp-btn').onclick = function() {
-    let userPhone = document.getElementById('phone').value;
-    if(userPhone && userPhone.length >= 10) {
-        firebase.auth().signInWithPhoneNumber('+91' + userPhone, window.recaptchaVerifier)
+    let rawPhone = document.getElementById('phone').value.trim();
+    
+    // अगर नंबर के आगे +91 नहीं लगा है, तो अपने आप जोड़ देगा
+    let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
+
+    if(userPhone.length >= 12) {
+        firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
             .then(function (confirmationResult) {
                 window.confirmationResult = confirmationResult;
                 alert("OTP भेज दिया गया है!");
-                document.getElementById('otp-box').style.display = 'block'; // OTP वाला बॉक्स दिखाएगा
+                document.getElementById('otp-box').style.display = 'block'; 
             }).catch(function (error) {
                 alert("OTP भेजने में एरर: " + error.message);
                 grecaptcha.reset(window.recaptchaVerifier);
             });
     } else {
-        alert("कृपया सही मोबाइल नंबर दर्ज करें।");
+        alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
     }
 };
 
