@@ -3,82 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Page 7: Spectrophotometer & Lab Color Management</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Chapter 3: Spectrophotometer & Color Theory Secrets - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        body { background-color: #050608; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .technical-box { border-left: 4px solid #38bdf8; background: #0f172a; padding: 10px; margin: 10px 0; }
+        .formula { font-family: 'Courier New', Courier, monospace; color: #fbbf24; font-weight: bold; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<!-- PAGE 7: SPECTROPHOTOMETER & L*a*b* CONTAINER -->
-<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+<div class="w-full max-w-4xl space-y-4">
     
-    <!-- Top Header -->
-    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
-        <div>
-            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 7: स्पेक्ट्रोफोटोमीटर और L*a*b* कलर लैब</span>
-            <h1 class="text-2xl font-extrabold text-white mt-2">Spectrophotometer, CIELAB Color Space & Delta E (ΔE)</h1>
-        </div>
-        <span class="text-xs text-slate-400 font-mono">Shop-Floor Technical Data</span>
+    <!-- HEADER -->
+    <div class="flex justify-between items-center bg-slate-950 p-4 rounded-2xl border border-slate-800">
+        <a href="ink-chemistry.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Chapter 2</a>
+        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 3: Spectral Science & Color Control</h1>
     </div>
 
-    <!-- Technical Sections -->
-    <div class="space-y-4">
+    <!-- CONTENT -->
+    <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-900/50 space-y-6">
+        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">Spectrophotometry: The Science Beyond Delta E</h2>
         
-        <!-- Section 1 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. स्पेक्ट्रोफोटोमीटर का कार्य सिद्धांत (Spectrophotometer Principle)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                यह डिवाइस प्रिंटेड शीट पर रोशनी डालकर उससे रिफ्लेक्ट (Reflect) होने वाली वेववलेंथ (Wavelengths) को मापता है। यह केवल दिखने वाले रंगों का आंकलन नहीं करता, बल्कि हर रंग के स्पेक्ट्रल डेटा को रिकॉर्ड करके सटीक संख्यात्मक मान (Numerical Values) प्रदान करता है, जिससे ऑपरेटर प्रेस कंसोल पर तुरंत इंक की डेंसिटी को कैलिब्रेट कर सकता है।
-            </p>
-        </div>
-
-        <!-- Section 2 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2">2. CIELAB कलर स्पेस और L*a*b* वैल्यू (CIELAB Space)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">यह मॉडल मानव आँख की तरह रंगों को तीन कोऑर्डिनेट्स में बांटता है:</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
-                    <span class="text-xs font-bold text-cyan-400 block mb-1">L* (Lightness)</span>
-                    <p class="text-xs text-slate-300">चमक या लाइटनेस को दर्शाता है (0 = काला, 100 = शुद्ध सफेद)।</p>
-                </div>
-                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
-                    <span class="text-xs font-bold text-cyan-400 block mb-1">a* (Green to Red Axis)</span>
-                    <p class="text-xs text-slate-300">ऋनात्मक मान हरापन (-) और धनात्मक मान लालपन (+) दिखाता है।</p>
-                </div>
-                <div class="p-3 bg-slate-950/60 rounded-lg border border-slate-800">
-                    <span class="text-xs font-bold text-cyan-400 block mb-1">b* (Blue to Yellow Axis)</span>
-                    <p class="text-xs text-slate-300">ऋनात्मक मान नीलापन (-) और धनात्मक मान पीलापन (+) दिखाता है।</p>
-                </div>
+        <div class="space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
+            
+            <!-- SECTION 1 -->
+            <div class="technical-box">
+                <h3 class="font-bold text-white text-base text-cyan-400">1. D50 Illuminant & The 2-Degree Observer Myth</h3>
+                <p>• <strong>The Hidden Logic:</strong> Spectrophotometer hamesha "D50" (Daylight 5000K) par set hona chahiye. Lekin asli secret "2° vs 10° Standard Observer" me hai. 
+                <br>• <strong>Technical Reality:</strong> 2° observer small field of view (up to 4 degrees) ke liye hai, jabki 10° observer larger color patches ke liye. Agar aap 10° observer use kar rahe hain, toh aapki Delta E readings alag aayengi. Pro-tip: Client ki specification check karein, mismatch hone par print kabhi match nahi hoga.</p>
             </div>
-        </div>
 
-        <!-- Section 3 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. डेल्टा ई (ΔE - Color Difference)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी महत्व:</strong> डेल्टा ई (ΔE) दो रंगों के बीच के अंतर को मापता है (मास्टर स्टैंडर्ड और प्रिंटेड सैंपल के बीच)। पैकेजिंग इंडस्ट्री में, कड़े गुणवत्ता मानकों के तहत ΔE < 2.0 या ΔE < 1.5 को स्वीकार्य माना जाता है। अगर वैल्यू इससे ज्यादा है, तो इसका मतलब है कि रंग स्टैंडर्ड से भटक रहा है।
-            </p>
-        </div>
+            <!-- SECTION 2 -->
+            <div class="technical-box">
+                <h3 class="font-bold text-white text-base text-cyan-400">2. M0, M1, M2 & M3: The Measurement Modes</h3>
+                <p>• <strong>M1 Mode (The Industry Standard):</strong> Aajkal M1 mode zaroori hai kyunki ye "UV content" ko include karta hai. 
+                <br>• <strong>Hidden Danger:</strong> Agar aapka paper 'Optical Brightening Agents' (OBA) wala hai aur aap M0 mode me measure kar rahe hain, toh aapke prints ki Blue light reading hamesha galat aayegi. M2 mode me UV cut hota hai, jisse OBA ka asar khatam ho jata hai. Hamesha confirm karein ki aapka target M1 me measure hua hai ya M2 me.</p>
+            </div>
 
-        <!-- Section 4 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">4. सॉलिड इंक डेंसिटी (SID) और डॉट गेन (Dot Gain / TVI)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                स्पेक्ट्रोफोटोमीटर के जरिए सीएमવાયके (CMYK) के सॉलिड पैच की डेंसिटी (যেমন Black: 1.65 - 1.75) और मिड-टोन (50%) पर डॉट गेन की प्रतिशत जांच की जाती है, ताकि प्रेस पर प्रिंटिंग टोन एकदम संतुलित रहे।
-            </p>
-        </div>
+            <!-- SECTION 3 -->
+            <div class="technical-box">
+                <h3 class="font-bold text-white text-base text-cyan-400">3. The Delta E Equation (CIEDE2000 vs 76)</h3>
+                <p>• <strong>Physics of Comparison:</strong> Delta E 76 (Lab) formula purana hai. Aajkal CIEDE2000 use hota hai. 
+                <br>• <strong>The Formula Logic:</strong> <span class="formula">ΔE00 = √((ΔL'/kLSL)² + (ΔC'/kCSC)² + (ΔH'/kHSH)²)</span>
+                <br>• <strong>Why it matters:</strong> CIEDE2000 human eye ki perception ke hisaab se bani hai, jisme Yellow aur Blue color errors ko human eye alag tarah se feel karta hai. Delta E 76 me Yellow error dikhta hi nahi, jabki wo print me bahut kharab lagta hai.</p>
+            </div>
 
+            <!-- SECTION 4 -->
+            <div class="technical-box">
+                <h3 class="font-bold text-white text-base text-cyan-400">4. Metamerism: When Colors Lie</h3>
+                <p>• <strong>The Logic:</strong> Metamerism tab hota hai jab do colors ek light source me match karte hain, but dusre me alag. 
+                <br>• <strong>Cause:</strong> Jab aapka pigment (Colorant) spectral curve dusre ink ke curve ko cross karta hai. 
+                <br>• <strong>Technical Secret:</strong> Agar machine par shade match nahi ho rahi, toh sirf 'Lab' values mat dekho, 'Spectral Data Curve' dekho. Agar curve cross ho raha hai, toh ink change karo, Lab match karne ki koshish waste hai.</p>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Footer Note -->
-    <div class="mt-8 text-center border-t border-slate-800 pt-4">
-        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    <!-- FOOTER NAV -->
+    <div class="flex justify-between items-center pt-2">
+        <a href="ink-chemistry.html" class="text-xs text-cyan-400 hover:underline">← Chapter 2</a>
+        <a href="print-defects.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">Next Chapter 4 →</a>
     </div>
 
 </div>
