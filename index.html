@@ -406,20 +406,32 @@
     };
 
     // OTP वेरीफाई करें बटन
-    document.getElementById('verify-otp-btn').onclick = function() {
-        let code = document.getElementById('otp').value.trim();
-        if(code) {
-            window.confirmationResult.confirm(code).then(function (result) {
-                alert("Login successful! You can now proceed to payment.");
-                document.getElementById('otp-box').style.display = 'none';
-                document.getElementById('payment-section').style.display = 'block';
-            }).catch(function (error) {
-                alert("Invalid OTP! Please check again.");
-            });
-        } else {
-            alert("कृपया OTP दर्ज करें।");
-        }
-    };
+  document.getElementById('verify-otp-btn').onclick = function() {
+      let code = document.getElementById('otp').value;
+      if(code) {
+          window.confirmationResult.confirm(code).then(function (result) {
+              let user = result.user;
+              let adminPhone = "+918059002339"; // आपका एडमिन नंबर
+
+              if (user.phoneNumber === adminPhone) {
+                  // आपके लिए पेमेंट बाईपास हो जाएगा और मैनुअल सीधा खुल जाएगा
+                  alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट अनलॉक कर दिया गया है।");
+                  document.getElementById('otp-box').style.display = 'none';
+                  document.getElementById('payment-section').style.display = 'none';
+                  document.getElementById("manual-content").classList.remove("locked-content");
+              } else {
+                  // बाकी सभी यूज़र्स के लिए पेमेंट ऑप्शन आएगा
+                  alert("लॉगिन सफल रहा! कृपया फुल एक्सेस के लिए पेमेंट करें।");
+                  document.getElementById('otp-box').style.display = 'none';
+                  document.getElementById('payment-section').style.display = 'block';
+              }
+          }).catch(function (error) {
+              alert("गलत OTP! कृपया दोबारा प्रयास करें।");
+          });
+      } else {
+          alert("कृपया OTP दर्ज करें।");
+      }
+  };
 
     // Razorpay Payment Integration
     document.getElementById('pay-btn').onclick = function(e) {
