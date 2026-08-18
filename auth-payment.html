@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Sandhu Technical Lab - Page 1 & 2: Auth & Payment</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<!-- Invisible Recaptcha Container for Firebase Phone Auth -->
+<div id="recaptcha-container"></div>
+
+<!-- PAGE 1 & PAGE 2 CONTAINER -->
+<div id="auth-payment-wrapper" class="w-full max-w-md glass-card p-8 rounded-2xl">
+    <div class="text-center mb-6">
+        <span class="text-5xl">🖨️</span>
+        <h1 class="text-2xl font-bold mt-3 text-cyan-400">अमित संधु टेक्निकल लैब</h1>
+        <p class="text-xs text-slate-400 mt-1">ऑफ़सेट प्रिंटिंग और पैकेजिंग मास्टर मैनुअल</p>
+    </div>
+    
+    <!-- PAGE 1: PHONE NUMBER & OTP LOGIN MODULE -->
+    <div id="login-section" class="space-y-4">
+        <div class="bg-blue-950/40 p-3 rounded-xl border border-blue-500/20 mb-2">
+            <span class="text-xs font-bold text-cyan-300">चरण 1: मोबाइल नंबर लॉगिन (Page 1)</span>
+        </div>
+        <div>
+            <label class="block text-xs text-slate-300 font-semibold mb-1">WhatsApp मोबाइल नंबर दर्ज करें</label>
+            <input type="tel" id="phone" placeholder="उदा: 8059002339" class="w-full p-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-400 text-sm">
+        </div>
+        <button id="send-otp-btn" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm transition shadow-lg cursor-pointer">
+            OTP भेजें (Send OTP)
+        </button>
+    </div>
+
+    <!-- OTP Verification Box (Hidden by default) -->
+    <div id="otp-box" class="space-y-4 mt-4" style="display: none;">
+        <div>
+            <label class="block text-xs text-cyan-300 font-semibold mb-1">6-अंकों का OTP दर्ज करें</label>
+            <input type="text" id="otp" placeholder="Enter OTP" class="w-full p-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-400 text-sm tracking-widest text-center font-bold">
+        </div>
+        <button id="verify-otp-btn" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition shadow-lg cursor-pointer">
+            OTP वेरीफाई करें (Verify OTP)
+        </button>
+    </div>
+
+    <!-- PAGE 2: RAZORPAY PAYMENT MODULE (Hidden until login) -->
+    <div id="payment-section" class="mt-6 p-4 bg-slate-900/90 rounded-xl border border-cyan-500/40 text-center" style="display: none;">
+        <div class="bg-cyan-950/40 p-2 rounded-lg border border-cyan-500/20 mb-3">
+            <span class="text-xs font-bold text-cyan-300">चरण 2: पेमेंट गेटवे (Page 2)</span>
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1">फुल मैनुअल एक्सेस शुल्क</h3>
+        <p class="text-2xl font-extrabold text-cyan-400 mb-4">₹399 <span class="text-xs font-normal text-slate-400">(आजीवन एक्सेस)</span></p>
+        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-400 text-slate-950 font-extrabold rounded-xl shadow-lg hover:opacity-90 transition cursor-pointer text-sm">
+            Pay Now via Razorpay (₹399)
+        </button>
+    </div>
+
+    <!-- SUCCESS MESSAGE AFTER PAYMENT -->
+    <div id="success-message" class="mt-4 text-center" style="display: none;">
+        <div class="p-4 bg-emerald-950/50 border border-emerald-500/30 rounded-xl">
+            <p class="text-emerald-400 font-bold text-sm">✅ एक्सेस सफलतापूर्वक अनलॉक हो गया है!</p>
+            <p class="text-xs text-slate-300 mt-1">अब आप आगे के पेजों (Page 3 से 14) पर जा सकते हैं।</p>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT LOGIC FOR PAGE 1 & 2 -->
+<script>
+    // Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+        authDomain: "offset-manual-otp.firebaseapp.com",
+        projectId: "offset-manual-otp",
+        storageBucket: "offset-manual-otp.firebasestorage.app",
+        messagingSenderId: "311405464749",
+        appId: "1:311405464749:web:23a1bb3bed52b0128e4a24"
+    };
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    window.onload = function () {
+        if(typeof firebase !== 'undefined' && firebase.auth) {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+        }
+    };
+
+    // Page 1: Send OTP Logic
+    document.getElementById('send-otp-btn').onclick = function() {
+        let rawPhone = document.getElementById('phone').value.trim();
+        
+        // Admin Master Bypass
+        if (rawPhone === "8059002339" || rawPhone === "+918059002339") {
+            alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट वेरीफाई हो गया है।");
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'block';
+            return;
+        }
+
+        let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
+        if(userPhone.length >= 12) {
+            firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
+                .then(function (confirmationResult) {
+                    window.confirmationResult = confirmationResult;
+                    alert("OTP सफलतापूप्र्वक भेज दिया गया है!");
+                    document.getElementById('otp-box').style.display = 'block';
+                }).catch(function (error) {
+                    alert("OTP भेजने में त्रुटि: " + error.message);
+                    if(window.recaptchaVerifier) grecaptcha.reset(window.recaptchaVerifier);
+                });
+        } else {
+            alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।");
+        }
+    };
+
+    // Page 1: Verify OTP Logic
+    document.getElementById('verify-otp-btn').onclick = function() {
+        let code = document.getElementById('otp').value.trim();
+        if(code) {
+            window.confirmationResult.confirm(code).then(function (result) {
+                alert("मोबाइल नंबर वेरीफाई हो गया! अब पेमेंट सेक्शन पर जाएं।");
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('otp-box').style.display = 'none';
+                document.getElementById('payment-section').style.display = 'block';
+            }).catch(function (error) {
+                alert("गलत OTP! कृपया पुनः प्रयास करें।");
+            });
+        } else {
+            alert("कृपया OTP दर्ज करें।");
+        }
+    };
+
+    // Page 2: Razorpay Payment Logic
+    document.getElementById('pay-btn').onclick = function(e) {
+        e.preventDefault();
+        var options = {
+            "key": "rzp_test_TQhCeEkQqFITW0",
+            "amount": "39900", // ₹399 in paisa
+            "currency": "INR",
+            "name": "Amit Sandhu Technical Lab",
+            "description": "Offset Printing Master Manual Full Access",
+            "handler": function (response){
+                alert("पेमेंट सफल रहा! फुल एक्सेस अनलॉक कर दिया गया है।");
+                document.getElementById('payment-section').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                localStorage.setItem('isManualUnlocked', 'true');
+            },
+            "prefill": {
+                "name": "Amit Sandhu",
+                "email": "amitsandhu973@gmail.com",
+                "contact": "8059002339"
+            },
+            "theme": { "color": "#06b6d4" }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    };
+</script>
+
+</body>
+</html>
