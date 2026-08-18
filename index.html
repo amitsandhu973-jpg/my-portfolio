@@ -362,7 +362,15 @@
 
 <!-- Firebase & Razorpay Script Integration -->
 <script>
-    // Firebase Configuration
+  // अगर पहले से लॉगिन किया हुआ है, तो ऊपर का लॉगिन बॉक्स छुपा दें और मैनुअल खोल दें
+  window.addEventListener('DOMContentLoaded', (event) => {
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+          document.getElementById('login-container').style.display = 'none'; // ऊपर का लॉगिन बॉक्स गायब
+          document.getElementById("manual-content").classList.remove("locked-content");
+      }
+  });
+
+  // Firebase Configuration
     const firebaseConfig = {
         apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
         authDomain: "offset-manual-otp.firebaseapp.com",
@@ -406,31 +414,35 @@
     };
 
     // OTP वेरीफाई करें बटन
-  document.getElementById('verify-otp-btn').onclick = function() {
-      let code = document.getElementById('otp').value;
-      if(code) {
-          window.confirmationResult.confirm(code).then(function (result) {
-              let user = result.user;
-              let adminPhone = "+918059002339"; // आपका एडमिन नंबर
+ document.getElementById('verify-otp-btn').onclick = function() {
+    let code = document.getElementById('otp').value;
+    if(code) {
+        window.confirmationResult.confirm(code).then(function (result) {
+            let user = result.user;
+            let adminPhone = "+918059002339"; // आपका एडमिन नंबर
 
-              if (user.phoneNumber === adminPhone) {
-                  // आपके लिए पेमेंट बाईपास हो जाएगा और मैनुअल सीधा खुल जाएगा
-                  alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट अनलॉक कर दिया गया है।");
-                  document.getElementById('otp-box').style.display = 'none';
-                  document.getElementById('payment-section').style.display = 'none';
-                  document.getElementById("manual-content").classList.remove("locked-content");
-              } else {
-                  // बाकी सभी यूज़र्स के लिए पेमेंट ऑप्शन आएगा
-                  alert("लॉगिन सफल रहा! कृपया फुल एक्सेस के लिए पेमेंट करें।");
-                  document.getElementById('otp-box').style.display = 'none';
-                  document.getElementById('payment-section').style.display = 'block';
-              }
-          }).catch(function (error) {
-              alert("गलत OTP! कृपया दोबारा प्रयास करें।");
-          });
-      } else {
-          alert("कृपया OTP दर्ज करें।");
-      }
+            // यहाँ लॉगिन स्टेट सेव कर रहे हैं ताकि बार-बार लॉगिन न मांगें
+            localStorage.setItem('isLoggedIn', 'true');
+
+            if (user.phoneNumber === adminPhone) {
+                alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट अनलॉक कर दिया गया है।");
+                document.getElementById('login-container').style.display = 'none'; // ऊपर का बॉक्स छुपाएं
+                document.getElementById('otp-box').style.display = 'none';
+                document.getElementById('payment-section').style.display = 'none';
+                document.getElementById("manual-content").classList.remove("locked-content");
+            } else {
+                alert("लॉगिन सफल रहा! कृपया फुल एक्सेस के लिए पेमेंट करें।");
+                document.getElementById('login-container').style.display = 'none'; // ऊपर का बॉक्स छुपाएं
+                document.getElementById('otp-box').style.display = 'none';
+                document.getElementById('payment-section').style.display = 'block';
+            }
+        }).catch(function (error) {
+            alert("गलत OTP! कृपया दोबारा प्रयास करें।");
+        });
+    } else {
+        alert("कृपया OTP दर्ज करें।");
+    }
+};
   };
 
     // Razorpay Payment Integration
