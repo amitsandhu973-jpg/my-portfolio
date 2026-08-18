@@ -1,728 +1,134 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head> 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7X5MMBXGF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-G7X5MMBXGF');
-    </script>
-      
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Master Offset Printing & Packaging Technical Manual</title>
+    <title>Amit Sandhu Technical Lab - Master Manual Dashboard</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-    
-    <!-- Razorpay Checkout SDK -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <style>
-        :root {
-          --bg-main: #090d16;
-          --card-bg: #131b2e;
-          --accent-blue: #38bdf8;
-          --accent-neon: #00f2fe;
-          --border-color: rgba(56, 189, 248, 0.2);
-          --text-muted: #94a3b8;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-
-        body {
-          font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          background-color: var(--bg-main);
-          color: #e2e8f0;
-          margin: 0;
-          padding: 10px;
-        }
-
-        .manual-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          background: var(--card-bg);
-          border-radius: 16px;
-          border: 1px solid var(--border-color);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-          overflow: hidden;
-          width: 100%;
-        }
-
-        .locked-content {
-            filter: blur(8px);
-            pointer-events: none;
-            user-select: none;
-        }
-
-        /* GLASSMORPHISM HEADER */
-        .header-banner {
-          background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-          backdrop-filter: blur(10px);
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          border-bottom: 3px solid var(--accent-neon);
-        }
-
-        @media(min-width: 768px) {
-          .header-banner {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 35px;
-          }
-        }
-
-        .header-title h1 {
-          margin: 0;
-          font-size: 22px;
-          background: linear-gradient(90deg, #38bdf8, #00f2fe);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
-        .header-title p {
-          margin: 6px 0 0 0;
-          color: var(--text-muted);
-          font-size: 13px;
-        }
-
-        /* AUTHOR PROFILE CARD */
-        .author-card {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          background: rgba(255, 255, 255, 0.05);
-          padding: 15px;
-          border-radius: 14px;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .profile-photo-wrapper {
-          position: relative;
-          width: 80px;
-          height: 80px;
-          flex-shrink: 0;
-          cursor: pointer;
-        }
-
-        .author-img {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          border: 3px solid var(--accent-neon);
-          object-fit: cover;
-          box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
-          background-color: #1e293b;
-        }
-
-        .photo-upload-overlay {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          background: var(--accent-neon);
-          color: #000;
-          border-radius: 50%;
-          width: 26px;
-          height: 26px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          font-size: 14px;
-          border: 2px solid #000;
-        }
-
-        #imageInput {
-          display: none;
-        }
-
-        .author-info {
-          font-size: 12px;
-          line-height: 1.5;
-        }
-
-        .author-info h3 {
-          margin: 0 0 2px 0;
-          font-size: 17px;
-          color: #ffffff;
-        }
-
-        .author-badge {
-          display: inline-block;
-          background: linear-gradient(90deg, #2563eb, #3b82f6);
-          color: #ffffff;
-          padding: 2px 8px;
-          border-radius: 20px;
-          font-size: 10px;
-          font-weight: bold;
-          letter-spacing: 0.5px;
-          margin-bottom: 4px;
-        }
-
-        /* NAV TABS */
-        .tab-navigation {
-          display: flex;
-          flex-wrap: wrap;
-          background-color: #0b1120;
-          border-bottom: 1px solid var(--border-color);
-        }
-
-        .tab-btn {
-          flex: 1;
-          padding: 14px 10px;
-          background: none;
-          border: none;
-          color: var(--text-muted);
-          font-weight: 600;
-          font-size: 13px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-align: center;
-          border-right: 1px solid rgba(255, 255, 255, 0.05);
-          text-decoration: none;
-        }
-
-        .tab-btn:hover {
-          background-color: rgba(56, 189, 248, 0.1);
-          color: #ffffff;
-        }
-
-        .tab-btn.active {
-          background-color: var(--card-bg);
-          color: var(--accent-neon);
-          border-bottom: 3px solid var(--accent-neon);
-          font-weight: bold;
-        }
-
-        /* SLIDE PANELS */
-        .slide-panel {
-          display: none;
-          padding: 25px;
-        }
-
-        .slide-panel.active {
-          display: block;
-        }
-
-        /* 3D VISUAL STAGE */
-        .visual-3d-box {
-          background: linear-gradient(145deg, #0b1120, #131b2e);
-          border-radius: 14px;
-          padding: 20px 10px;
-          margin: 20px 0;
-          border: 1px solid var(--border-color);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-          text-align: center;
-        }
-
-        .cylinder-3d-stage {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          gap: 14px;
-          margin-top: 20px;
-        }
-
-        .cylinder-3d {
-          width: 100%;
-          max-width: 320px;
-          height: 55px;
-          border-radius: 35px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          font-size: 13px;
-          letter-spacing: 0.5px;
-          text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-          box-shadow: inset 0 10px 15px rgba(255,255,255,0.3), inset 0 -10px 15px rgba(0,0,0,0.7), 0 8px 15px rgba(0,0,0,0.5);
-        }
-
-        .cyl-plate { background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7); color: #fff; }
-        .cyl-blanket { background: linear-gradient(90deg, #d97706, #fbbf24, #d97706); color: #fff; }
-        .cyl-impression { background: linear-gradient(90deg, #475569, #94a3b8, #475569); color: #fff; }
-
-        /* DEFECT GRID */
-        .defect-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-          margin-top: 20px;
-        }
-
-        @media(min-width: 768px) {
-          .defect-grid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          }
-        }
-
-        .defect-card {
-          background-color: #0b1120;
-          border-radius: 10px;
-          padding: 16px;
-          border-left: 5px solid var(--accent-blue);
-          border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .defect-card h4 {
-          margin: 0 0 8px 0;
-          font-size: 16px;
-          color: var(--accent-neon);
-        }
-
-        .defect-card p {
-          font-size: 13px;
-          line-height: 1.5;
-          margin: 6px 0;
-          color: #cbd5e1;
-        }
-
-        .action-text {
-          color: #4ade80 !important;
-          font-weight: 600;
-        }
-
-        /* TABLES */
-        .table-wrapper {
-          width: 100%;
-          overflow-x: auto;
-          margin: 15px 0;
-        }
-
-        .custom-table {
-          width: 100%;
-          min-width: 500px;
-          border-collapse: collapse;
-          font-size: 13px;
-          background: #0b1120;
-          border-radius: 8px;
-        }
-
-        .custom-table th {
-          background: #1e293b;
-          color: var(--accent-blue);
-          padding: 12px;
-          text-align: left;
-          border-bottom: 2px solid var(--border-color);
-        }
-
-        .custom-table td {
-          padding: 10px 12px;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
-          color: #cbd5e1;
-        }
-
-        /* FOOTER NAV */
-        .slide-footer-nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px 20px;
-          background-color: #0b1120;
-          border-top: 1px solid var(--border-color);
-        }
-
-        .nav-btn {
-          padding: 10px 16px;
-          background: linear-gradient(90deg, #2563eb, #00f2fe);
-          color: white;
-          border: none;
-          border-radius: 8px;
-          font-weight: bold;
-          font-size: 12px;
-          cursor: pointer;
-        }
-
-        .nav-btn:disabled {
-          background: #334155;
-          cursor: not-allowed;
-          opacity: 0.5;
-        }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
     </style>
 </head>
-<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
 
-<!-- Recaptcha Container -->
-<div id="recaptcha-container"></div>
-
-<!-- LOGIN & PAYMENT BOX -->
-<div id="auth-box-container" class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl mb-6 border border-slate-800">
-    <div class="text-center mb-4">
-        <span class="text-4xl">🔒</span>
-        <h2 class="text-2xl font-bold mt-2 text-cyan-400">अमित संधु टेक्निकल लैब</h2>
-        <p class="text-xs text-gray-400 mt-1">ऑफ़सेट प्रिंटिंग और पैकेजिंग मास्टर मैनुअल एक्सेस</p>
-    </div>
+<!-- MAIN DASHBOARD CONTAINER -->
+<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
     
-    <!-- Phone Number Input -->
-    <div id="login-container" class="mb-4">
-        <label class="block text-xs text-slate-400 mb-1">मोबाइल नंबर (WhatsApp)</label>
-        <input type="tel" id="phone" placeholder="जैसे: 8059002339" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2 focus:outline-none focus:border-cyan-400">
-        <button id="send-otp-btn" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg cursor-pointer transition">OTP भेजें</button>
+    <!-- Header -->
+    <div class="text-center mb-8 border-b border-slate-800 pb-6">
+        <span class="text-5xl">🖨️</span>
+        <h1 class="text-3xl font-extrabold mt-3 text-cyan-400">अमित संधु टेक्निकल लैब</h1>
+        <p class="text-sm text-slate-300 mt-1">ऑफ़सेट प्रिंटिंग और पैकेजिंग मास्टर टेक्निकल मैनुअल (डैशबोर्ड)</p>
+        <p class="text-xs text-emerald-400 mt-2 font-semibold">🔒 फुल एक्सेस स्थिति: <span id="access-status">जाँच की जा रही है...</span></p>
     </div>
 
-    <!-- OTP Input Box -->
-    <div id="otp-box" class="mb-4" style="display: none;">
-        <label class="block text-xs text-slate-400 mb-1">वेरिफ़िकेशन कोड</label>
-        <input type="text" id="otp" placeholder="6-अंकों का OTP दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2 focus:outline-none focus:border-cyan-400">
-        <button id="verify-otp-btn" class="w-full py-2.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg cursor-pointer transition">OTP वेरीफाई करें</button>
+    <!-- Quick Navigation Grid (All 14 Pages Links with href) -->
+    <h2 class="text-sm font-bold text-cyan-300 uppercase tracking-wider mb-4">मैनुअल के सभी चैप्टर्स (Chapters Navigation)</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Page 1 & 2 -->
+        <a href="auth-payment.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 1 & 2</span>
+            <h3 class="text-sm font-bold text-white mt-1">लॉगिन, OTP और पेमेंट गेटवे</h3>
+        </a>
+
+        <!-- Page 3 -->
+        <a href="author-card.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 3</span>
+            <h3 class="text-sm font-bold text-white mt-1">ऑथर और क्रिएटर प्रोफाइल (Amit Sandhu)</h3>
+        </a>
+
+        <!-- Page 4 -->
+        <a href="principles.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 4</span>
+            <h3 class="text-sm font-bold text-white mt-1">ऑफ़सेट प्रिंटिंग मूल सिद्धांत (Principles)</h3>
+        </a>
+
+        <!-- Page 5 -->
+        <a href="machine-specs.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 5</span>
+            <h3 class="text-sm font-bold text-white mt-1">मशीन स्पेसिफिकेशन्स और पार्ट्स (Heidelberg/Komori)</h3>
+        </a>
+
+        <!-- Page 6 -->
+        <a href="ink-chemistry.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 6</span>
+            <h3 class="text-sm font-bold text-white mt-1">इंक केमिस्ट्री, डेंसिटी, विस्कोसिटी और टैक</h3>
+        </a>
+
+        <!-- Page 7 -->
+        <a href="spectrophotometer.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 7</span>
+            <h3 class="text-sm font-bold text-white mt-1">स्पेक्ट्रोफोटोमीटर, Lab वैल्यू और ΔE</h3>
+        </a>
+
+        <!-- Page 8 -->
+        <a href="defects.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 8</span>
+            <h3 class="text-sm font-bold text-white mt-1">30 प्रिंटिंग डिफेक्ट्स और ट्रबलशूटिंग</h3>
+        </a>
+
+        <!-- Page 9 -->
+        <a href="raw-materials.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 9</span>
+            <h3 class="text-sm font-bold text-white mt-1">रॉ मटेरियल: पेपर, बोर्ड और कोटिंग्स</h3>
+        </a>
+
+        <!-- Page 10 -->
+        <a href="quality-control.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 10</span>
+            <h3 class="text-sm font-bold text-white mt-1">क्वालिटी कंट्रोल और शॉप-फ्लोर टेस्ट्स</h3>
+        </a>
+
+        <!-- Page 11 -->
+        <a href="pantone-recipe.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 11</span>
+            <h3 class="text-sm font-bold text-white mt-1">पेंटोन गाइड और 14 बेस कलर रेसिपी</h3>
+        </a>
+
+        <!-- Page 12 -->
+        <a href="tech-hints.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 12</span>
+            <h3 class="text-sm font-bold text-white mt-1">40 टेक्निकल हिंट्स और सीक्रेट्स</h3>
+        </a>
+
+        <!-- Page 13 -->
+        <a href="experiments.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block">
+            <span class="text-xs font-bold text-cyan-400">पेज 13</span>
+            <h3 class="text-sm font-bold text-white mt-1">10 नए प्रिंटिंग एक्सपेरिमेंट्स</h3>
+        </a>
+
+        <!-- Page 14 -->
+        <a href="questions-answers.html" class="p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-cyan-400 transition block md:col-span-2">
+            <span class="text-xs font-bold text-cyan-400">पेज 14</span>
+            <h3 class="text-sm font-bold text-white mt-1">150 एडवांस टेक्निकल क्वेश्चंस और सेपरेट आंसर बैंक</h3>
+        </a>
+
     </div>
 
-    <!-- Razorpay Payment Section -->
-    <div id="payment-section" class="my-4 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
-        <h3 class="text-sm font-semibold mb-2 text-center text-cyan-300">पूर्ण एक्सेस अनलॉक शुल्क: ₹399</h3>
-        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition">
-            Pay Now (₹399) via Razorpay
-        </button>
+    <!-- Footer -->
+    <div class="mt-8 text-center border-t border-slate-800 pt-4">
+        <p class="text-xs font-bold text-slate-400 tracking-wider">CREATED BY AMIT SANDHU | MASTER TECHNICAL MANUAL</p>
     </div>
-</div>
-
-<!-- MAIN MANUAL CONTENT (LOCKED INITIALLY) -->
-<div id="manual-content" class="manual-container locked-content">
-  
-  <!-- HEADER WITH PERMANENT PHOTO UPLOADER -->
-  <div class="header-banner">
-    <div class="header-title">
-      <h1>Master Offset Printing & Packaging Technical Manual</h1>
-      <p>Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
-    </div>
-
-    <!-- AUTHOR PROFILE CARD -->
-    <div class="author-card">
-      <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
-        <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img" onerror="this.src='https://via.placeholder.com/80'">
-        <div class="photo-upload-overlay">+</div>
-        <input type="file" id="imageInput" accept="image/*" onchange="loadPhoto(event)">
-      </div>
-
-      <div class="author-info">
-        <div class="author-badge">CREATED BY AMIT SANDHU</div>
-        <h3>Amit Sandhu</h3>
-        <div><strong>Role:</strong> Production Supervisor</div>
-        <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
-        <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
-        <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEARCH BAR -->
-  <div style="padding: 20px 25px 0 25px; position: relative;">
-    <div style="display: flex; gap: 8px;">
-      <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें (उदा. Ink, pH, Plate)..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
-      <button onclick="searchContent()" type="button" style="padding: 0 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; flex-shrink: 0;">Search</button>
-    </div>
-    <div id="searchResultsBox" style="display: none; position: absolute; top: calc(100% - 5px); left: 25px; right: 25px; background: #0f172a; border: 1px solid #38bdf8; border-radius: 8px; max-height: 250px; overflow-y: auto; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.5);"></div>
-  </div>
-
-  <!-- TAB NAVIGATION BUTTONS -->
-  <div class="tab-navigation" style="margin-top: 15px;">
-    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">Page 1: Offset Mechanics & 3D</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide2')">Page 2: Machine Parts & Function</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide3')">Page 3: SPM, Ink & Color</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide4')">Page 4: 14 Defect Solutions</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide5')">Page 5: Materials & ISO</button>
-    <a href="tech-hints.html" class="tab-btn">Page 6: Technical Hints</a>
-    <a href="color-lab.html" class="tab-btn">Page 7: Color Lab</a>
-  </div>
-
-  <!-- SLIDE 1 -->
-  <div id="slide1" class="slide-panel active">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Deep Offset Printing Mechanics & Physical Principles</h2>
-    <p style="line-height: 1.7; font-size: 14px; color: #cbd5e1;">
-      ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water पर आधारित है।
-    </p>
-    <div class="visual-3d-box">
-      <h3 style="margin-top:0; color: var(--accent-blue); font-size: 16px;">3D Mechanical Transfer Simulation</h3>
-      <div class="cylinder-3d-stage">
-        <div class="cylinder-3d cyl-plate">PLATE CYLINDER (CTP Plate Unit)</div>
-        <div style="color: var(--accent-neon); font-weight: bold; font-size: 11px;">↓ Image Transfer Nip (Squeeze: 0.08 - 0.12 mm) ↓</div>
-        <div class="cylinder-3d cyl-blanket">BLANKET CYLINDER (Compressible)</div>
-        <div style="color: #fbbf24; font-weight: bold; font-size: 11px;">================ Paper Board ================</div>
-        <div class="cylinder-3d cyl-impression">IMPRESSION CYLINDER (Hard Steel)</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 2 -->
-  <div id="slide2" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">2. Offset Printing Machine Specification</h2>
-    <p>हीडलबर्ग और कोमोरी मशीनों के मुख्य पार्ट्स और उनके कार्य।</p>
-  </div>
-
-  <!-- SLIDE 3 -->
-  <div id="slide3" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">3. Machine SPM, Ink Dynamics & Color Consistency</h2>
-    <p>प्रेस स्पीड (SPH), विस्कोसिटी और कलर डेंसिटी मापदंड।</p>
-  </div>
-
-  <!-- SLIDE 4 -->
-  <div id="slide4" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Comprehensive Printing Defects Solutions (14 Defects)</h2>
-    <div class="defect-grid">
-      <div class="defect-card">
-        <h4>1. Scumming / Greasing (स्कमिंग)</h4>
-        <p><strong>Problem:</strong> प्लेट के नॉन-इमेज एरिया में इंक की पकड़ बनना।</p>
-        <p class="action-text">Action: pH 4.8-5.2 सेट करें, Dampening बढ़ाएं।</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 5 -->
-  <div id="slide5" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">5. Materials Chemistry, ISO Standards & Audits</h2>
-    <p>रॉ मटेरियल स्पेसिफिकेशन्स और ISO 12647-2 डेंसिटी स्टैंडर्ड्स।</p>
-  </div>
-
-  <!-- FOOTER NAVIGATION -->
-  <div class="slide-footer-nav">
-    <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)" disabled>← Prev</button>
-    <div id="pageIndicator" style="font-weight: bold; color: var(--accent-blue); font-size: 13px;">Page 1 of 5</div>
-    <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">Next →</button>
-  </div>
 
 </div>
 
-<!-- FLOATING CONTACT BUTTONS -->
-<div style="position: fixed; bottom: 30px; right: 15px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
-  <a href="tel:+918059002339" style="width: 42px; height: 42px; border-radius: 50%; background-color: #00f2fe; color: #000; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Direct Call">📞</a>
-  <a href="mailto:amitsandhu973@gmail.com" style="width: 42px; height: 42px; border-radius: 50%; background-color: #ea4335; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Send Email">✉️</a>
-  <a href="https://wa.me/918059002339?text=Hello%20Amit%20Bhai,%20I%20visited%20your%20Offset%20Printing%20Manual." style="width: 42px; height: 42px; border-radius: 50%; background-color: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" target="_blank" title="WhatsApp Chat">💬</a>
-</div>
-
-<!-- JAVASCRIPT LOGIC -->
+<!-- Script to check access -->
 <script>
-  // एडमिन डायरेक्ट बाईपास चेक
-  window.addEventListener('DOMContentLoaded', (event) => {
-      if (localStorage.getItem('isAdminLoggedIn') === 'true') {
-          unlockWebsite();
-      }
-      const savedPhoto = localStorage.getItem('amitUserPhoto');
-      if (savedPhoto) {
-          const photoEl = document.getElementById('userPhoto');
-          if (photoEl) photoEl.src = savedPhoto;
-      }
-  });
-
-  function unlockWebsite() {
-      localStorage.setItem('isAdminLoggedIn', 'true');
-      let authBox = document.getElementById('auth-box-container');
-      if(authBox) authBox.style.display = 'none';
-      let manualContent = document.getElementById("manual-content");
-      if(manualContent) manualContent.classList.remove("locked-content");
-  }
-
-  // Firebase Configuration
-  const firebaseConfig = {
-      apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
-      authDomain: "offset-manual-otp.firebaseapp.com",
-      projectId: "offset-manual-otp",
-      storageBucket: "offset-manual-otp.firebasestorage.app",
-      messagingSenderId: "311405464749",
-      appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
-      measurementId: "G-D4GK61ZXQD"
-  };
-
-  if (!firebase.apps.length) { 
-      firebase.initializeApp(firebaseConfig); 
-  }
-
-  window.onload = function () {
-      if(typeof firebase !== 'undefined' && firebase.auth) {
-          window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-              'size': 'invisible'
-          });
-      }
-  };
-
-  // OTP भेजें बटन
-  document.getElementById('send-otp-btn').onclick = function() {
-      let rawPhone = document.getElementById('phone').value.trim();
-      
-      // एडमिन नंबर डायरेक्ट चेक
-      if (rawPhone === "8059002339" || rawPhone === "+918059002339") {
-          alert("अमित जी, आपका स्वागत है! एडमिन एक्सेस डायरेक्ट अनलॉक कर दिया गया है।");
-          unlockWebsite();
-          return;
-      }
-
-      let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
-
-      if(userPhone.length >= 12) {
-          firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
-              .then(function (confirmationResult) {
-                  window.confirmationResult = confirmationResult;
-                  alert("OTP भेज दिया गया है!");
-                  document.getElementById('otp-box').style.display = 'block'; 
-              }).catch(function (error) {
-                  alert("OTP भेजने में एरर: " + error.message);
-                  if(window.recaptchaVerifier) grecaptcha.reset(window.recaptchaVerifier);
-              });
-      } else {
-          alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
-      }
-  };
-
-  // OTP वेरीफाई करें बटन
-  document.getElementById('verify-otp-btn').onclick = function() {
-      let code = document.getElementById('otp').value.trim();
-      if(code) {
-          window.confirmationResult.confirm(code).then(function (result) {
-              alert("लॉगिन सफल रहा! अब पेमेंट कर सकते हैं।");
-              document.getElementById('otp-box').style.display = 'none';
-              document.getElementById('payment-section').style.display = 'block';
-          }).catch(function (error) {
-              alert("गलत OTP! कृपया दोबारा चेक करें।");
-          });
-      } else {
-          alert("कृपया OTP दर्ज करें।");
-      }
-  };
-
-  // Razorpay Payment Integration
-  document.getElementById('pay-btn').onclick = function(e) {
-      e.preventDefault();
-      
-      var options = {
-          "key": "rzp_test_TQhCeEkQqFITW0",
-          "amount": "39900", // ₹399
-          "currency": "INR",
-          "name": "Amit Sandhu Technical Lab",
-          "description": "Offset Printing & Packaging Guide Access",
-          "handler": function (response){
-              alert("पेमेंट सफल रहा! फुल एक्सेस अनलॉक कर दिया गया है।");
-              unlockWebsite();
-          },
-          "prefill": {
-              "name": "Amit Sandhu",
-              "email": "amitsandhu973@gmail.com",
-              "contact": "8059002339"
-          },
-          "theme": {
-              "color": "#06b6d4"
-          }
-      };
-      
-      var rzp1 = new Razorpay(options);
-      rzp1.open();
-  };
-
-  // Slide Navigation
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const pageIndicator = document.getElementById('pageIndicator');
-  let currentSlideIndex = 0;
-  const slides = document.querySelectorAll('.slide-panel');
-  const tabs = document.querySelectorAll('.tab-navigation .tab-btn');
-
-  function updateSlideUI() {
-      slides.forEach((slide, index) => {
-          slide.classList.remove('active');
-          if (tabs[index] && tabs[index].classList) tabs[index].classList.remove('active');
-      });
-
-      if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.add('active');
-      if (tabs[currentSlideIndex] && tabs[currentSlideIndex].classList) tabs[currentSlideIndex].classList.add('active');
-
-      if (pageIndicator) pageIndicator.innerText = `Page ${currentSlideIndex + 1} of ${slides.length}`;
-      if (prevBtn) prevBtn.disabled = currentSlideIndex === 0;
-      if (nextBtn) nextBtn.disabled = currentSlideIndex === slides.length - 1;
-  }
-
-  function openSlide(event, slideId) {
-      const slideArray = Array.from(slides);
-      const targetIndex = slideArray.findIndex(s => s.id === slideId);
-      if (targetIndex !== -1) {
-          currentSlideIndex = targetIndex;
-          updateSlideUI();
-      }
-  }
-
-  function changeSlide(direction) {
-      currentSlideIndex += direction;
-      if (currentSlideIndex < 0) currentSlideIndex = 0;
-      if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
-      updateSlideUI();
-  }
-
-  // Photo Uploader
-  function loadPhoto(event) {
-      let reader = new FileReader();
-      reader.onload = function(){
-          let output = document.getElementById('userPhoto');
-          output.src = reader.result;
-          localStorage.setItem('amitUserPhoto', reader.result);
-      };
-      reader.readAsDataURL(event.target.files[0]);
-  }
-
-  // Search Function
-  function searchContent() {
-      let input = document.getElementById('searchInput').value.toLowerCase().trim();
-      let resultsBox = document.getElementById('searchResultsBox');
-      if (!resultsBox) return;
-
-      resultsBox.innerHTML = "";
-      if (!input) {
-          resultsBox.style.display = "none";
-          return;
-      }
-
-      let allSlides = Array.from(document.querySelectorAll('.slide-panel'));
-      let matches = [];
-
-      allSlides.forEach((slide, slideIdx) => {
-          let nodes = slide.querySelectorAll('p, li, h2, h3, h4, td');
-          nodes.forEach(node => {
-              if (node.innerText && node.innerText.toLowerCase().includes(input)) {
-                  matches.push({
-                      slideIndex: slideIdx,
-                      element: node,
-                      text: node.innerText.substring(0, 70) + "..."
-                  });
-              }
-          });
-      });
-
-      if (matches.length > 0) {
-          resultsBox.style.display = "block";
-          let header = document.createElement('div');
-          header.style.cssText = "padding: 10px; background: #1e293b; color: #00f2fe; font-weight: bold; border-bottom: 1px solid #334155;";
-          header.innerText = `कुल ${matches.length} जगह मिला (क्लिक करें):`;
-          resultsBox.appendChild(header);
-
-          matches.forEach(item => {
-              let itemDiv = document.createElement('div');
-              itemDiv.style.cssText = "padding: 10px; border-bottom: 1px solid #1e293b; color: #e2e8f0; cursor: pointer; font-size: 14px;";
-              itemDiv.innerHTML = `<strong style="color:#00f2fe;">Page ${item.slideIndex + 1}:</strong> ${item.text}`;
-              
-              itemDiv.onclick = function() {
-                  currentSlideIndex = item.slideIndex;
-                  updateSlideUI();
-                  resultsBox.style.display = "none";
-              };
-              resultsBox.appendChild(itemDiv);
-          });
-      } else {
-          resultsBox.style.display = "block";
-          resultsBox.innerHTML = `<div style="padding: 12px; color: #ef4444;">कोई परिणाम नहीं मिला / No match found</div>`;
-      }
-  }
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('isManualUnlocked') === 'true') {
+            document.getElementById('access-status').innerText = 'अनलक्ड (Unlocked)';
+            document.getElementById('access-status').className = 'text-xs text-emerald-400 font-semibold';
+        } else {
+            document.getElementById('access-status').innerText = 'लॉक है - पहले पेज 1/2 से पेमेंट करें (Locked)';
+            document.getElementById('access-status').className = 'text-xs text-amber-400 font-semibold';
+        }
+    });
 </script>
 
 </body>
