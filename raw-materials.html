@@ -3,62 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Page 9: Raw Materials & Coatings</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Page 5: Substrate & Coatings Engineering - Amit Sandhu Master Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-label: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background: #0f172a; color: #22d3ee; border-bottom: 2px solid #0284c7; }
+        .data-table td { border-bottom: 1px solid #1e293b; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<!-- PAGE 9: RAW MATERIALS & COATINGS CONTAINER -->
-<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+<div class="w-full max-w-4xl space-y-6">
     
-    <!-- Top Header -->
-    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
-        <div>
-            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 9: रॉ मटेरियल और कोटिंग्स</span>
-            <h1 class="text-2xl font-extrabold text-white mt-2">Paper, Board & Coating Technology Specifications</h1>
+    <!-- NAVIGATION HEADER -->
+    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
+        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
+        <div class="text-right">
+            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">ISO & TAPPI COMPLIANT</span>
         </div>
-        <span class="text-xs text-slate-400 font-mono">Shop-Floor Engineering Data</span>
     </div>
 
-    <!-- Content Sections -->
-    <div class="space-y-4">
+    <!-- MAIN MODULE BOX -->
+    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
         
-        <!-- Section 1 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. पेपर और बोर्ड के प्रकार (Paper & FBB/SBS Board Types)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                ऑफ़सेट प्रिंटिंग और पैकेजिंग में मुख्य रूप से कोटेड पेपर (Art Paper/Gloss & Matt), अनकोटेड पेपर, FBB (Folding Box Board - कॉस्मेटिक और फार्मा पैकेजिंग के लिए), और SBS (Solid Bleached Sulphate) बोर्ड का उपयोग होता है। इनकी ग्रामेज़ (GSM) और कैलिपर (Thickness) का परीक्षण करना आवश्यक है।
-            </p>
+        <!-- TITLE & AUTHOR WATERMARK -->
+        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 5: SUBSTRATE & COATINGS TECHNOLOGY</h1>
+                <p class="text-xs text-cyan-400 font-medium mt-1">Advanced Paper Physics, Board Mechanics, Cobb Absorption & Inline Coating Chemistry</p>
+            </div>
+            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
+                <span class="text-[10px] text-slate-400 block">Verified By:</span>
+                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
+            </div>
         </div>
 
-        <!-- Section 2 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">2. पेपर की नमी और फाइबर्स (Moisture Content & Grain Direction)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                पेपर में नमी (Moisture Content) आदर्श रूप से 4.5% से 5.5% के बीच होनी चाहिए। गलत नमी या गलत ग्रेन डायरेक्शन (Grain Direction) होने पर मशीन में पेपर मुड़ने (Warping/Curl) और रजिस्टर आउट होने की समस्या आती है।
-            </p>
+        <!-- SECTION 1: COMPREHENSIVE SUBSTRATE SPECIFICATION MATRIX -->
+        <div class="space-y-3">
+            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
+                <span>⚙️</span> 1. Packaging Substrate Technical Matrix (FBB, SBB, WLC)
+            </h3>
+            <p class="text-xs text-slate-300">Detailed structural breakdown of paperboards utilized in high-speed Heidelberg and Komori offset printing lines:</p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs data-table">
+                    <thead>
+                        <tr>
+                            <th class="p-3">Board Grade</th>
+                            <th class="p-3">Structure / Layers</th>
+                            <th class="p-3">GSM Range</th>
+                            <th class="p-3">Primary Packaging Application</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <tr>
+                            <td class="p-3 font-bold text-white">GC1 (FBB)</td>
+                            <td class="p-3">Multi-layer mechanical pulp center, chemical pulp outer layers, coated back.</td>
+                            <td class="p-3 font-mono">200 - 450 GSM</td>
+                            <td class="p-3">Pharma cartons, cosmetics, premium food boxes.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-white">GC2 (FBB)</td>
+                            <td class="p-3">Mechanical pulp core, cream/uncoated reverse side.</td>
+                            <td class="p-3 font-mono">220 - 400 GSM</td>
+                            <td class="p-3">General consumer goods, cereal boxes, retail packs.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-white">SBS / SBB</td>
+                            <td class="p-3">Solid bleached chemical pulp across all plies. High purity & brightness.</td>
+                            <td class="p-3 font-mono">180 - 400 GSM</td>
+                            <td class="p-3">Luxury gift boxes, chocolates, pharma blister packs, cosmetics.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-white">WLC (GD/GT)</td>
+                            <td class="p-3">Recycled waste paper core, white top liner layers.</td>
+                            <td class="p-3 font-mono">250 - 600 GSM</td>
+                            <td class="p-3">Shoe boxes, electronics outer cartons, heavy commercial packaging.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- Section 3 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. प्रिंटिंग कोटिंग्स तकनीक (Coating Technologies: Gloss, Matt & Primer)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>एक्वस कोटिंग (Aqueous Coating):</strong> यह वॉटर-बेस्ड होती है जो शीट को जल्दी सुखाने और स्क्रैच से बचाने के लिए प्रेस टॉवर पर लगाई जाती है। इसके अलावा यूवी कोटिंग (UV Coating) और ब्लिस्टर वार्निश (Blister Varnish) का उपयोग पैकेजिंग की चमक और मजबूती बढ़ाने के लिए किया जाता है।
+        <!-- SECTION 2: CRITICAL LABORATORY & SHOP-FLOOR TESTS -->
+        <div class="space-y-3">
+            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
+                <span>🔬</span> 2. Standard Laboratory & Shop-Floor Testing Protocols
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <strong class="text-white text-sm">Cobb Value Test (ISO 535)</strong>
+                        <span class="text-cyan-400 font-mono text-[10px] bg-cyan-950 px-2 py-0.5 rounded">Water Absorption</span>
+                    </div>
+                    <p class="text-slate-300">Measures the mass of water absorbed by 1 square meter of paper/board in a specified time (typically Cobb60 for 60 seconds).</p>
+                    <div class="bg-slate-950 p-2.5 rounded border border-slate-800 text-[11px] text-cyan-300 font-mono">
+                        Target Standard: 45 - 55 g/m² (For gloss carton boards to prevent ink setting issues & blistering).
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <strong class="text-white text-sm">Surface Smoothness (Parker Print-Surf)</strong>
+                        <span class="text-cyan-400 font-mono text-[10px] bg-cyan-950 px-2 py-0.5 rounded">ISO 8791-4</span>
+                    </div>
+                    <p class="text-slate-300">Evaluates micro-roughness under simulated printing nip pressure. Lower micrometers indicate smoother surfaces.</p>
+                    <div class="bg-slate-950 p-2.5 rounded border border-slate-800 text-[11px] text-cyan-300 font-mono">
+                        Target Standard: &lt; 1.2 µm for high-end halftone dot reproduction without pinholing.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 3: COATINGS & FINISHING DYNAMICS -->
+        <div class="space-y-3">
+            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
+                <span>🧪</span> 3. Inline Coating Chemistry & Mechanics
+            </h3>
+            <div class="space-y-2 text-xs">
+                <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-white text-sm block mb-1">Aqueous Coating (Dispersion Coating)</strong>
+                    <p class="text-slate-300">Applied via an anilox coater unit using water-based acrylic polymers. Viscosity is maintained typically between 35–45 seconds (Ford Cup No. 4 at 25°C). Provides anti-scuff protection, rapid drying via IR/Hot air dryers, and prevents sheet blocking in the delivery stack.</p>
+                </div>
+                <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+                    <strong class="text-white text-sm block mb-1">UV Coating & Primer Interaction</strong>
+                    <p class="text-slate-300">Ultraviolet curable coatings require total photo-initiator curing under high-intensity UV mercury/LED lamps. Proper energy density (mJ/cm²) is required to prevent migration risks in food-grade packaging. Base primers are essential when applying UV over non-absorbent metalized or synthetic substrates.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERT SUPERVISOR'S GOLDEN RULE -->
+        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5">
+            <div class="flex items-center gap-2 text-cyan-400 font-bold">
+                <span>💡</span>
+                <span>Amit Sandhu's Production Floor Warning:</span>
+            </div>
+            <p class="text-slate-200">
+                Never feed unconditioned cold-storage paper directly into high-speed printing nips. Temperature differentials between the pressroom and paper pallets cause moisture loss or gain along sheet edges, resulting in severe dimensional distortion, register drift, and creasing fractures during subsequent die-cutting operations. Always allow a 24-hour acclimatization period.
             </p>
         </div>
 
     </div>
 
-    <!-- Footer Note -->
-    <div class="mt-8 text-center border-t border-slate-800 pt-4">
-        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    <!-- FOOTER SIGNATURE -->
+    <div class="text-center pt-2">
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
     </div>
 
 </div>
