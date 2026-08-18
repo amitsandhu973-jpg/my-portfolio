@@ -1,19 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="hi">
-<head> 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G7X5MMBXGF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G7X5MMBXGF');
-</script>
-  
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7X5MMBXGF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G7X5MMBXGF');
+    </script>
+      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Offset Printing & Packaging</title>
+    <title>Amit Sandhu Technical Lab - Offset Printing & Packaging Master Manual</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -25,778 +25,453 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <style>
-      :root {
-        --bg-main: #090d16;
-        --card-bg: #131b2e;
-        --accent-blue: #38bdf8;
-        --accent-neon: #00f2fe;
-        --border-color: rgba(56, 189, 248, 0.2);
-        --text-muted: #94a3b8;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background-color: var(--bg-main);
-        color: #e2e8f0;
-        margin: 0;
-        padding: 10px;
-      }
-
-      .manual-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: var(--card-bg);
-        border-radius: 16px;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        overflow: hidden;
-        width: 100%;
-      }
-
-      .header-banner {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        border-bottom: 3px solid var(--accent-neon);
-      }
-
-      @media(min-width: 768px) {
-        .header-banner {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          padding: 25px 35px;
+        :root {
+          --bg-main: #090d16;
+          --card-bg: #131b2e;
+          --accent-blue: #38bdf8;
+          --accent-neon: #00f2fe;
+          --border-color: rgba(56, 189, 248, 0.2);
+          --text-muted: #94a3b8;
         }
-      }
 
-      .header-title h1 {
-        margin: 0;
-        font-size: 22px;
-        background: linear-gradient(90deg, #38bdf8, #00f2fe);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        word-break: break-word;
-      }
+        body {
+          font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+          background-color: var(--bg-main);
+          color: #e2e8f0;
+          margin: 0;
+          padding: 10px;
+        }
 
-      .header-title p {
-        margin: 6px 0 0 0;
-        color: var(--text-muted);
-        font-size: 13px;
-      }
+        .manual-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          background: var(--card-bg);
+          border-radius: 16px;
+          border: 1px solid var(--border-color);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+          overflow: hidden;
+          width: 100%;
+        }
 
-      .author-card {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 15px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        width: 100%;
-      }
+        .locked-content {
+            filter: blur(8px);
+            pointer-events: none;
+            user-select: none;
+        }
 
-      @media(min-width: 768px) {
-        .author-card { width: auto; }
-      }
+        .header-banner {
+          background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+          backdrop-filter: blur(10px);
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          border-bottom: 3px solid var(--accent-neon);
+        }
 
-      .profile-photo-wrapper {
-        position: relative;
-        width: 80px;
-        height: 80px;
-        flex-shrink: 0;
-        cursor: pointer;
-      }
+        @media(min-width: 768px) {
+          .header-banner {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 35px;
+          }
+        }
 
-      .author-img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        border: 3px solid var(--accent-neon);
-        object-fit: cover;
-        box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
-        background-color: #1e293b;
-      }
+        .header-title h1 {
+          margin: 0;
+          font-size: 22px;
+          background: linear-gradient(90deg, #38bdf8, #00f2fe);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-transform: uppercase;
+        }
 
-      .photo-upload-overlay {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: var(--accent-neon);
-        color: #000;
-        border-radius: 50%;
-        width: 26px;
-        height: 26px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 14px;
-        border: 2px solid #000;
-      }
+        .author-card {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          background: rgba(255, 255, 255, 0.05);
+          padding: 15px;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        }
 
-      #imageInput { display: none; }
+        .profile-photo-wrapper {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          flex-shrink: 0;
+          cursor: pointer;
+        }
 
-      .author-info {
-        font-size: 12px;
-        line-height: 1.5;
-        word-break: break-word;
-      }
+        .author-img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 3px solid var(--accent-neon);
+          object-fit: cover;
+        }
 
-      .author-info h3 {
-        margin: 0 0 2px 0;
-        font-size: 17px;
-        color: #ffffff;
-      }
+        .photo-upload-overlay {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background: var(--accent-neon);
+          color: #000;
+          border-radius: 50%;
+          width: 26px;
+          height: 26px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 14px;
+          border: 2px solid #000;
+        }
 
-      .author-badge {
-        display: inline-block;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
-        color: #ffffff;
-        padding: 2px 8px;
-        border-radius: 20px;
-        font-size: 10px;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        margin-bottom: 4px;
-      }
+        #imageInput { display: none; }
 
-      .tab-navigation {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: #0b1120;
-        border-bottom: 1px solid var(--border-color);
-      }
+        .tab-navigation {
+          display: flex;
+          flex-wrap: wrap;
+          background-color: #0b1120;
+          border-bottom: 1px solid var(--border-color);
+        }
 
-      .tab-btn {
-        flex: 1 1 100%;
-        padding: 14px 10px;
-        background: none;
-        border: none;
-        color: var(--text-muted);
-        font-weight: 600;
-        font-size: 13px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        text-decoration: none;
-      }
+        .tab-btn {
+          flex: 1;
+          padding: 14px 10px;
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          font-weight: 600;
+          font-size: 13px;
+          cursor: pointer;
+          text-align: center;
+          transition: all 0.3s ease;
+        }
 
-      @media(min-width: 600px) {
-        .tab-btn { flex: 1 1 50%; }
-      }
+        .tab-btn:hover {
+          color: #fff;
+          background: rgba(56, 189, 248, 0.05);
+        }
 
-      @media(min-width: 900px) {
-        .tab-btn { flex: 1; border-bottom: none; border-right: 1px solid rgba(255, 255, 255, 0.05); }
-      }
+        .tab-btn.active {
+          background-color: var(--card-bg);
+          color: var(--accent-neon);
+          border-bottom: 3px solid var(--accent-neon);
+          font-weight: bold;
+        }
 
-      .tab-btn:hover {
-        background-color: rgba(56, 189, 248, 0.1);
-        color: #ffffff;
-      }
+        .slide-panel {
+          display: none;
+          padding: 30px;
+        }
 
-      .tab-btn.active {
-        background-color: var(--card-bg);
-        color: var(--accent-neon);
-        border-bottom: 3px solid var(--accent-neon);
-        font-weight: bold;
-      }
+        .slide-panel.active {
+          display: block;
+        }
 
-      .slide-panel {
-        display: none;
-        padding: 20px;
-        animation: fadeIn 0.4s ease-in-out;
-      }
-
-      @media(min-width: 768px) {
-        .slide-panel { padding: 35px; }
-      }
-
-      .slide-panel.active { display: block; }
-
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .visual-3d-box {
-        background: linear-gradient(145deg, #0b1120, #131b2e);
-        border-radius: 14px;
-        padding: 20px 10px;
-        margin: 20px 0;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        text-align: center;
-      }
-
-      .cylinder-3d-stage {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 14px;
-        margin-top: 20px;
-      }
-
-      .cylinder-3d {
-        width: 100%;
-        max-width: 320px;
-        height: 55px;
-        border-radius: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 13px;
-        letter-spacing: 0.5px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-        box-shadow: inset 0 10px 15px rgba(255,255,255,0.3), inset 0 -10px 15px rgba(0,0,0,0.7), 0 8px 15px rgba(0,0,0,0.5);
-      }
-
-      .cyl-plate { background: linear-gradient(90deg, #0284c7, #38bdf8, #0284c7); color: #fff; }
-      .cyl-blanket { background: linear-gradient(90deg, #d97706, #fbbf24, #d97706); color: #fff; }
-      .cyl-impression { background: linear-gradient(90deg, #475569, #94a3b8, #475569); color: #fff; }
-
-      .defect-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 20px;
-      }
-
-      @media(min-width: 768px) {
-        .defect-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-      }
-
-      .defect-card {
-        background-color: #0b1120;
-        border-radius: 10px;
-        padding: 16px;
-        border-left: 5px solid var(--accent-blue);
-        border: 1px solid rgba(255,255,255,0.05);
-        border-left-width: 5px;
-      }
-
-      .defect-card h4 {
-        margin: 0 0 8px 0;
-        font-size: 16px;
-        color: var(--accent-neon);
-      }
-
-      .defect-card p {
-        font-size: 13px;
-        line-height: 1.5;
-        margin: 6px 0;
-        color: #cbd5e1;
-      }
-
-      .action-text { color: #4ade80 !important; font-weight: 600; }
-
-      .table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        margin: 15px 0;
-      }
-
-      .custom-table {
-        width: 100%;
-        min-width: 500px;
-        border-collapse: collapse;
-        font-size: 13px;
-        background: #0b1120;
-        border-radius: 8px;
-      }
-
-      .custom-table th {
-        background: #1e293b;
-        color: var(--accent-blue);
-        padding: 12px;
-        text-align: left;
-        border-bottom: 2px solid var(--border-color);
-      }
-
-      .custom-table td {
-        padding: 10px 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        color: #cbd5e1;
-      }
-
-      .slide-footer-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        background-color: #0b1120;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .nav-btn {
-        padding: 10px 16px;
-        background: linear-gradient(90deg, #2563eb, #00f2fe);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 12px;
-        cursor: pointer;
-      }
-
-      .nav-btn:disabled {
-        background: #334155;
-        cursor: not-allowed;
-        opacity: 0.5;
-      }
-
-      .locked-content {
-          filter: blur(8px);
-          pointer-events: none;
-          user-select: none;
-      }
+        .tech-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          padding: 20px;
+          margin-bottom: 20px;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
 
- <!-- Recaptcha Container -->
- <div id="recaptcha-container"></div>
+<!-- Recaptcha Container -->
+<div id="recaptcha-container"></div>
 
- <!-- लॉगिन और पेमेंट बॉक्स -->
- <div class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl mb-6 z-50">
-     <span class="text-4xl">🔒</span>
-     <h2 class="text-2xl font-bold mt-2 mb-2 text-cyan-400">अमित संधु टेक्निकल लैब</h2>
-     <p class="text-xs text-gray-400 mb-4">लॉगिन करने के लिए मोबाइल नंबर दर्ज करें</p>
-     
-     <!-- Phone Number Input -->
-     <div class="mb-4">
-         <input type="tel" id="phone" placeholder="मोबाइल नंबर दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
-         <button id="send-otp-btn" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg cursor-pointer">OTP भेजें</button>
-     </div>
+<!-- लॉगिन और पेमेंट बॉक्स -->
+<div class="w-full max-w-md bg-slate-900 p-6 rounded-xl shadow-2xl mb-6 border border-slate-800">
+    <div class="text-center mb-4">
+        <span class="text-4xl">🔒</span>
+        <h2 class="text-2xl font-bold mt-2 text-cyan-400">अमित संधु टेक्निकल लैब</h2>
+        <p class="text-xs text-gray-400 mt-1">ऑफ़सेट प्रिंटिंग और पैकेजिंग मास्टर मैनुअल एक्सेस</p>
+    </div>
+    
+    <!-- Phone Number Input -->
+    <div class="mb-4">
+        <label class="block text-xs text-slate-400 mb-1">मोबाइल नंबर (WhatsApp)</label>
+        <input type="tel" id="phone" placeholder="जैसे: 8059002339" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2 focus:outline-none focus:border-cyan-400">
+        <button id="send-otp-btn" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg cursor-pointer transition">OTP भेजें</button>
+    </div>
 
-     <!-- OTP Input Box -->
-     <div id="otp-box" class="mb-4" style="display: none;">
-         <input type="text" id="otp" placeholder="6-अंकों का OTP दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2">
-         <button id="verify-otp-btn" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg cursor-pointer">OTP वेरीफाई करें</button>
-     </div>
+    <!-- OTP Input Box (Initially Hidden) -->
+    <div id="otp-box" class="mb-4" style="display: none;">
+        <label class="block text-xs text-slate-400 mb-1">वेरिफ़िकेशन कोड</label>
+        <input type="text" id="otp" placeholder="6-अंकों का OTP दर्ज करें" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-white mb-2 focus:outline-none focus:border-cyan-400">
+        <button id="verify-otp-btn" class="w-full py-2.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg cursor-pointer transition">OTP वेरीफाई करें</button>
+    </div>
 
-     <!-- Razorpay Payment Section -->
-     <div id="payment-section" class="my-6 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
-         <h3 class="text-lg font-semibold mb-3">फुल एक्सेस अनलॉक करें</h3>
-         <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg cursor-pointer">
-             Pay Now (₹399)
-         </button>
-     </div>
- </div>
+    <!-- Razorpay Payment Section (Initially Hidden) -->
+    <div id="payment-section" class="my-4 p-4 bg-slate-800 rounded-lg border border-slate-700" style="display: none;">
+        <h3 class="text-sm font-semibold mb-2 text-center text-cyan-300">पूर्ण एक्सेस अनलॉक शुल्क: ₹100</h3>
+        <button id="pay-btn" class="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition">
+            Pay Now (₹100) via Razorpay
+        </button>
+    </div>
+</div>
 
-<!-- मुख्य मैनुअल डेटा जो शुरू में ब्लर और लॉक रहेगा -->
+<!-- नीचे का पूरा विस्तृत मैनुअल डेटा (शुरुआत में ब्लर रहेगा) -->
 <div id="manual-content" class="manual-container locked-content">
-  
   <!-- HEADER WITH PERMANENT PHOTO UPLOADER -->
   <div class="header-banner">
     <div class="header-title">
-      <h1>Offset Printing & Packaging Technical Manual</h1>
+      <h1>Offset Printing & Packaging Technical Master Manual</h1>
       <p>Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
     </div>
 
     <!-- AUTHOR PROFILE CARD -->
     <div class="author-card">
       <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
-        <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+        <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img" onerror="this.src='https://via.placeholder.com/80'">
         <div class="photo-upload-overlay">+</div>
         <input type="file" id="imageInput" accept="image/*" onchange="loadPhoto(event)">
       </div>
 
-      <div class="author-info">
-        <div class="author-badge">CREATED BY AMIT SANDHU</div>
-        <h3>Amit Sandhu</h3>
+      <div class="author-info" style="font-size: 12px; line-height: 1.5;">
+        <div style="display: inline-block; background: linear-gradient(90deg, #2563eb, #3b82f6); color: #fff; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: bold; margin-bottom: 4px;">CREATED BY AMIT SANDHU</div>
+        <h3 style="margin: 0 0 2px 0; font-size: 17px; color: #fff;">Amit Sandhu</h3>
         <div><strong>Role:</strong> Production Supervisor</div>
         <div><strong>Company:</strong> Kumar Printers Pvt. Ltd.</div>
         <div><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</div>
-        <div><strong>Experience:</strong> 6+ Years Technical Industry Exp.</div>
       </div>
     </div>
-  </div>
-
-  <!-- Search Bar with Results Dropdown Box -->
-  <div style="margin: 20px; position: relative;">
-    <div style="display: flex; gap: 8px;">
-      <input type="text" id="searchInput" placeholder="🔍 पूरे मैन्युअल में सर्च करें (उदा. Ink, pH, Plate)..." onkeypress="if(event.key === 'Enter') searchContent()" style="flex: 1; padding: 14px 18px; background: #131b2e; border: 1px solid #38bdf8; border-radius: 8px; color: #fff; font-size: 16px; outline: none;">
-      <button onclick="searchContent()" type="button" style="padding: 14px 20px; background: #00f2fe; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Search</button>
-    </div>
-    <!-- Multi-Result Dropdown Box -->
-    <div id="searchResultsBox" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; border: 1px solid #38bdf8; border-radius: 8px; max-height: 300px; overflow-y: auto; z-index: 10000; margin-top: 5px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);"></div>
   </div>
 
   <!-- TAB NAVIGATION BUTTONS -->
   <div class="tab-navigation">
-    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">Page 1: Offset Mechanics & 3D</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide2')">Page 2: Machine Parts & Function</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide3')">Page 3: SPM, Ink & Color Consistency</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide4')">Page 4: Deep 14 Defect Solutions</button>
-    <button class="tab-btn" onclick="openSlide(event, 'slide5')">Page 5: Materials, ISO & Audits</button>
-    <a href="tech-hints.html" class="tab-btn">Page 6: Technical Hints</a>
-    <a href="color-lab.html" class="tab-btn">Page 7: Color Lab & Pantone</a>
+    <button class="tab-btn active" onclick="openSlide(event, 'slide1')">1. Mechanics</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide2')">2. Machine Parts</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide3')">3. Plate Specs</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide4')">4. Troubleshooting</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide5')">5. Ink & Chemistry</button>
+    <button class="tab-btn" onclick="openSlide(event, 'slide6')">6. Packaging Standards</button>
   </div>
 
-  <!-- SLIDE 1: DEEP OFFSET MECHANICS & 3D -->
+  <!-- SLIDE 1: MECHANICS -->
   <div id="slide1" class="slide-panel active">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Deep Offset Printing Mechanics & Physical Principles</h2>
-    
-    <p style="line-height: 1.7; font-size: 14px; color: #cbd5e1;">
-      ऑफ़सेट लिथोग्राफी का मूल सिद्धांत Chemical Immiscibility of Oil and Water (तेल और पानी का आपस में न घुलना) पर आधारित है। CTP प्लेट की सतह समतल (Planographic) होती है:
-    </p>
-    <ul>
-      <li><strong>Image Area (इमेज क्षेत्र):</strong> Photopolymer Layer जो Oleophilic (इंक-आकर्षक) तथा Hydrophobic (जल-विरोधी) होता है।</li>
-      <li><strong>Non-Image Area (नॉन-इमेज क्षेत्र):</strong> Anodized Aluminum Oxide Layer (Al2O3) जो Hydrophilic (जल-आकर्षक) तथा Oleophobic (इंक-विरोधी) होता है।</li>
-    </ul>
-
-    <!-- 3D CYLINDER MECHANICS MODEL -->
-    <div class="visual-3d-box">
-      <h3 style="margin-top:0; color: var(--accent-blue); font-size: 16px;">3D Mechanical Transfer Simulation</h3>
-      <p style="font-size: 12px; color: #94a3b8;">Plate Cylinder (0.30mm CTP) ➔ Blanket Cylinder (1.95mm Rubber) ➔ Impression Cylinder</p>
-      
-      <div class="cylinder-3d-stage">
-        <div class="cylinder-3d cyl-plate">PLATE CYLINDER (CTP Plate Unit)</div>
-        <div style="color: var(--accent-neon); font-weight: bold; font-size: 11px;">↓ Image Transfer Nip (Squeeze: 0.08 - 0.12 mm) ↓</div>
-        <div class="cylinder-3d cyl-blanket">BLANKET CYLINDER (Compressible)</div>
-        <div style="color: #fbbf24; font-weight: bold; font-size: 11px;">================ Paper Board ================</div>
-        <div class="cylinder-3d cyl-impression">IMPRESSION CYLINDER (Hard Steel)</div>
-      </div>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">1. Deep Offset Printing Mechanics & Chemistry</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">ऑफ़सेट लिथोग्राफी का मूल सिद्धांत</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        यह प्रक्रिया तेल और पानी के रासायनिक प्रतिकर्षक (Chemical Immiscibility of Oil and Water) सिद्धांत पर काम करती है। इमेज एरिया (Oleophilic) स्याही को आकर्षित करता है जबकि नॉन-इमेज एरिया (Hydrophilic) फाउंडेशन सॉल्यूशन को बनाए रखता है।
+      </p>
     </div>
-
-    <h3>1.1 Undercut & Packing Calculation Formulas</h3>
-    <blockquote style="background: #0b1120; padding: 12px; border-left: 4px solid var(--accent-blue); margin: 15px 0; font-size: 13px;">
-      <strong>Packing Squeeze Formula:</strong><br>
-      Total Blanket Squeeze = (Blanket Thickness + Underlay Sheet Thickness) - Cylinder Undercut<br>
-      <em>Standard Target Range: 0.08 mm to 0.12 mm Maximum Limit.</em>
-    </blockquote>
-
-    <div class="table-wrapper">
-      <table class="custom-table">
-        <thead>
-          <tr>
-            <th>Cylinder Unit</th>
-            <th>Mechanical Role</th>
-            <th>Undercut Specs</th>
-            <th>Standard Packing Material</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. Plate Cylinder</strong></td>
-            <td>CTP प्लेट होल्ड करता है और इंक-वॉटर लेयर रिसीव करता है।</td>
-            <td>0.15 mm - 0.30 mm</td>
-            <td>Polyester Calibrated Shims (0.05 - 0.15 mm)</td>
-          </tr>
-          <tr>
-            <td><strong>2. Blanket Cylinder</strong></td>
-            <td>इंक को कागज़ पर सुचारू रूप से ट्रांसफर करता है।</td>
-            <td>2.30 mm - 3.20 mm</td>
-            <td>Compressible Underlay Paper Sheets (1.35 g/cm3)</td>
-          </tr>
-          <tr>
-            <td><strong>3. Impression Cylinder</strong></td>
-            <td>बोर्ड को बैकसाइड से सपोर्ट करके प्रेशर निप पर इंक सोखने में मदद करता है।</td>
-            <td>0.00 mm (Precision Steel)</td>
-            <td>No Packing Required. Grip Margin: 10 - 12 mm</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">डैम्पर और इंक बैलेंस (Dampening & Inking Balance)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        प्रेस की स्पीड के अनुसार पानी और इंक का सही संतुलन बनाना प्रिंट क्वालिटी (Dot Gain Control) को निर्धारित करता है। अल्कोहल की मात्रा (IPA Percentage) आमतौर पर 8% से 12% के बीच रखी जाती है।
+      </p>
+    </div>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">सिलेंडर प्रेशर और पैकिंग (Cylinder Packing & Underpacking)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        प्लेट, ब्लैंकेट और इम्प्रेशन सिलेंडर के बीच का अंडरपैकिंग कैलकुलेशन माइक्रोन गेज (Micron Gauge) के आधार पर किया जाता है ताकि सही प्रिंट प्रेशर (Squeeze Pressure) मिल सके।
+      </p>
     </div>
   </div>
 
-  <!-- SLIDE 2: MACHINE PARTS & FUNCTION -->
+  <!-- SLIDE 2: MACHINE PARTS -->
   <div id="slide2" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">2. Offset Printing Machine Specification (Every Part Name & Function)</h2>
-    <div class="table-wrapper">
-      <table class="custom-table">
-        <thead>
-          <tr>
-            <th>Machine Section / Part Name</th>
-            <th>Technical Specification & Location</th>
-            <th>Exact Operational Function & Mechanism</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. Feeder Head (Suckers)</strong></td>
-            <td>Pneumatic Vacuum Pick-up System</td>
-            <td>कागज़ के ढेरों में से एक-एक शीट उठाकर फीड ट्रैक पर आगे बढ़ाना।</td>
-          </tr>
-          <tr>
-            <td><strong>2. Front Lays & Side Lays</strong></td>
-            <td>Optical & Mechanical Alignment Sensors</td>
-            <td>हर एक शीट को ग्रिपर में पकड़े जाने से पहले Micro-Level Registration पर अलाइन करना।</td>
-          </tr>
-          <tr>
-            <td><strong>3. Ink Form Rollers</strong></td>
-            <td>Elastomer Rubber Rollers (30-35 Shore A)</td>
-            <td>प्लेट सिलिंडर के इमेज एरिया पर इंक की बारीक फिल्म (2-4 माइक्रोन) चढ़ाना।</td>
-          </tr>
-        </tbody>
-      </table>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">2. Heidelberg & Komori Machine Parts & Operations</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">हीडलबर्ग स्पीडमास्टर (Heidelberg CX 104 / SM 102)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        इन मशीनों में फीडर हेड (Feeder Head), प्रीयूटर (Pre-loader), और सेंट्रलाइज्ड कंट्रोल कंसोल (Prinect Press Center) के माध्यम से शीट अलाइनमेंट और रजिस्ट्रेशन का नियंत्रण होता है।
+      </p>
+    </div>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">ग्रिपर मैकेनिज्म (Gripper Bar Adjustment)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        ट्रांसफर ड्रम और इम्प्रेशन सिलेंडर पर ग्रिपर टेंशन का सही होना बहुत जरूरी है ताकि हाई स्पीड रनिंग के दौरान पेपर स्लिप या मिसरजिस्ट्रेशन न हो।
+      </p>
+    </div>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">कोमोरी लिथrone (Komori Lithrone Series)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        H-UV क्योरिंग सिस्टम और PDC-SX (Print Density Control) के साथ कोमोरी प्रेस हाई-स्पीड पैकेजिंग प्रोडक्शन में उत्कृष्ट कलर कंसिस्टेंसी देती है।
+      </p>
     </div>
   </div>
 
-  <!-- SLIDE 3: SPM, INK & COLOR CONSISTENCY -->
+  <!-- SLIDE 3: PLATE SPECS -->
   <div id="slide3" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">3. Machine SPM, Ink Dynamics & Color Consistency</h2>
-    <p style="font-size: 13.5px; color: #cbd5e1;">मशीन की स्पीड और इंक के गुणधर्म:</p>
-    <ul>
-      <li><strong>Ink Tack:</strong> 12 - 16 Inkometer Units</li>
-      <li><strong>Viscosity:</strong> 40 - 70 Pa.s</li>
-      <li><strong>Emulsification Limit:</strong> 15% - 22% Water Content Max</li>
-    </ul>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">3. Printing Plate Specifications & Handling</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">Heidelberg Speedmaster SM 74 प्लेट साइज</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        मानक प्लेट डायमेंशन: <strong>605 mm x 740 mm</strong> होती है। प्लेट बेंडिंग और पंचिंग करते समय ग्रिपर मार्जिन का विशेष ध्यान रखना आवश्यक है।
+      </p>
+    </div>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">प्लेट स्टोरेज और कोटिंग</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        थर्मल CTP प्लेट्स को नमी और सीधी धूप से बचाकर रखना चाहिए ताकि एक्सपोज़र के दौरान टोनल वैल्यू (Dot Reproduction) सटीक बनी रहे।
+      </p>
+    </div>
   </div>
-
-  <!-- SLIDE 4: DEEP 14 DEFECT SOLUTIONS -->
+  <!-- SLIDE 4: TROUBLESHOOTING -->
   <div id="slide4" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Comprehensive Printing Defects Solutions</h2>
-    <div class="defect-grid">
-      <div class="defect-card">
-        <h4>1. Scumming / Greasing</h4>
-        <p><strong>Problem:</strong> प्लेट के नॉन-इमेज एरिया में इंक की पकड़ बनना।</p>
-        <p class="action-text">Action: pH 4.8-5.2 सेट करें, Dampening बढ़ाएं।</p>
-      </div>
-      <div class="defect-card">
-        <h4>2. Hickies</h4>
-        <p><strong>Problem:</strong> प्रिंटेड एरिया में सफ़ेद रिंग के साथ बीच में धब्बा।</p>
-        <p class="action-text">Action: Blanket & Plate साफ़ करें, Dust Collector ऑन करें।</p>
-      </div>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Common Print Defects & Troubleshooting</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">समस्या 1: स्मीयरिंग और ऑफ-सेटिंग (Smearing / Set-off)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        <strong>कारण:</strong> इंक की अत्यधिक मोटाई या एंटी-सेटऑफ़ स्प्रे पाउडर की कमी।<br>
+        <strong>निवारण:</strong> ड्राईर टेंपरेचर एडजस्ट करें और स्प्रे क्वांटिटी बढ़ाएं।
+      </p>
+    </div>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">समस्या 2: स्कमिंग या टोनिंग (Scumming / Toning)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        <strong>कारण:</strong> फाउंटेन सॉल्यूशन का पीएच (pH) स्तर अंसुलित होना या इंक में पानी की मात्रा कम होना।<br>
+        <strong>निवारण:</strong> कंडक्टिविटी और पीएच चेक करें (pH 4.8 - 5.5 आदर्श है)।
+      </p>
     </div>
   </div>
 
-  <!-- SLIDE 5: MATERIALS, ISO & AUDITS -->
+  <!-- SLIDE 5: INK & CHEMISTRY -->
   <div id="slide5" class="slide-panel">
-    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">5. Materials Chemistry, ISO Standards & Audits</h2>
-    <p style="font-size: 13.5px; color: #cbd5e1;">कागज़ की नमी (Moisture): 6.0% - 7.0% और फाउंटेन सॉल्यूशन pH: 4.80 - 5.30.</p>
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">5. Ink Formulation & Emulsification</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">इंक इमल्सीफिकेशन (Ink Emulsification)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        ऑफ़सेट इंक में पानी का वाटर-इन-ऑयल इमल्शन (Water-in-Oil Emulsion) बनता है। यदि पानी का प्रतिशत 25% से अधिक हो जाए, तो इंक अपनी टैकिनेस (Tack) खो देती है और डेंसिटी कम हो जाती है।
+      </p>
+    </div>
   </div>
 
-  <!-- FOOTER NAVIGATION -->
-  <div class="slide-footer-nav">
-    <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)" disabled>← Prev</button>
-    <div id="pageIndicator" style="font-weight: bold; color: var(--accent-blue); font-size: 13px;">Page 1 of 5</div>
-    <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">Next →</button>
+  <!-- SLIDE 6: PACKAGING STANDARDS -->
+  <div id="slide6" class="slide-panel">
+    <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">6. Packaging & Carton Standards</h2>
+    <div class="tech-card">
+      <h3 class="text-cyan-400 font-semibold mb-2">कॉर्ड और क्रिंजिंग (Creasing & Die-Cutting)</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        फोल्डिंग कार्टन निर्माण में क्रिज़ चैनल की चौड़ाई और गहराई पेपरबोर्ड के ग्रामेज (GSM - जैसे 300 GSM से 450 GSM) के अनुसार सेट की जाती है ताकि फोल्डिंग के समय क्रैक न आए।
+      </p>
+    </div>
   </div>
-
 </div>
 
-<!-- Floating Contact Buttons -->
-<div style="position: fixed; bottom: 20px; right: 15px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
-  <a href="tel:+918059002339" style="width: 42px; height: 42px; border-radius: 50%; background-color: #00f2fe; color: #000; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Direct Call">📞</a>
-  <a href="mailto:amitsandhu973@gmail.com" style="width: 42px; height: 42px; border-radius: 50%; background-color: #ea4335; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" title="Send Email">✉️</a>
-  <a href="https://wa.me/918059002339?text=Hello%20Amit%20Bhai,%20I%20visited%20your%20Offset%20Printing%20Manual." style="width: 42px; height: 42px; border-radius: 50%; background-color: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" target="_blank" title="WhatsApp Chat">💬</a>
-</div>
-
-<!-- JAVASCRIPT LOGIC -->
+<!-- Firebase & Razorpay Script Integration -->
 <script>
-  // Firebase Config
-  const firebaseConfig = {
-      apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
-      authDomain: "offset-manual-otp.firebaseapp.com",
-      projectId: "offset-manual-otp",
-      storageBucket: "offset-manual-otp.firebasestorage.app",
-      messagingSenderId: "311405464749",
-      appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
-      measurementId: "G-D4GK61ZXQD"
-  };
-
-  if (!firebase.apps.length) { 
-      firebase.initializeApp(firebaseConfig); 
-  }
-
-  window.onload = function () {
-      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-          'size': 'invisible'
-      });
-  };
-
-  // Send OTP
-  document.getElementById('send-otp-btn').onclick = function() {
-      let rawPhone = document.getElementById('phone').value.trim();
-      let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
-
-      if(userPhone.length >= 12) {
-          firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
-              .then(function (confirmationResult) {
-                  window.confirmationResult = confirmationResult;
-                  alert("OTP भेज दिया गया है!");
-                  document.getElementById('otp-box').style.display = 'block'; 
-              }).catch(function (error) {
-                  alert("OTP भेजने में एरर: " + error.message);
-                  if(window.recaptchaVerifier) grecaptcha.reset(window.recaptchaVerifier);
-              });
-      } else {
-          alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
-      }
-  };
-
-  // Verify OTP
-  document.getElementById('verify-otp-btn').onclick = function() {
-      let code = document.getElementById('otp').value;
-      if(code) {
-          window.confirmationResult.confirm(code).then(function (result) {
-              alert("लॉगिन सफल रहा! अब पेमेंट कर सकते हैं।");
-              document.getElementById('otp-box').style.display = 'none';
-              document.getElementById('payment-section').style.display = 'block';
-          }).catch(function (error) {
-              alert("गलत OTP! कृपया दोबारा चेक करें।");
-          });
-      } else {
-          alert("कृपया OTP दर्ज करें।");
-      }
-  };
-
-  // Razorpay Integration
-  document.getElementById('pay-btn').onclick = function(e) {
-      var options = {
-          "key": "rzp_test_TQhCeEkQqFITW0",
-          "amount": "39900", // ₹399 (in paise)
-          "currency": "INR",
-          "name": "Amit Sandhu Technical Lab",
-          "description": "Offset Printing & Packaging Guide Access",
-          "handler": function (response){
-              alert("पेमेंट सफल रहा! ट्रांजैक्शन आईडी: " + response.razorpay_payment_id);
-              document.getElementById("manual-content").classList.remove("locked-content");
-              document.body.style.overflow = "auto";
-          },
-          "prefill": {
-              "name": "Amit Sandhu",
-              "email": "amitsandhu@gmail.com",
-              "contact": "8059002339"
-          },
-          "theme": { "color": "#06b6d4" }
-      };
-      var rzp1 = new Razorpay(options);
-      rzp1.open();
-      e.preventDefault();
-  };
-
-  // Profile Photo Loader
-  window.addEventListener('DOMContentLoaded', () => {
-    const savedPhoto = localStorage.getItem('amitUserPhoto');
-    if (savedPhoto) {
-      const photoEl = document.getElementById('userPhoto');
-      if (photoEl) photoEl.src = savedPhoto;
-    }
-  });
-
-  function loadPhoto(event) {
-    const reader = new FileReader();
-    reader.onload = function(){
-      const output = document.getElementById('userPhoto');
-      output.src = reader.result;
-      localStorage.setItem('amitUserPhoto', reader.result);
+    // Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+        authDomain: "offset-manual-otp.firebaseapp.com",
+        projectId: "offset-manual-otp",
+        storageBucket: "offset-manual-otp.firebasestorage.app",
+        messagingSenderId: "311405464749",
+        appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
+        measurementId: "G-D4GK61ZXQD"
     };
-    reader.readAsDataURL(event.target.files[0]);
-  }
 
-  // Slide Navigation Logic
-  let currentSlideIndex = 0;
-  const slides = document.querySelectorAll('.slide-panel');
-  const tabs = document.querySelectorAll('.tab-navigation .tab-btn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const pageIndicator = document.getElementById('pageIndicator');
-
-  function updateSlideUI() {
-    slides.forEach((slide, index) => {
-      slide.classList.remove('active');
-      if (tabs[index] && tabs[index].classList.contains('tab-btn')) tabs[index].classList.remove('active');
-    });
-
-    if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.add('active');
-    if (tabs[currentSlideIndex] && tabs[currentSlideIndex].classList.contains('tab-btn')) tabs[currentSlideIndex].classList.add('active');
-
-    if (pageIndicator) pageIndicator.innerText = `Page ${currentSlideIndex + 1} of ${slides.length}`;
-    if (prevBtn) prevBtn.disabled = currentSlideIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentSlideIndex === slides.length - 1;
-  }
-
-  function openSlide(event, slideId) {
-    event.preventDefault();
-    const slideArray = Array.from(slides);
-    const targetIndex = slideArray.findIndex(s => s.id === slideId);
-    if (targetIndex !== -1) {
-      currentSlideIndex = targetIndex;
-      updateSlideUI();
-    }
-  }
-
-  function changeSlide(direction) {
-    currentSlideIndex += direction;
-    if (currentSlideIndex < 0) currentSlideIndex = 0;
-    if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
-    updateSlideUI();
-  }
-
-  // Search Function
-  function searchContent() {
-    let input = document.getElementById('searchInput').value.toLowerCase().trim();
-    let resultsBox = document.getElementById('searchResultsBox');
-    if (!resultsBox) return;
-
-    resultsBox.innerHTML = "";
-    if (!input) {
-      resultsBox.style.display = "none";
-      return;
+    if (!firebase.apps.length) { 
+        firebase.initializeApp(firebaseConfig); 
     }
 
-    let allSlides = Array.from(document.querySelectorAll('.slide-panel'));
-    let matches = [];
+    window.onload = function () {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+            'size': 'invisible'
+        });
+    };
 
-    document.querySelectorAll('.slide-panel p, .slide-panel li, .slide-panel h2, .slide-panel h3, .slide-panel h4, .slide-panel td').forEach(el => {
-      el.style.backgroundColor = "";
-    });
+    // OTP भेजें बटन
+    document.getElementById('send-otp-btn').onclick = function() {
+        let rawPhone = document.getElementById('phone').value.trim();
+        let userPhone = rawPhone.startsWith('+') ? rawPhone : '+91' + rawPhone;
 
-    allSlides.forEach((slide, slideIdx) => {
-      let nodes = slide.querySelectorAll('p, li, h2, h3, h4, td');
-      nodes.forEach(node => {
-        if (node.innerText && node.innerText.toLowerCase().includes(input)) {
-          matches.push({
-            slideIndex: slideIdx,
-            element: node,
-            text: node.innerText.substring(0, 70) + "..."
-          });
+        if(userPhone.length >= 12) {
+            firebase.auth().signInWithPhoneNumber(userPhone, window.recaptchaVerifier)
+                .then(function (confirmationResult) {
+                    window.confirmationResult = confirmationResult;
+                    alert("OTP successfully sent to your mobile number!");
+                    document.getElementById('otp-box').style.display = 'block'; 
+                }).catch(function (error) {
+                    alert("Error sending OTP: " + error.message);
+                    if(window.recaptchaVerifier) {
+                        grecaptcha.reset(window.recaptchaVerifier);
+                    }
+                });
+        } else {
+            alert("कृपया पूरा 10 अंकों का मोबाइल नंबर दर्ज करें।");
         }
-      });
-    });
+    };
 
-    if (matches.length > 0) {
-      resultsBox.style.display = "block";
-      let header = document.createElement('div');
-      header.style.cssText = "padding: 10px; background: #1e293b; color: #00f2fe; font-weight: bold; border-bottom: 1px solid #334155;";
-      header.innerText = `कुल ${matches.length} परिणाम मिले (क्लिक करें):`;
-      resultsBox.appendChild(header);
+    // OTP वेरीफाई करें बटन
+    document.getElementById('verify-otp-btn').onclick = function() {
+        let code = document.getElementById('otp').value.trim();
+        if(code) {
+            window.confirmationResult.confirm(code).then(function (result) {
+                alert("Login successful! You can now proceed to payment.");
+                document.getElementById('otp-box').style.display = 'none';
+                document.getElementById('payment-section').style.display = 'block';
+            }).catch(function (error) {
+                alert("Invalid OTP! Please check again.");
+            });
+        } else {
+            alert("कृपया OTP दर्ज करें।");
+        }
+    };
 
-      matches.forEach(item => {
-        let itemDiv = document.createElement('div');
-        itemDiv.style.cssText = "padding: 10px; border-bottom: 1px solid #1e293b; color: #e2e8f0; cursor: pointer; font-size: 14px;";
-        itemDiv.innerHTML = `<strong style="color:#00f2fe;">Page ${item.slideIndex + 1}:</strong> ${item.text}`;
+    // Razorpay Payment Integration
+    document.getElementById('pay-btn').onclick = function(e) {
+        e.preventDefault();
         
-        itemDiv.onclick = function() {
-          currentSlideIndex = item.slideIndex;
-          updateSlideUI();
-          item.element.style.backgroundColor = "rgba(0, 242, 254, 0.4)";
-          item.element.style.borderRadius = "4px";
-          setTimeout(() => {
-            item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-          resultsBox.style.display = "none";
+        var options = {
+            "key": "rzp_test_TQhCeEkQqFITW0",
+            "amount": "10000", // ₹100
+            "currency": "INR",
+            "name": "Amit Sandhu Technical Lab",
+            "description": "Offset Printing & Packaging Master Manual Full Access",
+            "handler": function (response){
+                alert("Payment successful! Access granted.");
+                document.getElementById("manual-content").classList.remove("locked-content");
+                document.body.style.overflow = "auto";
+            },
+            "prefill": {
+                "name": "Amit Sandhu",
+                "email": "amitsandhu@gmail.com",
+                "contact": "8059002339"
+            },
+            "theme": {
+                "color": "#06b6d4"
+            }
         };
-        resultsBox.appendChild(itemDiv);
-      });
-    } else {
-      resultsBox.style.display = "block";
-      resultsBox.innerHTML = `<div style="padding: 12px; color: #ef4444;">कोई परिणाम नहीं मिला / No match found</div>`;
+        
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    };
+
+    // Tab Navigation Function
+    function openSlide(evt, slideName) {
+        let panels = document.getElementsByClassName("slide-panel");
+        for (let panel of panels) {
+            panel.classList.remove("active");
+        }
+        let buttons = document.getElementsByClassName("tab-btn");
+        for (let btn of buttons) {
+            btn.classList.remove("active");
+        }
+        document.getElementById(slideName).classList.add("active");
+        evt.currentTarget.classList.add("active");
     }
-  }
+
+    // Photo Upload Function
+    function loadPhoto(event) {
+        let reader = new FileReader();
+        reader.onload = function(){
+            let output = document.getElementById('userPhoto');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
 </script>
 
 </body>
