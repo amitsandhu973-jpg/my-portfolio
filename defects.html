@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 4: 15 Critical Print Defects & Root Causes - Amit Sandhu</title>
+    <title>Chapter 4: 30 Critical Print Defects & Solutions - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050608; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .defect-item { border-left: 4px solid #f59e0b; background: #111827; padding: 12px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+        .defect-box { background: #0f172a; border-left: 4px solid #f59e0b; padding: 10px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
@@ -17,31 +17,135 @@
     
     <!-- HEADER -->
     <div class="flex justify-between items-center bg-slate-950 p-4 rounded-2xl border border-slate-800">
-        <a href="spectrophotometer.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Chapter 4</a>
-        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 4: Print Defects Troubleshooting</h1>
+        <a href="spectrophotometer.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Chapter 3</a>
+        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 4: Ultimate Troubleshooting Manual (30 Defects)</h1>
     </div>
 
     <!-- CONTENT -->
     <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-900/50 space-y-6">
-        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">15 Common Print Defects: Root Causes & Hidden Mechanics</h2>
+        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">30 Advanced Print Defects, Root Causes & Expert Solutions</h2>
         
-        <div class="space-y-2 text-xs md:text-sm text-slate-300">
+        <div class="space-y-3 text-xs md:text-sm text-slate-300">
             
-            <div class="defect-item"><span class="font-bold text-amber-400">1. Hickeys:</span> Plate par dust ya dry ink skin ke pieces. Root cause: Ink fountain me skinning ya paper coating dust.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">2. Slur:</span> Image double dikhna. Root cause: Blanket aur impression cylinder ke beech 'surface velocity mismatch'. Gear backlash check karein.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">3. Doubling:</span> Image ka shadow dikhna. Root cause: Gripper setting kharab hona ya sheet ka cylinder se 'flutter' karna.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">4. Ghosting:</span> Light image par dark patches. Root cause: Ink form roller par ink distribution uneven hona (roller timing check karein).</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">5. Toning/Scumming:</span> Non-image area par ink chadhna. Root cause: Fountain solution ka pH level high hona ya plate ki gumming kharab hona.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">6. Picking:</span> Paper ka upar ka layer ukhadna. Root cause: Ink ka tack (stickiness) paper ki strength se zyada hona.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">7. Set-off:</span> Sheet ka peeche wali sheet par chhapna. Root cause: Anti-set-off powder kam hona ya stack height bahut zyada hona.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">8. Fan-out:</span> Sheet ke corners par register kharab hona. Root cause: Paper ka machine me moisture ki wajah se expand ho jana.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">9. Scuffing:</span> Print par scratch aana. Root cause: Delivery me sheets ka aapas me friction (ink abhi tak dry nahi hui hai).</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">10. Chalking:</span> Ink ka paper par dry na hona (powder ki tarah nikalna). Root cause: Paper ka 'pH' bahut acidic hona jo drier ko deactivate kar deta hai.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">11. Drying Problems:</span> Ink ka sukhna nahi. Root cause: Fountain solution emulsification bahut zyada ho jana.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">12. Misregistration:</span> Color ka fit na hona. Root cause: Side lay ya front lay ke sensors me ink mist jamna (Encoder check).</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">13. Mottling:</span> Solid print me 'dhabbe' dikhna. Root cause: Paper ki absorbency uniform na hona ya dampening water bahut zyada hona.</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">14. Roller Stripping:</span> Ink ka metal roller par na chadhna. Root cause: Dampening water ka ink roll tak pahunch jana (hydrophilic surface).</div>
-            <div class="defect-item"><span class="font-bold text-amber-400">15. Ink Bleeding:</span> Edge se ink failna. Root cause: Fountain solution me 'Surfactants' ka excess hona.</div>
+            <div class="defect-box">
+                <p><strong>1. Hickeys (डस्ट या पार्टिकल्स):</strong> Plate पर गोल सफेद धब्बे। <br><em>Solution:</em> Fountain solution filtration check karein, ink fountain skin clean karein, aur paper dust ke liye web cleaner/suction brush adjust karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>2. Slur (इमेज का खिंचाव):</strong> इमेज डबल या स्ट्रेच दिखना। <br><em>Solution:</em> Blanket cylinder ki under-packing check karein aur gear backlash ($0.03 \text{ mm} - 0.05 \text{ mm}$) ko verify karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>3. Doubling (शैडो इमेज):</strong> प्रिंट के पीछे हल्की डुप्लीकेट छाया दिखना। <br><em>Solution:</em> Gripper tension tight karein aur dekhein ki transfer drum par sheet flutter toh nahi kar rahi.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>4. Ghosting (घोसटिंग):</strong> सॉलिड एरिया के पास हल्की अनचाही छाप। <br><em>Solution:</em> Ink form roller timing aur distribution rollers ka axial oscillation stroke adjust karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>5. Scumming / Toning (नॉन-इमेज पर इंक):</strong> खाली हिस्से पर हल्का धुंधलापन। <br><em>Solution:</em> Fountain solution ka pH level (4.8 - 5.5) aur conductivity check karein; water feed thoda badhayein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>6. Picking (पेपर का उखड़ना):</strong> पेपर की सतह का उखड़कर प्लेट पर चिपकना। <br><em>Solution:</em> Ink ka tack kam karein (gel/reducer use karke) ya low-viscosity ink switch karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>7. Set-off (पीछे की शीट पर छपना):</strong> गीली इंक का अगली शीट के पिछले हिस्से पर लगना। <br><em>Solution:</em> Anti-set-off powder quantity badhayein aur delivery pile ki height limit kam karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>8. Fan-out (शीट के कोनों पर रजिस्टर छूटना):</strong> शीट चौड़ी होने से कोनों पर प्रिंट आउट होना। <br><em>Solution:</em> Paper moisture check karein; dampening water kam se kam rakhein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>9. Scuffing (स्क्रैच या घिसाव):</strong> डिलीवरी या टर्नओवर में प्रिंट पर खरोंच आना। <br><em>Solution:</em> Ink drying speed fast karein aur delivery wheels ki pressure setting light karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>10. Chalking (इंक का पाउडर बनना):</strong> सूखी इंक का हाथ लगाने पर पाउडर की तरह झाड़ना। <br><em>Solution:</em> Paper ka acidic pH drier ko deactivate kar raha hai; fast-drying additive ya alkaline paper use karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>11. Slow Drying (इंक का न सूखना):</strong> शीट सूखने में बहुत ज्यादा समय लेना। <br><em>Solution:</em> Fountain solution over-emulsification rokne ke liye water feed kam karein aur cobalt drier add karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>12. Misregistration (रजिस्टर आउट होना):</strong> रंगों का आपस में सटीक न बैठना। <br><em>Solution:</em> Feeder side-lay pressure check karein aur optical encoders ko IPA se clean karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>13. Mottling (धब्बेदार सॉलिड प्रिंट):</strong> सॉलिड एरिया में असमान धब्बे दिखना। <br><em>Solution:</em> Paper formation kharab hai ya dampening water bahut zyada hai; water volume reduce karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>14. Roller Stripping (रोलर पर इंक न चढ़ना):</strong> मेटल रोलर से इंक का हटना। <br><em>Solution:</em> Rollers ki desensitization saaf karein; copper/steel rollers par special wash use karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>15. Bleeding (इंक का फैलना):</strong> किनारों से इंक का पानी में घुलकार फैलना। <br><em>Solution:</em> Fountain solution me surfactants ya alcohol ki matra turant control karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>16. Starvation (इंक की कमी):</strong> फाउंटेन से रोलर तक इंक का पूरी तरह न पहुंचना। <br><em>Solution:</em> Ink fountain blade (key) gap check karein aur ink ki thixotropy/viscosity adjust karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>17. Piling (रबर blanket पर कचरा जमा होना):</strong> पेपर का कोटेड मटीरियल ब्लैंकेट पर चिपकना। <br><em>Solution:</em> Blanket wash frequent karein aur paper supplier se surface strength (Scott bond) verify karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>18. Cracking (फोल्डिंग पर फटना):</strong> carton box fold hone पर प्रिंट का फटना। <br><em>Solution:</em> Creasing channel depth check karein aur heavy board par lamination/varnish optimize karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>19. Blistering (फोफोले पड़ना):</strong> Drying/UV curing ke dauran paper me bubbles aana. <br><em>Solution:</em> Paper moisture level bahut high hai; IR dryer temperature control karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>20. Wrinkling (शीट में सिलवटें आना):</strong> प्रिंटिंग के दौरान शीट का मुड़ना। <br><em>Solution:</em> Impression cylinder ke sheet-decurler aur pull guide tension ko perfectly balance karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>21. Ribbon/Streaking Lines (लाइनें आना):</strong> प्रिंट पर सीधी धारियां दिखना। <br><em>Solution:</em> Ink form roller ya plate par damage/scratch check karein; roller badlein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>22. Emulsification Washout (इंक का बह जाना):</strong> पानी और इंक का अत्यधिक घुलना। <br><em>Solution:</em> Fountain solution ki dosing kam karein aur high water-resistance wali offset ink use karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>23. Plate Blindness (प्लेट का इमेज खोना):</strong> प्लेट पर प्रिंटिंग एरिया का पानी पकड़ लेना। <br><em>Solution:</em> Plate cleaner galat use hua hai; plate ko gum karke naya exposure/etching karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>24. Orange Peel Effect (संतरे जैसी त्वचा):</strong> कोटिंग या वार्निश सतह का असमान होना। <br><em>Solution:</em> Coating unit par viscosity aur Anilox roller cell volume check karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>25. Back Trapping (कलर रिवर्स लिफ्ट होना):</strong> अगली यूनिट की इंक से पिछली यूनिट का उखड़ना। <br><em>Solution:</em> Tack hierarchy (Descending sequence) ko thik karein; pehle unit ka tack badhayein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>26. Gloss Variation (चमक में अंतर):</strong> प्रिंट पर कहीं कम और कहीं ज्यादा चमक दिखना। <br><em>Solution:</em> Paper ki ink absorption property uneven hai; primer ya seal coat use karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>27. Static Electricity (स्टैटिक करंट):</strong> शीटों का आपस में चिपकना या फीडर पर रुकना। <br><em>Solution:</em> Press room ki humidity (50-55%) maintain karein aur static eliminator tinsel/bars check karein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>28. Double Feeding (दो शीट एक साथ उठना):</strong> फीडर से दो शीट का एक साथ जाना। <br><em>Solution:</em> Double sheet mechanical/optical sensor calibrate karein aur blast separation air badhayein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>29. Edge Curling (किनारों का मुड़ना):</strong> कटिंग या स्टोरेज के कारण शीट के किनारों का गोल होना। <br><em>Solution:</em> Paper reams ko press room environment me acclimatize hone ke liye chhodein.</p>
+            </div>
+
+            <div class="defect-box">
+                <p><strong>30. Smearing (रंग का फैलना या रगड़ खाना):</strong> ट्रांसफर के दौरान गीली इंक का बिखरना। <br><em>Solution:</em> Delivery grippers ki timing aur opening/closing cams ka wear and tear check karke replace karein.</p>
+            </div>
 
         </div>
     </div>
