@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offset Printing & Packaging Technical Manual - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs (Compat Version for easy integration) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
     <!-- Razorpay Checkout Script -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
@@ -29,16 +35,29 @@
         <p class="text-xs text-slate-400">Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
     </div>
 
-    <!-- LOGIN & PAYMENT ACCESS BAR -->
-    <div id="statusHeader" class="glass-card p-4 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-3 border border-cyan-500/30">
-        <div class="space-y-1 text-center sm:text-left">
-            <div id="userStatus" class="text-xs font-bold text-amber-400">Status: 🔒 Locked (Login & Pay to Unlock)</div>
-            <input type="text" id="mobileNumber" placeholder="Enter Mobile Number" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:border-cyan-400 outline-none">
+    <!-- LOGIN & OTP / PAYMENT ACCESS BAR -->
+    <div id="statusHeader" class="glass-card p-4 rounded-2xl flex flex-col gap-3 border border-cyan-500/30">
+        <div id="userStatus" class="text-xs font-bold text-amber-400 text-center">Status: 🔒 Locked (Login via OTP & Pay to Unlock)</div>
+        
+        <!-- Step 1: Mobile Input & Send OTP -->
+        <div id="mobileStep" class="flex flex-col sm:flex-row gap-2">
+            <input type="text" id="mobileNumber" placeholder="Enter Mobile (+91...)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
+            <button onclick="sendOTP()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
+                Send OTP
+            </button>
         </div>
-        <button id="actionBtn" onclick="startPayment()" class="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-xl font-extrabold text-xs transition shadow-lg">
-            Pay ₹499 & Unlock
-        </button>
+
+        <!-- Step 2: Enter OTP (Hidden initially) -->
+        <div id="otpStep" class="hidden flex flex-col sm:flex-row gap-2">
+            <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
+            <button onclick="verifyOTP()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
+                Verify OTP & Pay ₹499
+            </button>
+        </div>
     </div>
+
+    <!-- Invisible Recaptcha Container for Firebase Phone Auth -->
+    <div id="recaptcha-container"></div>
 
     <!-- AUTHOR PROFILE CARD -->
     <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
@@ -82,55 +101,103 @@
 </div>
 
 <script>
+    // Firebase Initialization
+    const firebaseConfig = {
+        apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
+        authDomain: "offset-manual-otp.firebaseapp.com",
+        projectId: "offset-manual-otp",
+        storageBucket: "offset-manual-otp.appspot.com",
+        messagingSenderId: "311405464749",
+        appId: "1:311405464749:web:23a1bb3bed52b0128e4a24",
+        measurementId: "G-D4GK61ZXQD"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
     // फोटो अपलोड फंक्शन
     function loadPhoto(event) {
         const reader = new FileReader();
         reader.onload = function(){
-            const output = document.getElementById('userPhoto');
-            output.src = reader.result;
+            document.getElementById('userPhoto').src = reader.result;
         };
         if(event.target.files[0]) {
             reader.readAsDataURL(event.target.files[0]);
         }
     }
 
-    // Razorpay पेमेंट गेटवे इंटीग्रेशन
-    function startPayment() {
-        let mobile = document.getElementById('mobileNumber').value;
-        if(mobile.length < 10) {
-            alert('कृपया आगे बढ़ने के लिए अपना सही 10-अंकों का मोबाइल नंबर दर्ज करें!');
+    // 1. Send Real OTP via Firebase
+    function sendOTP() {
+        let phoneNumber = document.getElementById('mobileNumber').value;
+        if(phoneNumber.length < 10) {
+            alert('कृपया सही मोबाइल नंबर (जैसे +91...) दर्ज करें!');
+            return;
+        }
+        
+        // अगर यूजर ने देश का कोड नहीं लगाया, तो स्वतः +91 जोड़ दें
+        if(!phoneNumber.startsWith('+')) {
+            phoneNumber = '+91' + phoneNumber;
+        }
+
+        if(!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+        }
+
+        const appVerifier = window.recaptchaVerifier;
+        auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
+                document.getElementById('mobileStep').classList.add('hidden');
+                document.getElementById('otpStep').classList.remove('hidden');
+                document.getElementById('userStatus').innerText = "Status: Enter the OTP received on your phone";
+            })
+            .catch(function (error) {
+                console.error("SMS Error: ", error);
+                alert("OTP भेजने में विफल: " + error.message);
+            });
+    }
+
+    // 2. Verify OTP & Trigger Razorpay Payment
+    function verifyOTP() {
+        let otp = document.getElementById('otpInput').value;
+        if(otp.length < 6) {
+            alert('कृपया पूरा 6-अंकों का OTP दर्ज करें!');
             return;
         }
 
+        window.confirmationResult.confirm(otp).then(function (result) {
+            alert("मोबाइल नंबर वेरिफाई हो गया! अब पेमेंट प्रक्रिया शुरू हो रही है।");
+            startPayment();
+        }).catch(function (error) {
+            alert("गलत OTP! कृपया दोबारा प्रयास करें।");
+        });
+    }
+
+    // 3. Razorpay Payment Gateway Integration
+    function startPayment() {
         var options = {
-            "key": "rzp_test_TRMTWkjgDFBoz3", // आपकी Razorpay Test Key
+            "key": "rzp_test_TRMTWkjgDFBoz3", // आपकी Razorpay Key
             "amount": "49900", // ₹499 (पैसे में)
             "currency": "INR",
             "name": "Amit Sandhu Technical Manual",
             "description": "Full Access to 11 Technical Chapters",
             "image": "1774396860127.png",
             "handler": function (response){
-                // पेमेंट सफल होने पर यह कोड चलेगा
                 alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
                 
-                // स्टेटस बदलें
-                document.getElementById('userStatus').innerText = "Status: ✅ Unlocked (Access Granted)";
+                // स्टेटस अपडेट करें
+                document.getElementById('userStatus').innerText = "Status: ✅ Verified & Unlocked (Access Granted)";
                 document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
-                document.getElementById('actionBtn').innerText = "PAID";
-                document.getElementById('actionBtn').disabled = true;
-                document.getElementById('actionBtn').classList.replace('bg-cyan-500', 'bg-emerald-600');
-                document.getElementById('mobileNumber').disabled = true;
+                document.getElementById('otpStep').classList.add('hidden');
 
-                // सभी चैप्टर्स से ताले हटाकर उन्हें ओपन करें
+                // सभी 11 चैप्टर्स के ताले खोल दें
                 document.querySelectorAll('.chapter-link').forEach(link => {
                     link.classList.replace('locked', 'unlocked');
                     link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
                     link.innerText = link.innerText.replace('🔒', '📖');
                 });
-            },
-            "prefill": {
-                "contact": mobile,
-                "name": "Amit Sandhu Student/User"
             },
             "theme": {
                 "color": "#06b6d4"
