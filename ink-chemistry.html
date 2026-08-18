@@ -3,78 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Sandhu Technical Lab - Page 6: Ink Chemistry & Rheology</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Chapter 2: Deep Ink Chemistry & Hidden Secrets - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        body { background-color: #050608; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .highlight { color: #38bdf8; font-weight: bold; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<!-- PAGE 6: INK CHEMISTRY CONTAINER -->
-<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+<div class="w-full max-w-4xl space-y-4">
     
-    <!-- Top Header -->
-    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
-        <div>
-            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 6: इंक केमिस्ट्री और रियोलॉजी</span>
-            <h1 class="text-2xl font-extrabold text-white mt-2">Offset Printing Ink Chemistry & Technical Properties</h1>
-        </div>
-        <span class="text-xs text-slate-400 font-mono">Shop-Floor Engineering Data</span>
+    <!-- BACK BUTTON & HEADER -->
+    <div class="flex justify-between items-center bg-slate-950 p-4 rounded-2xl border border-slate-800">
+        <a href="machine-specs.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Chapter 1</a>
+        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 2: Advanced Ink Rheology & Chemistry</h1>
     </div>
 
-    <!-- Technical Parameters Grid -->
-    <div class="space-y-4">
+    <!-- MAIN TECHNICAL CONTENT -->
+    <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-900/50 space-y-6">
+        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">Expert Secrets: The Science of Ink Emulsification, Tack Profiling & Rheology</h2>
         
-        <!-- Parameter 1 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. विस्कोसिटी (Viscosity - गाढ़ापन और बहाव)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी विवरण:</strong> यह इंक के बहने के विरोध (Resistance to Flow) को मापता है। ऑफ़सेट इंक (Paste Inks) की विस्कोसिटी काफी हाई होती है। तापमान बढ़ने पर विस्कोसिटी कम हो जाती है, जिससे मशीन चलते समय इनकिंग रोलर्स पर इंक का बर्ताव बदल सकता है। सही विस्कोसिटी होने पर ही इंक रोलर्स पर समान रूप से डिस्ट्रिब्यूट होती है।
-            </p>
-        </div>
+        <div class="space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
+            
+            <!-- SECTION 1 -->
+            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
+                <h3 class="font-bold text-white text-base text-cyan-400">1. Hidden Logic: Pigment Dispersion & The "Van der Waals" Effect</h3>
+                <p>• <strong>Dispersion Secret:</strong> Printing ink sirf color nahi hai, ye solid pigment particles ka oil me "suspension" hai. Agar pigment particles ka size 0.1 se 0.5 micron ke beech maintain nahi raha, toh ink 'grainy' ho jayegi. 
+                <br>• <strong>Logic:</strong> High-end inks me 'Wetting Agents' ka use hota hai jo pigment particles ko ek dusre ke upar jamne (agglomeration) se rokta hai. Agar aap ink ko bahut der tak fountain me chhod dete hain bina machine chalaye, toh pigment settle hone lagta hai—isi wajah se start me shade drift milti hai.</p>
+            </div>
 
-        <!-- Parameter 2 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">2. टैक (Tack - चिपचिपाहट और स्प्लिटिंग फोर्स)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी विवरण:</strong> यह दो रोलर्स या सतहों के बीच इंक के खिंचाव की ताकत है। मल्टी-कलर मशीनों में टैक का क्रम (Tack Rating) बहुत महत्वपूर्ण होता है—पहली यूनिट (Black) का टैक सबसे ज्यादा और आखिरी यूनिट (Yellow) का टैक सबसे कम रखा जाता है, ताकि गीली इंक पर अगली यूनिट की इंक आसानी से ट्रांसफर हो सके (Wet-on-Wet Trapping)। अगर टैक गलत हो, तो पेपर फटने (Picking) की समस्या आ सकती है।
-            </p>
-        </div>
+            <!-- SECTION 2 -->
+            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
+                <h3 class="font-bold text-white text-base text-cyan-400">2. The Truth About Emulsification: Why "Water-in-Ink" is Fatal</h3>
+                <p>• <strong>The Hidden Fact:</strong> Hum sab mante hain ki fountain solution aur ink mix nahi hote, but reality ye hai ki rollers ka mechanical action ink ke andar microscopic water droplets (micro-emulsion) bana deta hai. 
+                <br>• <strong>Critical Warning:</strong> Jab emulsification 30% cross karti hai, toh ink ka 'Tack' (chipchipahat) drammatically gir jata hai. Result? Ink rollers se slip hone lagti hai, dot sharpness khatam hoti hai, aur print 'mushy' dikhta hai. 
+                <br>• <strong>Pro Tip:</strong> Agar aapka Fountain Solution IPA-free hai, toh aapko Conductivity aur pH par 2x extra focus karna hoga, kyunki wahan Surface Tension control karne ke liye IPA ki jagah "Surfactants" hote hain jo bahut jaldi over-emulsify ho sakte hain.</p>
+            </div>
 
-        <!-- Parameter 3 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. पिगमेंट स्ट्रेंथ और डिस्पერსन (Pigment Strength & Dispersion)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी विवरण:</strong> इंक में पिगमेंट कणों का आकार (Particle Size) जितना बारीक होगा (आमतौर पर माइक्रोन से कम), कलर स्ट्रेंथ उतनी ही ज्यादा और शार्प होगी। पुअर डिस्पर्सड पिगमेंट से कलर डेंसिटी कम हो जाती है और प्लेट पर स्कमिंग (Scumming) का खतरा बढ़ता है।
-            </p>
-        </div>
+            <!-- SECTION 3 -->
+            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
+                <h3 class="font-bold text-white text-base text-cyan-400">3. Mastering the "Tack" – The Hierarchy of Color</h3>
+                <p>• <strong>The Trapping Physics:</strong> Multi-color press par hum hamesha <span class="highlight">Descending Tack Sequence</span> follow karte hain (e.g., Black > Cyan > Magenta > Yellow). 
+                <br>• <strong>The "Secret" Trap:</strong> Agar aapke Yellow ka tack Black se zyada ho gaya, toh Yellow ink Black ki film ko 'peel' karke apne saath utha le jayegi, jise 'Back-Trapping' kehte hain. 
+                <br>• <strong>Rheology Logic:</strong> Tack temperature-sensitive hai. Agar machine ka roller temperature 5°C bhi badh gaya, toh ink ka tack 20-30% drop ho jayega. Isi liye chillar ka temp fix rakhna sirf 'quality' ke liye nahi, balki 'trap' banane ke liye zaroori hai.</p>
+            </div>
 
-        <!-- Parameter 4 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">4. ड्राईंग मेकैनिज्म (Drying Mechanism: Oxidation & Penetration)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी विवरण:</strong> शीट-फेड ऑफ़सेट इंक मुख्य रूप से दो चरणों में सूखती है: पहला—पेपर द्वारा वेहिकल (Mineral Oil) का अवशोषण (Penetration), और दूसरा—हवा की ऑक्सीजन के साथ रिएक्शन से इंक का पॉलीमेराइज़ेशन (Oxidation/Setting)। इसमें ड्रायर (Cobalt, Manganese Driers) अहम भूमिका निभाते हैं।
-            </p>
-        </div>
+            <!-- SECTION 4 -->
+            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
+                <h3 class="font-bold text-white text-base text-cyan-400">4. Thixotropy: The Ink’s "Memory"</h3>
+                <p>• <strong>Fact:</strong> Offset inks "Thixotropic" hoti hain, yaani unke paas 'time-dependent' behavior hota hai. Jab roller ink ko shear (stretch) karta hai, toh ink ki viscosity kam ho jati hai (ink patli hoti hai). Machine rukte hi, ink wapas apni original consistency par aa jati hai.
+                <br>• <strong>Shop-Floor Logic:</strong> Agar aapki machine ki speed bahut high hai, toh shear rate bahut zyada hota hai. Is condition me ink itni patli ho jati hai ki wo ink-fountain me 'flow' hi nahi kar paati (starvation). Aisi situation me 'High-Tack' inks ka use karna chahiye jo high shear par bhi body maintain rakhen.</p>
+            </div>
 
-        <!-- Parameter 5 -->
-        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">5. लाइटफास्टनेस और रेजिस्टेंस (Lightfastness & Chemical Resistance)</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>तकनीकी विवरण:</strong> पैकेजिंग प्रिंटिंग के लिए यह आवश्यक है कि धूप (UV Rays) में रखने पर रंग फीका न पड़े (Lightfastness)। इसके अलावा लैमिनेशन, वार्निश या अल्कली रेजिस्टेंस के मानकों पर भी इंक खरी उतरनी चाहिए।
-            </p>
         </div>
-
     </div>
 
-    <!-- Footer Note -->
-    <div class="mt-8 text-center border-t border-slate-800 pt-4">
-        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    <!-- FOOTER NAV -->
+    <div class="flex justify-between items-center pt-2">
+        <a href="machine-specs.html" class="text-xs text-cyan-400 hover:underline">← Chapter 1</a>
+        <a href="spectrophotometer.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">Next Chapter 3 →</a>
     </div>
 
 </div>
