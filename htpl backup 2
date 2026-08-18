@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offset Printing & Packaging Technical Manual - Amit Sandhu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .profile-glow { box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
+        .author-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        @media (min-width: 640px) { .author-card { flex-direction: row; text-align: left; } }
+        .profile-photo-wrapper { position: relative; width: 80px; height: 80px; border-radius: 9999px; cursor: pointer; padding: 2px; background: linear-gradient(to top right, #22d3ee, #2563eb); box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .author-img { width: 100%; height: 100%; object-fit: cover; border-radius: 9999px; }
+        .photo-upload-overlay { position: absolute; bottom: 0; right: 0; background-color: #06b6d4; color: #030712; font-size: 12px; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid #0f172a; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+<div class="w-full max-w-2xl space-y-4">
+    
+    <!-- HEADER TITLE -->
+    <div class="text-center space-y-1 mb-4">
+        <h1 class="text-xl md:text-2xl font-black text-cyan-400 tracking-wide uppercase">Offset Printing & Packaging Technical Manual</h1>
+        <p class="text-xs text-slate-400">Advanced Engineering Standards, Deep Ink Chemistry, Machine Parts & Defect Solutions</p>
+    </div>
+
+    <!-- AUTHOR PROFILE CARD -->
+    <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
+        <div class="author-card">
+            <div class="profile-photo-wrapper" onclick="document.getElementById('imageInput').click();" title="अपनी फोटो बदलने के लिए क्लिक करें">
+                <img id="userPhoto" src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+                <div class="photo-upload-overlay">+</div>
+                <input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="loadPhoto(event)">
+            </div>
+
+            <div class="author-info space-y-1 text-center sm:text-left">
+                <div class="text-[10px] font-bold bg-cyan-950 text-cyan-400 px-2.5 py-0.5 rounded-full border border-cyan-800 uppercase tracking-wider inline-block">CREATED BY AMIT SANDHU</div>
+                <h3 class="text-lg font-bold text-white">Amit Sandhu</h3>
+                <p class="text-xs text-slate-300"><strong>Role:</strong> Production Supervisor</p>
+                <p class="text-xs text-slate-300"><strong>Company:</strong> Kumar Printers Pvt. Ltd.</p>
+                <p class="text-xs text-slate-300"><strong>Degree:</strong> B.Tech (Printing & Packaging Tech)</p>
+                <p class="text-xs text-slate-300"><strong>Experience:</strong> 6+ Years Technical Industry Exp.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALL 14 CHAPTERS NAVIGATION BUTTONS -->
+    <div class="space-y-2.5 pt-2">
+        <a href="auth-payment.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-cyan-400 transition shadow-md">
+            Page 1 & 2: Login, OTP & Payment Gateway
+        </a>
+        <a href="author-card.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 3: Author & Creator Profile
+        </a>
+        <a href="principles.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 4: Offset Mechanics & Physical Principles
+        </a>
+        <a href="machine-specs.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 5: Machine Specifications & Parts (Heidelberg/Komori)
+        </a>
+        <a href="ink-chemistry.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 6: Ink Chemistry, Density, Viscosity & Tack
+        </a>
+        <a href="spectrophotometer.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 7: Spectrophotometer, Lab Values & ΔE
+        </a>
+        <a href="defects.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 8: Deep 30 Defect Solutions & Troubleshooting
+        </a>
+        <a href="raw-materials.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 9: Raw Materials: Paper, Board & Coatings
+        </a>
+        <a href="quality-control.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 10: Quality Control & Shop-Floor Tests
+        </a>
+        <a href="pantone-recipe.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 11: Pantone Guide & 14 Base Color Recipes
+        </a>
+        <a href="tech-hints.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 12: 40 Technical Hints & Secrets
+        </a>
+        <a href="experiments.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-slate-200 hover:text-cyan-400 transition shadow-md">
+            Page 13: 10 Printing Experiments
+        </a>
+        <a href="questions-answers.html" class="block w-full py-3 px-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-400 rounded-xl text-center text-sm font-bold text-cyan-400 transition shadow-md">
+            Page 14: 150 Advanced Technical Questions & Answer Bank
+        </a>
+    </div>
+
+<script>
+    function loadPhoto(event) {
+        const reader = new FileReader();
+        reader.onload = function(){
+            const output = document.getElementById('userPhoto');
+            output.src = reader.result;
+        };
+        if(event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
+</script>
+
+</body>
+</html>
