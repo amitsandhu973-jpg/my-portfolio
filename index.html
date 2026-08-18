@@ -125,34 +125,34 @@ document.getElementById('verify-otp-btn').onclick = function() {
         alert("कृपया OTP दर्ज करें।");
     }
 };
-
-          
-                "key": "rzp_test_TQhCeEkQqFITW0", // आपकी Razorpay टेस्ट की
-                "amount": "10000", // ₹100 (10000 paise)
-                "currency": "INR",
-                "name": "Amit Sandhu Technical Lab",
-                "description": "Offset Printing & Packaging Guide Access",
-               "handler": function (response){
-    alert("पेमेंट सफल रहा!"); 
-    // 1. ब्लर हटाएँ 
-   document.getElementById("manual-content").classList.remove("locked-content"); 
-    // 2. स्क्रॉल वापस चालू करें
-    document.body.style.overflow = "auto"; 
-
-              
-                      "prefill": {
-                    "name": "Amit Sandhu",
-                    "email": "amitsandhu@gmail.com",
-                    "contact": "8059002339"
-                },
-                "theme": {
-                    "color": "#06b6d4"
-                }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-            e.preventDefault();
+// Razorpay Payment Script Logic
+document.getElementById('pay-btn').onclick = function(e){
+    var options = {
+        "key": "rzp_test_TQhCeEkQqFiTW0", // आपकी Razorpay टेस्ट की
+        "amount": "10000", // ₹100 (10000 paise)
+        "currency": "INR",
+        "name": "Amit Sandhu Technical Lab",
+        "description": "Offset Printing & Packaging Guide Access",
+        "handler": function (response){
+            alert("पेमेंट सफल रहा!");
+            // 1. ब्लर हटाएँ
+            document.getElementById("manual-content").classList.remove("locked-content");
+            // 2. स्क्रॉल वापस चालू करें
+            document.body.style.overflow = "auto";
+        },
+        "prefill": {
+            "name": "Amit Sandhu",
+            "email": "amitsandhu@gmail.com",
+            "contact": "8059002339"
+        },
+        "theme": {
+            "color": "#06b6d4"
         }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+}
     </script>
 </body>
 </html>
