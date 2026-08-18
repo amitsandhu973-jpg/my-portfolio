@@ -6,7 +6,7 @@
     <title>Offset Printing & Packaging Technical Manual - Amit Sandhu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Firebase SDKs (Compat Version for easy integration) -->
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     
@@ -43,7 +43,7 @@
         <div id="mobileStep" class="flex flex-col sm:flex-row gap-2">
             <input type="text" id="mobileNumber" placeholder="Enter Mobile (+91...)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
             <button onclick="sendOTP()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
-                Send OTP
+                Send OTP / Login
             </button>
         </div>
 
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <!-- Invisible Recaptcha Container for Firebase Phone Auth -->
+    <!-- Invisible Recaptcha Container -->
     <div id="recaptcha-container"></div>
 
     <!-- AUTHOR PROFILE CARD -->
@@ -114,6 +114,9 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
+    // 🔴 यहाँ अपना खुद का मोबाइल नंबर दर्ज करें (बिना +91 के, जैसे "9876543210")
+    const ADMIN_MOBILE = "YOUR_PERSONAL_MOBILE_NUMBER"; 
+
     // फोटो अपलोड फंक्शन
     function loadPhoto(event) {
         const reader = new FileReader();
@@ -125,15 +128,23 @@
         }
     }
 
-    // 1. Send Real OTP via Firebase
+    // Send OTP / Admin Bypass Function
     function sendOTP() {
-        let phoneNumber = document.getElementById('mobileNumber').value;
+        let phoneNumber = document.getElementById('mobileNumber').value.trim();
+        
         if(phoneNumber.length < 10) {
-            alert('कृपया सही मोबाइल नंबर (जैसे +91...) दर्ज करें!');
+            alert('कृपया सही मोबाइल नंबर दर्ज करें!');
             return;
         }
-        
-        // अगर यूजर ने देश का कोड नहीं लगाया, तो स्वतः +91 जोड़ दें
+
+        // 👉 अगर नंबर आपका (Admin) है, तो सब कुछ डायरेक्ट अनलॉक कर दो (Bypass)
+        if(phoneNumber.includes(ADMIN_MOBILE)) {
+            alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
+            grantFullAccess("Admin Mode (Bypassed)");
+            return;
+        }
+
+        // 🟢 आम ग्राहकों के लिए नॉर्मल Firebase OTP चालू रहेगा
         if(!phoneNumber.startsWith('+')) {
             phoneNumber = '+91' + phoneNumber;
         }
@@ -159,7 +170,7 @@
             });
     }
 
-    // 2. Verify OTP & Trigger Razorpay Payment
+    // Verify OTP for Customers & Trigger Razorpay
     function verifyOTP() {
         let otp = document.getElementById('otpInput').value;
         if(otp.length < 6) {
@@ -175,29 +186,18 @@
         });
     }
 
-    // 3. Razorpay Payment Gateway Integration
+    // Razorpay Payment Gateway for Customers
     function startPayment() {
         var options = {
-            "key": "rzp_test_TRMTWkjgDFBoz3", // आपकी Razorpay Key
-            "amount": "49900", // ₹499 (पैसे में)
+            "key": "rzp_test_TRMTWkjgDFBoz3", 
+            "amount": "49900", // ₹499
             "currency": "INR",
             "name": "Amit Sandhu Technical Manual",
             "description": "Full Access to 11 Technical Chapters",
             "image": "1774396860127.png",
             "handler": function (response){
                 alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                
-                // स्टेटस अपडेट करें
-                document.getElementById('userStatus').innerText = "Status: ✅ Verified & Unlocked (Access Granted)";
-                document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
-                document.getElementById('otpStep').classList.add('hidden');
-
-                // सभी 11 चैप्टर्स के ताले खोल दें
-                document.querySelectorAll('.chapter-link').forEach(link => {
-                    link.classList.replace('locked', 'unlocked');
-                    link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
-                    link.innerText = link.innerText.replace('🔒', '📖');
-                });
+                grantFullAccess("Paid Customer");
             },
             "theme": {
                 "color": "#06b6d4"
@@ -205,6 +205,21 @@
         };
         var rzp1 = new Razorpay(options);
         rzp1.open();
+    }
+
+    // Common function to unlock everything
+    function grantFullAccess(modeText) {
+        document.getElementById('userStatus').innerText = "Status: ✅ Unlocked (" + modeText + ")";
+        document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
+        document.getElementById('mobileStep').classList.add('hidden');
+        document.getElementById('otpStep').classList.add('hidden');
+
+        // ताले हटाकर सारे चैप्टर्स खोलना
+        document.querySelectorAll('.chapter-link').forEach(link => {
+            link.classList.replace('locked', 'unlocked');
+            link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
+            link.innerText = link.innerText.replace('🔒', '📖');
+        });
     }
 </script>
 
