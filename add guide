@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 11: Packaging Calculations & Estimation - Amit Sandhu Master Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .calc-box { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.2); }
+        .formula-text { color: #22d3ee; font-family: monospace; background: #0f172a; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+<div class="w-full max-w-4xl space-y-6">
+    
+    <!-- NAVIGATION HEADER -->
+    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
+        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
+        <div class="text-right">
+            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">PRODUCTION ESTIMATION FORMULAE</span>
+        </div>
+    </div>
+
+    <!-- MAIN MODULE BOX -->
+    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
+        
+        <!-- TITLE & AUTHOR WATERMARK -->
+        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 11: PACKAGING CALCULATIONS & ESTIMATION FORMULAE</h1>
+                <p class="text-xs text-cyan-400 font-medium mt-1">Paper Weight, GSM, Box Layout & Production Costing Mathematical Formulas</p>
+            </div>
+            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
+                <span class="text-[10px] text-slate-400 block">Verified By:</span>
+                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
+            </div>
+        </div>
+
+        <!-- INTRO NOTE -->
+        <p class="text-xs text-slate-300">
+            यह सेक्शन पैकेजिंग और प्रिंटिंग फ्लोर पर रोजाना काम आने वाले गणितीय फॉर्मूलों (Mathematical Formulas) पर आधारित है, जिनकी मदद से आप सटीक पेपर रिक्वायरमेंट और वजन निकाल सकते हैं:
+        </p>
+
+        <!-- CALCULATIONS LIST -->
+        <div class="space-y-4 text-xs">
+            
+            <!-- Calc 1 -->
+            <div class="calc-box p-4 rounded-xl space-y-2">
+                <strong class="text-white text-sm block">1. Paper Sheet Weight Calculation (एक शीट का वजन निकालना)</strong>
+                <p class="text-slate-300">अगर आपके पास पेपर का साइज और उसका GSM पता है, तो कुल वजन निकालने का फॉर्मूला:</p>
+                <div class="formula-text">
+                    Weight (kg) = [Length (m) × Width (m) × GSM × Total Sheets] ÷ 1000
+                </div>
+                <p class="text-slate-400 text-[11px]">उदाहरण: यदि शीट का साइज 70×100 cm (0.7 × 1.0 m), GSM 300 और 1000 शीट हैं, तो वजन = 0.7 × 1.0 × 300 × 1000 / 1000 = 210 kg होगा।</p>
+            </div>
+
+            <!-- Calc 2 -->
+            <div class="calc-box p-4 rounded-xl space-y-2">
+                <strong class="text-white text-sm block">2. Total Reams to Sheets Conversion (रीम से शीट कैलकुलेशन)</strong>
+                <p class="text-slate-300">पेपर इंडस्ट्री में एक स्टैंडर्ड रीम (Standard Ream) में आमतौर पर 500 शीट होती हैं:</p>
+                <div class="formula-text">
+                    Total Sheets = Total Reams × 500
+                </div>
+                <p class="text-slate-400 text-[11px]">नोट: कभी-कभी स्पेशलबोर्ड्स में 100 शीट का पैड भी चलता है, इसलिए जॉब ऑर्डर के हिसाब से कन्फर्म कर लें।</p>
+            </div>
+
+            <!-- Calc 3 -->
+            <div class="calc-box p-4 rounded-xl space-y-2">
+                <strong class="text-white text-sm block">3. Job Wastage Allowance Calculation (वेस्टेज परसेंटेज फॉर्मूला)</strong>
+                <p class="text-slate-300">उत्पादन के दौरान मेक-रेडि (Make-ready) और कटिंग के लिए कुल पेपर कितना एक्स्ट्रा देना है:</p>
+                <div class="formula-text">
+                    Total Paper Required = Required Good Sheets + [Required Good Sheets × (Wastage % ÷ 100)]
+                </div>
+                <p class="text-slate-400 text-[11px]">मानक नियम: 4-कलर जॉब के लिए सामान्यतः 5% से 8% तक कीेज मार्जिन रखा जाता है।</p>
+            </div>
+
+            <!-- Calc 4 -->
+            <div class="calc-box p-4 rounded-xl space-y-2">
+                <strong class="text-white text-sm block">4. Die-Cutting & Layout Ups Calculation (एक मास्टर शीट में कितने डिब्बे बनेंगे)</strong>
+                <p class="text-slate-300">मास्टर पेपर साइज में आपके कार्टन का लेआउट कितनी बार बैठ रहा है (Ups):</p>
+                <div class="formula-text">
+                    Ups = [Master Sheet Length ÷ Carton Length] × [Master Sheet Width ÷ Carton Width] (Cross-check margins & gripper space)
+                </div>
+                <p class="text-slate-400 text-[11px]">सुपरवाइज़र टिप: हमेशा ग्रिपर मार्जिन (10-12mm) और त्रिमिंग एज को छोड़कर ही लेआउट फाइनल करें।</p>
+            </div>
+
+        </div>
+
+        <!-- EXPERT SUPERVISOR'S NOTE -->
+        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5 mt-6">
+            <div class="flex items-center gap-2 text-cyan-400 font-bold">
+                <span>💡</span>
+                <span>Amit Sandhu's Estimation Rule:</span>
+            </div>
+            <p class="text-slate-200">
+                मटेरियल इशू करने से पहले कैलकुलेशन को हमेशा दो बार क्रॉस-चेक करें। थोड़ी सी गणितीय गलती से पूरा का पूरा पेपर स्टॉक या तो कम पड़ सकता है या फिर भारी नुकसान हो सकता है!
+            </p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER SIGNATURE -->
+    <div class="text-center pt-2">
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Master Manual © 2026</p>
+    </div>
+
+</div>
+
+</body>
+</html>
