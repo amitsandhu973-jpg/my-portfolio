@@ -8,8 +8,6 @@
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
-        .data-table th { background: #0f172a; color: #22d3ee; border-bottom: 2px solid #0284c7; }
-        .data-table td { border-bottom: 1px solid #1e293b; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
@@ -39,69 +37,83 @@
             </div>
         </div>
 
-        <!-- SECTION 1: THE 14 BASE INKS OF PMS -->
+        <!-- SECTION 1: THE 14 BASE INKS OF PMS (COLORFUL CARDS) -->
         <div class="space-y-3">
             <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>🎨</span> 1. The 14 Standard Pantone Base Inks (Offset Formulation)
+                <span>🎨</span> 1. The 14 Standard Pantone Base Inks (Offset Mixing Bases)
             </h3>
-            <p class="text-xs text-slate-300">Every single Pantone spot color is blended using precise weight percentages from these 14 foundational mixing bases:</p>
+            <p class="text-xs text-slate-300">Har ek Pantone spot color ko banane ke liye niche diye gaye 14 base inks ko exact weight percentage me mix kiya jata hai:</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">1. Yellow</strong>
-                    <span class="text-[10px] text-slate-400">Primary bright yellow base</span>
+                <!-- 1. Yellow -->
+                <div class="p-3 rounded-xl border border-yellow-500/40 bg-yellow-950/30 shadow-md">
+                    <strong class="text-yellow-300 block text-sm">1. Yellow</strong>
+                    <span class="text-[11px] text-slate-300">Primary bright yellow base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">2. Warm Red</strong>
-                    <span class="text-[10px] text-slate-400">Red with yellow undertone</span>
+                <!-- 2. Warm Red -->
+                <div class="p-3 rounded-xl border border-red-500/40 bg-red-950/30 shadow-md">
+                    <strong class="text-red-400 block text-sm">2. Warm Red</strong>
+                    <span class="text-[11px] text-slate-300">Red with yellow undertone</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">3. Rubine Red</strong>
-                    <span class="text-[10px] text-slate-400">Deep bluish-red base</span>
+                <!-- 3. Rubine Red -->
+                <div class="p-3 rounded-xl border border-rose-500/40 bg-rose-950/30 shadow-md">
+                    <strong class="text-rose-400 block text-sm">3. Rubine Red</strong>
+                    <span class="text-[11px] text-slate-300">Deep bluish-red base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">4. Rhodamine Red</strong>
-                    <span class="text-[10px] text-slate-400">Vibrant magenta-red base</span>
+                <!-- 4. Rhodamine Red -->
+                <div class="p-3 rounded-xl border border-pink-500/40 bg-pink-950/30 shadow-md">
+                    <strong class="text-pink-400 block text-sm">4. Rhodamine Red</strong>
+                    <span class="text-[11px] text-slate-300">Vibrant magenta-red base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">5. Purple</strong>
-                    <span class="text-[10px] text-slate-400">Deep violet shade</span>
+                <!-- 5. Purple -->
+                <div class="p-3 rounded-xl border border-purple-500/40 bg-purple-950/30 shadow-md">
+                    <strong class="text-purple-300 block text-sm">5. Purple</strong>
+                    <span class="text-[11px] text-slate-300">Deep violet shade</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">6. Reflex Blue</strong>
-                    <span class="text-[10px] text-slate-400">Intense dark royal blue</span>
+                <!-- 6. Reflex Blue -->
+                <div class="p-3 rounded-xl border border-blue-600/40 bg-blue-950/40 shadow-md">
+                    <strong class="text-blue-400 block text-sm">6. Reflex Blue</strong>
+                    <span class="text-[11px] text-slate-300">Intense dark royal blue</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">7. Process Blue</strong>
-                    <span class="text-[10px] text-slate-400">Cyan standard base</span>
+                <!-- 7. Process Blue -->
+                <div class="p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/40 shadow-md">
+                    <strong class="text-cyan-300 block text-sm">7. Process Blue</strong>
+                    <span class="text-[11px] text-slate-300">Cyan standard base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">8. Green</strong>
-                    <span class="text-[10px] text-slate-400">Vivid green mixing base</span>
+                <!-- 8. Green -->
+                <div class="p-3 rounded-xl border border-emerald-500/40 bg-emerald-950/30 shadow-md">
+                    <strong class="text-emerald-400 block text-sm">8. Green</strong>
+                    <span class="text-[11px] text-slate-300">Vivid green mixing base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">9. Black</strong>
-                    <span class="text-[10px] text-slate-400">High density offset black</span>
+                <!-- 9. Black -->
+                <div class="p-3 rounded-xl border border-slate-500/40 bg-slate-950/60 shadow-md">
+                    <strong class="text-slate-100 block text-sm">9. Black</strong>
+                    <span class="text-[11px] text-slate-300">High density offset black</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">10. Transparent White</strong>
-                    <span class="text-[10px] text-slate-400">Extender base for tinting</span>
+                <!-- 10. Transparent White -->
+                <div class="p-3 rounded-xl border border-slate-300/30 bg-slate-800/50 shadow-md">
+                    <strong class="text-slate-200 block text-sm">10. Transparent White</strong>
+                    <span class="text-[11px] text-slate-300">Extender base for tinting</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">11. Orange</strong>
-                    <span class="text-[10px] text-slate-400">Bright orange mixing base</span>
+                <!-- 11. Orange -->
+                <div class="p-3 rounded-xl border border-orange-500/40 bg-orange-950/30 shadow-md">
+                    <strong class="text-orange-400 block text-sm">11. Orange</strong>
+                    <span class="text-[11px] text-slate-300">Bright orange mixing base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">12. Violet</strong>
-                    <span class="text-[10px] text-slate-400">Blue-violet base</span>
+                <!-- 12. Violet -->
+                <div class="p-3 rounded-xl border border-indigo-500/40 bg-indigo-950/30 shadow-md">
+                    <strong class="text-indigo-300 block text-sm">12. Violet</strong>
+                    <span class="text-[11px] text-slate-300">Blue-violet base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">13. Rhodamine Ext.</strong>
-                    <span class="text-[10px] text-slate-400">Specialized modifier base</span>
+                <!-- 13. Rhodamine Ext. -->
+                <div class="p-3 rounded-xl border-pink-400/30 border bg-pink-950/20 shadow-md">
+                    <strong class="text-pink-300 block text-sm">13. Rhodamine Ext.</strong>
+                    <span class="text-[11px] text-slate-300">Specialized modifier base</span>
                 </div>
-                <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800">
-                    <strong class="text-white block">14. Metallic Bases</strong>
-                    <span class="text-[10px] text-slate-400">Silver & Gold pastes</span>
+                <!-- 14. Metallic Bases -->
+                <div class="p-3 rounded-xl border border-amber-500/40 bg-amber-950/30 shadow-md">
+                    <strong class="text-amber-400 block text-sm">14. Metallic Bases</strong>
+                    <span class="text-[11px] text-slate-300">Silver & Gold pastes</span>
                 </div>
             </div>
         </div>
@@ -109,15 +121,15 @@
         <!-- SECTION 2: SHOP-FLOOR MIXING & WEIGHING PROTOCOL -->
         <div class="space-y-3">
             <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>⚖️</span> 2. Ink Kitchen Formulation & Gravimetric Weighing
+                <span>⚖️</span> 2. Ink Kitchen Formulation & Weighing Rules (मिक्सिंग के नियम)
             </h3>
-            <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
-                <p class="text-slate-300">When preparing custom Pantone shades on the shop floor:</p>
-                <ul class="list-disc list-inside space-y-1 text-slate-300">
-                    <li>Always use a high-precision digital electronic balance (accuracy up to <span class="text-cyan-300 font-mono">0.01 grams</span>).</li>
-                    <li>Weigh the major component base first, followed by incremental drops of darker shading bases.</li>
-                    <li>Perform a drawdown test on the actual customer substrate (Coated or Uncoated board) using an ink drawdown wire bar applicator.</li>
-                    <li>Compare the dried drawdown sheet under a D50 light booth against the official Pantone Formula Guide swatch.</li>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
+                <p>Shop floor par jab bhi koi custom Pantone shade banayein, toh in baton ka dhyan rakhein:</p>
+                <ul class="list-disc list-inside space-y-1.5">
+                    <li>Hamesha high-precision digital electronic balance (accuracy up to <span class="text-cyan-300 font-mono">0.01 grams</span>) ka use karein taaki formula bilkul accurate bane.</li>
+                    <li>Pehle sabse heavy/major component base ko weigh karein, uske baad dark shading bases ki boondein (drops) dhyan se add karein.</li>
+                    <li>Customer ke actual substrate (Coated ya Uncoated board) par ink drawdown wire bar applicator se sample zaroor check karein.</li>
+                    <li>Dried drawdown sheet ko official Pantone Formula Guide swatch ke sath <span class="text-white font-bold">D50 light booth</span> me match karein.</li>
                 </ul>
             </div>
         </div>
@@ -126,10 +138,10 @@
         <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5">
             <div class="flex items-center gap-2 text-cyan-400 font-bold">
                 <span>💡</span>
-                <span>Amit Sandhu's Pantone Matching Tip:</span>
+                <span>Amit Sandhu's Expert Tip (मास्टर टिप):</span>
             </div>
             <p class="text-slate-200">
-                Never evaluate wet ink freshly pulled from an ink knife. Offset inks undergo a slight shift in spectral values and gloss level as they dry and penetrate the paper fibers over 15 to 20 minutes. Always cure or fully dry your drawdown sample before measuring Delta-E ($dE$) with a spectrophotometer.
+                Kabhi bhi geeli (wet) ink ko ink knife se nikal kar turant final approve na karein. Offset inks jab paper ke andar penetrate hoti hain aur sukhti hain, toh unka gloss aur shade thoda change hota hai. Drawdown ko 15-20 minute sukhane ke baad hi Spectrophotometer se Delta-E ($dE$) check karein!
             </p>
         </div>
 
