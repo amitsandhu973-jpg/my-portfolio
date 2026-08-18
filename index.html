@@ -316,7 +316,6 @@
       </p>
     </div>
   </div>
-
   <!-- SLIDE 4: TROUBLESHOOTING -->
   <div id="slide4" class="slide-panel">
     <h2 style="color: var(--accent-neon); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0;">4. Common Print Defects & Troubleshooting</h2>
@@ -432,9 +431,7 @@
             "description": "Offset Printing & Packaging Master Manual Full Access",
             "handler": function (response){
                 alert("Payment successful! Access granted.");
-                // 1. ब्लर हटाएँ
                 document.getElementById("manual-content").classList.remove("locked-content");
-                // 2. स्क्रॉल चालू करें
                 document.body.style.overflow = "auto";
             },
             "prefill": {
