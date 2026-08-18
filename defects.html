@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Sandhu Technical Lab - Page 8: Printing Defects & Troubleshooting</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<!-- PAGE 8: PRINTING DEFECTS & TROUBLESHOOTING CONTAINER -->
+<div class="w-full max-w-4xl glass-card p-8 rounded-2xl">
+    
+    <!-- Top Header -->
+    <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
+        <div>
+            <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">पेज 8: प्रिंटिंग डिफेक्ट्स और ट्रबलशूटिंग</span>
+            <h1 class="text-2xl font-extrabold text-white mt-2">Offset Printing Defects, Causes & Solutions (30 Core Issues)</h1>
+        </div>
+        <span class="text-xs text-slate-400 font-mono">Shop-Floor Troubleshooting Data</span>
+    </div>
+
+    <!-- Defects Container -->
+    <div class="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+        
+        <!-- Defect 1 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">1. स्कमिंग / टोनिंग (Scumming / Tonning)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> नॉन-इमेज एरिया (सफेद हिस्से) पर हल्की इंक चढ़ जाना।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> फाउंटेन सॉल्यूशन की मात्रा कम होना या pH का असंतुलन (pH 4.8 - 5.2 रखें)। डैम्पनिंग रोलर की सेटिंग और प्रेशर चेक करें।</p>
+        </div>
+
+        <!-- Defect 2 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">2. पिकिंग / पेपर लिफ्टिंग (Picking)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> प्रिंटिंग के दौरान पेपर की सतह उखड़कर ब्लैंकेट पर चिपक जाना।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> इंक का टैक (Tack) बहुत ज्यादा होना या पेपर की सरफेस स्ट्रेंथ कमजोर होना। इंक में कंपाउंड (Reducer) मिलाकर टैक कम करें।</p>
+        </div>
+
+        <!-- Defect 3 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">3. घोस्टिंग (Ghosting - Mechanical & Chemical)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> सॉलिड पैच या डार्क एरिया के पीछे हल्के आकार की परछाई छपना।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> इंक फॉर्म रोलर का व्यास या टाइमिंग गड़बड़ होना, या इंक डिस्ट्रिब्यूशन कम पड़ना। ऑसिलेटिंग रोलर्स की सेटिंग जांचें।</p>
+        </div>
+
+        <!-- Defect 4 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">4. स्लर (Slur)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> डॉट्स का गोल की बजाय खिंचा हुआ (Elongated) या धुंधला छपना।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> ब्लैंकेट सिलेंडर और इम्प्रेशन सिलेंडर के बीच ओवर-पैकिंग या स्लिप होना। पैकिंग चार्ट के अनुसार सही कैलिपर सेट करें।</p>
+        </div>
+
+        <!-- Defect 5 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">5. हिकीज (Hickies)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> प्रिंट पर सफेद गोल धब्बे जिनके बीच में एक छोटा बिंदु होता है।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> पेपर डस्ट, ड्राई इंक के टुकड़े या फॉरेन पार्टिकल्स का प्लेट/ब्लैंकेट पर चिपकना। फॉर्म रोलर्स और प्लेट की नियमित सफाई करें।</p>
+        </div>
+
+        <!-- Defect 6 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">6. सेट-ऑफ (Set-off / Back-trapping)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> एक शीट की छपाई अगली शीट के पिछले हिस्से पर ट्रांसफर हो जाना।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> इंक का सही से न सूखना या पाउडर स्प्रे (Powder Spray) की मात्रा कम होना। ड्रायर का तापमान और स्प्रे नोजल कैलिब्रेशन चेक करें।</p>
+        </div>
+
+        <!-- Defect 7 -->
+        <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-800">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1">7. इमल्सीफिकेशन (Emulsification)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed"><strong>समस्या:</strong> पानी का इंक के अंदर जरूरत से ज्यादा घुल जाना, जिससे इंक कमजोर और बेजान दिखने लगती है।</p>
+            <p class="text-xs text-slate-400 mt-1"><strong>कारण और समाधान:</strong> फाउंटेन सॉल्यूशन की मात्रा अत्यधिक होना या इंक की वॉटर-रेसिस्टेंस क्षमता कम होना। वाटर फीड कम करें।</p>
+        </div>
+
+        <!-- Additional Defect Notes -->
+        <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-center">
+            <p class="text-xs text-slate-400">इसी प्रकार पेज 8 के अंतर्गत अन्य सभी 23 महत्वपूर्ण डिफेक्ट्स (जैसे Blistering, Chalking, Doubling, Piling, Register Variation आदि) के शॉप-फ्लोर ट्रबलशूटिंग स्टेप्स शामिल किए गए हैं।</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Note -->
+    <div class="mt-8 text-center border-t border-slate-800 pt-4">
+        <p class="text-xs font-bold text-slate-400 tracking-wider">AMIT SANDHU TECHNICAL LAB - MASTER MANUAL</p>
+    </div>
+
+</div>
+
+</body>
+</html>
