@@ -3,74 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 1: Machine Specifications & Mechanical Secrets - Amit Sandhu</title>
+    <title>Page 1: Machine Specifications & Parts - Amit Sandhu Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; color: #cbd5e1; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-4">
+<div class="w-full max-w-4xl space-y-6">
     
-    <!-- BACK BUTTON & HEADER -->
-    <div class="flex justify-between items-center bg-slate-900 p-4 rounded-2xl border border-slate-800">
-        <a href="index.html" class="bg-cyan-500 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-400 transition">← Back to Index</a>
-        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 1: Master Machine Engineering Manual</h1>
+    <!-- BACK BUTTON -->
+    <div>
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">
+            ← Back to Master Manual Dashboard
+        </a>
     </div>
 
-    <!-- MAIN TECHNICAL CONTENT -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-500/30 space-y-6">
-        <h2 class="text-xl font-bold text-cyan-400 border-b border-cyan-500/20 pb-3">Chapter 1: Advanced Machine Specifications, Cylinder Geometry, Tolerances & Complete Shop-Floor Engineering</h2>
-        
-        <div class="space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
-            
-            <!-- SECTION 1 -->
-            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-300">1. Heidelberg Speedmaster CX 104 / SM 102 & Komori Lithrone Deep Technical Specs</h3>
-                <p>• <strong>Operating Speed Thresholds & Production Limits:</strong> Heidelberg CX 104 machine ko standard paper aur light art paper (60 GSM se 250 GSM) par maximum 16,500 sph (sheets per hour) ki speed tak safely run kiya ja sakta hai. Lekin jab aap heavy packaging carton board (jaise 350 GSM se 450 GSM FBB) print kar rahe hain, tab machine ki speed ko strict control me rakhte hue 12,000 se 13,500 sph ke beech chalana chahiye, taki high centrifugal force ki wajah se ink misting na ho aur sheets ki delivery pile me stacking kharab na ho.</p>
-                <p>• <strong>Substrate Thickness Range & Conversion Kits:</strong> Standard press configuration 0.03 mm se 0.6 mm tak ke stock ko easily process karti hai. Agar plant me heavy folding cartons ya micro-flute corrugated packaging (jaise E-flute aur F-flute) ka kaam hai, toh heavy carton package conversion kit aur special under-plate shims ki madad se isko 0.8 mm se 1.0 mm thickness tak ke rigid substrates ke liye configure kiya ja sakta hai.</p>
-                <p>• <strong>Plate, Blanket & Packing Exact Dimensions:</strong> 
-                    <br>- Heidelberg SM 74 Plate Size: 605 mm x 740 mm (Standard thickness: 0.30 mm).
-                    <br>- Heidelberg SM 102 / CX 104 Plate Size: 790 mm x 1030 mm (Standard thickness: 0.30 mm).
-                    <br>- Clamping Bends & Margins: Plate ke leading aur trailing edges par standard 42 mm ka bend allowance dena lazmi hai, taaki plate cylinders ke clamp me properly lock ho sake aur stretch hone se bache.</p>
-            </div>
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Page 1: Machine Specifications & Cylinder Dynamics</h1>
+        <p class="text-xs text-slate-400">Heidelberg CX 104, SM 102, CD 74 & Komori Lithrone Precision Engineering Data</p>
+    </div>
 
-            <!-- SECTION 2 -->
-            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-300">2. Cylinder Undercut Geometry, Packing Calculations & Velocity Match</h3>
-                <p>• <strong>Plate Cylinder Undercut (-0.15 mm se -0.30 mm):</strong> Plate cylinder ka undercut minus me hota hai. Iska mathematical rule yeh hai ki plate base par lagne wali packing sheets ki total thickness aisi honi chahiye jo plate ki printing surface ko exact pitch line level par le aaye. Dot gain aur distortion se bachne ke liye hamesha high-grade treated craft paper ya polyester calibration sheets ka hi use karein.</p>
-                <p>• <strong>Blanket Cylinder Undercut (-1.90 mm se -2.30 mm):</strong> Offset printing me blanket cylinder par multi-ply compressible rubber blankets use kiye jaate hain (jinki total standard thickness under-packing ke sath 1.95 mm se 1.96 mm hoti hai). Agar blanket ki packing me sirf +0.05 mm ki bhi laaparwahi ho gayi, toh cylinders ke beech surface velocity mismatch create ho jayega, jisse print par 'Slur' aane lagega aur plate ki life bhi aadhi ho jayegi.</p>
-                <p>• <strong>Impression Cylinder Hardness & Surface Finish:</strong> Impression cylinder ka undercut -0.20 mm se -0.40 mm tak hota hai. Iski outer surface hard chrome-plated hoti hai jo heavy board aur cardboard ke intense pressure ko bina kisi indent mark ya surface deformation ke saashti se handle karti hai.</p>
-            </div>
+    <!-- SECTION 1: CYLINDER UNDERCUT & PACKING TOLERANCES -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">⚙️</span> 1. Cylinder Undercut & Packing Parameters (Heidelberg Standard)
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            शीट-फेड ऑफसेट मशीनों में प्रिंटिंग प्रेशर और डॉट गेन को नियंत्रित करने के लिए सिलेंडरों का अंडरकट (Undercut) और ब्लैंकेट/प्लेट की मोटाई माइक्रो-मीट्रिक एक्यूरेसी में होनी चाहिए। नीचे Heidelberg और Komori के वास्तविक फ्लोर स्टैंडर्ड दिए गए हैं:
+        </p>
 
-            <!-- SECTION 3 -->
-            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-300">3. Ink Form Rollers & Dampening System Calibration (Comprehensive Stripe Testing)</h3>
-                <p>• <strong>Ink Form Roller Stripe Width Standards:</strong> Rollers ki setting ka pata lagane ke liye shop-floor par standard ink stripe test kiya jata hai (0.5 mm feeler gauges ya ink transfer bands ke zariye):
-                    <br>- Soft Form Rollers (25° Shore A hardness): Plate aur rollers ke beech ki stripe width hamesha **5 mm se 6 mm** honੀ chahiye.
-                    <br>- Hard Form Rollers (30° se 35° Shore A hardness): Stripe width **3 mm se 4 mm** honi chahiye. 
-                    <br>Yeh pressure Drive Side (DS) se lekar Operator Side (OS) tak bilkul ek jaisa (uniform) hona zaroori hai, warna ghosting, banding aur ink starvation ki problems shuru ho jati hain.</p>
-                <p>• <strong>Dampening System (Alcolor / Delta Continuous Dampening):</strong> Dampening form roller ki plate ke sath contact stripe hamesha halki aur patli yaani **2 mm se 3 mm** honi chahiye. Iske alawa chrome metering roller aur dampening form ke beech ka gap aisi micrometric water film thickness maintain kare ki fountain solution excess hoke ink ko emulsify na kar de.</p>
-            </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Cylinder Type</th>
+                        <th class="p-3">Undercut Depth</th>
+                        <th class="p-3">Standard Plate/Blanket Thickness</th>
+                        <th class="p-3">Packing Tolerance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Plate Cylinder (SM 102 / CX 104)</td>
+                        <td class="p-3">0.15 mm</td>
+                        <td class="p-3">0.30 mm (Plate)</td>
+                        <td class="p-3">+0.00 to +0.02 mm</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Blanket Cylinder (SM 102 / CX 104)</td>
+                        <td class="p-3">2.30 mm</td>
+                        <td class="p-3">1.90 mm (Blanket) + 0.40 mm (Mylar/Paper)</td>
+                        <td class="p-3">Exact ±0.01 mm (Compression based)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Impression Cylinder</td>
+                        <td class="p-3">0.40 mm</td>
+                        <td class="p-3">Direct Steel-to-Sheet Contact</td>
+                        <td class="p-3">Surface Hardness > 55 HRC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            <!-- SECTION 4 -->
-            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-300">4. Exclusive Shop-Floor Secrets, Gear Mechanics & Defect Prevention</h3>
-                <p>• <strong>Gear Backlash & High-Speed Slur Elimination:</strong> Plate cylinder, blanket cylinder aur impression cylinder ke main drive gears ke beech ka mesh clearance (backlash) hamesha strict limits yani **0.03 mm se 0.05 mm** ke beech maintain rehna chahiye. Agar gears ka backlash badh gaya, toh high operating speed par micro-vibrations paida hoti hain jo print par linear slur marks ke roop me dikhti hain.</p>
-                <p>• <strong>Feeder Head & Suction Timing for Heavy Packaging Board:</strong> Jab machine par 350 GSM se 450 GSM ke heavy folding cartons run kiye jate hain, tab sheet uthane wale forward-pushing pneumatic blast ki timing ko main drive cycle ke 4 se 6 degrees delay par set karna padta hai. Iske sath hi suction head ki tangential speed feed board ki speed ke sath perfectly synced honi chahiye taaki front-edge battering aur double-sheet delivery jams bilkul na ho.</p>
-                <p>• <strong>Gripper Bite & Sheet Transfer Safety Rules:</strong> Heidelberg aur Komori machines me standard gripper bite hamesha **8 mm se 10 mm** ke beech set ki jati hai. Agar kisi specific job ke liye bite ko 6 mm ya usse kam kiya gaya, toh high-speed transfer ke dauran sheet ka pichhla hissa flutter karne lagega aur plate ya blanket se takrakar corner crash kar dega.</p>
-                <p>• <strong>Optical Register Encoder Maintenance & Calibration:</strong> Micro-adjustment remote register ke servo motors high-precision optical encoders par kaam karte hain. In encoders ke discs par agar dust ya ink mist jam jaye, toh register me drift aane lagta hai. Isko electronic-grade Isopropyl Alcohol (IPA) se regular clean karne par positioning accuracy wapas $\pm 0.002 \text{ mm}$ tolerance par fix ho jati hai.</p>
-            </div>
+    <!-- SECTION 2: GEAR BACKLASH & TORQUE SETTINGS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🔧</span> 2. Gear Backlash & Drive Train Torque Specifications
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Helical Gear Backlash:</strong> मुख्य ड्राइव गियर ट्रेन में आइडलर गियर (Idler Gears) का बैकलैश हमेशा <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">0.03 mm से 0.05 mm</code> के बीच होना चाहिए। इससे ज्यादा होने पर 'Gear Streaks' आने लगती हैं।</li>
+            <li><strong>Bearer-to-Bearer Pressure:</strong> प्लेट और ब्लैंकेट बेअरर्स के बीच का कांटेक्ट प्रेशर <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">0.05 mm से 0.08 mm</code> फूला हुआ (Pre-load) होना चाहिए ताकि रनिंग के दौरान सिलेंडर में कोई जंपिंग न हो।</li>
+            <li><strong>Gripper Pad Pressure:</strong> फेरूल और ग्रिपर फिंगर का क्लैंपिंग टॉर्क <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">18-22 Ncm</code> होना चाहिए। कम होने पर हाई-स्पीड में शीट स्लिप हो जाएगी और रजिस्टर आउट हो जाएगा।</li>
+        </ul>
+    </div>
 
+    <!-- SECTION 3: LUBRICATION & GREASE SCHEDULE -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🛢️</span> 3. Critical Lubrication & Maintenance Matrix
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Machine Component</th>
+                        <th class="p-3">Lubricant Type</th>
+                        <th class="p-3">Application Frequency</th>
+                        <th class="p-3">Critical Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Delivery Chain Guide & Gripper Bars</td>
+                        <td class="p-3">Synthetic High-Temp Chain Oil (ISO VG 220)</td>
+                        <td class="p-3">Every 50 Running Hours</td>
+                        <td class="p-3">Check for chain elongation and dry links</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Main Drive Gear Box</td>
+                        <td class="p-3">EP Gear Oil (ISO VG 460)</td>
+                        <td class="p-3">Every 2,000 Running Hours (Filter Change)</td>
+                        <td class="p-3">Check metal debris in magnetic plug</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Delivery Air Knives & Pneumatic Cylinders</td>
+                        <td class="p-3">Moisture-free Compressed Air + ISO VG 32 Oil (FRL Unit)</td>
+                        <td class="p-3">Daily Drain & Check</td>
+                        <td class="p-3">Water trap bowl must be drained before shift</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- FOOTER NAV -->
-    <div class="flex justify-between items-center pt-2">
-        <a href="index.html" class="text-xs text-cyan-400 hover:underline">← Home Index</a>
-        <a href="ink-chemistry.html" class="bg-cyan-500 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-400 transition">Next Chapter 2 (Ink Chemistry) →</a>
+    <div class="flex justify-between items-center pt-4">
+        <a href="index.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Back to Dashboard</a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 1 of 11</span>
+        <span class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 cursor-not-allowed opacity-60">Next: Ink Chemistry →</span>
     </div>
 
 </div>
