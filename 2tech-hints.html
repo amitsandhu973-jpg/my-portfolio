@@ -3,140 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 8: Offset Troubleshooting & Expert Secrets - Amit Sandhu Master Manual</title>
+    <title>Page 8: Master Technical Hints & Advanced Offset Handbook</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
-        .data-table th { background: #0f172a; color: #22d3ee; border-bottom: 2px solid #0284c7; }
-        .data-table td { border-bottom: 1px solid #1e293b; }
-        .secret-box { background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 47, 73, 0.9) 100%); border: 1px dashed #38bdf8; }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .hint-card { background: rgba(15, 23, 42, 0.85); border-left: 4px solid #00f2fe; border-top: 1px solid rgba(56, 189, 248, 0.2); border-right: 1px solid rgba(56, 189, 248, 0.2); border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+        .section-title { background: linear-gradient(90deg, #1e293b, transparent); border-left: 5px solid #38bdf8; }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+<body class="p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-6">
-    
-    <!-- NAVIGATION HEADER -->
-    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
-        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
-        <div class="text-right">
-            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">EXPERT FLOOR SECRETS</span>
-        </div>
+<div class="w-full max-w-5xl space-y-6">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Module 8: Expert Encyclopedia & Secrets</span>
+        <h1 class="text-3xl font-black text-cyan-400 uppercase">Page 8: Master Technical Hints & Advanced Handbook</h1>
+        <p class="text-xs text-slate-400 max-w-2xl mx-auto">ऑफ़सेट प्रेस इंजीनियरिंग, इंक रियोलॉजी, सरफेस कैमिस्ट्री, प्रीप्रेस और पैकेजिंग क्वालिटी कंट्रोल के व्यापक तकनीकी सूत्र (Technical Master Hints)।</p>
     </div>
 
-    <!-- MAIN MODULE BOX -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
-        
-        <!-- TITLE & AUTHOR WATERMARK -->
-        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 8: ADVANCED TROUBLESHOOTING & FLOOR SECRETS</h1>
-                <p class="text-xs text-cyan-400 font-medium mt-1">Hidden Pressroom Diagnostics, Critical Defect Solutions & Production Shortcuts</p>
-            </div>
-            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
-                <span class="text-[10px] text-slate-400 block">Verified By:</span>
-                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
-            </div>
-        </div>
-
-        <!-- SECTION 1: COMMON PRINT DEFECTS MATRIX -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>⚠️</span> 1. Print Defects & Root Cause Analysis (मशीन की दिक्कतें और उनके हल)
-            </h3>
-            <p class="text-xs text-slate-300">High-speed production (Heidelberg/Komori) ke waqt aane wale common defects aur unka turant solution:</p>
-            
-            <div class="overflow-x-auto mt-2">
-                <table class="w-full text-left text-xs data-table">
-                    <thead>
-                        <tr>
-                            <th class="p-3 w-1/5">Defect (समस्या)</th>
-                            <th class="p-3 w-1/4">Symptom (पहचान)</th>
-                            <th class="p-3 w-1/4">Root Cause (कारण)</th>
-                            <th class="p-3 w-auto">Corrective Action (समाधान)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-slate-300">
-                        <tr>
-                            <td class="p-3 font-bold text-red-400">Scumming (स्कमिंग)</td>
-                            <td class="p-3">Plate ke non-image area me ink lagna aur paper par aana.</td>
-                            <td class="p-3">Dampening water ki kami, pH/Conductivity ka galat hona.</td>
-                            <td class="p-3">Fountain solution flow badhayein, pH (4.8-5.5) check karein.</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-amber-400">Hickeys (हिकीज़)</td>
-                            <td class="p-3">Print me chote-chote white rings (donut shape) aana.</td>
-                            <td class="p-3">Ink skin ke sookhe tukde, paper dust, ya roller dirt.</td>
-                            <td class="p-3">Fresh ink dalein, blanket wash karein, hickey picker use karein.</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-cyan-300">Slurring (स्लरिंग)</td>
-                            <td class="p-3">Halftone dots gol ki jagah lambe (oval) dikhna.</td>
-                            <td class="p-3">Cylinder ke bich over-packing, loose blanket.</td>
-                            <td class="p-3">Blanket torque aur packing gauge se height check karein.</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-purple-400">Set-Off (सेट-ऑफ)</td>
-                            <td class="p-3">Niche wali sheet ki ink upar wali sheet ke piche lag jana.</td>
-                            <td class="p-3">Heavy ink film, kam spray powder, slow drying.</td>
-                            <td class="p-3">Spray powder volume badhayein, delivery pile ki height kam karein.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- SECTION 2: AMIT SANDHU'S SECRET TECH HINTS -->
-        <div class="space-y-3 mt-6">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>🔐</span> 2. Amit Sandhu's Pro Floor Secrets & Hidden Technical Hints (सीक्रेट टिप्स)
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                
-                <div class="secret-box p-4 rounded-xl space-y-2 shadow-lg">
-                    <div class="flex items-center gap-2 text-cyan-300 font-bold">
-                        <span>💡</span>
-                        <span>Secret #1: Ghosting Prevention Hint</span>
-                    </div>
-                    <p class="text-slate-300">
-                        Agar solid patch ya heavy background ke just baad light tone aa rahi hai aur <span class="text-white font-bold">Mechanical Ghosting</span> ban rahi hai, toh form rollers ki axial oscillation (lateral movement) ko check karein. Agar rollers proper shift nahi ho rahe, toh ink distribution adjust karne ke liye form roller ko ek notch rotate kar dein ya dater roller par anti-ghosting device active karein.
-                    </p>
-                </div>
-
-                <div class="secret-box p-4 rounded-xl space-y-2 shadow-lg">
-                    <div class="flex items-center gap-2 text-cyan-300 font-bold">
-                        <span>💡</span>
-                        <span>Secret #2: Quick Plate Swelling Trick</span>
-                    </div>
-                    <p class="text-slate-300">
-                        Emergency me agar plate par minor scratch aa jaye aur press rokani na pade, toh machine chalane se pehle cotton swab se mild plate cleaner ya gum arabic ki drop scratch par lagayein. Yeh non-image area ko protect karega aur bina job roke aage ke 200-300 impressions bacha lega.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- EXPERT SUPERVISOR'S GOLDEN RULE -->
-        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5 mt-6">
-            <div class="flex items-center gap-2 text-cyan-400 font-bold">
-                <span>⚡</span>
-                <span>Amit Sandhu's Diagnostic Golden Rule:</span>
-            </div>
-            <p class="text-slate-200">
-                Machine par jab bhi koi defect aaye, toh andaza lagakar ek sath saari settings mat badlo. Hamesha <span class="text-white font-bold">EK HI PARAMETER</span> change karo (jaise sirf pani badhana, ya sirf pressure kam karna) aur sheet nikal kar result dekho. Yahi ek professional supervisor ka sabse bada secret hai jisse wastages zero ho jati hain!
-            </p>
-        </div>
-
+    <!-- SECTION 1 HEADER -->
+    <div class="section-title p-3 rounded-r-xl">
+        <h2 class="text-base font-bold text-cyan-400">1. Ink Mechanics, Dynamic Rheology & Surface Chemistry</h2>
     </div>
 
-    <!-- FOOTER SIGNATURE -->
-    <div class="text-center pt-2">
-        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
+    <!-- HINT 1 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #01: Dynamic Ink-Water Emulsification Window</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Rheology</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            ऑफ़सेट प्रिंटिंग में इंक और पानी का सही इमल्सीफिकेशन (Water-in-Oil Emulsification) हमेशा <strong>15% से 20%</strong> होना चाहिए।
+            <br>• <strong>&lt; 15% Water:</strong> प्लेट स्कमिंग, टोनिंग और टिंटिंग का डिफेक्ट आएगा क्योंकि नॉन-इमेज एरिया पूरी तरह गीला नहीं होगा।
+            <br>• <strong>&gt; 20% Water:</strong> रोलर स्ट्रिपिंग, स्लो इंक ड्राइंग, ब्लीडिंग और इंक वाशआउट (Density loss) होगी।
+            <br>• <strong>Master Solution:</strong> IPA / Replacer की मदद से Dynamic Surface Tension को <strong>35–45 dynes/cm</strong> पर कंट्रोल रखें।
+        </p>
+    </div>
+
+    <!-- HINT 2 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #02: Ink Tack Sequence & Wet-on-Wet Trapping Dynamics</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Mechanics</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            4-Color या 6-Color प्रेस पर प्रिंट करते समय पहली यूनिट से आखिरी यूनिट तक इंक की Tack Value (Chipness) हमेशा घटते क्रम (Decreasing Order) में होनी चाहिए।
+            <br>• <strong>Standard Tack Sequence:</strong> Black (Tack 14–15) &gt; Cyan (Tack 12–13) &gt; Magenta (Tack 10–11) &gt; Yellow (8–9)।
+            <br>• <strong>Back-trapping Fault:</strong> अगर बाद वाली यूनिट की इंक का Tack पहली यूनिट से ज़्यादा होगा, तो रोलर पिछले छपे हुए गीले इंक को वापस खींच लेंगे (Back-trapping / Ink Pick-off)।
+        </p>
+    </div>
+
+    <!-- HINT 3 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #03: Thixotropy & Ink Temperature Control</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Chemistry</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            ऑफ़सेट इंक थिक्सोट्रोपिक (Thixotropic) होती है, यानी जब इस पर शियर स्ट्रेस (Shear Stress) पड़ता है, तो इसकी श्यानता (Viscosity) कम हो जाती है।
+            <br>• <strong>Temperature Limit:</strong> इनकिंग रोलर का तापमान <strong>25°C से 28°C</strong> के बीच रहना चाहिए।
+            <br>• <strong>Overheating Danger:</strong> 32°C से ऊपर तापमान जाने पर इंक की श्यानता अत्यधिक गिर जाती है जिससे Ink Flying (Misting) और Dot Gain बढ़ जाता है।
+            <br>• <strong>Solution:</strong> Roller Chilling System (Chilled Water Circulation) का टेम्परेचर 18°C-20°C सेट रखें।
+        </p>
+    </div>
+
+    <!-- HINT 4 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #04: Pigment Concentration vs Ink Film Thickness (IFT)</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Physics</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            कागज़ पर इंक की मोटाई (Ink Film Thickness) हमेशा <strong>0.7 से 1.2 माइक्रोन (µm)</strong> होनी चाहिए।
+            <br>• <strong>Excessive IFT:</strong> अगर सॉलिड डेंसिटी पाने के लिए IFT &gt; 1.5 µm की जाती है, तो Wet Ink Setoff, Mottling और Slow Drying की समस्या आएगी।
+            <br>• <strong>Low Pigment Ink:</strong> अगर सस्ती इंक उपयोग की जाए जिसमें पिगमेंट कम हो, तो ऑपरेटर को डेंसिटी लाने के लिए IFT बढ़ानी पड़ती है, जिससे डॉट गेन 25% पार कर जाता है।
+        </p>
+    </div>
+
+    <!-- HINT 5 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #05: Oxydative Drying vs Absorption Drying</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Drying</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            Conventional Sheetfed Ink दो चरणों में सूखती है: पहले एब्जॉर्प्शन (Initial Set: 10-15 मिनट) और फिर ऑक्सिडेटिव पॉलीमराइजेशन (Final Hard Dry: 4-8 घंटे)।
+            <br>• <strong>Cobalt & Manganese Driers:</strong> कोबाल्ट ड्रायर सरफेस ड्राइंग (Top Layer) बढ़ाता है और मैंगनीज ड्रायर थ्रू-ड्राइंग (Deep Layer) बढ़ाता है।
+            <br>• <strong>High Relative Humidity (&gt;70% RH):</strong> नमी बढ़ने पर ऑक्सिडेटिव ड्राइंग 50% धीमी हो जाती है।
+        </p>
+    </div>
+
+    <!-- SECTION 2 HEADER -->
+    <div class="section-title p-3 rounded-r-xl mt-6">
+        <h2 class="text-base font-bold text-cyan-400">2. Fountain Solution, pH, Conductivity & Water Chemistry</h2>
+    </div>
+
+    <!-- HINT 6 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #06: Fountain Solution pH Calibration Buffer</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Dampening</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            फव्वारे के पानी (Fountain Solution) का आइडियल pH मान हमेशा <strong>4.8 से 5.5</strong> के बीच होना चाहिए।
+            <br>• <strong>pH &lt; 4.8 (Too Acidic):</strong> प्लेट का नॉन-इमेज एरिया कोरोड (Corrode) होगा, इंक की ड्राइंग रुक जाएगी और प्लेट की रन-लेंथ आधी रह जाएगी।
+            <br>• <strong>pH &gt; 5.5 (Too Alkaline):</strong> इंक का इमल्सीफिकेशन तेजी से होगा, प्लेट पर Scumming आएगी और डैम्पिंग रोलर ग्रीसी (Greasy) हो जाएंगे।
+        </p>
+    </div>
+
+    <!-- HINT 7 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #07: Electrical Conductivity & Total Dissolved Solids (TDS)</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Water Quality</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            पानी की शुद्धता और बफर कंसंट्रेशन मापने के लिए कन्डक्टिविटी (Conductivity) सबसे सटीक पैमाना है।
+            <br>• <strong>Ideal Operating Range:</strong> 800 से 1500 µS/cm (Micro-Siemens)।
+            <br>• <strong>Fresh Water Base:</strong> RO Water की बेस कन्डक्टिविटी 50–150 µS/cm होनी चाहिए।
+            <br>• <strong>Dumping Threshold:</strong> जब टैंक की कन्डक्टिविटी ताज़े घोल से 1000 µS/cm अधिक हो जाए (इंक, पेपर डस्ट और गम का प्रदूषण), तो पूरे फाउंटेन सॉल्यूशन को तुरंत बदल देना चाहिए।
+        </p>
+    </div>
+
+    <!-- HINT 8 -->
+    <div class="hint-card p-5 rounded-xl space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Hint #08: Alcohol (IPA) Reduction & Surface Tension Reduction</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Efficiency</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            Isopropyl Alcohol (IPA) का मुख्य काम पानी के सरफेस टेंशन को 72 dynes/cm से घटाकर 35-40 dynes/cm करना है।
+            <br>• <strong>IPA Replacement (Substitutes):</strong> 8-12% IPA की जगह 2-3% Surfactant-based Glycol-ether Replacer का इस्तेमाल करें।
+            <br>• <strong>Viscosity Shift:</strong> बिना IPA के डैम्पिंग वॉटर की विस्कोसिटी कम हो जाती है, इसलिए डैम्पिंग रोलर की स्पीड 5% से 8% बढ़ानी पड़ती है।
+        </p>
+    </div>
+
+    <!-- FOOTER NAVIGATION -->
+    <div class="flex justify-between items-center pt-4">
+        <a href="page7.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Page 7:Back to Dashboard </a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 8</span>
+        <a href="page9.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Page 9: Printing Experiments →</a>
     </div>
 
 </div>
-
 </body>
 </html>
