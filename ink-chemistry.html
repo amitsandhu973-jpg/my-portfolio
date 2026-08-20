@@ -3,67 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 2: Deep Ink Chemistry & Hidden Secrets - Amit Sandhu</title>
+    <title>Chapter 2: Ink Chemistry, Viscosity & Tack - Amit Sandhu Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050608; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .highlight { color: #38bdf8; font-weight: bold; }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; color: #cbd5e1; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-4">
+<div class="w-full max-w-4xl space-y-6">
     
-    <!-- BACK BUTTON & HEADER -->
-    <div class="flex justify-between items-center bg-slate-950 p-4 rounded-2xl border border-slate-800">
-        <a href="machine-specs.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Back to Master Manual Dashboard 1</a>
-        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 2: Advanced Ink Rheology & Chemistry</h1>
+    <!-- BACK BUTTON -->
+    <div>
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">
+            ← Back to Master Manual Dashboard
+        </a>
     </div>
 
-    <!-- MAIN TECHNICAL CONTENT -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-900/50 space-y-6">
-        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">Expert Secrets: The Science of Ink Emulsification, Tack Profiling & Rheology</h2>
-        
-        <div class="space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
-            
-            <!-- SECTION 1 -->
-            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-400">1. Hidden Logic: Pigment Dispersion & The "Van der Waals" Effect</h3>
-                <p>• <strong>Dispersion Secret:</strong> Printing ink sirf color nahi hai, ye solid pigment particles ka oil me "suspension" hai. Agar pigment particles ka size 0.1 se 0.5 micron ke beech maintain nahi raha, toh ink 'grainy' ho jayegi. 
-                <br>• <strong>Logic:</strong> High-end inks me 'Wetting Agents' ka use hota hai jo pigment particles ko ek dusre ke upar jamne (agglomeration) se rokta hai. Agar aap ink ko bahut der tak fountain me chhod dete hain bina machine chalaye, toh pigment settle hone lagta hai—isi wajah se start me shade drift milti hai.</p>
-            </div>
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Chapter 2: Advanced Ink Rheology, Emulsification & Tack Profiling</h1>
+        <p class="text-xs text-slate-400">Sheet-Fed Offset & UV Inks Chemistry, Pigment Dispersion, and Floor-Level Practical Control</p>
+    </div>
 
-            <!-- SECTION 2 -->
-            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-400">2. The Truth About Emulsification: Why "Water-in-Ink" is Fatal</h3>
-                <p>• <strong>The Hidden Fact:</strong> Hum sab mante hain ki fountain solution aur ink mix nahi hote, but reality ye hai ki rollers ka mechanical action ink ke andar microscopic water droplets (micro-emulsion) bana deta hai. 
-                <br>• <strong>Critical Warning:</strong> Jab emulsification 30% cross karti hai, toh ink ka 'Tack' (chipchipahat) drammatically gir jata hai. Result? Ink rollers se slip hone lagti hai, dot sharpness khatam hoti hai, aur print 'mushy' dikhta hai. 
-                <br>• <strong>Pro Tip:</strong> Agar aapka Fountain Solution IPA-free hai, toh aapko Conductivity aur pH par 2x extra focus karna hoga, kyunki wahan Surface Tension control karne ke liye IPA ki jagah "Surfactants" hote hain jo bahut jaldi over-emulsify ho sakte hain.</p>
-            </div>
+    <!-- SECTION 1: WET-ON-WET TACK GRADIENT TABLE -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🧪</span> 1. Multi-Color Wet-on-Wet Tack Sequence (Zometer Standards)
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            मल्टीकलर मशीन (जैसे Heidelberg CD 104) में 'Wet-on-Wet' प्रिंटिंग के दौरान इंक का टैक ऑर्डर (Tack Gradient) हमेशा घटते क्रम में होना चाहिए। यदि बाद वाले यूनिट का टैक ज्यादा हुआ, तो पहली यूनिट की इंक उखड़कर ब्लैंकेट पर चिपक जाएगी (Back-Trapping):
+        </p>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Printing Unit Sequence</th>
+                        <th class="p-3">Target Tack Value (Zometer)</th>
+                        <th class="p-3">Pigment & Surface Cohesion Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">1st Unit (Black / K)</td>
+                        <td class="p-3">14.0 - 16.0</td>
+                        <td class="p-3">Highest surface pull resistance required to grip first impression.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">2nd Unit (Cyan / C)</td>
+                        <td class="p-3">12.0 - 14.0</td>
+                        <td class="p-3">Phthalocyanine base; structured for optimal first inter-layer split.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">3rd Unit (Magenta / M)</td>
+                        <td class="p-3">10.0 - 12.0</td>
+                        <td class="p-3">Quinacridone structure; intermediate cohesive force.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">4th Unit (Yellow / Y)</td>
+                        <td class="p-3">8.0 - 10.0</td>
+                        <td class="p-3">Lowest tack to sit smoothly on top of prior wet layers.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            <!-- SECTION 3 -->
-            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-400">3. Mastering the "Tack" – The Hierarchy of Color</h3>
-                <p>• <strong>The Trapping Physics:</strong> Multi-color press par hum hamesha <span class="highlight">Descending Tack Sequence</span> follow karte hain (e.g., Black > Cyan > Magenta > Yellow). 
-                <br>• <strong>The "Secret" Trap:</strong> Agar aapke Yellow ka tack Black se zyada ho gaya, toh Yellow ink Black ki film ko 'peel' karke apne saath utha le jayegi, jise 'Back-Trapping' kehte hain. 
-                <br>• <strong>Rheology Logic:</strong> Tack temperature-sensitive hai. Agar machine ka roller temperature 5°C bhi badh gaya, toh ink ka tack 20-30% drop ho jayega. Isi liye chillar ka temp fix rakhna sirf 'quality' ke liye nahi, balki 'trap' banane ke liye zaroori hai.</p>
-            </div>
+    <!-- SECTION 2: EMULSIFICATION & RHEOLOGY SECRETS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">⚡</span> 2. The Truth About Emulsification: Water-in-Ink Dynamics
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Ideal Emulsion Limit:</strong> मशीन रनिंग के दौरान इंक में पानी का प्रतिशत <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">18% से 25%</code> के बीच होना चाहिए। इससे अधिक होने पर 'Water-in-Oil' इमल्शन फेल होकर 'Oil-in-Water' बन जाता है, जिससे प्लेट पर टोनिंग (Toning) आ जाती है।</li>
+            <li><strong>Viscosity Shear Drop:</strong> शीट-फेड इंक थिज़ोट्रॉकोपिक (Thixotropic) होती हैं। रोलर्स के हाई-स्पीड रोटेशन (Shear Stress) से इनकी विस्कोसिटी कम हो जाती है, जो रुकने पर वापस बढ़ जाती है।</li>
+            <li><strong>Temperature Control:</strong> प्रेस शॉप का तापमान <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">25°C ± 2°C</code> और डैम्पिंग वॉटर का तापमान <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">10°C से 14°C</code> के बीच मेंटेन रखने से इंक का टैक स्टेबल रहता है।</li>
+        </ul>
+    </div>
 
-            <!-- SECTION 4 -->
-            <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 space-y-3">
-                <h3 class="font-bold text-white text-base text-cyan-400">4. Thixotropy: The Ink’s "Memory"</h3>
-                <p>• <strong>Fact:</strong> Offset inks "Thixotropic" hoti hain, yaani unke paas 'time-dependent' behavior hota hai. Jab roller ink ko shear (stretch) karta hai, toh ink ki viscosity kam ho jati hai (ink patli hoti hai). Machine rukte hi, ink wapas apni original consistency par aa jati hai.
-                <br>• <strong>Shop-Floor Logic:</strong> Agar aapki machine ki speed bahut high hai, toh shear rate bahut zyada hota hai. Is condition me ink itni patli ho jati hai ki wo ink-fountain me 'flow' hi nahi kar paati (starvation). Aisi situation me 'High-Tack' inks ka use karna chahiye jo high shear par bhi body maintain rakhen.</p>
-            </div>
-
+    <!-- SECTION 3: PIGMENT DISPERSION & GRAININESS TROUBLESHOOTING -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🔧</span> 3. Floor Troubleshooting: Pigment Agglomeration & Grainy Print
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Printing Defect</th>
+                        <th class="p-3">Root Mechanical/Chemical Cause</th>
+                        <th class="p-3">Immediate Floor Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Grainy / Speckled Solid Print</td>
+                        <td class="p-3">Pigment particles agglomeration due to weak wetting agents in vehicle.</td>
+                        <td class="p-3">Add structured body gum/gel varnish; check roller nip pressure.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Roller Stripping (Ink Rejection)</td>
+                        <td class="p-3">Dampening solution or wash-up chemical film deposited on steel/chrome rollers.</td>
+                        <td class="p-3">Wash rollers with calcium remover and copper/steel degreaser.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Excessive Dot Gain (>20%)</td>
+                        <td class="p-3">Ink viscosity too low or excessive dampening water volume.</td>
+                        <td class="p-3">Reduce water feed; check fountain solution conductivity (800-1200 µS/cm).</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- FOOTER NAV -->
-    <div class="flex justify-between items-center pt-2">
-        <a href="machine-specs.html" class="text-xs text-cyan-400 hover:underline">← Back to Dashboard  </a>
-        <a href="spectrophotometer.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">Next Chapter 3 →</a>
+    <div class="flex justify-between items-center pt-4">
+        <a href="chapter1.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Chapter 1</a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 2 of 11</span>
+        <a href="chapter3.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Chapter 3: Lab Values →</a>
     </div>
 
 </div>
