@@ -58,6 +58,11 @@
                 Verify OTP & Pay ₹499
             </button>
         </div>
+
+        <!-- Logout Option (अगर कोई दोबारा लॉक करना चाहे) -->
+        <div id="logoutSection" class="hidden text-center pt-1">
+            <button onclick="logoutSession()" class="text-[10px] text-red-400 hover:underline">Lock / Logout Session</button>
+        </div>
     </div>
 
     <!-- Invisible Recaptcha Container -->
@@ -83,14 +88,12 @@
         </div>
     </div>
 
-    <!-- 11 CHAPTERS NAVIGATION BUTTONS (Pages 1-3 Free, 4-11 Locked) -->
+    <!-- 11 CHAPTERS NAVIGATION BUTTONS -->
     <div id="chaptersList" class="space-y-2.5 pt-2">
-        <!-- फ्री प्रीव्यू वाले चैप्टर्स (Page 1, 2, 3) -->
         <a href="machine-specs.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 1: Machine Specifications & Parts (Free Preview)</a>
         <a href="ink-chemistry.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 2: Ink Chemistry, Density, Viscosity & Tack (Free Preview)</a>
         <a href="spectrophotometer.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 3: Spectrophotometer, Lab Values & ΔE (Free Preview)</a>
 
-        <!-- प्रीमियम लॉक्ड चैप्टर्स (Page 4 से 11) -->
         <a href="defects.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 4: Deep 30 Defect Solutions & Troubleshooting</a>
         <a href="raw-materials.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 5: Raw Materials: Paper, Board & Coatings</a>
         <a href="quality-control.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 6: Quality Control & Shop-Floor Tests</a>
@@ -123,10 +126,15 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // 🔴 आपका एडमिन मोबाइल नंबर (यहाँ से डायरेक्ट बाईपास होगा)
     const ADMIN_MOBILE = "8053770934"; 
 
-    // फोटो अपलोड फंक्शन
+    // पेज लोड होते ही चेक करें कि क्या यूजर पहले से अनलॉक्ड है
+    window.onload = function() {
+        if (localStorage.getItem("isManualUnlocked") === "true") {
+            grantFullAccess("Saved Session (Unlocked)");
+        }
+    };
+
     function loadPhoto(event) {
         const reader = new FileReader();
         reader.onload = function(){
@@ -137,7 +145,6 @@
         }
     }
 
-    // Send OTP / Admin Bypass Function
     function sendOTP() {
         let phoneNumber = document.getElementById('mobileNumber').value.trim();
         
@@ -146,14 +153,13 @@
             return;
         }
 
-        // 👉 अगर नंबर आपका (Admin) है, तो सब कुछ डायरेक्ट अनलॉक कर दो
         if(phoneNumber.includes(ADMIN_MOBILE)) {
             alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
+            localStorage.setItem("isManualUnlocked", "true"); // परमानेंट सेव करें
             grantFullAccess("Admin Mode (Bypassed)");
             return;
         }
 
-        // 🟢 आम ग्राहकों के लिए Firebase OTP
         if(!phoneNumber.startsWith('+')) {
             phoneNumber = '+91' + phoneNumber;
         }
@@ -179,7 +185,6 @@
             });
     }
 
-    // Verify OTP for Customers & Trigger Razorpay
     function verifyOTP() {
         let otp = document.getElementById('otpInput').value;
         if(otp.length < 6) {
@@ -195,24 +200,31 @@
         });
     }
 
-    // Razorpay Payment Page redirection
     function startPayment() {
+        // पेमेंट सफल होने पर भी इसे सेट कर सकते हैं
+        localStorage.setItem("isManualUnlocked", "true");
         window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
     }
 
-    // Function to unlock premium chapters (Pages 4 to 11)
     function grantFullAccess(modeText) {
         document.getElementById('userStatus').innerText = "Status: ✅ Unlocked (" + modeText + ")";
         document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
         document.getElementById('mobileStep').classList.add('hidden');
         document.getElementById('otpStep').classList.add('hidden');
+        document.getElementById('logoutSection').classList.remove('hidden'); // लॉगआउट बटन दिखाएं
 
-        // केवल प्रीमियम लॉक्ड चैप्टर्स के ताले हटाना (Page 4 से 11)
         document.querySelectorAll('.premium-locked').forEach(link => {
             link.classList.replace('locked', 'unlocked');
             link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
             link.innerText = link.innerText.replace('🔒', '📖');
         });
+    }
+
+    // अगर कभी दोबारा लॉक करना हो
+    function logoutSession() {
+        localStorage.removeItem("isManualUnlocked");
+        alert("Session Locked Successfully!");
+        location.reload();
     }
 </script>
 
