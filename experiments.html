@@ -3,141 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 9: 10 Printing Experiments - Amit Sandhu Master Manual</title>
+    <title>Page 9: Advanced Research & Printing Experiments Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
-        .exp-box { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.2); transition: all 0.3s ease; }
-        .exp-box:hover { border-color: rgba(56, 189, 248, 0.6); transform: translateY(-2px); }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .experiment-card { background: rgba(15, 23, 42, 0.9); border-left: 4px solid #00f2fe; border: 1px solid rgba(56, 189, 248, 0.25); }
+        .formula-box { background: rgba(8, 47, 73, 0.6); border: 1px dashed rgba(56, 189, 248, 0.4); font-family: monospace; }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+<body class="p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-6">
-    
-    <!-- NAVIGATION HEADER -->
-    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
-        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
-        <div class="text-right">
-            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">SHOP-FLOOR EXPERIMENTS</span>
-        </div>
+<div class="w-full max-w-5xl space-y-6">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Module 9: Advanced Research & Press Diagnostics</span>
+        <h1 class="text-3xl font-black text-cyan-400 uppercase">Page 9: Advanced Research-Grade Printing Experiments</h1>
+        <p class="text-xs text-slate-400 max-w-2xl mx-auto">ऑफ़सेट प्रेस कैलिब्रेशन, रियोलॉजिकल बिहेवियर, और मॉलिक्यूलर सरफेस कैमिस्ट्री के उच्च-स्तरीय प्रायोगिक परीक्षण (Advanced Laboratory Protocols)।</p>
     </div>
 
-    <!-- MAIN MODULE BOX -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
-        
-        <!-- TITLE & AUTHOR WATERMARK -->
-        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 9: 10 ADVANCED PRINTING EXPERIMENTS</h1>
-                <p class="text-xs text-cyan-400 font-medium mt-1">Practical Testing, Ink-Water Balance Analysis & Substrate Behaviour Trials</p>
-            </div>
-            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
-                <span class="text-[10px] text-slate-400 block">Verified By:</span>
-                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
-            </div>
+    <!-- EXP 1 -->
+    <div class="experiment-card p-5 rounded-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Experiment #01: High-Precision Water-in-Oil Emulsification Kinetics</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Rheology Lab</span>
         </div>
-
-        <!-- INTRO NOTE -->
-        <p class="text-xs text-slate-300">
-            Yeh section un 10 practical experiments par based hai jo ek professional printing engineer ya supervisor ko machine performance optimize karne ke liye pata hone chahiye:
+        <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>उद्देश्य:</strong> कॉम्पैक्टस इंक आस्क्यूएटर (Inkometer) पर हाई-स्पीड शेयरिंग के दौरान डायनेमिक इमल्सीफिकेशन रेट और सेचुरेशन पॉइंट निकालना।
+            <br>• <strong>प्रोटोकॉल:</strong> 30ml ऑफ़सेट इंक में कैलिब्रेटेड फाउंटेन सॉल्यूशन को 1 ml/min की दर से इंजेक्ट करें जब तक कि विस्कोसिटी कोलैप्स न हो जाए।
         </p>
-
-        <!-- EXPERIMENTS GRID (1 to 10) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            
-            <!-- Exp 1 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 01</span>
-                <strong class="text-white text-sm block">Dot Gain Measurement Trial</strong>
-                <p class="text-slate-300">Alag-alag printing speed par 50% halftone dot ka gain check karna using a reflection densitometer to evaluate plate wear.</p>
-            </div>
-
-            <!-- Exp 2 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 02</span>
-                <strong class="text-white text-sm block">Fountain Solution pH vs Emulsification</strong>
-                <p class="text-slate-300">pH level ko 4.5 se 6.0 tak badal kar ink emulsification rate aur drying time par padne wale prabhav ka adhyayan karna.</p>
-            </div>
-
-            <!-- Exp 3 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 03</span>
-                <strong class="text-white text-sm block">Cobb Absorption Test Trial</strong>
-                <p class="text-slate-300">Alag-alag FBB aur WLC boards par 60-second water absorption test kar ke surface sizing quality ko verify karna.</p>
-            </div>
-
-            <!-- Exp 4 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 04</span>
-                <strong class="text-white text-sm block">Ink Tack Sequence Audit</strong>
-                <p class="text-slate-300">Wet-on-wet printing me back-trapping aur contamination rokne ke liye alag-alag process inks ki tack values ko test karna.</p>
-            </div>
-
-            <!-- Exp 5 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 05</span>
-                <strong class="text-white text-sm block">Aqueous Coating Gloss vs Viscosity</strong>
-                <p class="text-slate-300">Coating viscosity (Ford Cup No. 4) ko adjust karke gloss level aur rub resistance par padne wale asar ko maapna.</p>
-            </div>
-
-            <!-- Exp 6 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 06</span>
-                <strong class="text-white text-sm block">Paper Acclimatization Study</strong>
-                <p class="text-slate-300">Cold storage se nikli sheet ko bina conditioning ke chalane par hone wale register drift aur curled edges ka comparison trial.</p>
-            </div>
-
-            <!-- Exp 7 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 07</span>
-                <strong class="text-white text-sm block">Delta-E Color Matching Trial</strong>
-                <p class="text-slate-300">Spectrophotometer ki madad se pantone spot color ki wet vs dry Delta-E ($dE$) value me aane wale antar ko record karna.</p>
-            </div>
-
-            <!-- Exp 8 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 08</span>
-                <strong class="text-white text-sm block">Roller Nip Stripe (Pressure) Test</strong>
-                <p class="text-slate-300">Ink form rollers aur plate cylinder ke beech pressure stripe width (<span class="text-cyan-300 font-mono">3-4mm</span>) ko ink stripe method se test karna.</p>
-            </div>
-
-            <!-- Exp 9 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 09</span>
-                <strong class="text-white text-sm block">UV Curing Energy Density Audit</strong>
-                <p class="text-slate-300">UV lamp intensity aur conveyor speed ko badal kar coating cure hone ki poori saptahik (durability) aanchal ki jaanch karna.</p>
-            </div>
-
-            <!-- Exp 10 -->
-            <div class="exp-box p-4 rounded-xl space-y-1.5">
-                <span class="text-[10px] text-cyan-400 font-mono font-bold">EXPERIMENT 10</span>
-                <strong class="text-white text-sm block">Creasing & Die-Cutting Crack Trial</strong>
-                <p class="text-slate-300">Alag-alag board grain direction aur creasing matrix channel width ke hisab se folding ke dauran board fatne (cracking) ko rokne ka prayog.</p>
-            </div>
-
+        <div class="formula-box p-3 rounded-lg text-xs text-cyan-300">
+            Emulsification Ratio ($E\%$) = $\frac{\text{Weight of Emulsified Water}}{\text{Total Weight of Wet Ink}} \times 100$<br>
+            <span class="text-slate-400 text-[10px]">• Target Operating Zone: 15% to 22% maximum water uptake before phase inversion.</span>
         </div>
-
-        <!-- EXPERT SUPERVISOR'S NOTE -->
-        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5 mt-4">
-            <div class="flex items-center gap-2 text-cyan-400 font-bold">
-                <span>💡</span>
-                <span>Amit Sandhu's Lab Rule:</span>
-            </div>
-            <p class="text-slate-200">
-                Floor par koi bhi naya raw material ya chemical batch aane par, direct production shuru karne se pehle chote scale par yeh trials zaroor perform karein. Isse hazaron ruppe ka paper aur ink wastage bach jata hai!
-            </p>
-        </div>
-
     </div>
 
-    <!-- FOOTER SIGNATURE -->
-    <div class="text-center pt-2">
-        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
+    <!-- EXP 2 -->
+    <div class="experiment-card p-5 rounded-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Experiment #02: Dynamic Tack-Force & Wet-on-Wet Trapping Efficiency</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Mechanics</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>उद्देश्य:</strong> मल्टी-कलर प्रेस (जैसे Heidelberg CX 104) पर लेयर-टू-लेयर इंक ट्रांसफर एफिशिएंसी और स्प्लिटिंग रेजिस्टेंस मापना।
+        </p>
+        <div class="formula-box p-3 rounded-lg text-xs text-cyan-300">
+            Trapping Coefficient ($T\%$) = $\frac{D_{3} - D_{12}}{D_3} \times 100$<br>
+            <span class="text-slate-400 text-[10px]">• Where $D_{12}$ = Density of 1st & 2nd color overprint, $D_3$ = Density of 2nd color alone. Ideal $T \ge 80\%$.</span>
+        </div>
+    </div>
+
+    <!-- EXP 3 -->
+    <div class="experiment-card p-5 rounded-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Experiment #03: Spectrophotometric Delta E 2000 ($\Delta E_{00}$) Color Metrology</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Color Physics</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>उद्देश्य:</strong> मानव नेत्र की संवेदना के आधार पर CIE $\Delta E_{00}$ फॉर्मूले से शेड डेविएशन की सटीक गणना करना।
+            <br>• <strong>प्रोटोकॉल:</strong> स्पेक्ट్రోफोटोमीटर को M0/M1 पोलाराइज्ड मोड पर सेट करके $L^*, a^*, b^*$ कोऑर्डिनेट्स रिकॉर्ड करें।
+            <br>• <strong>एक्सेप्टेंस क्राइटेरिया:</strong> पैकेजिंग कमर्शियल स्टैंडर्ड के लिए $\Delta E_{00} \le 1.2$ और ब्रांड कलर्स के लिए $\Delta E_{00} \le 0.8$ अनिवार्य है।
+        </p>
+    </div>
+
+    <!-- EXP 4 -->
+    <div class="experiment-card p-5 rounded-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Experiment #04: Murray-Davies Tone Value Increase (TVI / Dot Gain) Calculation</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Prepress QC</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>उद्देश्य:</strong> हाफटोन डॉट्स पर मैकेनिकल और ऑप्टिकल डॉट गेन का गणितीय विश्लेषण करना।
+        </p>
+        <div class="formula-box p-3 rounded-lg text-xs text-cyan-300">
+            Dot Gain ($G$) = $\frac{1 - 10^{-D_t}}{1 - 10^{-D_s}} - F_{nominal}$<br>
+            <span class="text-slate-400 text-[10px]">• $D_t$ = Tint Density, $D_s$ = Solid Density, $F$ = Film Dot Percentage (e.g., 50%).</span>
+        </div>
+    </div>
+
+    <!-- EXP 5 -->
+    <div class="experiment-card p-5 rounded-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="font-bold text-cyan-400 text-sm">Experiment #05: Surface Energy & Dyne Level Wetting Test</h3>
+            <span class="bg-cyan-950 text-cyan-300 text-[10px] px-2 py-0.5 rounded font-mono border border-cyan-800">Substrate Chemistry</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>उद्देश्य:</strong> प्लास्टिक फिल्म, मेटलाइज्ड पॉलिएस्टर या कोटेड बोर्ड की सतह पर इंक एंकरिंग और वेटेबिलिटी (Wetting) परखना।
+            <br>• <strong>प्रोटोकॉल:</strong> डायने पेन (Dyne Pens) टेस्ट का उपयोग करके देखें कि लिक्विड फिल्म 2 सेकंड तक बिना टूटे टिकती है या नहीं।
+            <br>• <strong>स्टैंडर्ड:</strong> ऑप्शनल इंक प्रिंटिंग के लिए सरफेस एनर्जी कम से कम <strong>38 से 42 dynes/cm</strong> होनी चाहिए।
+        </p>
+    </div>
+
+    <!-- FOOTER NAVIGATION -->
+    <div class="flex justify-between items-center pt-4">
+        <a href="page8.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Page 8: Back to Dashboard </a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Advanced Lab — Page 9</span>
+        <a href="page10.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Page 10: Master Q&A Bank →</a>
     </div>
 
 </div>
-
 </body>
 </html>
