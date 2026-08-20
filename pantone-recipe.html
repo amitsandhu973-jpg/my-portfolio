@@ -3,156 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 7: Pantone Guide & Base Color Recipes - Amit Sandhu Master Manual</title>
+    <title>Page 7: Pantone Guide & 14 Base Color Recipes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; }
     </style>
 </head>
-<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+<body class="p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-6">
-    
-    <!-- NAVIGATION HEADER -->
-    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
-        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
-        <div class="text-right">
-            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">PANTONE MATCHING SYSTEM (PMS)</span>
+<div class="w-full max-w-5xl space-y-6">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Module 7: Spot Color Chemistry & Formulation</span>
+        <h1 class="text-3xl font-black text-cyan-400 uppercase">Page 7: Pantone Guide & 14 Base Color Recipes</h1>
+        <p class="text-xs text-slate-400 max-w-2xl mx-auto">स्पॉट कलर्स (Spot Colors) की सटीक शेड मैचिंग, 14 बेस पिगमेंट सिस्टम और इंक फॉर्मूलेशन के तकनीकी मानक।</p>
+    </div>
+
+    <!-- SECTION 1: THE 14 PANTONE BASE INKS -->
+    <div class="glass-card p-6 rounded-2xl space-y-4">
+        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">1. The 14 Pantone Base Color Standard Inventory</h2>
+        <p class="text-xs text-slate-300">
+            पेंटोन मैचिंग सिस्टम (PMS) में किसी भी विशिष्ट स्पॉट शेड को बनाने के लिए इन 14 बुनियादी बेस इंक (Base Inks) का सटीक अनुपात में उपयोग किया जाता है:
+        </p>
+        <div class="overflow-x-auto">
+            <table class="w-full data-table text-left">
+                <thead>
+                    <tr>
+                        <th class="p-2.5">Base Ink Name</th>
+                        <th class="p-2.5">Pigment Characteristics</th>
+                        <th class="p-2.5">Function in Spot Color Mixing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="p-2.5 font-bold text-cyan-400">Yellow</td><td class="p-2.5">Organic Diarylide Yellow</td><td class="p-2.5">Brightens and warms up green/orange spectrums.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-yellow-300">Yellow 012</td><td class="p-2.5">Greenish Yellow Pigment</td><td class="p-2.5">Provides clean, high-chroma yellow undertones.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-orange-400">Orange 021</td><td class="p-2.5">Disazo Orange Pigment</td><td class="p-2.5">Essential for vibrant bright oranges and warm reds.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-red-500">Warm Red</td><td class="p-2.5">Yellow-shade Organic Red</td><td class="p-2.5">Builds clean orange-reds and coral tones.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-red-600">Rubine Red</td><td class="p-2.5">Blue-shade Deep Red</td><td class="p-2.5">Core base for purples, magentas, and deep reds.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-pink-400">Rhodamine Red</td><td class="p-2.5">High-Chroma Fluorescent Blue-Red</td><td class="p-2.5">Used for bright pinks and glowing pastels.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-purple-400">Purple</td><td class="p-2.5">Deep Violet Pigment</td><td class="p-2.5">Builds deep violet and rich blue undertones.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-blue-400">Reflex Blue</td><td class="p-2.5">High-Strength Deep Blue</td><td class="p-2.5">Primary dark blue; high bronzing tendency if over-applied.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-sky-400">Process Blue</td><td class="p-2.5">Cyan / Phthalocyanine Blue</td><td class="p-2.5">Green-shade blue for turquoise, cyan, and cool greens.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-emerald-400">Green</td><td class="p-2.5">Phthalocyanine Green</td><td class="p-2.5">Base for all dark and bright forest greens.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-slate-300">Black</td><td class="p-2.5">Carbon Black Dispersion</td><td class="p-2.5">Darkens shades, reduces chroma, adds depth.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-slate-100">Transparent White</td><td class="p-2.5">Alumina Hydrate Extender</td><td class="p-2.5">Reduces color strength and controls ink transparency without opacity.</td></tr>
+                    <tr><td class="p-2.5 font-bold text-white">Mixing White</td><td class="p-2.5">Titanium Dioxide ($TiO_2$)</td><td class="p-2.5">Adds solid opacity and builds pastel tints.</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- MAIN MODULE BOX -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
-        
-        <!-- TITLE & AUTHOR WATERMARK -->
-        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 7: PANTONE GUIDE & 14 BASE COLOR FORMULATIONS</h1>
-                <p class="text-xs text-cyan-400 font-medium mt-1">Spot Color Matching, Base Ink Mixing Standards, Spectrophotometer Integration & Delta-E Control</p>
+    <!-- SECTION 2: SHOP-FLOOR INK DISPENSING & COLOR MATCHING -->
+    <div class="glass-card p-6 rounded-2xl space-y-4">
+        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">2. Practical Ink Formulation & Matching Guidelines</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
+                <h3 class="font-bold text-cyan-400 text-sm">Weighing & Dispensing Rules</h3>
+                <ul class="space-y-1.5 text-slate-300 list-disc pl-4">
+                    <li><strong>Accuracy:</strong> डिजिटल वेइंग स्केल पर शेड फॉर्मूला <code class="bg-slate-950 text-cyan-300 px-1 py-0.5 rounded">±0.1 gram</code> की सटीकता से तौलें।</li>
+                    <li><strong>Dark Pigment Addition:</strong> ब्लैक या रिफ्लेक्स ब्लू जैसे ताकतवर पिगमेंट हमेशा बूँद-बूँद या बहुत कम मात्रा में मिलाएं (High tinting strength)।</li>
+                    <li><strong>Drawdown Test:</strong> शेड मिलाने के बाद के नुमाइश (Drawdown) के लिए हमेशा उसी सब्सट्रेट (बोर्ड/पेपर) का उपयोग करें जो प्रिंटिंग पर चलना है।</li>
+                </ul>
             </div>
-            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
-                <span class="text-[10px] text-slate-400 block">Verified By:</span>
-                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
-            </div>
-        </div>
-
-        <!-- SECTION 1: THE 14 BASE INKS OF PMS (COLORFUL CARDS) -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>🎨</span> 1. The 14 Standard Pantone Base Inks (Offset Mixing Bases)
-            </h3>
-            <p class="text-xs text-slate-300">Har ek Pantone spot color ko banane ke liye niche diye gaye 14 base inks ko exact weight percentage me mix kiya jata hai:</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                <!-- 1. Yellow -->
-                <div class="p-3 rounded-xl border border-yellow-500/40 bg-yellow-950/30 shadow-md">
-                    <strong class="text-yellow-300 block text-sm">1. Yellow</strong>
-                    <span class="text-[11px] text-slate-300">Primary bright yellow base</span>
-                </div>
-                <!-- 2. Warm Red -->
-                <div class="p-3 rounded-xl border border-red-500/40 bg-red-950/30 shadow-md">
-                    <strong class="text-red-400 block text-sm">2. Warm Red</strong>
-                    <span class="text-[11px] text-slate-300">Red with yellow undertone</span>
-                </div>
-                <!-- 3. Rubine Red -->
-                <div class="p-3 rounded-xl border border-rose-500/40 bg-rose-950/30 shadow-md">
-                    <strong class="text-rose-400 block text-sm">3. Rubine Red</strong>
-                    <span class="text-[11px] text-slate-300">Deep bluish-red base</span>
-                </div>
-                <!-- 4. Rhodamine Red -->
-                <div class="p-3 rounded-xl border border-pink-500/40 bg-pink-950/30 shadow-md">
-                    <strong class="text-pink-400 block text-sm">4. Rhodamine Red</strong>
-                    <span class="text-[11px] text-slate-300">Vibrant magenta-red base</span>
-                </div>
-                <!-- 5. Purple -->
-                <div class="p-3 rounded-xl border border-purple-500/40 bg-purple-950/30 shadow-md">
-                    <strong class="text-purple-300 block text-sm">5. Purple</strong>
-                    <span class="text-[11px] text-slate-300">Deep violet shade</span>
-                </div>
-                <!-- 6. Reflex Blue -->
-                <div class="p-3 rounded-xl border border-blue-600/40 bg-blue-950/40 shadow-md">
-                    <strong class="text-blue-400 block text-sm">6. Reflex Blue</strong>
-                    <span class="text-[11px] text-slate-300">Intense dark royal blue</span>
-                </div>
-                <!-- 7. Process Blue -->
-                <div class="p-3 rounded-xl border border-cyan-500/40 bg-cyan-950/40 shadow-md">
-                    <strong class="text-cyan-300 block text-sm">7. Process Blue</strong>
-                    <span class="text-[11px] text-slate-300">Cyan standard base</span>
-                </div>
-                <!-- 8. Green -->
-                <div class="p-3 rounded-xl border border-emerald-500/40 bg-emerald-950/30 shadow-md">
-                    <strong class="text-emerald-400 block text-sm">8. Green</strong>
-                    <span class="text-[11px] text-slate-300">Vivid green mixing base</span>
-                </div>
-                <!-- 9. Black -->
-                <div class="p-3 rounded-xl border border-slate-500/40 bg-slate-950/60 shadow-md">
-                    <strong class="text-slate-100 block text-sm">9. Black</strong>
-                    <span class="text-[11px] text-slate-300">High density offset black</span>
-                </div>
-                <!-- 10. Transparent White -->
-                <div class="p-3 rounded-xl border border-slate-300/30 bg-slate-800/50 shadow-md">
-                    <strong class="text-slate-200 block text-sm">10. Transparent White</strong>
-                    <span class="text-[11px] text-slate-300">Extender base for tinting</span>
-                </div>
-                <!-- 11. Orange -->
-                <div class="p-3 rounded-xl border border-orange-500/40 bg-orange-950/30 shadow-md">
-                    <strong class="text-orange-400 block text-sm">11. Orange</strong>
-                    <span class="text-[11px] text-slate-300">Bright orange mixing base</span>
-                </div>
-                <!-- 12. Violet -->
-                <div class="p-3 rounded-xl border border-indigo-500/40 bg-indigo-950/30 shadow-md">
-                    <strong class="text-indigo-300 block text-sm">12. Violet</strong>
-                    <span class="text-[11px] text-slate-300">Blue-violet base</span>
-                </div>
-                <!-- 13. Rhodamine Ext. -->
-                <div class="p-3 rounded-xl border-pink-400/30 border bg-pink-950/20 shadow-md">
-                    <strong class="text-pink-300 block text-sm">13. Rhodamine Ext.</strong>
-                    <span class="text-[11px] text-slate-300">Specialized modifier base</span>
-                </div>
-                <!-- 14. Metallic Bases -->
-                <div class="p-3 rounded-xl border border-amber-500/40 bg-amber-950/30 shadow-md">
-                    <strong class="text-amber-400 block text-sm">14. Metallic Bases</strong>
-                    <span class="text-[11px] text-slate-300">Silver & Gold pastes</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 2: SHOP-FLOOR MIXING & WEIGHING PROTOCOL -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>⚖️</span> 2. Ink Kitchen Formulation & Weighing Rules (मिक्सिंग के नियम)
-            </h3>
-            <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
-                <p>Shop floor par jab bhi koi custom Pantone shade banayein, toh in baton ka dhyan rakhein:</p>
-                <ul class="list-disc list-inside space-y-1.5">
-                    <li>Hamesha high-precision digital electronic balance (accuracy up to <span class="text-cyan-300 font-mono">0.01 grams</span>) ka use karein taaki formula bilkul accurate bane.</li>
-                    <li>Pehle sabse heavy/major component base ko weigh karein, uske baad dark shading bases ki boondein (drops) dhyan se add karein.</li>
-                    <li>Customer ke actual substrate (Coated ya Uncoated board) par ink drawdown wire bar applicator se sample zaroor check karein.</li>
-                    <li>Dried drawdown sheet ko official Pantone Formula Guide swatch ke sath <span class="text-white font-bold">D50 light booth</span> me match karein.</li>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
+                <h3 class="font-bold text-cyan-400 text-sm">Light Source & Spectrophotometer Check</h3>
+                <ul class="space-y-1.5 text-slate-300 list-disc pl-4">
+                    <li><strong>Viewing Booth (D50):</strong> शेड अप्रूवल हमेशा <code class="bg-slate-950 text-cyan-300 px-1 py-0.5 rounded">2000 Lux</code> वाले D50 लाइट बॉक्स में करें।</li>
+                    <li><strong>Metamerism Check:</strong> अलग-अलग लाइट (D65 और Cool White) में शेड बदलकर देखें ताकि मेटामेरिज्म् (Metamerism failure) न हो।</li>
+                    <li><strong>Delta E Target:</strong> कस्टमर मास्टर शेड से $\Delta E \le 1.0$ होने पर ही शेड मशीन पर पास करें।</li>
                 </ul>
             </div>
         </div>
-
-        <!-- EXPERT SUPERVISOR'S GOLDEN RULE -->
-        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5">
-            <div class="flex items-center gap-2 text-cyan-400 font-bold">
-                <span>💡</span>
-                <span>Amit Sandhu's Expert Tip (मास्टर टिप):</span>
-            </div>
-            <p class="text-slate-200">
-                Kabhi bhi geeli (wet) ink ko ink knife se nikal kar turant final approve na karein. Offset inks jab paper ke andar penetrate hoti hain aur sukhti hain, toh unka gloss aur shade thoda change hota hai. Drawdown ko 15-20 minute sukhane ke baad hi Spectrophotometer se Delta-E ($dE$) check karein!
-            </p>
-        </div>
-
     </div>
 
-    <!-- FOOTER SIGNATURE -->
-    <div class="text-center pt-2">
-        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
+    <!-- FOOTER NAVIGATION -->
+    <div class="flex justify-between items-center pt-4">
+        <a href="page6.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Page 6: Back to Dashboard </a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 7</span>
+        <a href="page8.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Page 8: Technical Hints →</a>
     </div>
 
 </div>
-
 </body>
 </html>
