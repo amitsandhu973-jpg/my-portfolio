@@ -41,13 +41,13 @@
 
     <!-- LOGIN & OTP / PAYMENT ACCESS BAR -->
     <div id="statusHeader" class="glass-card p-4 rounded-2xl flex flex-col gap-3 border border-cyan-500/30">
-        <div id="userStatus" class="text-xs font-bold text-amber-400 text-center">Status: 🔒 Locked (Login via OTP & Pay to Unlock)</div>
+        <div id="userStatus" class="text-xs font-bold text-amber-400 text-center">Status: 🔓 Free Preview Active (Pages 1-3 Unlocked) | Pages 4-11 Locked</div>
         
         <!-- Step 1: Mobile Input & Send OTP -->
         <div id="mobileStep" class="flex flex-col sm:flex-row gap-2">
             <input type="text" id="mobileNumber" placeholder="Enter Mobile (+91...)" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none">
             <button onclick="sendOTP()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs transition">
-                Send OTP / Login
+                Send OTP / Login to Unlock All
             </button>
         </div>
 
@@ -83,19 +83,22 @@
         </div>
     </div>
 
-    <!-- 11 CHAPTERS NAVIGATION BUTTONS (LOCKED BY DEFAULT) -->
+    <!-- 11 CHAPTERS NAVIGATION BUTTONS (Pages 1-3 Free, 4-11 Locked) -->
     <div id="chaptersList" class="space-y-2.5 pt-2">
-        <a href="machine-specs.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 1: Machine Specifications & Parts (Heidelberg/KBA)</a>
-        <a href="ink-chemistry.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 2: Ink Chemistry, Density, Viscosity & Tack</a>
-        <a href="spectrophotometer.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 3: Spectrophotometer, Lab Values & ΔE</a>
-        <a href="defects.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 4: Deep 30 Defect Solutions & Troubleshooting</a>
-        <a href="raw-materials.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 5: Raw Materials: Paper, Board & Coatings</a>
-        <a href="quality-control.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 6: Quality Control & Shop-Floor Tests</a>
-        <a href="pantone-recipe.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 7: Pantone Guide & 14 Base Color Recipes</a>
-        <a href="tech-hints.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 8: 40 Technical Hints & Secrets</a>
-        <a href="experiments.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 9: 10 Printing Experiments</a>
-        <a href="questions-answers.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 10: 150 Advanced Technical Questions & Answer Bank</a>
-        <a href="calculations.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 11: Packaging Calculations & Estimation Formulae</a>
+        <!-- फ्री प्रीव्यू वाले चैप्टर्स (Page 1, 2, 3) -->
+        <a href="machine-specs.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 1: Machine Specifications & Parts (Free Preview)</a>
+        <a href="ink-chemistry.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 2: Ink Chemistry, Density, Viscosity & Tack (Free Preview)</a>
+        <a href="spectrophotometer.html" class="chapter-link block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 unlocked hover:border-cyan-400 hover:text-cyan-400">📖 Page 3: Spectrophotometer, Lab Values & ΔE (Free Preview)</a>
+
+        <!-- प्रीमियम लॉक्ड चैप्टर्स (Page 4 से 11) -->
+        <a href="defects.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 4: Deep 30 Defect Solutions & Troubleshooting</a>
+        <a href="raw-materials.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 5: Raw Materials: Paper, Board & Coatings</a>
+        <a href="quality-control.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 6: Quality Control & Shop-Floor Tests</a>
+        <a href="pantone-recipe.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 7: Pantone Guide & 14 Base Color Recipes</a>
+        <a href="tech-hints.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 8: 40 Technical Hints & Secrets</a>
+        <a href="experiments.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 9: 10 Printing Experiments</a>
+        <a href="questions-answers.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 10: 150 Advanced Technical Questions & Answer Bank</a>
+        <a href="calculations.html" class="chapter-link premium-locked block w-full py-3 px-4 bg-slate-900/90 rounded-xl text-center text-sm font-bold text-slate-300 locked">🔒 Page 11: Packaging Calculations & Estimation Formulae</a>
     </div>
 
     <!-- VIP SECURE FOOTER WATERMARK -->
@@ -120,7 +123,7 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // 🔴 यहाँ अपना खुद का मोबाइल नंबर दर्ज करें (बिना +91 के, जैसे "8053770934")
+    // 🔴 आपका एडमिन मोबाइल नंबर (यहाँ से डायरेक्ट बाईपास होगा)
     const ADMIN_MOBILE = "8053770934"; 
 
     // फोटो अपलोड फंक्शन
@@ -143,14 +146,14 @@
             return;
         }
 
-        // 👉 अगर नंबर आपका (Admin) है, तो सब कुछ डायरेक्ट अनलॉक कर दो (Bypass)
+        // 👉 अगर नंबर आपका (Admin) है, तो सब कुछ डायरेक्ट अनलॉक कर दो
         if(phoneNumber.includes(ADMIN_MOBILE)) {
             alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
             grantFullAccess("Admin Mode (Bypassed)");
             return;
         }
 
-        // 🟢 आम ग्राहकों के लिए नॉर्मल Firebase OTP चालू रहेगा
+        // 🟢 आम ग्राहकों के लिए Firebase OTP
         if(!phoneNumber.startsWith('+')) {
             phoneNumber = '+91' + phoneNumber;
         }
@@ -192,22 +195,20 @@
         });
     }
 
-    // Razorpay Payment Gateway for Customers
-   // Razorpay Payment Page redirection
-function startPayment() {
-    // Aapke naye Razorpay payment page ka link
-    window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
-}
+    // Razorpay Payment Page redirection
+    function startPayment() {
+        window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
+    }
 
-    // Common function to unlock everything
+    // Function to unlock premium chapters (Pages 4 to 11)
     function grantFullAccess(modeText) {
         document.getElementById('userStatus').innerText = "Status: ✅ Unlocked (" + modeText + ")";
         document.getElementById('userStatus').classList.replace('text-amber-400', 'text-emerald-400');
         document.getElementById('mobileStep').classList.add('hidden');
         document.getElementById('otpStep').classList.add('hidden');
 
-        // ताले हटाकर सारे चैप्टर्स खोलना
-        document.querySelectorAll('.chapter-link').forEach(link => {
+        // केवल प्रीमियम लॉक्ड चैप्टर्स के ताले हटाना (Page 4 से 11)
+        document.querySelectorAll('.premium-locked').forEach(link => {
             link.classList.replace('locked', 'unlocked');
             link.classList.add('hover:border-cyan-400', 'hover:text-cyan-400');
             link.innerText = link.innerText.replace('🔒', '📖');
