@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 3: Spectrophotometer, CIELAB Values & Delta-E Tolerances</title>
+    <title>Chapter 3: Advanced Spectrophotometer & Color Metrology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); }
-        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
-        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; }
-        .script-box { background: #030712; border: 1px solid #1e293b; color: #38bdf8; font-family: monospace; }
+        body { background-color: #070913; color: #cbd5e1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(16px); border: 1px solid rgba(14, 165, 233, 0.25); }
+        .tech-table th { background: #0c4a6e; color: #38bdf8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; }
+        .tech-table td { border-bottom: 1px solid #1e293b; font-size: 12px; }
+        .code-block { background: #020617; border: 1px solid #334155; color: #38bdf8; font-family: monospace; }
     </style>
 </head>
 <body class="p-4 md:p-8 flex flex-col items-center">
@@ -19,133 +19,129 @@
 
     <!-- PAGE HEADER -->
     <div class="text-center space-y-2">
-        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Module 3: Advanced Color Metrology & Spectrophotometry</span>
-        <h1 class="text-3xl font-black text-cyan-400 uppercase">Chapter 3: Spectrophotometer, CIELAB Values & Delta-E Tolerances</h1>
-        <p class="text-xs text-slate-400 max-w-2xl mx-auto">ऑफ़सेट प्रिंटिंग में एडवांस्ड कलर मैनेजमेंट, CIELAB स्पेस वेक्टर मैकेनिक्स, डेल्टा-ई 2000 सहनशीलता और स्पेक्ट्रोफोटोमीटर लाइटिंग स्टैंडर्ड्स का विस्तृत तकनीकी दस्तावेज।</p>
+        <span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">Master Metrology Module 3</span>
+        <h1 class="text-3xl font-black text-sky-400 uppercase tracking-wide">Chapter 3: Spectrophotometer, CIELAB Values & ΔE Tolerances</h1>
+        <p class="text-xs text-slate-400 max-w-2xl mx-auto">ऑफ़सेट प्रेस फ्लोर के लिए स्पेक्ट्रोफोटोमीटर ऑप्टिक्स, CIELAB वेक्टर ड्रिफ्ट, डेल्टा-ई 2000 गणितीय अंतर और M-कंडीशन लाइटिंग का रिसर्च-ग्रेड तकनीकी विवरण।</p>
     </div>
 
-    <!-- SECTION 1: OPTICAL GEOMETRY MECHANICS -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">1. Spectrophotometer Optical Geometry Mechanics: 45/0 vs. Diffuse/8 Degree Integrating Sphere</h2>
+    <!-- SECTION 1: OPTICAL GEOMETRY -->
+    <div class="glass-panel p-6 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-sky-400">01.</span> Optical Geometry Mechanics: 45/0 vs. d/8 Integrating Sphere
+        </h2>
         <div class="overflow-x-auto">
-            <table class="w-full data-table text-left">
+            <table class="w-full tech-table text-left">
                 <thead>
                     <tr>
-                        <th class="p-2.5">Geometry Mode / जियोमेट्री</th>
-                        <th class="p-2.5">English Technical Specification</th>
-                        <th class="p-2.5">हिंदी तकनीकी विवरण</th>
+                        <th class="p-3">Sensor Geometry</th>
+                        <th class="p-3">Physics & Substrate Application</th>
+                        <th class="p-3">प्रेस फ्लोर तकनीकी महत्व (Press Significance)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="p-2.5 font-bold text-cyan-400">45/0 Degree Geometry</td>
-                        <td class="p-2.5">Isolates diffuse reflectance by illuminating at 45 degrees and detecting at 0 degrees, successfully eliminating surface gloss interference.</td>
-                        <td class="p-2.5">45 डिग्री पर लाइट डालकर 0 डिग्री पर डिटेक्ट करती है, जिससे सरफेस ग्लोस का असर पूरी तरह खत्म हो जाता है।</td>
+                        <td class="p-3 font-bold text-sky-300">45/0 Degree Optics</td>
+                        <td class="p-3">Illuminates at 45°, detects at 0°. Eliminates specular surface reflection. Ideal for matte and standard art paper.</td>
+                        <td class="p-3">मैट और ग्लोस पेपर पर बिना चमक की बाधा के सटीक कलर रीडिंग देता है।</td>
                     </tr>
                     <tr>
-                        <td class="p-2.5 font-bold text-pink-400">d/8 Integrating Sphere</td>
-                        <td class="p-2.5">Uses a coated sphere to scatter light uniformly, capturing total reflectance when closed (SPIN) or rejecting surface gloss when open (SPEX).</td>
-                        <td class="p-2.5">कोटेड गोले से लाइट फैलाती है; पोर्ट बंद होने पर कुल रिफ्लेक्शन (SPIN) और खुलने पर सरफेस ग्लोस हटाती है (SPEX)।</td>
+                        <td class="p-3 font-bold text-pink-400">d/8 Integrating Sphere</td>
+                        <td class="p-3">Uses coated sphere for uniform scatter. Supports SPIN (Specular Included) and SPEX (Specular Excluded).</td>
+                        <td class="p-3">मैटेलिक इंक, फॉइल स्टैम्पिंग और लैमिनेटेड कार्टन के लिए अनिवार्य सेंसर।</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
-            <strong class="text-yellow-400">Practical Experiment & Press-Floor Secret / प्रायोगिक दृष्टिकोण:</strong>
-            <p class="text-slate-300"><strong>English:</strong> High-end metallic foil or laminated carton printing scanned with 45/0 sensors will yield false error data due to unmeasured specular scatter. Always select d/8 Sphere with SPEX mode for such substrates.</p>
-            <p class="text-slate-300"><strong>हिंदी:</strong> मेटालिक फॉइल या लैमिनेटेड कार्टन प्रिंटिंग में 45/0 सेंसर गलत एरर दिखाएगा क्योंकि यह मेटालिक पिगमेंट के स्पेक्युलर स्कैटर को नहीं पढ़ पाता। ऐसे जॉब्स पर हमेशा SPEX मोड के साथ d/8 स्फीयर का उपयोग करें।</p>
+        <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1">
+            <strong class="text-amber-400">Press-Floor Secret:</strong>
+            <p class="text-slate-300">मैटेलिक या फॉइल प्रिंटिंग में 45/0 सेंसर स्पेक्युलर स्कैटर को मिस कर देता है। हमेशा <strong>SPEX मोड के साथ d/8 स्फीयर</strong> का उपयोग करें।</p>
         </div>
     </div>
 
-    <!-- SECTION 2: CIELAB COLOR SPACE VECTOR COORDINATES -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">2. CIELAB Color Space Vector Coordinates (L*, a*, b*)</h2>
+    <!-- SECTION 2: CIELAB VECTOR MECHANICS -->
+    <div class="glass-panel p-6 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-sky-400">02.</span> CIELAB Vector Coordinates & Press-Floor Drift Analysis ($L^*, a^*, b^_*$)
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
-                <h3 class="font-bold text-cyan-400 text-sm">L* Axis (Lightness)</h3>
-                <p class="text-slate-300"><strong>English:</strong> Represents psychometric lightness from 0 (black) to 100 (white). Controlled directly via press ink film thickness adjustments.</p>
-                <p class="text-slate-400"><strong>हिंदी:</strong> 0 (काला) से 100 (सफेद) तक लाइटनैस दर्शाता है। प्रेस इंक फिल्म मोटाई बदलकर सीधे नियंत्रित किया जाता है।</p>
+                <h3 class="font-bold text-sky-400 text-sm">L* Axis (Lightness Vector)</h3>
+                <p class="text-slate-300">Range: 0 (Black) to 100 (White). If L* drops significantly, ink film thickness is too heavy; adjust ink keys immediately.</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
-                <h3 class="font-bold text-pink-400 text-sm">a* Axis (Red-Green)</h3>
-                <p class="text-slate-300"><strong>English:</strong> Defines the green-to-red opponent axis. Shifts indicate pigment strength imbalances or hue angle variations.</p>
-                <p class="text-slate-400"><strong>हिंदी:</strong> हरे से लाल अक्ष को परिभाषित करता है। बदलाव पिगमेंट स्ट्रेंथ या ह्यू एंगल में असंतुलन का संकेत देते हैं।</p>
+                <h3 class="font-bold text-pink-400 text-sm">a* Axis (Red-Green Shift)</h3>
+                <p class="text-slate-300">Shifts toward red indicate pigment overload or fountain solution pH/conductivity imbalance on press.</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
-                <h3 class="font-bold text-yellow-400 text-sm">b* Axis (Blue-Yellow)</h3>
-                <p class="text-slate-300"><strong>English:</strong> Defines the blue-to-yellow axis. Sensitive to substrate Optical Brightening Agents (OBA) and yellow ink pigment fluctuations.</p>
-                <p class="text-slate-400"><strong>हिंदी:</strong> नीले से पीले अक्ष को परिभाषित करता है। सब्सट्रेट के OBA और येलो इंक के बदलावों से अत्यधिक प्रभावित होता है।</p>
+                <h3 class="font-bold text-amber-400 text-sm">b* Axis (Blue-Yellow Shift)</h3>
+                <p class="text-slate-300">Highly sensitive to Cyan ink variations and paper mill OBA (Optical Brightening Agents) fluctuations.</p>
             </div>
-        </div>
-        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-xs space-y-1 mt-2">
-            <strong class="text-yellow-400">Practical Press Secret:</strong>
-            <p class="text-slate-300">If L* drops alone, it is an ink film thickness issue correctable via ink keys. If L* is stable but a* or b* drifts, it points to ink viscosity or fountain solution over-emulsification.</p>
         </div>
     </div>
 
-    <!-- SECTION 3: EVOLUTION OF DELTA-E TOLERANCES -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">3. Evolution of Delta-E Tolerances: CIELAB 76 to CIELAB 2000 (dE00)</h2>
+    <!-- SECTION 3: DELTA E 2000 -->
+    <div class="glass-panel p-6 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-sky-400">03.</span> Delta-E 2000 ($\Delta E_{00}$) vs. $\Delta E_{76}$ & Tolerances
+        </h2>
         <div class="space-y-3 text-xs text-slate-300">
-            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-1">
-                <strong class="text-cyan-400">Mathematical & Perceptual Correction:</strong>
-                <p class="text-slate-300"><strong>English:</strong> While dE76 calculates simple Euclidean distance, it fails in blue and neutral grey zones. dE2000 adds weighting functions for lightness (SL), chroma (SC), hue (SH), and a blue-region rotation term (Rt).</p>
-                <p class="text-slate-300"><strong>हिंदी:</strong> जहाँ dE76 सरल यूक्लिडियन दूरी निकालता है, वहीं यह नीले और ग्रे क्षेत्रों में विफल होता है। dE2000 लाइटनैस (SL), क्रोमा (SC), ह्यू (SH) के वेटिंग फंक्शन और ब्लू-रीजन रोटेशन टर्म (Rt) जोड़कर सुधार करता है।</p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-1">
+                <strong class="text-sky-300">Mathematical Improvement:</strong>
+                <p>$\Delta E_{76}$ uses simple Euclidean distance which fails in blue and neutral grey zones. $\Delta E_{2000}$ incorporates lightness ($S_L$), chroma ($S_C$), hue ($S_H$) weighting functions, and a blue-rotation term ($R_t$) matching human visual non-linearity.</p>
             </div>
-            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-1">
-                <strong class="text-pink-400">Press-Floor Limits & Breakdown:</strong>
-                <p class="text-slate-300"><strong>English:</strong> Pharma and luxury cartons enforce strict dE00 limits below 1.5. Always analyze the dL, da, db breakdown to isolate whether error stems from lightness or hue/chroma.</p>
-                <p class="text-slate-300"><strong>हिंदी:</strong> फार्मा और लग्जरी कार्टन के लिए सीमा dE00 < 1.5 रखी जाती है। यह जांचने के लिए dL, da, db ब्रेकडाउन देखें कि त्रुटि लाइटनैस की वजह से है या ह्यू/क्रोमा की वजह से।</p>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 space-y-1">
+                <strong class="text-pink-400">Industry Quality Benchmarks:</strong>
+                <p>Commercial Offset (ISO 12647-2): $\Delta E_{00} \le 2.0$ | Pharma & Luxury Cosmetics Folding Cartons: $\Delta E_{00} \le 1.0$ to $1.2$.</p>
             </div>
         </div>
     </div>
 
-    <!-- SECTION 4: M-CONDITION STANDARDS & LIGHTING -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">4. Spectrophotometer M-Condition Standards & Lighting Setup</h2>
+    <!-- SECTION 4: M-CONDITIONS -->
+    <div class="glass-panel p-6 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-sky-400">04.</span> Spectrophotometer M-Condition Standards (ISO 13655)
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
             <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                <strong class="text-cyan-400 block mb-1">M1 Mode (D50 + UV)</strong>
-                <p class="text-slate-300">Includes standardized D50 UV component to correctly evaluate substrate Optical Brightening Agent (OBA) fluorescence.</p>
+                <strong class="text-sky-400 block mb-1">M1 Mode (D50 + UV)</strong>
+                <p class="text-slate-300">Includes D50 daylight UV to properly excite paper OBA fluorescence. Universal press standard.</p>
             </div>
             <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                 <strong class="text-pink-400 block mb-1">M2 Mode (UV-Cut)</strong>
-                <p class="text-slate-300">Eliminates UV energy to isolate base paper color without optical brightener fluorescence interference.</p>
+                <p class="text-slate-300">Eliminates UV component entirely to evaluate pure paper shade without optical brighteners.</p>
             </div>
             <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                <strong class="text-yellow-400 block mb-1">M3 Mode (Polarized)</strong>
-                <p class="text-slate-300">Applies polarization filters to suppress wet ink front-surface reflections, matching wet density to dry sheet readings.</p>
+                <strong class="text-amber-400 block mb-1">M3 Mode (Polarized)</strong>
+                <p class="text-slate-300">Applies polarizing filter to suppress wet ink glare, matching wet press sheets to dry readings instantly.</p>
             </div>
         </div>
     </div>
 
-    
-// Advanced Press-Floor Color Verification Algorithm
-function verifyColorMetrics(dE2000, productType, isWetSheet) {
-    const targetLimit = productType === 'PHARMA' ? 1.5 : 2.0;
-    
-    let analysis = {
-        compliance: dE2000 <= targetLimit ? "PASS" : "FAIL",
-        recommendedAction: ""
-    };
-    
-    if (analysis.compliance === "FAIL") {
-        analysis.recommendedAction = "Check ink film density via L* value or evaluate dampening balance.";
+    <!-- AUTOMATION SCRIPT -->
+    <div class="glass-panel p-6 rounded-2xl space-y-3">
+        <h2 class="text-xs font-bold text-white uppercase tracking-wider">Metrology Verification Script</h2>
+        <div class="code-block p-4 rounded-xl text-xs overflow-x-auto">
+<pre>
+// Press Floor Delta-E 2000 Compliance Checker
+function validatePressColor(dE00, productGrade) {
+    let limit = productGrade === 'PHARMA' ? 1.2 : 2.0;
+    if (dE00 <= limit) {
+        return { status: "PASS", action: "Continue running. Color within ISO standards." };
     } else {
-        analysis.recommendedAction = "Color metrology within optimal ISO 12647-2 standards.";
+        return { status: "FAIL", action: "Check L* density or adjust ink keys/dampening balance." };
     }
-    
-    return analysis;
 }
-console.log(verifyColorMetrics(1.2, 'PHARMA', true));
+console.log(validatePressColor(1.1, 'PHARMA'));
 </pre>
         </div>
     </div>
 
-    <!-- FOOTER NAVIGATION -->
-    <div class="flex justify-between items-center pt-4 border-t border-slate-800 mt-6">
-        <a href="page2.html" class="text-cyan-400 font-bold hover:underline text-xs">← Back to Dashboard </a>
-  
+    <!-- FOOTER -->
+    <div class="flex justify-between items-center pt-4 border-t border-slate-800 mt-6 text-xs">
+        <a href="page2.html" class="text-sky-400 font-bold hover:underline">← Previous Chapter</a>
+        <span class="text-slate-500 font-mono">Amit Sandhu Technical Lab — Metrology Module</span>
+        <a href="page4.html" class="text-sky-400 font-bold hover:underline">Chapter 4: Defects →</a>
+    </div>
 
 </div>
 
