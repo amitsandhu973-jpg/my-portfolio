@@ -193,25 +193,11 @@
     }
 
     // Razorpay Payment Gateway for Customers
-    function startPayment() {
-        var options = {
-            "key": "rzp_test_TRMTWkjgDFBoz3", 
-            "amount": "49900", // ₹499
-            "currency": "INR",
-            "name": "Amit Sandhu Technical Manual",
-            "description": "Full Access to 11 Technical Chapters",
-            "image": "1774396860127.png",
-            "handler": function (response){
-                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                grantFullAccess("Paid Customer");
-            },
-            "theme": {
-                "color": "#06b6d4"
-            }
-        };
-        var rzp1 = new Razorpay(options);
-        rzp1.open();
-    }
+   // Razorpay Payment Page redirection
+function startPayment() {
+    // Aapke naye Razorpay payment page ka link
+    window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
+}
 
     // Common function to unlock everything
     function grantFullAccess(modeText) {
