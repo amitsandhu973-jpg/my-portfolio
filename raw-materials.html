@@ -3,154 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 5: Substrate & Coatings Engineering - Amit Sandhu Master Manual</title>
+    <title>Chapter 5: Paper Dynamics & Moisture - Amit Sandhu Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
-        .data-table th { background: #0f172a; color: #22d3ee; border-bottom: 2px solid #0284c7; }
-        .data-table td { border-bottom: 1px solid #1e293b; }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; color: #cbd5e1; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
 <div class="w-full max-w-4xl space-y-6">
     
-    <!-- NAVIGATION HEADER -->
-    <div class="flex justify-between items-center bg-slate-900/90 p-4 rounded-2xl border border-cyan-500/30">
-        <a href="index.html" class="text-xs font-bold text-cyan-400 hover:underline">← Back to Master Dashboard</a>
-        <div class="text-right">
-            <span class="text-[10px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800 font-mono">ISO & TAPPI COMPLIANT</span>
+    <!-- BACK BUTTON -->
+    <div>
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">
+            ← Back to Master Manual Dashboard
+        </a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Chapter 5: Paper & Board Dynamics, Grain Direction & Moisture</h1>
+        <p class="text-xs text-slate-400">Sheet-Fed Substrate Conditioning, Relative Humidity Balance, and Curl Prevention</p>
+    </div>
+
+    <!-- SECTION 1: GRAIN DIRECTION & MECHANICAL BEHAVIOR -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📄</span> 1. Grain Direction Standards & Pressroom Handling
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            शीट-फेड ऑफसेट प्रिंटिंग और बाइंडिंग में पेपर का ग्रेंस (Grain Direction) मशीन की दिशा के समांतर होना अत्यंत आवश्यक है। गलत ग्रेंस होने पर फोल्डिंग क्रैक और रजिस्टर आउट होने की समस्या आती है:
+        </p>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Parameter / Property</th>
+                        <th class="p-3">Grain Long (GL) Standard</th>
+                        <th class="p-3">Grain Short (GS) Standard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Fiber Alignment</td>
+                        <td class="p-3">Fibers run parallel to the long edge of the sheet.</td>
+                        <td class="p-3">Fibers run parallel to the short edge of the sheet.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Cylinder Behavior</td>
+                        <td class="p-3">Preferred for multi-color press feeding to reduce lateral stretch.</td>
+                        <td class="p-3">Used for specific landscape layouts or custom large formats.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Folding & Binding Impact</td>
+                        <td class="p-3">Parallel fold along the grain prevents spine cracking.</td>
+                        <td class="p-3">Risk of spine breaking if folded across the wrong grain direction.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- MAIN MODULE BOX -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
-        
-        <!-- TITLE & AUTHOR WATERMARK -->
-        <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h1 class="text-xl md:text-2xl font-black text-white tracking-wide">CHAPTER 5: SUBSTRATE & COATINGS TECHNOLOGY</h1>
-                <p class="text-xs text-cyan-400 font-medium mt-1">Advanced Paper Physics, Board Mechanics, Cobb Absorption & Inline Coating Chemistry</p>
-            </div>
-            <div class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 text-right">
-                <span class="text-[10px] text-slate-400 block">Verified By:</span>
-                <span class="text-xs font-bold text-white">Amit Sandhu (B.Tech)</span>
-            </div>
-        </div>
-
-        <!-- SECTION 1: COMPREHENSIVE SUBSTRATE SPECIFICATION MATRIX -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>⚙️</span> 1. Packaging Substrate Technical Matrix (बोर्ड और पेपर के प्रकार)
-            </h3>
-            <p class="text-xs text-slate-300">हाई-स्पीड Heidelberg और Komori ऑफसेट प्रिंटिंग लाइनों में इस्तेमाल होने वाले पेपरबोर्ड्स की पूरी जानकारी:</p>
-            
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs data-table">
-                    <thead>
-                        <tr>
-                            <th class="p-3">Board Grade</th>
-                            <th class="p-3">Structure / Layers (परतें)</th>
-                            <th class="p-3">GSM Range</th>
-                            <th class="p-3">Primary Packaging Application (कहां इस्तेमाल होता है)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-slate-300">
-                        <tr>
-                            <td class="p-3 font-bold text-white">GC1 (FBB)</td>
-                            <td class="p-3">बीच में मैकेनिकल पल्प सेंटर, बाहर केमिकल पल्प लेयर्स, कोटेड बैक।</td>
-                            <td class="p-3 font-mono">200 - 450 GSM</td>
-                            <td class="p-3">फार्मा कार्टन, कॉस्मेटिक्स, प्रीमियम फूड बॉक्स।</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-white">GC2 (FBB)</td>
-                            <td class="p-3">मैकेनिकल पल्प कोर, पीछे की तरफ क्रीम/अनकोटेड साइड।</td>
-                            <td class="p-3 font-mono">220 - 400 GSM</td>
-                            <td class="p-3">जनरल कंज्यूमर गुड्स, सीरियल बॉक्स, रिटेल पैक्स।</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-white">SBS / SBB</td>
-                            <td class="p-3">सभी परतों में सॉलिड ब्लीच्ड केमिकल पल्प। हाई प्यूरिटी और ब्राइटनेस।</td>
-                            <td class="p-3 font-mono">180 - 400 GSM</td>
-                            <td class="p-3">लक्जरी गिफ्ट बॉक्स, चॉकलेट, फार्मा ब्लिस्टर पैक्स।</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-white">WLC (GD/GT)</td>
-                            <td class="p-3">रीसाइकिल वेस्ट पेपर कोर, ऊपर वाइट लाइनर लेयर्स।</td>
-                            <td class="p-3 font-mono">250 - 600 GSM</td>
-                            <td class="p-3">जूते के डिब्बे, इलेक्ट्रॉनिक्स आउटर कार्टन, भारी पैकेजिंग।</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- SECTION 2: CRITICAL LABORATORY & SHOP-FLOOR TESTS -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>🔬</span> 2. Standard Laboratory & Shop-Floor Testing Protocols (लैब और फ्लोर टेस्ट)
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                
-                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
-                    <div class="flex justify-between items-center">
-                        <strong class="text-white text-sm">Cobb Value Test (ISO 535)</strong>
-                        <span class="text-cyan-400 font-mono text-[10px] bg-cyan-950 px-2 py-0.5 rounded">Water Absorption</span>
-                    </div>
-                    <p class="text-slate-300">यह टेस्ट बताता है कि 1 वर्ग मीटर पेपर/बोर्ड निश्चित समय में (आमतौर पर 60 सेकंड के लिए Cobb60) कितना पानी सोखता है।</p>
-                    <div class="bg-slate-950 p-2.5 rounded border border-slate-800 text-[11px] text-cyan-300 font-mono">
-                        Target Standard: 45 - 55 g/m² (इंक सेटिंग की समस्या और ब्लिस्टरिंग रोकने के लिए)।
-                    </div>
-                </div>
-
-                <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2">
-                    <div class="flex justify-between items-center">
-                        <strong class="text-white text-sm">Surface Smoothness (Parker Print-Surf)</strong>
-                        <span class="text-cyan-400 font-mono text-[10px] bg-cyan-950 px-2 py-0.5 rounded">ISO 8791-4</span>
-                    </div>
-                    <p class="text-slate-300">प्रिंटिंग निप प्रेशर के तहत पेपर की सूक्ष्म खुरदरेपन (micro-roughness) की जांच करता है। कम माइक्रोमीटर मतलब सतह उतनी ही चिकनी है।</p>
-                    <div class="bg-slate-950 p-2.5 rounded border border-slate-800 text-[11px] text-cyan-300 font-mono">
-                        Target Standard: &lt; 1.2 µm (बिना पिनहोल के बेहतरीन हाफ़टोन डॉट रिप्रोडक्शन के लिए)।
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- SECTION 3: COATINGS & FINISHING DYNAMICS -->
-        <div class="space-y-3">
-            <h3 class="text-sm font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-2">
-                <span>🧪</span> 3. Inline Coating Chemistry & Mechanics (कोटिंग और कैमिस्ट्री)
-            </h3>
-            <div class="space-y-2 text-xs">
-                <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                    <strong class="text-white text-sm block mb-1">Aqueous Coating (Dispersion Coating)</strong>
-                    <p class="text-slate-300">इसे अनिलॉक्स कोटर यूनिट के जरिए वाटर-बेस्ड एक्रिलिक पॉलिमर से लगाया जाता है। विस्कोसिटी आमतौर पर 35–45 सेकंड (Ford Cup No. 4 at 25°C) रखी जाती है। यह एंटी-स्कफ सुरक्षा देती है, IR/हॉट एयर ड्रायर से जल्दी सूखती है, और डिलीवरी स्टैक में शीट चिपकने (blocking) से बचाती है।</p>
-                </div>
-                <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                    <strong class="text-white text-sm block mb-1">UV Coating & Primer Interaction</strong>
-                    <p class="text-slate-300">अल्ट्रावायलेट (UV) कोटिंग्स को हाई-इंटेंसिटी UV मर्करी/LED लैंप के तहत पूरा क्योर होना जरूरी होता है। फूड-ग्रेड पैकेजिंग में माइग्रेशन के खतरे को रोकने के लिए सही एनर्जी डेंसिटी (mJ/cm²) जरूरी है। जब नॉन-अब्जॉर्बेंट मेटलाइज्ड या सिंथेटिक सतहों पर UV लगाते हैं, तो बेस प्राइमर बहुत जरूरी होते हैं।</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- EXPERT SUPERVISOR'S GOLDEN RULE -->
-        <div class="bg-gradient-to-r from-cyan-950/60 to-slate-900 p-4 rounded-xl border border-cyan-500/40 text-xs space-y-1.5">
-            <div class="flex items-center gap-2 text-cyan-400 font-bold">
-                <span>💡</span>
-                <span>Amit Sandhu's Production Floor Warning (सुपरवाइज़र की चेतावनी):</span>
-            </div>
-            <p class="text-slate-200">
-                ठंडे गोदाम (cold-storage) से सीधे निकाले गए पेपर को कभी भी सीधे हाई-स्पीड प्रिंटिंग निप में न डालें। प्रेस रूम और पेपर पैलेट के तापमान में अंतर होने से शीट के किनारों पर नमी कम या ज्यादा हो जाती है, जिससे डायमेंशनल डिस्टॉर्शन, रजिस्टर ड्रिफ्ट और डाई-कटिंग के दौरान क्रिएसिंग फटने की समस्या आती है। हमेशा 24 घंटे का एक्यूमेटराइजेशन (तापमान मेल) पीरियड जरूर दें।
-            </p>
-        </div>
-
+    <!-- SECTION 2: MOISTURE CONTENT & RH BALANCE -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">💧</span> 2. Moisture Equilibrium & Pressroom Climate Control
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Ideal Paper Moisture:</strong> ऑफसेट पेपर या कार्टन बोर्ड में नमी का स्तर <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">4.5% से 5.5%</code> के बीच होना चाहिए। इससे कम होने पर स्टैटिक चार्ज और अधिक होने पर वेव-एज (Wavy Edges) की समस्या होती है।</li>
+            <li><strong>Pressroom RH Level:</strong> प्रिंटिंग फ्लोर की रिलेटिव ह्यूमिडिटी (RH) हमेशा <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">50% ± 5%</code> और तापमान <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">23°C - 25°C</code> पर मेंटेन होना चाहिए।</li>
+            <li><strong>Acclimatization Rule:</strong> ठंडे गोदाम से पेपर सीधे मशीन पर लगाने से बचें; प्रिंटिंग से कम से कम <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">24 घंटे पहले</code> पेपर को प्रेस शॉप के तापमान पर acclimatize होने दें।</li>
+        </ul>
     </div>
 
-    <!-- FOOTER SIGNATURE -->
-    <div class="text-center pt-2">
-        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Technical Resource — Amit Sandhu Manual © 2026</p>
+    <!-- SECTION 3: SUBSTRATE DEFECTS & CORRECTION MATRIX -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🔧</span> 3. Substrate Distortion & Floor Troubleshooting
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Substrate Defect</th>
+                        <th class="p-3">Root Environmental / Physical Cause</th>
+                        <th class="p-3">Immediate Corrective Measure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Wavy Edges (Edge Expansion)</td>
+                        <td class="p-3">Paper edges absorbed moisture from high humidity pressroom air.</td>
+                        <td class="p-3">Dehumidify the room; use tight stack conditioning methods.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Tight Edges (Center Moisture Loss)</td>
+                        <td class="p-3">Paper core is drier than the surrounding dry ambient air.</td>
+                        <td class="p-3">Humidify storage area; wrap stacks securely with moisture barriers.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Static Electricity Jamming</td>
+                        <td class="p-3">Extremely dry paper combined with low relative humidity (< 40%).</td>
+                        <td class="p-3">Activate anti-static tinsel/bars; increase room moisture using fine mist sprays.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FOOTER NAV -->
+    <div class="flex justify-between items-center pt-4">
+        <a href="chapter4.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Back to Dashboard </a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 5 of 11</span>
+        <a href="chapter6.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Chapter 6: Coating & Varnishing →</a>
     </div>
 
 </div>
