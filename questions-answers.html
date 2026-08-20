@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Offset Engineering - Expert Challenge Bank</title>
+    <title>Advanced Offset Engineering - Expert Challenge Bank (Bilingual)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
@@ -19,56 +19,121 @@
 
     <!-- HEADER -->
     <div class="text-center space-y-2">
-        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Expert Level Challenge</span>
+        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Expert Level Challenge (Bilingual)</span>
         <h1 class="text-3xl font-black text-cyan-400 uppercase">20 Advanced Offset Engineering Questions</h1>
-        <p class="text-xs text-slate-400 max-w-2xl mx-auto">पॉलीमर कैमिस्ट्री, रियोलॉजी और प्रेस फिजिक्स पर आधारित उच्च-स्तरीय तकनीकी प्रश्न। (25+ वर्ष के अनुभवी विशेषज्ञों के लिए भी चुनौतीपूर्ण)।</p>
+        <p class="text-xs text-slate-400 max-w-2xl mx-auto">पॉलीमर कैमिस्ट्री, रियोलॉजी और प्रेस फिजिक्स पर आधारित उच्च-स्तरीय तकनीकी प्रश्न (English & Hindi Bilingual Format).</p>
     </div>
 
     <div id="questions-container" class="space-y-4">
-        <!-- Questions will be injected dynamically via JS -->
+        <!-- Questions injected via JS -->
     </div>
 
     <!-- FOOTER NAVIGATION -->
     <div class="flex justify-between items-center pt-4 border-t border-slate-800 mt-6">
         <a href="index.html" class="text-cyan-400 font-bold hover:underline text-xs">← Back to Dashboard</a>
-     
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Bilingual Module</span>
+    </div>
+
 </div>
 
 <script>
     const questionsData = [
-        "ऑफ़सेट लिथोग्राफी में, जब इंक-फाउंटेन सॉल्यूशन का डायनेमिक इमल्सीफिकेशन 25% की क्रिटिकल थ्रेसहोल्ड को पार कर जाता है, तो ऑयल-इन-वाटर (O/W) से वॉटर-इन-ऑयल (W/O) फेज इनवर्जन के दौरान रियोलॉजिकल विस्कोसिटी कोलैप्स को कौन सा थर्मोडायनामिक समीकरण नियंत्रित करता है?",
-        "हाई-स्पीड शीटफेड प्रेस (जैसे Heidelberg CX 104) पर प्रिंटिंग के दौरान, इंक ट्रेन में शियर थिनिंग (Thixotropy) और नॉन-न्यूटोनियन पॉवर-लॉ बिहेवियर के बीच विस्कोइलास्टिक रिलैक्सेशन टाइम ($\lambda$) की सटीक गणना कैसे की जाती है?",
-        "मल्टी-यूनिट वेट-ऑन-वेट प्रिंटिंग में, यदि इंक का टैक प्रोफाइल घटते क्रम (Decreasing order) में होने के बावजूद, थर्ड यूनिट पर 'रिवर्स स्प्लिटिंग' (Reverse Splitting) और इंटरफेशियल फिल्म डिस्टॉर्शन हो रहा है, तो सरफेस एनर्जी (Dynes/cm) और इलास्टिक मॉड्यूल्स में क्या असंतुलन है?",
-        "कन्वेंशनल शीटफेड इंक के ऑक्सिडेटिव पॉलीमराइजेशन के दौरान, कोबाल्ट और मैंगनीज ड्रायर्स के बीच कैटेलिटिक सिनर्जी (Catalytic Synergy) पर रिलेटिव ह्यूमिडिटी (RH > 75%) और फाउंटेन सॉल्यूशन के बफर pH (4.2) का कंबाइंड इलेक्ट्रोकेमिकल प्रभाव क्या होता है?",
-        "फव्वारे के पानी (Fountain Solution) में प्रयुक्त गम अरेबिक (Gum Arabic) के कोलाइडल डेक्सट्रिन मॉलिक्यूल, प्लेट के नॉन-इमेज एरिया पर हाइड्रोफिलिक बाउंड्री लेयर बनाने के लिए किस हाइड्रोजन बॉन्डिंग मेकैनिज्म का उपयोग करते हैं?",
-        "स्पेक्ट्रोफोटोमेट्रिक कलर मेजरमेंट में M0, M1, M2 और M3 पोलाराइज्ड मोड्स के बीच, पेपर सब्सट्रेट में मौजूद ऑप्टिकल ब्राइटनिंग एजेंट्स (OBAs) के कारण होने वाले फ्लोरोसेंट शिफ्ट्स को सटीक रूप से कैसे अलग किया जाता है?",
-        "UV क्योरिंग ऑफ़सेट इंक में फोटोइनिशिएटर (Free Radical vs Cationic) के साथ ओलिगोमर एक्रिलेट बॉन्ड की क्रॉस-लिंकिंग डेंसिटी, पोस्ट-क्योर 'ब्रिटलनेस' और सब्सट्रेट एंकरिंग को कैसे प्रभावित करती है?",
-        "ब्लैंकेट सिलेंडर की अंडर-पार्किंग (Under-packing) और ओवर-पार्किंग के कारण, प्रेस की जियॉमेट्रिक रोलर सरकन (Rolling Radius Mismatch) और स्लिप वेलोसिटी के बीच का गणितीय संबंध क्या है?",
-        "जब कोटेड पैकेजिंग बोर्ड पर मलिंग (Mottling) की समस्या आती है, तो पेपर के माइक्रो-पोरस स्ट्रक्चर और कोटिंग लेयर की 'कब्स वैल्यू' (Cobb Value) के बीच कौन सा कैपिलरी एब्जॉर्प्शन पैरामीटर फेल हो जाता है?",
-        "हाई-स्पीड रोटरी प्रेस पर 'इंक मिस्टिंग' (Ink Flying) की घटना को नियंत्रित करने के लिए, इंक के डाईलेक्ट्रिक कांस्टेंट और प्रेस रूम के इलेक्ट्रोस्टेटिक चार्ज बिल्ड-अप के बीच क्या संबंध होता है?",
-        "प्लेट के एल्यूमीनियम सब्सट्रेट की इलेक्ट्रोकेमिकल एनोडाइज्ड पोरस लेयर (Anodized Pore Structure) में सीलिंग प्रक्रिया के दौरान सील क्वालिटी (Adhesion Quality) की पोर-विड्थ और डायनेमिक पोटेंशियोस्टेटिक माप कैसे की जाती है?",
-        "चार-कलर प्रिंटिंग में जब ब्लैक के नीचे सेलेक्टिव अंडर-कलर रिमूवल (UCR) या ग्रे कंपोनेंट रिप्लेसमेंट (GCR) किया जाता है, तो डॉट गेन (TVI) और मूर पैटर्न (Moiré Pattern) के बीच का ऑप्टिकल इंटरफेरेंस कैसे ट्यून होता है?",
-        "रबर ब्लैंकेट की कंप्रेसिबिलिटी (Compressibility Layer Dynamics) में हिस्टैरिस्ट्स लॉस (Hysteresis Loss) और डायनेमिक डिफॉर्मेशन रिकवरी टाइम का प्रेस की डॉट शार्पनेस पर क्या प्रभाव पड़ता है?",
-        "मेटल डेटेक्टेबल या फूड-ग्रेड पैकेजिंग के लिए कम माइग्रेशन वाली (Low Migration) ऑफ़सेट इंक में, रेजिडुअल फोटोइनिशिएटर और सॉल्वेंट ट्रैपिंग की मॉलिक्यूलर डिफ्यूजन दर सीमा क्या होती है?",
-        "फाउंटेन सॉल्यूशन रीसर्क्युलेशन टैंक में बैक्टीरिया और फंगस (Bio-slime) के विकास से डैम्पिंग वॉटर की सरफेस टेंशन और कन्डक्टिविटी में जो असंतुलन पैदा होता है, उसे रोकने के लिए कौन सा बायो-कीमिकल इनहिबिटर उपयोग होता है?",
-        "ऑफ़सेट प्रेस की इनकिंग यूनिट में डक्ट रोलर से लेकर फॉर्म रोलर तक के ट्रान्सफर ज़ोन में 'स्ट्रिपिंग' (Roller Stripping) दोष के समय, इंक की श्यानता (Viscosity) और शियर रेट ग्रेडिएंट का गणितीय मॉडल क्या है?",
-        "लैमिनेटेड पैकेजिंग बोर्ड पर मेटलाइज्ड पॉलिएस्टर (Met-PET) के साथ ऑफ़सेट इंक की बॉन्डिंग के दौरान, कोरोना ट्रीटमेंट के बाद 'रिवर्टिंग' (Dyne Decay) की दर को कौन से पर्यावरणीय कारक तेज करते हैं?",
-        "मर्डर्ड या डार्क मेटैलिक स्पॉट शेड्स (Pantone Metallic Inks) में ब्रॉन्जिंग (Bronzing) और फ्लॉप इंडेक्स (Flop Index) को नियंत्रित करने के लिए पिगमेंट प्लेटलेट्स के ओरिएंटेशन को प्रेस पर कैसे सेट किया जाता है?",
-        "पेपर के फाइबर ओरिएंटेशन (Machine Direction vs Cross Direction) और एब्जॉर्प्शन एनिसोट्रॉपी (Anisotropy) के कारण, प्रिंटेड शीट में होने वाले 'डाई-कटिंग डिस्टॉर्शन' को प्रेस फ्लोर पर कैसे कैलिब्रेट किया जाता है?",
-        "हाई-स्पीड फ्लाईकटर या शीट-डेलिवरी पाइल में स्टैटिक इलेक्ट्रिसिटी के कारण होने वाले 'सेट-ऑफ' और शीट जेमिंग को रोकने के लिए, न्यूट्रलाइजिंग बार की वोल्टेज फ्रीक्वेंसी और आयन डिस्चार्ज डेंसिटी का क्या पैमाना होना चाहिए?"
+        {
+            en: "In offset lithography, when the dynamic emulsification of the ink-fountain solution exceeds the critical threshold of 25%, what thermodynamic equation governs the rheological viscosity collapse during the oil-in-water (O/W) to water-in-oil (W/O) phase inversion?",
+            hi: "ऑफ़सेट लिथोग्राफी में, जब इंक-फाउंटेन सॉल्यूशन का डायनेमिक इमल्सीफिकेशन 25% की क्रिटिकल थ्रेसहोल्ड को पार कर जाता है, तो ऑयल-इन-वाटर (O/W) से वॉटर-इन-ऑयल (W/O) फेज इनवर्जन के दौरान रियोलॉजिकल विस्कोसिटी कोलैप्स को कौन सा थर्मोडायनामिक समीकरण नियंत्रित करता है?"
+        },
+        {
+            en: "On high-speed sheetfed presses (like Heidelberg CX 104), during printing, how is the viscoelastic relaxation time precisely calculated between shear thinning (thixotropy) and non-Newtonian power-law behavior in the ink train?",
+            hi: "हाई-स्पीड शीटफेड प्रेस (जैसे Heidelberg CX 104) पर प्रिंटिंग के दौरान, इंक ट्रेन में शियर थिनिंग (Thixotropy) और नॉन-न्यूटोनियन पॉवर-लॉ बिहेवियर के बीच विस्कोइलास्टिक रिलैक्सेशन टाइम की सटीक गणना कैसे की जाती है?"
+        },
+        {
+            en: "In multi-unit wet-on-wet printing, if the ink tack profile follows a decreasing order yet 'reverse splitting' and interfacial film distortion occur on the third unit, what is the imbalance between surface energy (dynes/cm) and elastic moduli?",
+            hi: "मल्टी-यूनिट वेट-ऑन-वेट प्रिंटिंग में, यदि इंक का टैक प्रोफाइल घटते क्रम में होने के बावजूद, थर्ड यूनिट पर 'रिवर्स स्प्लिटिंग' और इंटरफेशियल फिल्म डिस्टॉर्शन हो रहा है, तो सरफेस एनर्जी और इलास्टिक मॉड्यूल्स में क्या असंतुलन है?"
+        },
+        {
+            en: "During oxidative polymerization of conventional sheetfed inks, what is the combined electrochemical effect of relative humidity (RH > 75%) and fountain solution buffer pH (4.2) on catalytic synergy between cobalt and manganese driers?",
+            hi: "कन्वेंशनल शीटफेड इंक के ऑक्सिडेटिव पॉलीमराइजेशन के दौरान, कोबाल्ट और मैंगनीज ड्रायर्स के बीच कैटेलिटिक सिनर्जी पर रिलेटिव ह्यूमिडिटी (RH > 75%) और फाउंटेन सॉल्यूशन के बफर pH (4.2) का कंबाइंड इलेक्ट्रोकेमिकल प्रभाव क्या होता है?"
+        },
+        {
+            en: "How do colloidal dextrin molecules of gum arabic used in the fountain solution utilize hydrogen bonding mechanisms to form a hydrophilic boundary layer on the non-image areas of the plate?",
+            hi: "फव्वारे के पानी में प्रयुक्त गम अरेबिक के कोलाइडल डेक्सट्रिन मॉलिक्यूल, प्लेट के नॉन-इमेज एरिया पर हाइड्रोफिलिक बाउंड्री लेयर बनाने के लिए किस हाइड्रोजन बॉन्डिंग मेकैनिज्म का उपयोग करते हैं?"
+        },
+        {
+            en: "In spectrophotometric color measurement among M0, M1, M2, and M3 polarized modes, how are fluorescent shifts caused by optical brightening agents (OBAs) in the paper substrate accurately isolated?",
+            hi: "स्पेक्ट्रोफोटोमेट्रिक कलर मेजरमेंट में M0, M1, M2 और M3 पोलाराइज्ड मोड्स के बीच, पेपर सब्सट्रेट में मौजूद ऑप्टिकल ब्राइटनिंग एजेंट्स (OBAs) के कारण होने वाले फ्लोरोसेंट शिफ्ट्स को सटीक रूप से कैसे अलग किया जाता है?"
+        },
+        {
+            en: "In UV-curing offset inks, how does the cross-linking density of oligomer acrylate bonds combined with photoinitiators (free radical vs cationic) affect post-cure brittleness and substrate anchoring?",
+            hi: "UV क्योरिंग ऑफ़सेट इंक में फोटोइनिशिएटर (Free Radical vs Cationic) के साथ ओलिगोमर एक्रिलेट बॉन्ड की क्रॉस-लिंकिंग डेंसिटी, पोस्ट-क्योर 'ब्रिटलनेस' और सब्सट्रेट एंकरिंग को कैसे प्रभावित करती है?"
+        },
+        {
+            en: "Due to blanket cylinder under-packing and over-packing, what is the mathematical relationship between the press's geometric rolling radius mismatch and slip velocity?",
+            hi: "ब्लैंकेट सिलेंडर की अंडर-पार्किंग और ओवर-पार्किंग के कारण, प्रेस की जियॉमेट्रिक रोलर सरकन (Rolling Radius Mismatch) और स्लिप वेलोसिटी के बीच का गणितीय संबंध क्या है?"
+        },
+        {
+            en: "When mottling occurs on coated packaging board, which capillary absorption parameter fails between the paper's micro-porous structure and the coating layer's Cobb value?",
+            hi: "जब कोटेड पैकेजिंग बोर्ड पर मलिंग की समस्या आती है, तो पेपर के माइक्रो-पोरस स्ट्रक्चर और कोटिंग लेयर की 'कब्स वैल्यू' के बीच कौन सा कैपिलरी एब्जॉर्प्शन पैरामीटर फेल हो जाता है?"
+        },
+        {
+            en: "To control ink misting (ink flying) on high-speed rotary presses, what is the relationship between the ink's dielectric constant and pressroom electrostatic charge build-up?",
+            hi: "हाई-स्पीड रोटरी प्रेस पर 'इंक मिस्टिंग' की घटना को नियंत्रित करने के लिए, इंक के डाईलेक्ट्रिक कांस्टेंट और प्रेस रूम के इलेक्ट्रोस्टेटिक चार्ज बिल्ड-अप के बीच क्या संबंध होता है?"
+        },
+        {
+            en: "How are pore-width and dynamic potentiostatic measurements of seal quality performed during the sealing process within the electrochemical anodized porous layer of an aluminum printing plate?",
+            hi: "प्लेट के एल्यूमीनियम सब्सट्रेट की इलेक्ट्रोकेमिकल एनोडाइज्ड पोरस लेयर में सीलिंग प्रक्रिया के दौरान सील क्वालिटी की पोर-विड्थ और डायनेमिक पोटेंशियोस्टेटिक माप कैसे की जाती है?"
+        },
+        {
+            en: "In four-color printing, when selective under-color removal (UCR) or grey component replacement (GCR) is applied under black, how is optical interference tuned between dot gain (TVI) and the moiré pattern?",
+            hi: "चार-कलर प्रिंटिंग में जब ब्लैक के नीचे सेलेक्टिव अंडर-कलर रिमूवल या ग्रे कंपोनेंट रिप्लेसमेंट किया जाता है, तो डॉट गेन और मूर पैटर्न के बीच का ऑप्टिकल इंटरफेरेंस कैसे ट्यून होता है?"
+        },
+        {
+            en: "In rubber blanket compressibility layer dynamics, how do hysteresis loss and dynamic deformation recovery time affect press dot sharpness?",
+            hi: "रबर ब्लैंकेट की कंप्रेसिबिलिटी लेयर डायनेमिक्स में हिस्टैरिस्ट्स लॉस और डायनेमिक डिफॉर्मेशन रिकवरी टाइम का प्रेस की डॉट शार्पनेस पर क्या प्रभाव पड़ता है?"
+        },
+        {
+            en: "For low-migration offset inks used in metal-detectable or food-grade packaging, what are the molecular diffusion rate limits of residual photoinitiators and solvent trapping?",
+            hi: "मेटल डेटेक्टेबल या फूड-ग्रेड पैकेजिंग के लिए कम माइग्रेशन वाली ऑफ़सेट इंक में, रेजिडुअल फोटोइनिशिएटर और सॉल्वेंट ट्रैपिंग की मॉलिक्यूलर डिफ्यूजन दर सीमा क्या होती है?"
+        },
+        {
+            en: "What biochemical inhibitor is used to prevent the imbalance in damping water surface tension and conductivity caused by bacteria and fungal (bio-slime) growth in fountain solution recirculation tanks?",
+            hi: "फाउंटेन सॉल्यूशन रीसर्क्युलेशन टैंक में बैक्टीरिया और फंगस के विकास से डैम्पिंग वॉटर की सरफेस टेंशन और कन्डक्टिविटी में जो असंतुलन पैदा होता है, उसे रोकने के लिए कौन सा बायो-कीमिकल इनहिबिटर उपयोग होता है?"
+        },
+        {
+            en: "During roller stripping defects in the offset press inking unit from the duct roller to form rollers, what is the mathematical model for ink viscosity and shear rate gradient?",
+            hi: "ऑफ़सेट प्रेस की इनकिंग यूनिट में डक्ट रोलर से लेकर फॉर्म रोलर तक के ट्रान्सफर ज़ोन में 'स्ट्रिपिंग' दोष के समय, इंक की श्यानता और शियर रेट ग्रेडिएंट का गणितीय मॉडल क्या है?"
+        },
+        {
+            en: "During offset ink bonding with metallized polyester (Met-PET) on laminated packaging board, what environmental factors accelerate the rate of dyne decay after corona treatment?",
+            hi: "लैमिनेटेड पैकेजिंग बोर्ड पर मेटलाइज्ड पॉलिएस्टर के साथ ऑफ़सेट इंक की बॉन्डिंग के दौरान, कोरोना ट्रीटमेंट के बाद 'डाइन डिके' की दर को कौन से पर्यावरणीय कारक तेज करते हैं?"
+        },
+        {
+            en: "How are pigment platelet orientations managed on press to control bronzing and flop index in deep metallic spot shades (Pantone Metallic Inks)?",
+            hi: "पेंटोन मेटालिक इंक में ब्रॉन्जिंग और फ्लॉप इंडेक्स को नियंत्रित करने के लिए पिगमेंट प्लेटलेट्स के ओरिएंटेशन को प्रेस पर कैसे प्रबंधित किया जाता है?"
+        },
+        {
+            en: "Due to paper fiber orientation (machine direction vs cross direction) and absorption anisotropy, how is die-cutting distortion calibrated on the press floor?",
+            hi: "पेपर के फाइबर ओरिएंटेशन और एब्जॉर्प्शन एनिसोट्रॉपी के कारण, प्रिंटेड शीट में होने वाले 'डाई-कटिंग डिस्टॉर्शन' को प्रेस फ्लोर पर कैसे कैलिब्रेट किया जाता है?"
+        },
+        {
+            en: "To prevent set-off and sheet jamming caused by static electricity in high-speed flycutters or sheet-delivery piles, what should be the neutralizing bar voltage frequency and ion discharge density scale?",
+            hi: "हाई-स्पीड फ्लाईकटर या शीट-डेलिवरी पाइल में स्टैटिक इलेक्ट्रिसिटी के कारण होने वाले 'सेट-ऑफ' और शीट जेमिंग को रोकने के लिए, न्यूट्रलाइजिंग बार की वोल्टेज फ्रीक्वेंसी और आयन डिस्चार्ज डेंसिटी का क्या पैमाना होना चाहिए?"
+        }
     ];
 
     const container = document.getElementById('questions-container');
 
     questionsData.forEach((q, index) => {
         const card = document.createElement('div');
-        card.className = 'question-card p-4 rounded-xl space-y-2';
+        card.className = 'question-card p-4 rounded-xl space-y-3';
         card.innerHTML = `
             <div class="flex items-start justify-between gap-4">
                 <span class="text-xs font-mono bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800">Q.${index + 1}</span>
                 <button onclick="toggleAnswer(${index})" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-cyan-300 px-2.5 py-1 rounded-md border border-slate-700 transition font-mono">🔒 Lock / Open Answer</button>
             </div>
-            <p class="text-xs text-slate-200 leading-relaxed font-medium">${q}</p>
+            <div class="space-y-1.5">
+                <p class="text-xs text-slate-100 font-semibold leading-relaxed">${q.en}</p>
+                <p class="text-xs text-slate-300 font-medium leading-relaxed border-t border-slate-800/60 pt-1.5">${q.hi}</p>
+            </div>
             <div id="ans-${index}" class="hidden-answer p-3 rounded-lg text-xs text-slate-400 italic">
                 ⚠️ [Expert Verification Locked]: इस प्रश्न का उत्तर मानक मैनुअल में उपलब्ध नहीं है। यह विशुद्ध रूप से रिसर्च-ग्रेड प्रिंटिंग फिजिक्स और रियोलॉजी पर आधारित ओपन चैलेंज है।
             </div>
