@@ -3,68 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 3: Spectrophotometer & Color Theory Secrets - Amit Sandhu</title>
+    <title>Chapter 3: Spectrophotometer, Lab & ΔE - Amit Sandhu Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050608; color: #d1d5db; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .glass-card { background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .technical-box { border-left: 4px solid #38bdf8; background: #0f172a; padding: 10px; margin: 10px 0; }
-        .formula { font-family: 'Courier New', Courier, monospace; color: #fbbf24; font-weight: bold; }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; color: #cbd5e1; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-4xl space-y-4">
+<div class="w-full max-w-4xl space-y-6">
     
-    <!-- HEADER -->
-    <div class="flex justify-between items-center bg-slate-950 p-4 rounded-2xl border border-slate-800">
-        <a href="ink-chemistry.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">← Chapter 3</a>
-        <h1 class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Chapter 3: Spectral Science & Color Control</h1>
+    <!-- BACK BUTTON -->
+    <div>
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">
+            ← Back to Master Manual Dashboard
+        </a>
     </div>
 
-    <!-- CONTENT -->
-    <div class="glass-card p-6 md:p-8 rounded-2xl border border-cyan-900/50 space-y-6">
-        <h2 class="text-xl font-bold text-cyan-300 border-b border-cyan-900/50 pb-3">Spectrophotometry: The Science Beyond Delta E</h2>
-        
-        <div class="space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
-            
-            <!-- SECTION 1 -->
-            <div class="technical-box">
-                <h3 class="font-bold text-white text-base text-cyan-400">1. D50 Illuminant & The 2-Degree Observer Myth</h3>
-                <p>• <strong>The Hidden Logic:</strong> Spectrophotometer hamesha "D50" (Daylight 5000K) par set hona chahiye. Lekin asli secret "2° vs 10° Standard Observer" me hai. 
-                <br>• <strong>Technical Reality:</strong> 2° observer small field of view (up to 4 degrees) ke liye hai, jabki 10° observer larger color patches ke liye. Agar aap 10° observer use kar rahe hain, toh aapki Delta E readings alag aayengi. Pro-tip: Client ki specification check karein, mismatch hone par print kabhi match nahi hoga.</p>
-            </div>
+    <!-- PAGE HEADER -->
+    <div class="text-center space-y-2">
+        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Chapter 3: Spectrophotometer, CIELAB Values & ΔE Tolerances</h1>
+        <p class="text-xs text-slate-400">ISO 12647-2 Calibration, G7 Master Standards, M-Lighting Conditions, and Color Matching</p>
+    </div>
 
-            <!-- SECTION 2 -->
-            <div class="technical-box">
-                <h3 class="font-bold text-white text-base text-cyan-400">2. M0, M1, M2 & M3: The Measurement Modes</h3>
-                <p>• <strong>M1 Mode (The Industry Standard):</strong> Aajkal M1 mode zaroori hai kyunki ye "UV content" ko include karta hai. 
-                <br>• <strong>Hidden Danger:</strong> Agar aapka paper 'Optical Brightening Agents' (OBA) wala hai aur aap M0 mode me measure kar rahe hain, toh aapke prints ki Blue light reading hamesha galat aayegi. M2 mode me UV cut hota hai, jisse OBA ka asar khatam ho jata hai. Hamesha confirm karein ki aapka target M1 me measure hua hai ya M2 me.</p>
-            </div>
+    <!-- SECTION 1: CIELAB AXIS & COLOR SPACE -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🎨</span> 1. CIELAB Color Space Coordinates & Practical Interpretation
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            कमर्शियल पैकेजिंग और ऑफसेट प्रिंटिंग में कलर एक्यूरेसी मापने के लिए 3-डाइमेंशनल CIELAB कलर मॉडल का उपयोग किया जाता है। प्रेस फ्लोर पर ऑपरेटर को इन एक्सिस की सटीक समझ होनी चाहिए:
+        </p>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Color Axis / Parameter</th>
+                        <th class="p-3">Value Range</th>
+                        <th class="p-3">Floor Technical Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">L* (Lightness Axis)</td>
+                        <td class="p-3">0 (Pure Black) to 100 (Pure White)</td>
+                        <td class="p-3">डार्कनेस या ब्राइटनेस मापने के लिए; इंक फिल्म की मोटाई घटने-बढ़ने पर L* मान बदलता है।</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">a* (Red-Green Axis)</td>
+                        <td class="p-3">-60 (Green) to +60 (Red)</td>
+                        <td class="p-3">मजेंटा और ग्रीन शेड्स के डेविएशन को चेक करने के लिए क्रिटिकल पैमाना।</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">b* (Yellow-Blue Axis)</td>
+                        <td class="p-3">-60 (Blue) to +60 (Yellow)</td>
+                        <td class="p-3">येलो और ब्लू कास्ट का पता लगाने के लिए; पेपर के OBA (Optical Brighteners) से प्रभावित होता है।</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            <!-- SECTION 3 -->
-            <div class="technical-box">
-                <h3 class="font-bold text-white text-base text-cyan-400">3. The Delta E Equation (CIEDE2000 vs 76)</h3>
-                <p>• <strong>Physics of Comparison:</strong> Delta E 76 (Lab) formula purana hai. Aajkal CIEDE2000 use hota hai. 
-                <br>• <strong>The Formula Logic:</strong> <span class="formula">ΔE00 = √((ΔL'/kLSL)² + (ΔC'/kCSC)² + (ΔH'/kHSH)²)</span>
-                <br>• <strong>Why it matters:</strong> CIEDE2000 human eye ki perception ke hisaab se bani hai, jisme Yellow aur Blue color errors ko human eye alag tarah se feel karta hai. Delta E 76 me Yellow error dikhta hi nahi, jabki wo print me bahut kharab lagta hai.</p>
-            </div>
+    <!-- SECTION 2: DELTA-E (ΔE) TOLERANCE STANDARDS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📏</span> 2. Delta-E (ΔE 2000) Floor Tolerance Limits
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>ISO 12647-2 Standard:</strong> कॉरपोरेट ब्रांड कलर्स (যেমন Pantone Spot Colors) के लिए ΔE 2000 मान <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">2.0 से कम</code> होना अनिवार्य है। फार्मा और कॉस्मेटिक्स पैकेजिंग में इसे <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">< 1.5</code> मांगा जाता है।</li>
+            <li><strong>ΔL, Δa, Δb Breakdown:</strong> यदि कुल ΔE ज्यादा आ रहा है, तो स्पेक्ट्रोफोटोमीटर में चेक करें कि एरर लाइटनीस (<code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">ΔL</code>) की वजह से है या ह्यू/क्रोमा (<code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">Δa, Δb</code>) की वजह से।</li>
+            <li><strong>Ink Density Correlation:</strong> यदि ΔL नेगेटिव है (यानी प्रिंट ज्यादा डार्क है), तो इंक की डक्ट ओपनिंग तुरंत <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">5% से 8% कम</code> करनी होगी।</li>
+        </ul>
+    </div>
 
-            <!-- SECTION 4 -->
-            <div class="technical-box">
-                <h3 class="font-bold text-white text-base text-cyan-400">4. Metamerism: When Colors Lie</h3>
-                <p>• <strong>The Logic:</strong> Metamerism tab hota hai jab do colors ek light source me match karte hain, but dusre me alag. 
-                <br>• <strong>Cause:</strong> Jab aapka pigment (Colorant) spectral curve dusre ink ke curve ko cross karta hai. 
-                <br>• <strong>Technical Secret:</strong> Agar machine par shade match nahi ho rahi, toh sirf 'Lab' values mat dekho, 'Spectral Data Curve' dekho. Agar curve cross ho raha hai, toh ink change karo, Lab match karne ki koshish waste hai.</p>
-            </div>
-
+    <!-- SECTION 3: LIGHTING CONDITIONS (M0, M1, M2, M3) -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">💡</span> 3. Spectrophotometer M-Condition Standards (Lighting Setup)
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Lighting Mode</th>
+                        <th class="p-3">Illuminant Source</th>
+                        <th class="p-3">Floor Application & Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">M1 Mode</td>
+                        <th class="p-3 font-normal text-slate-300">D50 with UV Component Included</th>
+                        <td class="p-3">पेपर के OBA (Optical Brightening Agents) को सही मेजर करने के लिए यूनिवर्सल स्टैंडर्ड।</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">M2 Mode</td>
+                        <th class="p-3 font-normal text-slate-300">UV-Cut (No UV Component)</th>
+                        <td class="p-3">यह देखने के लिए कि बिना यूवी लाइट के पेपर का असली बेस कलर क्या है।</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">M3 Mode</td>
+                        <th class="p-3 font-normal text-slate-300">Polarized Filter Enabled</th>
+                        <td class="p-3">वेट (गीली) इंक और ड्राई (सूखी) इंक के बीच के डेनसिटी डिफरेंस को खत्म करने के लिए।</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- FOOTER NAV -->
-    <div class="flex justify-between items-center pt-2">
-        <a href="ink-chemistry.html" class="text-xs text-cyan-400 hover:underline">← Chapter 3</a>
-        <a href="print-defects.html" class="bg-cyan-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-cyan-500 transition">Next Chapter 4 →</a>
+    <div class="flex justify-between items-center pt-4">
+        <a href="chapter2.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Back to Dashboard  </a>
+        <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 3 of 11</span>
+        <a href="chapter4.html" class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 hover:bg-cyan-900 transition">Chapter 4: Defects →</a>
     </div>
 
 </div>
