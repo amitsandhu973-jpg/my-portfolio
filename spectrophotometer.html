@@ -48,36 +48,36 @@
         </p>
     </div>
 
-    <!-- TOPIC 1: OPTICAL GEOMETRY -->
+    <!-- TOPIC 1: OPTICAL GEOMETRY & STANDARDS -->
     <div class="course-card p-6 md:p-10 rounded-2xl space-y-6">
         <div class="flex items-center gap-3">
             <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 font-bold text-base border border-sky-500/40">01</span>
-            <h2 class="text-lg md:text-xl font-bold text-white">स्पेक्ट्रोफोटोमीटर सेंसर की ऑप्टिकल बनावट (Optical Geometry: 45/0 vs d/8)</h2>
+            <h2 class="text-lg md:text-xl font-bold text-white">स्पेक्ट्रोफोटोमीटर सेंसर ज्योमेट्री और व्यूइंग स्टैंडर्ड (45/0, d/8 और D50 / 2-Degree)</h2>
         </div>
         
         <p class="text-sm text-slate-300 leading-relaxed">
-            जब आप Heidelberg या Komori प्रेस पर ऑनलाइन या ऑफलाइन स्पेक्ट्रोफोटोमीटर से कलर मापते हैं, तो सेंसर की आंतरिक बनावट सबसे मुख्य भूमिका निभाती है। अगर आपने गलत ज्योमेट्री चुन ली, तो मशीन सही कलर होने पर भी एरर दिखाएगी।
+            प्रेस फ्लोर पर कलर मैचिंग करते समय दो अलग-अलग तकनीकी पहलू काम करते हैं—पहला सेंसर की बनावट (Optical Geometry) और दूसरा सॉफ्टवेयर का कैलकुलेशन स्टैंडर्ड (जैसे D50 और 2-Degree Observer)।
         </p>
 
         <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse text-xs md:text-sm">
                 <thead>
                     <tr class="table-head">
-                        <th class="p-3.5 rounded-l-xl font-bold">जियोमेट्री मोड (Geometry)</th>
-                        <th class="p-3.5 font-bold">तकनीकी कार्यप्रणाली (Physics & Working)</th>
-                        <th class="p-3.5 rounded-r-xl font-bold">प्रेस फ्लोर पर उपयोग (Best Press Application)</th>
+                        <th class="p-3.5 rounded-l-xl font-bold">तकनीकी पैमाना (Standard Type)</th>
+                        <th class="p-3.5 font-bold">विवरण और कार्यप्रणाली (Description & Working)</th>
+                        <th class="p-3.5 rounded-r-xl font-bold">प्रेस फ्लोर उपयोग (Best Press Application)</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-800/80 text-slate-300">
                     <tr>
-                        <td class="p-3.5 font-bold text-sky-400">45/0 Degree Optics</td>
-                        <td class="p-3.5">यह 45 डिग्री पर लाइट डालता है और 0 डिग्री पर देखता है। यह पेपर की सीधी चमक को पूरी तरह हटा देता है।</td>
-                        <td class="p-3.5">साधारण मैट पेपर, अनकोटेड पेपर और स्टैंडर्ड आर्ट पेपर के लिए सबसे बेहतरीन।</td>
+                        <td class="p-3.5 font-bold text-sky-400">45/0 Degree Optics / d/8 Sphere</td>
+                        <td class="p-3.5">यह सेंसर की भौतिक बनावट है। 45/0 सीधी चमक हटाता है और d/8 मेटालिक/ग्लासी सतहों के लिए कुल रिफ्लेक्शन मापता है।</td>
+                        <td class="p-3.5">हार्डवेयर सेंसर द्वारा प्रिंट शीट से सटीक डेटा कैप्चर करने के लिए।</td>
                     </tr>
                     <tr>
-                        <td class="p-3.5 font-bold text-pink-400">d/8 Integrating Sphere</td>
-                        <td class="p-3.5">यह स्फीयर के जरिए चारों तरफ से लाइट फैलाकर कुल रिफ्लेक्शन मापता है। इसमें SPIN और SPEX दोनों मोड होते हैं।</td>
-                        <td class="p-3.5">मेटालिक इंक, फॉइल स्टैम्पिंग, लेमिनेटेड कार्टन और हाई-ग्लोस बोर्ड्स के लिए अनिवार्य।</td>
+                        <td class="p-3.5 font-bold text-pink-400">D50 / 2-Degree Standard</td>
+                        <td class="p-3.5">यह इंस्ट्रूमेंट सॉफ्टवेयर का मानक है, जिसमें D50 इल्यूमिनेंट और 2-डिग्री ऑब्ज़र्वर एंगल पर कलर वैल्यू कैलकुलेट की जाती हैं।</td>
+                        <td class="p-3.5">ग्राफिक आर्ट्स और प्रिंट इंडस्ट्री का आधिकारिक मानक (ISO Standard) जिसपर डेल्टा-ई गणना होती है।</td>
                     </tr>
                 </tbody>
             </table>
@@ -86,7 +86,7 @@
         <div class="tip-box p-4 md:p-5 rounded-xl text-xs md:text-sm space-y-2">
             <strong class="text-sky-300 block font-bold text-base">💡 ऑपरेटर के लिए मास्टर सीक्रेट (Press Floor Secret):</strong>
             <p class="text-slate-200 leading-relaxed">
-                यदि आप किसी सिल्वर या गोल्डन फॉइल वाले कार्टन की छपाई कर रहे हैं और 45/0 सेंसर का उपयोग करेंगे, तो सेंसर चमक की वजह से कलर को पूरी तरह गलत रीड करेगा। ऐसे जॉब्स पर हमेशा <strong>d/8 स्फीयर (SPEX मोड के साथ)</strong> का चयन करें ताकि चमक का असर रीडिंग पर न पड़े।
+                मशीन में सेटिंग करते समय हमेशा सुनिश्चित करें कि आपका इंस्ट्रूमेंट <strong>D50 / 2-Degree</strong> पर सेट हो और फॉइल या लेमिनेटेड जॉब्स के लिए <strong>d/8 (SPEX)</strong> ज्योमेट्री का उपयोग किया जाए, ताकि विजुअल मैचिंग और मशीन की रीडिंग में कोई अंतर न आए।
             </p>
         </div>
     </div>
@@ -207,8 +207,9 @@
 
     <!-- NAVIGATION FOOTER -->
     <div class="flex justify-between items-center pt-4">
-    <a href="index.html" class="text-cyan-400 font-bold hover:underline">← Back to Dashboard</a>
-      
+        <a href="index.html" class="text-cyan-400 font-bold hover:underline">← Back to Dashboard</a>
+    </div>
+
 </div>
 
 </body>
