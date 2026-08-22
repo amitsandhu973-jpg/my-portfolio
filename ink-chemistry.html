@@ -1,319 +1,307 @@
 <!DOCTYPE html>
-<html lang="hi" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 2: The Ultimate Engineering of Offset Printing Inks - Amit Sandhu Masterclass</title>
-    <!-- Tailwind CSS CDN -->
+    <title>The Ultimate Engineering of Offset Printing Inks </title>
+    <!-- Tailwind CSS v3.4 -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: { 50: '#f0f9ff', 500: '#0ea5e9', 600: '#0284c7', 950: '#030712' }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { background-color: #030712; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
-        .infographic-card { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 2px solid rgba(56, 189, 248, 0.25); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); }
-        .card-header { background: linear-gradient(90deg, rgba(14, 116, 144, 0.6), rgba(30, 58, 138, 0.8)); border-bottom: 2px solid rgba(56, 189, 248, 0.3); }
-        .tip-box { background: linear-gradient(135deg, rgba(14, 116, 144, 0.2), rgba(15, 23, 42, 0.95)); border-left: 5px solid #38bdf8; }
-        .warning-box { background: linear-gradient(135deg, rgba(153, 27, 27, 0.2), rgba(15, 23, 42, 0.95)); border-left: 5px solid #ef4444; }
-        .sub-box { background: rgba(3, 7, 18, 0.7); border: 1px solid rgba(56, 189, 248, 0.15); }
-        .data-table th { background: rgba(14, 116, 144, 0.3); color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
-        .data-table td { border-bottom: 1px solid rgba(30, 41, 59, 0.8); font-size: 12px; color: #cbd5e1; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f8fafc; }
+        .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7); }
+        .card-header-gradient { background: linear-gradient(135deg, rgba(14, 116, 144, 0.4), rgba(30, 58, 138, 0.6)); border-bottom: 1px solid rgba(56, 189, 248, 0.25); }
+        .code-box { background: #020617; border: 1px solid rgba(56, 189, 248, 0.3); font-family: 'JetBrains Mono', monospace; }
+        .custom-badge { background: rgba(14, 116, 144, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 sm:p-6 lg:p-12 antialiased selection:bg-sky-500 selection:text-slate-950">
 
-    <div class="max-w-5xl mx-auto space-y-10">
+    <div class="max-w-6xl mx-auto space-y-12">
         
-        <!-- BACK BUTTON -->
-        <div>
-            <a href="index.html" class="inline-flex items-center text-xs font-bold text-sky-400 hover:text-sky-300 transition-all">
-                ← Back to Master Manual Dashboard
-            </a>
-        </div>
-
-        <!-- PAGE HEADER -->
-        <div class="text-center space-y-3 pb-6 border-b-2 border-slate-800">
-            <span class="px-4 py-1 text-xs font-extrabold rounded-full bg-sky-500/15 text-sky-400 border border-sky-500/40 tracking-wider uppercase">
-            <h1 class="text-2xl md:text-4xl font-black text-white uppercase tracking-wider bg-gradient-to-r from-sky-400 via-blue-300 to-white bg-clip-text text-transparent">The Ultimate Engineering of Offset Printing Inks</h1>
-            <p class="text-xs md:text-sm text-slate-300 font-medium"> — Covering Rheology, Chemistry, Pigments, Emulsification, Press Troubleshooting & Densitometry.</p>
-        </div>
-
-        <!-- SECTION 1: COMPREHENSIVE INTRODUCTION TO OFFSET INK ARCHITECTURE -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">01</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Comprehensive Introduction to Offset Ink Architecture</h2>
-                    <p class="text-xs text-sky-300 font-mono">High-Viscosity Lithographic Paste & Four Pillars of Composition</p>
-                </div>
-            </div>
+        <!-- TOP NAVIGATION & AUTHOR HEADER -->
+        <header class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div class="px-5 space-y-4">
-                <p class="text-sm text-slate-200 leading-relaxed">
-                    ऑफसेट प्रिंटिंग इंक (Lithographic Ink) दुनिया की सबसे जटिल और अनूठी फॉर्मूलेशन में से एक है। फ्लेक्सो या ग्रैवॉयर (Gravure) इंक की तरह यह बहुत पतली और तुरंत सूखने वाली नहीं होती, बल्कि यह एक हाई-विस्कोसिटी पेस्ट (High-Viscosity Paste) होती है जो लिथोग्राफी के 'ऑयल और वॉटर रिपल्शन' के सिद्धांत पर काम करती है।
-                </p>
-
-                <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider pt-2">1.1 The Four Pillars of Offset Ink Composition</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-1.5">
-                        <span class="text-xs font-bold text-sky-400 block">1. रंग पिगमेंट (Color Pigments - 15% to 25%)</span>
-                        <p class="text-xs text-slate-300 leading-relaxed">ऑप्टिकल डेंसिटी, कलर स्ट्रेंथ और ह्यू प्रदान करते हैं। आर्गेनिक पिगमेंट (जैसे Phthalocyanine Blue, Quinacridone Magenta) और इनऑर्गेनिक पिगमेंट (जैसे Carbon Black) उपयोग होते हैं।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-1.5">
-                        <span class="text-xs font-bold text-blue-400 block">2. रेजिन और बाइंडर (Resins & Binders - 30% to 45%)</span>
-                        <p class="text-xs text-slate-300 leading-relaxed">रोज़िन-मॉडिफाइड फेनोलिक रेजिन या हाइड्रोकार्बन रेजिन। पिगमेंट कणों को बांधकर रखना और पेपर सतह पर शानदार ग्लॉस देना इनका मुख्य काम है।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-1.5">
-                        <span class="text-xs font-bold text-emerald-400 block">3. सॉल्वेंट / व्हीकल (Mineral Oils - 30% to 40%)</span>
-                        <p class="text-xs text-slate-300 leading-relaxed">हाई-बॉइलिंग पॉइंट वाले पेट्रोलियम डिस्टिलेट्स। रोलर्स पर चलाने योग्य फ्लूइडिटी देना और पेपर के अंदर सोखे जाने (Penetration) का काम करते हैं।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-1.5">
-                        <span class="text-xs font-bold text-amber-400 block">4. ड्रायर्स और एडिटिव्स (Driers & Additives - 2% to 5%)</span>
-                        <p class="text-xs text-slate-300 leading-relaxed">कोबाल्ट, मैंगनीज और जिरकोनियम के साल्ट जो ऑक्सीडेशन पॉलीमराइजेशन की प्रक्रिया को तेज करते हैं।</p>
-                    </div>
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div class="space-y-3">
+                    <span class="px-3.5 py-1.5 text-xs font-extrabold rounded-full custom-badge uppercase tracking-widest">
+                        ₹499 Premium Edition • Professional Industrial Masterclass
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white uppercase bg-gradient-to-r from-sky-400 via-blue-300 to-white bg-clip-text text-transparent">
+                        The Ultimate Offset Ink Bible
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-300 max-w-2xl font-medium">
+                        Comprehensive Engineering Reference for Sheet-Fed & UV Press Operations, Rheology, Chemistry, and Press-Floor Troubleshooting.
+                    </p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-sky-500/30 text-right w-full md:w-auto">
+                    <span class="text-xs text-sky-400 font-mono block uppercase tracking-wider">Lead Author & Reference</span>
+                    <span class="text-sm font-bold text-white block">Amit Sandhu</span>
+                    <span class="text-xs text-slate-400 block">Kumar Printers Pvt Ltd</span>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <!-- SECTION 2: RHEOLOGY, VISCOSITY & THIXOTROPIC BEHAVIOR -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">02</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Rheology, Viscosity & Thixotropic Behavior</h2>
-                    <p class="text-xs text-sky-300 font-mono">Thixotropy Dynamics & Zometer Tack Sequencing</p>
-                </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <p class="text-sm text-slate-200 leading-relaxed">
-                    ऑफ़सेट इंक की 'रियोलॉजी' (Rheology - यानी बहने और दबाव सहने का विज्ञान) ही तय करती है कि मशीन हाई स्पीड पर चलेगी या चोकिंग पैदा करेगी।
-                </p>
+        <!-- MODULE CONTAINER -->
+        <main class="space-y-8">
 
-                <div class="sub-box p-4 rounded-xl space-y-2">
-                    <h3 class="text-sm font-bold text-sky-400">2.1 Thixotropy (थिज़ोट्रॉपी का जादू)</h3>
-                    <ul class="list-disc list-inside text-xs md:text-sm text-slate-300 space-y-1.5">
-                        <li><strong>स्टेटिक अवस्था:</strong> डिब्बे या फाउंटेन में इंक बहुत गाढ़ी और कड़क महसूस होती है (High Viscosity)।</li>
-                        <li><strong>डायनामिक अवस्था:</strong> रोलर्स के बीच हाई-स्पीड शेयर स्ट्रेस से गुजरने पर विस्कोसिटी तेजी से गिरती है और मक्खन की तरह मुलायम होकर फैलती है।</li>
-                        <li><strong>इम्प्रेसन के बाद:</strong> पेपर पर ट्रांसफर होने के बाद दोबारा पुरानी गाढ़ी अवस्था में लौटने लगती है ताकि फैलाव (Dot Gain) न हो।</li>
-                    </ul>
-                </div>
-
-                <div class="sub-box p-4 rounded-xl space-y-3">
-                    <h3 class="text-sm font-bold text-sky-400">2.2 Tack Profiling & Zometer Measurements (Heidelberg CX 104 Standards)</h3>
-                    <p class="text-xs text-slate-300">मल्टीकलर मशीन में इंक का टैक हर यूनिट में क्रमिक रूप से घटना चाहिए:</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs">
-                        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800"><span class="block text-sky-400 font-bold">Unit 1 (Black)</span>14.0 - 16.0</div>
-                        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800"><span class="block text-sky-400 font-bold">Unit 2 (Cyan)</span>12.0 - 14.0</div>
-                        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800"><span class="block text-sky-400 font-bold">Unit 3 (Magenta)</span>10.0 - 12.0</div>
-                        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800"><span class="block text-sky-400 font-bold">Unit 4 (Yellow)</span>8.0 - 10.0</div>
-                    </div>
-                    <p class="text-xs text-rose-400">⚠️ यदि क्रम बिगड़ा और ऊपर की यूनिट का टैक बढ़ा, तो नीचे वाली इंक उखड़कर ब्लैंकेट पर चिपकेगी (Back-Trapping / Pulling)।</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3: EMULSIFICATION DYNAMICS -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">03</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Emulsification Dynamics (Water-in-Ink Emulsion)</h2>
-                    <p class="text-xs text-sky-300 font-mono">Ideal Emulsion Window, pH & Conductivity Parameters</p>
-                </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <p class="text-sm text-slate-200 leading-relaxed">
-                    ऑफसेट प्रिंटिंग में पानी (Fountain Solution) और इंक का मिलन अनिवार्य है, जिसे 'वाटर-इन-ऑयल इमल्शन' कहा जाता है।
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-2 border-t-4 border-t-sky-400">
-                        <h3 class="text-sm font-bold text-sky-400">3.1 The Ideal Emulsion Window (18% - 25%)</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed"><strong>अंडर-इमल्शन (&lt;15%):</strong> इंक चिपचिपी होती है, प्लेट पर पानी की पकड़ कमजोर होकर टोनिंग (Scumming) आती है।</p>
-                        <p class="text-xs text-slate-300 leading-relaxed"><strong>ओवर-इमल्शन (&gt;30%):</strong> इमल्शन फेल होकर 'ऑयल-इन-वाटर' बनता है, डॉट फटने लगते हैं और प्रिंट सुस्त (Dull) हो जाता है।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-2 border-t-4 border-t-emerald-400">
-                        <h3 class="text-sm font-bold text-emerald-400">3.2 Fountain Solution Parameters</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed"><strong>pH Level:</strong> हमेशा 4.8 से 5.2 के बीच मेंटेन रहना चाहिए (अत्यधिक अम्लीय होने पर प्लेट इमेज घिसती है)।</p>
-                        <p class="text-xs text-slate-300 leading-relaxed"><strong>Conductivity:</strong> 800 से 1200 µS/cm के दायरे में होनी चाहिए।</p>
+            <!-- SECTION 1: INK ARCHITECTURE & 4 PILLARS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">01</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Comprehensive Offset Ink Architecture</h2>
+                        <p class="text-xs text-sky-300 font-mono">High-Viscosity Lithographic Paste & Composition Mechanics</p>
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="p-6 sm:p-8 space-y-6">
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+                        Unlike low-viscosity flexographic or gravure inks, offset printing lithographic ink is a heavy, high-viscosity paste engineered to function on the fundamental principle of oil and water repulsion.
+                        <br><span class="text-xs text-sky-400 font-medium block mt-1">(फ्लेक्सो या ग्रैवॉयर के विपरीत, ऑफसेट इंक एक भारी हाई-विस्कोसिटी पेस्ट होती है जो ऑयल और वॉटर रिपल्शन के सिद्धांत पर काम करती है।)</span>
+                    </p>
 
-        <!-- SECTION 4: DRYING MECHANICS -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">04</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Drying Mechanics: Penetration and Oxidation</h2>
-                    <p class="text-xs text-sky-300 font-mono">Physical Penetration & Oxidation Polymerization</p>
-                </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-2">
-                        <h3 class="text-sm font-bold text-sky-400">Phase 1: Physical Penetration</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">शुरुआती मिनटों में मिनरल ऑयल पेपर के केशिकाओं और फाइबर्स के बीच सोखे जाते हैं। इससे इंक 'सेट' होती है और Set-off रुकता है।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-2">
-                        <h3 class="text-sm font-bold text-blue-400">Phase 2: Oxidation Polymerization</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">ऑयल सोखे जाने के बाद रेजिन हवा की ऑक्सीजन के साथ प्रतिक्रिया करते हैं। कोबाल्ट और मैंगनीज ड्रायर्स इस पॉलीमराइजेशन को तेज कर ठोस परत बनाते हैं।</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="code-box p-5 rounded-2xl space-y-2">
+                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">1. Color Pigments (15% - 25%)</span>
+                            <p class="text-xs text-slate-300 leading-relaxed">Provides optical density, hue, and tinting strength. Uses organic pigments (Phthalocyanine Blue, Quinacridone Magenta) and inorganic types (Carbon Black).</p>
+                        </div>
+                        <div class="code-box p-5 rounded-2xl space-y-2">
+                            <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">2. Resins & Binders (30% - 45%)</span>
+                            <p class="text-xs text-slate-300 leading-relaxed">Rosin-modified phenolic resins or hydrocarbon resins. Binds pigment particles together and delivers exceptional gloss upon surface drying.</p>
+                        </div>
+                        <div class="code-box p-5 rounded-2xl space-y-2">
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">3. Solvents / Mineral Oils (30% - 40%)</span>
+                            <p class="text-xs text-slate-300 leading-relaxed">High-boiling point petroleum distillates imparting proper press-roller fluidity and facilitating paper capillary penetration.</p>
+                        </div>
+                        <div class="code-box p-5 rounded-2xl space-y-2">
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">4. Driers & Additives (2% - 5%)</span>
+                            <p class="text-xs text-slate-300 leading-relaxed">Cobalt, Manganese, and Zirconium metallic salts acting as catalysts to accelerate oxidation polymerization.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- SECTION 5: ADVANCED PRESS-FLOOR TROUBLESHOOTING -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">05</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Advanced Press-Floor Troubleshooting & Defect Analysis</h2>
-                    <p class="text-xs text-sky-300 font-mono">Picking, Roller Stripping & Ghosting Corrective Actions</p>
+            <!-- SECTION 2: RHEOLOGY & TACK PROFILING -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">02</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Rheology, Viscosity & Thixotropic Behavior</h2>
+                        <p class="text-xs text-sky-300 font-mono">Shear Thinning Dynamics & Zometer Tack Sequencing</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <div class="overflow-x-auto rounded-xl border border-slate-800">
-                    <table class="w-full text-left border-collapse data-table">
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div class="space-y-3">
+                        <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">2.1 Thixotropy Mechanics (थिज़ोट्रॉपी का विज्ञान)</h3>
+                        <p class="text-sm text-slate-200 leading-relaxed">
+                            Offset inks exhibit thixotropic behavior: high viscosity at rest inside the fountain, and dramatic viscosity breakdown under high shear stress between high-speed rollers, returning to a firm state post-impression to prevent dot gain.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">2.2 Zometer Tack Profiling (Heidelberg CX 104 Standard Sequence)</h3>
+                        <p class="text-xs text-slate-300">Tack values must sequentially decrease down the multi-color unit train to prevent back-trapping and blanket pulling:</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 text-center">
+                            <div class="code-box p-4 rounded-xl border border-slate-800"><span class="block text-xs text-sky-400 font-bold mb-1">Unit 1 (Black)</span><span class="text-base font-extrabold text-white">14.0 - 16.0</span><span class="text-[10px] text-slate-400 block mt-1">Highest Grip</span></div>
+                            <div class="code-box p-4 rounded-xl border border-slate-800"><span class="block text-xs text-sky-400 font-bold mb-1">Unit 2 (Cyan)</span><span class="text-base font-extrabold text-white">12.0 - 14.0</span><span class="text-[10px] text-slate-400 block mt-1">Controlled Peel</span></div>
+                            <div class="code-box p-4 rounded-xl border border-slate-800"><span class="block text-xs text-sky-400 font-bold mb-1">Unit 3 (Magenta)</span><span class="text-base font-extrabold text-white">10.0 - 12.0</span><span class="text-[10px] text-slate-400 block mt-1">Stable Transfer</span></div>
+                            <div class="code-box p-4 rounded-xl border border-slate-800"><span class="block text-xs text-sky-400 font-bold mb-1">Unit 4 (Yellow)</span><span class="text-base font-extrabold text-white">8.0 - 10.0</span><span class="text-[10px] text-slate-400 block mt-1">Lowest Tack</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: EMULSIFICATION DYNAMICS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">03</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Emulsification Physics & Fountain Solution Parameters</h2>
+                        <p class="text-xs text-sky-300 font-mono">Water-in-Oil Window, pH & Conductivity Control</p>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-box p-5 rounded-2xl space-y-3 border-l-4 border-l-sky-400">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">3.1 Emulsion Window (18% - 25% Water)</span>
+                        <p class="text-xs text-slate-300 leading-relaxed"><strong>Under-Emulsion (&lt;15%):</strong> Ink becomes excessively tacky, leading to plate scumming and toning.<br><strong>Over-Emulsion (&gt;30%):</strong> Inverts to oil-in-water, causing dot spreading, dull prints, and roller starvation.</p>
+                    </div>
+                    <div class="code-box p-5 rounded-2xl space-y-3 border-l-4 border-l-emerald-400">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">3.2 Fountain Solution Chemistry</span>
+                        <p class="text-xs text-slate-300 leading-relaxed"><strong>pH Level:</strong> Strictly maintained between 4.8 to 5.2. Below 4.0 causes plate image wear and slow drying.<br><strong>Conductivity:</strong> Range of 800 to 1200 µS/cm measuring dissolved ionic salts and gum arabic.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: DRYING MECHANICS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">04</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Drying Mechanics: Penetration and Oxidation</h2>
+                        <p class="text-xs text-sky-300 font-mono">Two-Stage Curing & Polymerization Kinetics</p>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-box p-5 rounded-2xl space-y-2">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Phase 1: Physical Penetration</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Mineral oils penetrate paper capillaries immediately post-impression, setting the ink film and preventing stack set-off.</p>
+                    </div>
+                    <div class="code-box p-5 rounded-2xl space-y-2">
+                        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">Phase 2: Oxidation Polymerization</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Unsaturated fatty acids react with atmospheric oxygen ($O_2$), catalyzed by metallic driers, transforming into a hard protective film.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: PRESS-FLOOR TROUBLESHOOTING MATRIX -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">05</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Advanced Press-Floor Troubleshooting Matrix</h2>
+                        <p class="text-xs text-sky-300 font-mono">Expert Solutions for Heidelberg & Komori Presses</p>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr>
-                                <th class="p-3">Defect Symptom</th>
-                                <th class="p-3">Primary Root Cause</th>
-                                <th class="p-3">Supervisor Corrective Action</th>
+                            <tr class="border-b border-slate-800 text-xs font-bold text-sky-400 uppercase">
+                                <th class="pb-3 px-4">Defect Symptom</th>
+                                <th class="pb-3 px-4">Root Cause Analysis</th>
+                                <th class="pb-3 px-4">Supervisor Corrective Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-xs text-slate-300 divide-y divide-slate-800/60">
                             <tr>
-                                <td class="p-3 font-semibold text-white">5.1 Picking & Fluffing</td>
-                                <td class="p-3">Ink tack too high or paper surface strength weak.</td>
-                                <td class="p-3 text-sky-300">Add tack reducer/compound; reduce press speed.</td>
+                                <td class="py-3 px-4 font-bold text-white">5.1 Picking & Fluffing</td>
+                                <td class="py-3 px-4">High ink tack or weak paper surface pick resistance.</td>
+                                <td class="py-3 px-4 text-sky-300">Add gel varnish tack reducer, lower press speed, check chiller temp.</td>
                             </tr>
                             <tr>
-                                <td class="p-3 font-semibold text-white">5.2 Roller Stripping</td>
-                                <td class="p-3">Calcium or fountain solution film on steel/chrome rollers.</td>
-                                <td class="p-3 text-sky-300">Deep wash rollers with calcium remover & degreaser.</td>
+                                <td class="py-3 px-4 font-bold text-white">5.2 Roller Stripping</td>
+                                <td class="py-3 px-4">Calcium glazing or fountain solution layer on steel/chrome rollers.</td>
+                                <td class="py-3 px-4 text-sky-300">Perform deep roller wash with calcium remover and copper/steel degreaser.</td>
                             </tr>
                             <tr>
-                                <td class="p-3 font-semibold text-white">5.3 Ghosting</td>
-                                <td class="p-3">Ink supply/consumption imbalance or nip pressure issue.</td>
-                                <td class="p-3 text-sky-300">Calibrate form roller stripe width (3-4mm); check keys.</td>
+                                <td class="py-3 px-4 font-bold text-white">5.3 Ghosting</td>
+                                <td class="py-3 px-4">Ink consumption/supply imbalance or incorrect nip pressure.</td>
+                                <td class="py-3 px-4 text-sky-300">Calibrate form roller stripe width (3mm–4mm); optimize fountain keys.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- SECTION 6: UV OFFSET INKS & SPECIALIZED CHEMISTRY -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">06</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">UV Offset Inks & Specialized Chemistry</h2>
-                    <p class="text-xs text-sky-300 font-mono">Free Radical Mechanism & LED-UV Curing</p>
-                </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <p class="text-sm text-slate-200 leading-relaxed">
-                    आधुनिक पैकेजिंग और प्लास्टिक/फॉइल प्रिंटिंग में कन्वेंशनल इंक के बजाय **UV-Curable Inks** का उपयोग होता है:
-                </p>
-                <div class="sub-box p-4 rounded-xl space-y-2">
-                    <h3 class="text-sm font-bold text-sky-400">Free Radical Mechanism & Curing</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">यूवी इंक में सॉल्वेंट नहीं होते; इसमें मोनोमर्स, ओलिगोमर्स और फोटोइनीशिएटर्स होते हैं। यूवी लैंप (Mercury/LED-UV) के नीचे आते ही फोटोइनीशिएटर एक्टिव होकर एक सेकंड के दसवें हिस्से में पॉलीमराइज कर देते हैं, जिससे शत-प्रतिशत सतह पर पक्की परत बनती है।</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 7: PIGMENT DISPERSION, WETTING AND PARTICLE SIZE DYNAMICS -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">07</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Pigment Dispersion, Wetting and Particle Size Dynamics</h2>
-                    <p class="text-xs text-sky-300 font-mono">Aggregates, Agglomerates & Opacity vs. Gloss Balance</p>
-                </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-2">
-                        <h3 class="text-sm font-bold text-sky-400">7.1 Aggregates & Wetting</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">पिगमेंट कण आपस में चिपककर 'एग्लोमरेट्स' बनाते हैं। मिलिंग के दौरान सही रेजिन से न गीला होने पर प्रिंट में दानेदारपन (Graininess) और स्पेकल्स आते हैं।</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-2">
-                        <h3 class="text-sm font-bold text-blue-400">7.2 Particle Size Impact (0.1 - 1.0 Micron)</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">छोटे कण टिंग पावर बढ़ाते हैं, जबकि बड़े कण ऑपैसिटी (Opacity) बढ़ाते हैं लेकिन ग्लॉस और स्मूथनेस गिरा देते हैं।</p>
+            <!-- SECTION 6: UV OFFSET INKS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">06</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">UV Offset Inks & Specialized Curing Chemistry</h2>
+                        <p class="text-xs text-sky-300 font-mono">Free Radical Photopolymerization & LED-UV Systems</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- SECTION 8: ADVANCED DRYING DEFECTS & PRESS-FLOOR SOLUTIONS -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">08</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Advanced Drying Defects & Press-Floor Solutions</h2>
-                    <p class="text-xs text-sky-300 font-mono">Chalking & Inter-deck Crystallization Prevention</p>
+                <div class="p-6 sm:p-8 code-box p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Free Radical Mechanism</span>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        UV-curable inks contain zero mineral solvents. Comprising monomers, oligomers, and photoinitiators, exposure to Mercury or LED-UV lamps triggers instantaneous photopolymerization within milliseconds, curing 100% on the substrate surface without penetration.
+                    </p>
                 </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-2 border-t-4 border-t-amber-400">
-                        <h3 class="text-sm font-bold text-amber-400">8.1 Chalking (चॉकिंग)</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">अत्यधिक पोरस पेपर पूरा व्हीकल सोख लेता है, जिससे पिगमेंट बिना बाइंडर के पाउडर बनकर झड़ने लगता है। (निवारण: सील्ड इंक या बॉडी वार्निश उपयोग करें।)</p>
-                    </div>
-                    <div class="sub-box p-4 rounded-xl space-y-2 border-t-4 border-t-pink-400">
-                        <h3 class="text-sm font-bold text-pink-400">8.2 Crystallization (क्रिस्टलाइजेशन)</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">पहली यूनिट्स की इंक पूरी तरह सूखकर चिकनी परत बनाती है जिस पर अगली इंक फिसल जाती है। (निवारण: इंटर-डेक सुखाने का समय नियंत्रित करें।)</p>
+            </section>
+
+            <!-- SECTION 7: PIGMENT DISPERSION -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">07</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Pigment Dispersion, Wetting & Particle Size Dynamics</h2>
+                        <p class="text-xs text-sky-300 font-mono">Aggregates, Three-Roll Mill & Micro-Scale Physics</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- SECTION 9: DENSITOMETRY, DOT GAIN & PRINT CONTRAST MATHEMATICS -->
-        <div class="infographic-card rounded-2xl overflow-hidden space-y-5 pb-6">
-            <div class="card-header p-4 md:p-5 flex items-center gap-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-500 text-slate-950 font-black text-lg shadow-md">09</span>
-                <div>
-                    <h2 class="text-base md:text-lg font-bold text-white tracking-wide">Densitometry, Dot Gain & Print Contrast Mathematics</h2>
-                    <p class="text-xs text-sky-300 font-mono">Solid Ink Density (SID) & TVI Mathematical Formulas</p>
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-box p-5 rounded-2xl space-y-2">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">7.1 Agglomerate Breakdown</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Pigments form tight agglomerates during manufacturing. Inadequate three-roll mill wetting results in speckles and severe print graininess.</p>
+                    </div>
+                    <div class="code-box p-5 rounded-2xl space-y-2">
+                        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">7.2 Particle Size (0.1 - 1.0 Micron)</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Sub-micron particles increase tinting strength and transparency, whereas larger particles enhance opacity at the expense of gloss.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="px-5 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="sub-box p-4 rounded-xl space-y-3">
-                        <h3 class="text-sm font-bold text-sky-400">9.1 Solid Ink Density (SID)</h3>
-                        <div class="p-2.5 bg-slate-950 rounded-lg text-sky-400 font-mono text-center text-xs border border-sky-500/30">
-                            Density = log₁₀ (1 / Reflectance)
+            </section>
+
+            <!-- SECTION 8: ADVANCED DRYING DEFECTS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">08</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Advanced Drying Defects: Chalking & Crystallization</h2>
+                        <p class="text-xs text-sky-300 font-mono">Inter-deck Adhesion Failures & Porosity Analysis</p>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-box p-5 rounded-2xl space-y-2 border-t-4 border-t-amber-400">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">8.1 Chalking (चॉकिंग)</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Overly porous stocks absorb all vehicle oil instantly, leaving dry un-bonded pigment powder on the surface. Fix: Use sealed inks or body varnishes.</p>
+                    </div>
+                    <div class="code-box p-5 rounded-2xl space-y-2 border-t-4 border-t-pink-400">
+                        <span class="text-xs font-bold text-pink-400 uppercase tracking-wider block">8.2 Crystallization (क्रिस्टलाइजेशन)</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">Over-dried primary ink films form a glossy, glass-like barrier rejecting subsequent wet overprints. Fix: Control inter-deck drying times.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9: DENSITOMETRY & MATHEMATICS -->
+            <section class="glass-card rounded-3xl overflow-hidden transition-all duration-300 hover:border-sky-500/40">
+                <div class="card-header-gradient p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500 text-slate-950 font-black text-xl flex items-center justify-center shadow-lg">09</div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white">Densitometry, Dot Gain & Print Contrast Mathematics</h2>
+                        <p class="text-xs text-sky-300 font-mono">Solid Ink Density (SID) & TVI Calculations</p>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="code-box p-5 rounded-2xl space-y-3">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">9.1 Solid Ink Density (SID Formula)</span>
+                        <div class="p-3 bg-slate-950 rounded-xl text-sky-400 font-mono text-center text-xs border border-sky-500/30">
+                            Density = log10 (1 / Reflectance)
                         </div>
-                        <p class="text-xs text-slate-300"><strong>टारगेट्स:</strong> Cyan (1.30-1.45), Magenta (1.30-1.45), Yellow (1.00-1.10), Black (1.60-1.80).</p>
+                        <p class="text-xs text-slate-300"><strong>Targets:</strong> Cyan (1.30-1.45), Magenta (1.30-1.45), Yellow (1.00-1.10), Black (1.60-1.80).</p>
                     </div>
-                    <div class="sub-box p-4 rounded-xl space-y-3">
-                        <h3 class="text-sm font-bold text-emerald-400">9.2 Dot Gain (TVI) Formula</h3>
-                        <div class="p-2.5 bg-slate-950 rounded-lg text-emerald-400 font-mono text-center text-xs border border-emerald-500/30">
+                    <div class="code-box p-5 rounded-2xl space-y-3">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">9.2 Dot Gain (TVI Formula)</span>
+                        <div class="p-3 bg-slate-950 rounded-xl text-emerald-400 font-mono text-center text-xs border border-emerald-500/30">
                             Dot Gain (%) = Printed Dot (%) - Plate Dot (%)
                         </div>
-                        <p class="text-xs text-slate-300">हाफटोन डॉट्स का मशीन पर फैलना। हाइलाइट्स: 5-25%, मिदटोन: 10-15%।</p>
+                        <p class="text-xs text-slate-300">Optimal limits: Highlights (5-25%), Midtones (10-15%).</p>
                     </div>
                 </div>
+            </section>
 
-                <div class="tip-box p-4 rounded-xl text-xs md:text-sm space-y-1.5 shadow-md">
-                    <strong class="text-sky-300 block font-bold text-sm">💡 ऑपरेटर मास्टर फॉर्मूला नोट:</strong>
-                    <p class="text-slate-100 leading-relaxed">Heidelberg कंसोल पर ब्लैक की डेंसिटी हमेशा 1.60 से ऊपर रखें ताकि सॉलिड एरिया में ग्रेपन (Greyish look) न आए।</p>
-                </div>
-            </div>
-        </div>
+        </main>
 
-        <!-- FOOTER NAV -->
-        <div class="pt-4 pb-8 text-center">
-            <a href="index.html" class="inline-block px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-slate-950 font-black text-sm shadow-lg hover:opacity-90 transition-all">← Back to Dashboard</a>
-        </div>
+        <!-- FOOTER -->
+        <footer class="text-center py-8 border-t border-slate-800 text-xs text-slate-400">
+            <p>© 2026 Amit Sandhu • Kumar Printers Pvt Ltd. All Rights Reserved. Professional Grade Masterclass Manual.</p>
+        </footer>
 
     </div>
 
