@@ -84,13 +84,13 @@
         </ul>
     </div>
 
-    <!-- SECTION 3: INKING & DAMPENING ROLLER STRIPE (NIP) TEST DATA [NEW ADDED] -->
+    <!-- SECTION 3: ROLLER STRIPE (NIP) WIDTH STANDARDS -->
     <div class="glass-card p-5 rounded-2xl space-y-4">
         <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
             <span class="text-cyan-400">📊</span> 3. Roller Stripe (Nip) Width Standards (Inking & Dampening)
         </h2>
         <p class="text-xs text-slate-300 leading-relaxed">
-            रोलर्स की सही स्ट्राइप (Nip Width) ही घोस्टिंग, टोनिंग और अनइवेन इंक ट्रांसफर को रोकती है। कैलिब्रेशन के दौरान निम्नलिखित स्ट्राइप चौड़ाई मेंटेन करें:
+            रोलर्स की सही स्ट्राइप (Nip Width) ही घोस्टिंग, टोनिंग और अनइवेन इंक ट्रांसफर को रोकती है। कैलिब्रेशन के दौरान निम्नलिखित स्ट्राइप चौड़ाई in-between maintain करें:
         </p>
         <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse data-table">
@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <!-- SECTION 4: FEEDER & PNEUMATIC TIMING PARAMETERS [NEW ADDED] -->
+    <!-- SECTION 4: FEEDER & PNEUMATIC TIMING PARAMETERS -->
     <div class="glass-card p-5 rounded-2xl space-y-4">
         <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
             <span class="text-cyan-400">💨</span> 4. Feeder Pile Head & Pneumatic Timing Parameters
@@ -173,11 +173,129 @@
         </div>
     </div>
 
+    <!-- SECTION 6: PLATE-TO-BLANKET SQUISH & PACKING CALCULATION -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📐</span> 6. Plate-to-Blanket Squeeze & Packing Calculation Formula
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            परफेक्ट डॉट ट्रांसफर के लिए प्लेट और ब्लैंकेट सिलेंडर के बीच का स्क्वीज़ (Squeeze Pressure) कैलिब्रेट करना अनिवार्य है:
+        </p>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Total Squeeze Formula:</strong> <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">Squeeze = (Plate Packing + Blanket Total Thickness) - (Plate Undercut + Blanket Undercut)</code></li>
+            <li><strong>Standard Target Value:</strong> Heidelberg press पर यह वैल्यू हमेशा <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">+0.10 mm से +0.15 mm</code> के बीच होनी चाहिए। इससे कम होने पर फिक्स्ड प्रिंट नहीं आएगा, और ज्यादा होने पर प्लेट घिस जाएगी।</li>
+            <li><strong>Packing Material Quality:</strong> हमेशा कैलिब्रेटेड कैलिब्रेशन पेपर या कैमिकल रेजिस्टेंट Mylar शीट का उपयोग करें; साधारण अखबार नमी पाकर मोटाई बदल देता है।</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 7: ALCOLOR DAMPENING SPEED RATIO & PERIPHERAL SPEEDS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">💧</span> 7. Alcolor Dampening Speed Ratio & Peripheral Speeds
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Dampening Roller Node</th>
+                        <th class="p-3">Surface Speed Ratio ( vs Press Speed )</th>
+                        <th class="p-3">Function & Slip Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Metering Roller (Dosing Roller)</td>
+                        <td class="p-3">25% to 40% slower than plate speed</td>
+                        <td class="p-3">Creates controlled film split shear to wipe excess water.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Chrome Dampening Oscillating Drum</td>
+                        <td class="p-3">Synchronized / Continuous Drive</td>
+                        <td class="p-3">Distributes fountain solution evenly across width.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Dampening Form Roller</td>
+                        <td class="p-3">100% synchronized with plate cylinder</td>
+                        <td class="p-3">Ensures zero surface scuffing while transferring water to plate non-image area.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 8: TRANSFER CYLINDER AIR GUIDE & SHEET DECELERATION [NEW 1] -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">✈️</span> 8. Transfer Cylinder Air Guide & Sheet Deceleration Dynamics
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Bernoulli Air Guide Settings:</strong> टर्नओवर और ट्रांसफर ड्रम पर शीट को बिना खरोंचे होल्ड करने के लिए Bernoulli principle पर आधारित air cushion pressure <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">0.05 bar से 0.12 bar</code> सेट किया जाता है।</li>
+            <li><strong>Sheet Brake Suction Wheel:</strong> डिलीवरी पाइल पर गिरते वक्त शीट की गति (Speed) नियंत्रित करने के लिए ब्रेक व्हील का वैक्यूम <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">-0.25 bar</code> होना चाहिए ताकि शीट पीछे के स्टॉप गाइड से टकराकर मुड़े नहीं (Jagger marks prevention).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 9: WEB / SHEET TENSION & PULL CRITERIA [NEW 2] -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📈</span> 9. Side Lay & Front Lay Register Tolerances
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Register Parameter</th>
+                        <th class="p-3">Permissible Tolerance Limit</th>
+                        <th class="p-3">Corrective Mechanical Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Lateral Register (Side Lay to Center)</td>
+                        <td class="p-3">± 0.02 mm</td>
+                        <td class="p-3">Adjust pull-sensor timing and pull-down pressure plate.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Circumferential Register (Plate Shift)</td>
+                        <td class="p-3">± 0.01 mm per printing unit</td>
+                        <td class="p-3">Check harmonic drive backlash and clamping bolts.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Diagonal Register (Twist Correction)</td>
+                        <td class="p-3">Max 0.03 mm across 1020mm width</td>
+                        <td class="p-3">Adjust plate cylinder diagonal skew adjustment gear.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 10: FOUNTAIN SOLUTION CHEMISTRY & CONDENSATION [NEW 3] -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🧪</span> 10. Fountain Solution Chemistry & Chiller Parameters
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>pH Level Control:</strong> डैम्पिनिंग वाटर का pH वैल्यू हमेशा सख्त तौर पर <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">4.8 से 5.2</code> के बीच मेंटेन होना चाहिए। इससे कम होने पर प्लेट का इमेज एरिया घुलने लगेगा और ज्यादा होने पर टोनिंग (Scumming) आ जाएगी।</li>
+            <li><strong>Chiller Temperature & Conductivity:</strong> टैंक का तापमान <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">10°C से 14°C</code> होना चाहिए, और पानी की कंडक्टिविटी (Conductivity) <br> <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">800 - 1200 µS/cm</code> के दायरे में रहनी चाहिए।</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 11: IMPRESSION CYLINDER PACKING & HARDNESS [NEW 4] -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🛡️</span> 11. Impression Cylinder Jacket & Anti-Marking Specifications
+        </h2>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-4 leading-relaxed">
+            <li><strong>Super Blue / Anti-Marking Net:</strong> फ्रेश छपी हुई शीट को पिछले यूनिट या ट्रांसफर ड्रम पर स्क्रैच या इंक ट्रांसफर से बचाने के लिए Super Blue nets या beaded steel jackets का प्रयोग किया जाता है, जिनकी टेंशनिंग टॉर्क <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">12 Nm</code> पर फिक्स होती है।</li>
+            <li><strong>Cylinder Chrome Surface Hardness:</strong> इंप्रेशन सिलेंडर की क्रोम लेयर की मोटाई <br><code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">0.08 mm से 0.10 mm</code> और सरफेस हार्डनेस <code class="bg-slate-900 text-cyan-400 px-1.5 py-0.5 rounded">> 55 HRC</code> होनी चाहिए ताकि पेपर के कॉर्गेटेड पार्टिकल्स से सिलेंडर खराब न हो।</li>
+        </ul>
+    </div>
+
     <!-- FOOTER NAV -->
     <div class="flex justify-between items-center pt-4">
         <a href="index.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Back to Dashboard</a>
         <span class="text-[10px] text-slate-500 font-mono">Amit Sandhu Technical Lab — Page 1 of 11</span>
-        <span class="px-4 py-2 bg-cyan-950 border border-cyan-800 rounded-xl text-xs font-bold text-cyan-400 cursor-not-allowed opacity-60">
+        <span></span>
     </div>
 
 </div>
