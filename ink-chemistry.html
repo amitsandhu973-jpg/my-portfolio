@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ultimate Engineering of Offset Printing Inks</title>
+    <title>Offset Printing Ink: Advanced R&D Masterclass</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,7 +40,6 @@
             margin-bottom: 18px;
             line-height: 1.3;
         }
-        /* Card Layout matching screenshot */
         .tech-card {
             background: #111827;
             border: 1px solid #1f2937;
@@ -60,7 +59,6 @@
             border-bottom: 1px solid #1f2937;
             padding-bottom: 6px;
         }
-        /* Sub-boxes inside each card */
         .inner-box {
             background: #172033;
             border-left: 3px solid #38bdf8;
@@ -80,16 +78,16 @@
             margin-bottom: 2px;
             font-size: 0.79rem;
         }
-        .formula-box {
-            background: #0f172a;
-            color: #38bdf8;
-            padding: 5px 8px;
+        .chem-tag {
+            background: #1e1b4b;
+            color: #818cf8;
+            padding: 2px 6px;
             border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.73rem;
+            font-size: 0.68rem;
+            font-weight: bold;
             display: inline-block;
-            margin-top: 4px;
-            border: 1px solid #334155;
+            margin-bottom: 4px;
+            border: 1px solid #312e81;
         }
         .bottom-section {
             text-align: center;
@@ -107,10 +105,6 @@
             font-size: 0.8rem;
             font-weight: 600;
             border: 1px solid #334155;
-            transition: background 0.2s;
-        }
-        .dashboard-btn:hover {
-            background: #334155;
         }
         .footer-text {
             color: #64748b;
@@ -123,142 +117,106 @@
 
 <div class="screen-container">
     
-    <div class="main-title">THE ULTIMATE ENGINEERING OF OFFSET PRINTING INKS</div>
-    <div class="sub-title">Pro-Level Technical Masterclass: Chemistry, Rheology, Press Dynamics & Troubleshooting</div>
+    <div class="main-title">OFFSET INK: R&D & TECHNICAL MASTERCLASS</div>
+    <div class="sub-title">Advanced Chemical Properties, Rheology & Formulation Parameters</div>
 
     <!-- 1 -->
     <div class="tech-card">
-        <div class="card-heading">📦 1. Advanced Chemical Composition & Formulation</div>
+        <div class="card-heading">🔬 1. Pigment Loading & Particle Size Metrology</div>
         <div class="inner-box">
-            <strong>Resin Matrix & Molecular Weight:</strong>
-            Phenolic-modified rosin aur alkyd resins ka acid value ink ki hardness, gloss, aur water resistance tay karta hai. High-softening-point resins press speed high hone par film stability dete hain.
+            <span class="chem-tag">SPECIFICATION DATA</span>
+            <strong>Pigment Concentration (% wt):</strong> Cyan (PB 15:3) mein 15%-22%, Magenta (PR 122) mein 18%-25%, Yellow (PY 12/13) mein 14%-20%, aur Black (PBk 7) mein 18%-24% pigment load hota hai.
         </div>
         <div class="inner-box">
-            <strong>Solvent Boiling Ranges (240°C - 320°C):</strong>
-            High-boiling petroleum distillates use hote hain taki open rollers par ink dry na ho, aur sirf paper par absorb ho.
-        </div>
-        <div class="inner-box">
-            <strong>Pigment Dispersion Indices:</strong>
-            Particle size 0.1 se 1.0 micron tak hota hai, jisse transparent process colors ki CMYK overlapping behtareen milti hai.
+            <strong>Hegman Grind Gauge Index:</strong> High-end sheetfed inks ke liye particle size aggregation limit <strong>< 5 microns</strong> (Hegman 7.5 to 8.0) honi chahiye taaki plate scratching na ho.
         </div>
     </div>
 
     <!-- 2 -->
     <div class="tech-card">
-        <div class="card-heading">🌊 2. Rheology & Viscosity Control</div>
+        <div class="card-heading">🧪 2. Vehicle Chemistry & Rosin Ester Specs</div>
         <div class="inner-box">
-            <strong>Viscosity Range (40 - 100 Poise):</strong>
-            Sheetfed offset inks ke liye 25°C par yeh ideal range hai jo proper ink fountain flow banaye rakhti hai.
+            <span class="chem-tag">POLYMER SCIENCE</span>
+            <strong>Phenolic Modified Rosin Esters:</strong> Gum rosin ko pentaerythritol ke sath esterify karke phenol resins ke sath co-condense kiya jata hai. Iska <strong>Acid Value</strong> 20-35 mg KOH/g aur <strong>Softening Point</strong> 135°C - 150°C hota hai.
         </div>
         <div class="inner-box">
-            <strong>Pseudoplasticity (Shear Thinning):</strong>
-            Ink ek non-Newtonian fluid hai; rollers ki high speed par yeh patli aur rest par aate hi gadi ho jati hai taki dot gain na ho.
+            <strong>High Boiling Petroleum Distillates:</strong> Solvent phase mein narrow boiling fractions (IBP 240°C aur FBP 290°C) use hote hain taaki press par open time maintain rahe.
         </div>
     </div>
 
     <!-- 3 -->
     <div class="tech-card">
-        <div class="card-heading">⚡ 3. Tack Dynamics & Zippering Phenomenon</div>
+        <div class="card-heading">📈 3. Rheological Equations & Viscoelasticity</div>
         <div class="inner-box">
-            <strong>Inkometer Values (10 - 25 Units):</strong>
-            30°C par 400 RPM par tack measure ki jati hai. Multi-color mein sequence hamesha Descending Order (Black > Cyan > Magenta > Yellow) hota hai.
+            <span class="chem-tag">RHEOLOGY PHYSICS</span>
+            <strong>Casson Fluid Model Parameters:</strong> Offset ink ek Non-Newtonian pseudoplastic fluid hai: 
+            <br>$$\sqrt{D} = \sqrt{D_0} + S \cdot \sqrt{V}$$
+            Yield value ($D_0$) ink ko rollers par sag hone se rokti hai.
         </div>
         <div class="inner-box">
-            <strong>Critical Tack Limit:</strong>
-            Agar paper ki pick resistance ink ke tack se kam ho, to high speed par paper surface ukhad jati hai (Picking/Plucking).
+            <strong>Thixotropic Recovery Rate:</strong> Roller nip mein high shear par viscosity drop hokar 5-10 Pa·s aur rest par wapas 50-100 Pa·s ho jati hai.
         </div>
     </div>
 
     <!-- 4 -->
     <div class="tech-card">
-        <div class="card-heading">🔥 4. Drying Chemistry & Energy Systems</div>
+        <div class="card-heading">⚡ 4. Inkometer Tack Numbers & Energy Transfer</div>
         <div class="inner-box">
-            <strong>Oxidative Polymerization (Sheetfed):</strong>
-            Unsaturated fatty acids hawa ke oxygen ke sath cross-link hokar solid 3D polymer film banate hain (Primary/Secondary driers ki madad se).
-        </div>
-        <div class="inner-box">
-            <strong>Evaporative & Penetration Drying:</strong>
-            Heatset web mein 120-180°C ovens se solvent 0.2 seconds mein evaporate hota hai; coldset mein capillary action se absorb hoti hai.
+            <span class="chem-tag">MECHANICAL METRICS</span>
+            <strong>Thwing-Albert Inkometer Values (at 30°C, 400 RPM):</strong>
+            Black: 18-22 | Cyan: 15-18 | Magenta: 12-15 | Yellow: 9-12 Tack Units. Yeh descending hierarchy wet-on-wet trapping ke liye zaroori hai.
         </div>
     </div>
 
     <!-- 5 -->
     <div class="tech-card">
-        <div class="card-heading">📊 5. Spectrophotometric & Optical Properties</div>
+        <div class="card-heading">🔥 5. Oxidative Cross-linking & Drier Catalysis</div>
         <div class="inner-box">
-            <strong>Wet Film Thickness & Density:</strong>
-            Standard wet film thickness 0.8 se 1.2 micrometers hoti hai. Trapping efficiency ka formula:<br>
-            <div class="formula-box">E = [(D12 - D1) / D2] × 100 (Target > 80%)</div>
+            <span class="chem-tag">CHEMICAL DRYING</span>
+            <strong>Metallic Soap Catalysts:</strong> Primary drier ke roop mein <strong>Cobalt Naphthenate</strong> (surface drying) aur secondary drier ke roop mein <strong>Zirconium/Manganese</strong> (through drying) 0.05% - 0.2% concentration mein dale jate hain.
         </div>
     </div>
 
     <!-- 6 -->
     <div class="tech-card">
-        <div class="card-heading">💧 6. Ink-Water Balance & Emulsification</div>
+        <div class="card-heading">🌊 6. Surface Energy & Interfacial Tension</div>
         <div class="inner-box">
-            <strong>Optimum Water Uptake (15% - 25%):</strong>
-            Fountain solution ke sath stable water-in-oil (W/O) emulsion banta hai. 30% se upar jaane par ink "drown" ho jati hai aur scumming aati hai.
+            <span class="chem-tag">SURFACE CHEMISTRY</span>
+            <strong>Dynes / cm Balancing:</strong> Ink ki surface tension <strong>32 - 38 dynes/cm</strong> aur fountain solution ki <strong>38 - 42 dynes/cm</strong> rakhi jati hai taaki non-image area par ink na lage.
         </div>
     </div>
 
-    <!-- 7 -->
+    <!-- 7 (New Technical Addition) -->
     <div class="tech-card">
-        <div class="card-heading">☀️ 7. Pigment Lightfastness & Blue Wool Scale</div>
+        <div class="card-heading">💎 7. Gloss Retention & Optical Density Parameters</div>
         <div class="inner-box">
-            <strong>Scale Rating (1 to 8):</strong>
-            Pharmaceutical aur food packaging ke liye Scale 6 ya usse upar ki lightfastness wali inks use hoti hain taki dhoop ya light mein rang feeka na pade.
+            <span class="chem-tag">OPTICAL PHYSICS</span>
+            <strong>Specular Gloss & Film Leveling:</strong> High gloss inks mein high molecular weight alkyd resins use hote hain jo drying ke dauran shrink nahi hote. Isse light specularly reflect hoti hai, aur standard process black ki optical density <strong>1.65 - 1.85 DIN density</strong> tak achieve hoti hai.
         </div>
     </div>
 
-    <!-- 8 -->
+    <!-- 8 (New Technical Addition - Advanced R&D) -->
     <div class="tech-card">
-        <div class="card-heading">🛡️ 8. Rub Resistance & Slip Coefficient</div>
+        <div class="card-heading">🔄 8. Viscoelastic Storage & Loss Modulus (G' vs G'')</div>
         <div class="inner-box">
-            <strong>PTFE & Amide Waxes:</strong>
-            Transit ke dauran sheets ki ragad se bachne ke liye waxes milayi jati hain jo final scratch hardness aur rub resistance badhati hain.
+            <span class="chem-tag">ADVANCED R&D</span>
+            <strong>Oscillatory Rheology Metrics:</strong> Rheometer testing par ink ka Storage Modulus ($G'$) uske Loss Modulus ($G''$) se zyada hona chahiye ($G' > G''$). Iska matlab hai ki ink mein elastic solid property zyada strong hai, jo dot sharpness ko failne nahi deti aur sharp halftone dots produce karti hai.
         </div>
     </div>
 
-    <!-- 9 -->
+    <!-- 9 (New Technical Addition - Advanced R&D) -->
     <div class="tech-card">
-        <div class="card-heading">🧪 9. Fountain Solution Chemistry & pH Impact</div>
+        <div class="card-heading">🛡️ 9. Emulsion Rheology & Phase Inversion Threshold</div>
         <div class="inner-box">
-            <strong>pH & Conductivity Balance:</strong>
-            Fountain solution ka pH level 4.8 se 5.5 ke beech hona chahiye. Zyada acidic hone par ink ka drier neutralize ho jata hai aur drying ghanto delay ho sakti hai.
+            <span class="chem-tag">ADVANCED R&D</span>
+            <strong>Water-in-Oil (W/O) Stability Window:</strong> Fountain solution ke sath milne par ink ko stable W/O emulsion banana padta hai. Agar water uptake <strong>28% se 32%</strong> ki critical limit cross kar jaye, toh system Phase Inversion (Oil-in-Water) mein badal jata hai jisse ink drown ho kar plate par fail jati hai.
         </div>
     </div>
 
-    <!-- 10 -->
-    <div class="tech-card">
-        <div class="card-heading">🌟 10. UV & EB Curing Ink Technology</div>
-        <div class="inner-box">
-            <strong>Instant Photo-Polymerization:</strong>
-            UV inks mein solvents ki jagah monomers aur oligomers hote hain jo UV light padte hi ek second ke hazareeqe hisse mein solid cure ho jate hain.
-        </div>
-    </div>
-
-    <!-- 11 -->
-    <div class="tech-card">
-        <div class="card-heading">🌱 11. Low-Migration & Eco-Friendly Formulations</div>
-        <div class="inner-box">
-            <strong>Food-Grade Packaging Safety:</strong>
-            EuPIA guidelines ke mutabiq food aur medicine boxes ke liye non-toxic, low-migration vegetable-oil-based inks use hoti hain taki chemicals product mein na jayein.
-        </div>
-    </div>
-
-    <!-- 12 -->
-    <div class="tech-card">
-        <div class="card-heading">💨 12. Ink Misting & Press Environment Control</div>
-        <div class="inner-box">
-            <strong>High-Speed Film Splitting:</strong>
-            High-speed press par blanket se paper splitting ke dauran microscopic droplets hawa mein udti hain (Misting). Isse rokne ke liye electrostatic anti-misting agents use kiye jate hain.
-        </div>
-    </div>
-
-    <!-- Bottom Navigation / Back Button (Centered at Bottom) -->
+    <!-- Bottom Navigation / Back Button -->
     <div class="bottom-section">
         <a href="dashboard.html" class="dashboard-btn">&#8592; Back to Dashboard</a>
-        <div class="footer-text">&copy; Offset Printing Masterclass • All Rights Reserved</div>
+        <div class="footer-text">&copy; Offset Printing Masterclass • R&D Technical Division</div>
     </div>
 
 </div>
