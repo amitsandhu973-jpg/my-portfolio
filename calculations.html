@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packaging Calculations & Estimation Formulae - Amit Sandhu Manual</title>
+    <title>Master Offset & Packaging Calculations Manual - Amit Sandhu Technical Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #060913; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #060913; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
         .glass-card { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); }
         .formula-box { background: #020617; border: 1px solid rgba(56, 189, 248, 0.4); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+        .math-symbol { color: #38bdf8; font-weight: bold; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
@@ -23,185 +24,266 @@
     </div>
 
     <!-- PAGE HEADER -->
-    <div class="text-center space-y-2">
-        <div class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-[10px] text-cyan-400 font-mono tracking-wider uppercase mb-1">Module 11: Commercial Estimation & Calculations</div>
-        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Page 11: Packaging Calculations & Estimation Formulae</h1>
-        <p class="text-xs text-slate-400">पैकेजिंग डिजाइन, पेपर वजन, और ऑफसेट प्रेस के सभी जरूरी औद्योगिक सांख्यिक सूत्र (Industrial Calculation Protocols)</p>
+    <div class="text-center space-y-3 pb-4 border-b border-slate-800">
+        <div class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-[10px] text-cyan-400 font-mono tracking-wider uppercase mb-1">Module 11: Commercial Estimation, Physics & Press Calculations</div>
+        <h1 class="text-2xl md:text-4xl font-black text-cyan-400 uppercase tracking-wider">Advanced Offset & Packaging Engineering Formulae</h1>
+        <p class="text-xs md:text-sm text-slate-300 max-w-2xl mx-auto">ऑफसेट प्रिंटिंग, पेपर फिजिक्स, कलर मेट्रिक्स और पैकेजिंग एस्टिमेशन के विस्तृत तकनीकी सूत्रों का मास्टर मैनुअल (Detailed Industrial Protocols)</p>
     </div>
 
     <!-- CALCULATION 01 -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #01:</span> Paper Sheet Weight & GSM Formula
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">01.</span> Paper Sheet Weight & GSM Calculation Protocol
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Paper Engineering</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Paper Engineering</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> किसी दिए गए पेपर साइज और जी.एस.एम. (GSM) के आधार पर सिंगल शीट या कुल वजन का कुल मान (Weight in kg) निकालना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Sheet weight (kg) = [Length (m) × Width (m) × GSM × Quantity] / 1000</p>
-                <p class="text-[11px] text-slate-400">• Example: For 1000 sheets of 70 × 100 cm (0.7 × 1.0 m) @ 300 GSM = (0.7 × 1.0 × 300 × 1000) / 1000 = 210 kg.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    प्रिंटिंग प्रोडक्शन में किसी भी जॉब के लिए पेपर खरीदने या उसका कुल वजन निकालने से पहले यह जानना अनिवार्य होता है कि दिए गए साइज ( लंबाई × चौड़ाई ) और ग्रामेज (GSM - Grams per Square Meter) के आधार पर एक सिंगल शीट या हजारों शीट्स का कुल वजन (Weight in kg) कितना होगा। इससे स्टोर मैनेजमेंट और ट्रांसपोर्टेशन की सटीक योजना बनती है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Sheet weight (kg) = [ Length <span class="math-symbol">(m)</span> × Width <span class="math-symbol">(m)</span> × GSM × Quantity ] ÷ 1000</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• <strong>व्यावहारिक उदाहरण (Practical Example):</strong> मान लीजिए आपको 1000 शीट्स प्रिंट करनी हैं जिनका साइज 70 × 100 cm (यानी 0.7 मीटर × 1.0 मीटर) है और पेपर का GSM 300 है।</p>
+                    <p>• <strong>गणना:</strong> (0.7 × 1.0 × 300 × 1000) ÷ 1000 = <strong class="text-cyan-400">210 kg</strong> कुल वजन।</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- CALCULATION 02 -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #02:</span> Paper Reel Weight (Diameter-based Estimation)
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">02.</span> Paper Reel Weight (Diameter-based Estimation)
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Reel Handling</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Reel Handling</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> रील के आउटर डायमीटर (OD) और कोर डायमीटर (ID) से रील्‍स का अनुमानित वजन निकालना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Reel Weight (kg) = [3.1416 × (OD² - ID² in meters) × Reel Width (m) × GSM] ÷ 4000</p>
-                <p class="text-[11px] text-slate-400">• Useful for web-offset inventory management and reel scheduling on Heidelberg/Komori web/sheet presses.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    वेब ऑफसेट (Web Offset) या कार्टन पैकेजिंग यूनिट्स में रील्स का इस्तेमाल होता है। कई बार रील पर उसका वजन नहीं लिखा होता या पुराना स्टॉक होता है। रील के बाहरी व्यास (Outer Diameter - OD) और अंदरूनी कोर व्यास (Inner Diameter - ID) को मापकर उसका सटीक वजन निकालना इस फॉर्मूले का मुख्य उद्देश्य है ताकि मशीन शेड्यूलिंग में कोई रुकावट न आए।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Reel Weight (kg) = [ <span class="math-symbol">3.1416</span> × (OD² - ID² in meters) × Reel Width <span class="math-symbol">(m)</span> × GSM ] ÷ 4000</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• <strong>इंडस्ट्रियल उपयोग:</strong> Heidelberg और Komori की वेब या शीट-फेड रील्ड प्रेस पर इन्वेंट्री ऑडिट करने के लिए यह सुपरवाइजर का सबसे प्रमुख टूल है।</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- CALCULATION 03 -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #03:</span> Layout Efficiency & Trim Waste Percentage
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">03.</span> Layout Efficiency & Trim Waste Percentage
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Prepress Layout</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Prepress Layout</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> मास्टर पेपर शीट पर कितने कार्टन या डिब्बे आ रहे हैं और कितना प्रतिशत वेस्ट (Trim Loss) हो रहा है, इसकी गणना करना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Layout Efficiency (%) = [Total Area of Cartons (Ups) ÷ Total Area of Master Sheet] × 100</p>
-                <p>Trim Loss (%) = 100 - Layout Efficiency (%)</p>
-                <p class="text-[11px] text-slate-400">• Target: Efficient layout in currency and cartons should always remain above 82% to 85% for folding carton packaging.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    प्री-प्रैस (Prepress) स्टेज पर यह देखना होता है कि मास्टर पेपर शीट पर जो कार्टन या बॉक्स का लेआउट लगाया गया है, वह कितना स्पेस घेर रहा है और कितना पेपर साइड ट्रिम या कटिंग में बेकार (Trim Loss) जा रहा है। कम वेस्टेज का मतलब है डायरेक्ट प्रॉफिट।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Layout Efficiency (%) = [ Total Area of Cartons (Ups) <span class="math-symbol">÷</span> Total Area of Master Sheet ] × 100</p>
+                <p>Trim Loss (%) = <span class="math-symbol">100</span> - Layout Efficiency (%)</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• <strong>इंडस्ट्री बेंचमार्क:</strong> फोल्डिंग कार्टन पैकेजिंग में लेआउट एफिशिएंसी हमेशा <strong class="text-cyan-400">82% से 85%</strong> के बीच या उससे ऊपर होनी चाहिए।</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- CALCULATION 04 -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #04:</span> Box Compression Strength (McKee's Formula for BCT)
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">04.</span> Box Compression Strength (McKee's Formula for BCT)
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Corrugation & Carton QA</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Corrugation QA</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> पैकेजिंग कार्टन या कोरुगेटेड बॉक्स की बीरिंग स्ट्रेंथ (Box Compression Test - BCT) का अनुमान लगाना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>BCT (kgf) = 5.87 × ECT × Square Root of [Box Perimeter (cm) × Caliper / Thickness (cm)]</p>
-                <p class="text-[11px] text-slate-400">• Where ECT = Edge Crush Test value of the board material, critical for warehouse stacking compliance.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    जब कोई भारी सामान पैक होकर गोदाम में एक के ऊपर एक स्टॉक किया जाता है, तो नीचे वाले कार्टन पर भारी दबाव पड़ता है। मैकी का यह प्रसिद्ध फॉर्मूला (McKee's Formula) यह पहले ही कैलकुलेट कर लेता है कि कोरुगेटेड बॉक्स (Corrugated Box) बिना पिचके अधिकतम कितना वजन सह सकता है (Box Compression Test - BCT)।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>BCT (kgf) = <span class="math-symbol">5.87</span> × ECT × Square Root of [ Box Perimeter <span class="math-symbol">(cm)</span> × Caliper / Thickness <span class="math-symbol">(cm)</span> ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• जहाँ <strong class="text-cyan-300">ECT</strong> (Edge Crush Test) बोर्ड मटेरियल की स्ट्रेंथ वैल्यू है। यह वेयरहाउस स्टैकिंग सेफ्टी के लिए बेहद अहम है।</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- CALCULATION 05 -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #05:</span> Production Run Time & Speed Estimation
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">05.</span> Production Run Time & Speed Estimation
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Production Planning</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Production Planning</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> दिए गए छपाई ऑर्डर के लिए प्रेस केचुअल रनिंग टाइम (Running Time) और प्रिंटिंग टाइम का आकलन करना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Total Production Time (hours) = [(Total Good Sheets + Make-ready Waste Sheets)] ÷ [Actual Press Speed (IPH)]</p>
-                <p class="text-[11px] text-slate-400">• Standard allowance: Add 10% to 15% downtime buffer for washing, plate changing, and quality checks.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    प्लांट हेड या प्रोडक्शन मैनेजर को यह कमिटमेंट देना होता है कि एक निश्चित क्वांटिटी का जॉब मशीन पर कितने घंटों में पूरा होगा। इस फॉर्मूले से कुल अच्छे पीस और मेक-रेडी वेस्ट (Make-ready Waste Sheets) को मशीन की वास्तविक स्पीड (Impressions Per Hour - IPH) से भाग देकर सटीक समय निकाला जाता है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Total Production Time (hours) = [ (Total Good Sheets + Make-ready Waste Sheets) ] <span class="math-symbol">÷</span> [ Actual Press Speed (IPH) ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• <strong>इंडस्ट्रियल बफर:</strong> वाशिंग, प्लेट चेंजिंग और क्वालिटी चेक के लिए हमेशा <strong class="text-cyan-400">10% से 15% डाउनटाइम बफर</strong> जोड़कर चलना चाहिए।</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CALCULATION 06 (NEW OFFSET FORMULA) -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #06:</span> Wet Ink Film Thickness (IFT) Formula
+    <!-- CALCULATION 06 -->
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">06.</span> Wet Ink Film Thickness (IFT) Formula
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Ink Physics</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Ink Physics</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> प्रिंटेड शीट पर ट्रांसफर होने वाली गीली इंक की परत की मोटाई (Microns में) कैलकुलेट करना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>IFT (microns) = [Ink Consumption (g/m²) × 1000] ÷ [Ink Density (g/cm³)]</p>
-                <p class="text-[11px] text-slate-400">• Normal offset wet ink film thickness ranges strictly between 0.9 to 1.8 microns across standard commercial printing.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    ऑफसेट प्रिंटिंग में जब इंक रोलर्स से होते हुए पेपर पर ट्रांसफर होती है, तो उसकी परत बहुत पतली होती है। इंक की खपत (Consumption) और उसकी डेंसिटी के आधार पर माइक्रोन में यह जांचना कि गीली इंक की परत कितनी मोटी है, ऑफसेट फिजिक्स का एक कोर एक्सपेरिमेंट है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>IFT (microns) = [ Ink Consumption <span class="math-symbol">(g/m²)</span> × 1000 ] <span class="math-symbol">÷</span> [ Ink Density <span class="math-symbol">(g/cm³)</span> ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• मानक वाणिज्यिक ऑफसेट प्रिंटिंग में गीली इंक की फिल्म की मोटाई सख्ती से <strong class="text-cyan-400">0.9 से 1.8 माइक्रोन</strong> के बीच होती है।</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CALCULATION 07 (NEW OFFSET FORMULA) -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #07:</span> Effective Dot Gain (Murray-Davies Formula)
+    <!-- CALCULATION 07 -->
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">07.</span> Effective Dot Gain (Murray-Davies Formula)
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Colorimetry & QA</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Colorimetry & QA</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> छपाई के दौरान हाफ़टोन डॉट का साइज कितना बढ़ गया (Dot Gain) है, उसका सटीक प्रतिशत निकालना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Dot Gain (%) = [ (10^-RF) - (10^-RS) ] ÷ [ (10^-RB) - (10^-RS) ] × 100 - Nominal Dot %</p>
-                <p class="text-[11px] text-slate-400">• Where RF = Filter optical density of halftone patch, RS = Substrate density, RB = Solid block density.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    मशीन पर छपाई के दौरान पेपर और दबाव के कारण हाफ़टोन डॉट्स (Halftone Dots) फैल जाते हैं, जिससे शेड डार्क या muddy दिखने लगता है। इसे 'डॉट गेन' कहते हैं। मरे-डेविस फॉर्मूला (Murray-Davies Formula) स्पेक्ट्रोफोटोमीटर या डेंसिटोमीटर रीडिंग के आधार पर डॉट गेन का सटीक प्रतिशत निकालकर देता है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Dot Gain (%) = [ (10<sup>-RF</sup> - 10<sup>-RS</sup>) <span class="math-symbol">÷</span> (10<sup>-RB</sup> - 10<sup>-RS</sup>) ] × 100 - Nominal Dot %</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• जहाँ <strong class="text-cyan-300">RF</strong> = हाफ़टोन पैच की ऑप्टिकल डेंसिटी, <strong class="text-cyan-300">RS</strong> = सबस्ट्रेट (पेपर) डेंसिटी, और <strong class="text-cyan-300">RB</strong> = सॉलिड ब्लॉक डेंसिटी है।</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CALCULATION 08 (NEW OFFSET FORMULA) -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #08:</span> Fountain Solution Consumption Rate Formula
+    <!-- CALCULATION 08 -->
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">08.</span> Fountain Solution Consumption Rate Formula
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Dampening Control</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Dampening Control</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> प्रति हजार इम्प्रेशन या कुल जॉब के दौरान कितना डैम्पनिंग सॉल्यूशन (पानी) खर्च होगा, इसका आकलन करना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Total Water Volume (ml) = [Total Printed Area (m²) × Press Speed Multiplier × Base Factor (0.12 ml/m²)]</p>
-                <p class="text-[11px] text-slate-400">• Helps monitor water feed balance on Heidelberg/Komori units to prevent emulsification and plate blinding.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    ऑफसेट लिथोग्राफी में पानी और इंक का संतुलन (Water-Ink Balance) सबसे नाजुक प्रक्रिया है। डैम्पनिंग यूनिट से कुल कितना पानी या फाउंटेन सॉल्यूशन खर्च हो रहा है, इसका गणितीय आकलन करने से यह सुनिश्चित होता है कि मशीन पर ज्यादा पानी जाने से इमल्शन (Emulsification) या प्लेट ब्लाइंडिंग जैसी समस्या न आए।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Total Water Volume (ml) = [ Total Printed Area <span class="math-symbol">(m²)</span> × Press Speed Multiplier × Base Factor (0.12 ml/m²) ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• Heidelberg और Komori प्रेस यूनिट्स पर पानी के फीड को कंट्रोल और मॉनिटर करने के लिए यह एक बेहद उपयोगी पैरामीटर है।</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CALCULATION 09 (NEW OFFSET FORMULA) -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #09:</span> Paper Stack Height & Delivery Pile Weight Limit
+    <!-- CALCULATION 09 -->
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">09.</span> Paper Stack Height & Delivery Pile Weight Limit
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Press Mechanics</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Press Mechanics</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> मशीन के फीडर और डिलीवरी पाइल पर अधिकतम कितनी ऊंचाई या वजन तक पेपर का स्टॉक सुरक्षित लोड किया जा सकता है।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Max Stack Height (cm) = [Max Safe Weight Capacity (kg) × 1000] ÷ [Sheet Area (m²) × GSM]</p>
-                <p class="text-[11px] text-slate-400">• Prevents pallet board sagging, feeder table mechanical overload, and sheet distortion in high-speed stackers.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    मशीन के फीडर टेबल और डिलीवरी पाइल (Delivery Pile) पर भारी मात्रा में पेपर लोड किया जाता है। यदि वजन मशीन की लोड कैपेसिटी से ज्यादा हो जाए, तो लिफ्टिंग मैकेनिज्म या पैलेट बोर्ड झुक (Sagging) सकता है। पेपर साइज और GSM के अनुसार सुरक्षित ऊंचाई निकालने का यह फॉर्मूला प्लांट की सुरक्षा बढ़ाता है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Max Stack Height (cm) = [ Max Safe Weight Capacity <span class="math-symbol">(kg)</span> × 1000 ] <span class="math-symbol">÷</span> [ Sheet Area <span class="math-symbol">(m²)</span> × GSM ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• इससे हाई-स्पीड स्टैकर्स में पेपर के मुड़ने (Sheet Distortion) और मैकेनिकल ओवरलोड को पूरी तरह रोका जाता है।</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- CALCULATION 10 (NEW OFFSET FORMULA) -->
-    <div class="glass-card p-5 rounded-2xl space-y-4 border-2 border-cyan-500/40">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                <span class="text-cyan-400">Calculation #10:</span> UV Lamp Energy Density (Joule/cm²) Formula
+    <!-- CALCULATION 10 -->
+    <div class="glass-card p-6 rounded-2xl space-y-5 border-2 border-cyan-500/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <span class="text-cyan-400 font-mono">10.</span> UV Lamp Energy Density (Joule/cm²) Formula
             </h2>
-            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">UV Curing Physics</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">UV Curing Physics</span>
         </div>
-        <div class="space-y-3 text-xs">
-            <p class="text-slate-300"><strong>उद्देश्य:</strong> यूवी कोटिंग या यूवी इंक क्योरिंग के दौरान सबस्ट्रेट को मिलने वाली कुल ऊर्जा (Energy Density) का सटीक मान निकालना।</p>
-            <div class="formula-box p-3 rounded-xl text-cyan-300 space-y-1">
-                <p>Energy Density (J/cm²) = [UV Lamp Intensity (W/cm²) × Arc Length] ÷ [Press Speed (m/min)]</p>
-                <p class="text-[11px] text-slate-400">• Ensures complete photo-polymer cross-linking and prevents post-cure flaking or tacky sheet sticking.</p>
+        <div class="space-y-4 text-xs md:text-sm">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <strong class="text-cyan-400 block text-xs uppercase tracking-wide">विस्तृत परिचय एवं उद्देश्य (Detailed Objective):</strong>
+                <p class="text-slate-300 leading-relaxed">
+                    यूवी कोटिंग (UV Coating) या यूवी ऑफसेट इंक का इस्तेमाल करते वक्त यह सुनिश्चित करना जरूरी होता है कि सबस्ट्रेट को यूवी लैंप से पर्याप्त ऊर्जा (Energy Density) मिल रही है या नहीं। यदि ऊर्जा कम होगी तो इंक गीली रह जाएगी और अगर ज्यादा होगी तो पेपर जल सकता है।
+                </p>
+            </div>
+            <div class="formula-box p-4 rounded-xl text-cyan-300 space-y-2 text-xs md:text-sm shadow-inner">
+                <p class="font-bold text-cyan-200">Formula:</p>
+                <p>Energy Density (J/cm²) = [ UV Lamp Intensity <span class="math-symbol">(W/cm²)</span> × Arc Length ] <span class="math-symbol">÷</span> [ Press Speed <span class="math-symbol">(m/min)</span> ]</p>
+                <div class="border-t border-slate-800 pt-2 mt-2 text-slate-400 text-[11px] space-y-1">
+                    <p>• यह फॉर्मूला फोटो-पॉलीमराइजेशन (Photo-polymer Cross-linking) को पक्का करता है और पोस्ट-क्योर फ्लैकिंग या स्टिकिंग रोकता है।</p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- BOTTOM BACK DASHBOARD LINK -->
-    <div class="flex justify-between items-center pt-4 border-t border-slate-800">
+    <div class="flex justify-between items-center pt-6 border-t border-slate-800">
         <a href="index.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-cyan-400 hover:border-cyan-400 transition inline-flex items-center">← Back to Dashboard</a>
         
 </div>
