@@ -3,129 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 6: Quality Control & Shop-Floor Tests (Advanced Technical Manual)</title>
+    <title>Page 6: Quality Control & Shop-Floor Tests - Amit Sandhu Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; }
-        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); }
-        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
-        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; }
-        .formula-box { background: rgba(15, 23, 42, 0.9); border: 1px dashed #38bdf8; font-family: 'Courier New', monospace; }
+        body { background-color: #090d16; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-card { background: rgba(19, 27, 46, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+        .data-table th { background-color: #082f49; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+        .data-table td { border-bottom: 1px solid #1e293b; font-size: 12px; color: #cbd5e1; }
     </style>
 </head>
-<body class="p-4 md:p-8 flex flex-col items-center">
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
-<div class="w-full max-w-5xl space-y-6">
+<div class="w-full max-w-4xl space-y-6">
+    
+    <!-- BACK DASHBOARD LINK -->
+    <div>
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-cyan-400 hover:underline">
+            ← Back to Master Manual Dashboard
+        </a>
+    </div>
 
     <!-- PAGE HEADER -->
     <div class="text-center space-y-2">
-        <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Module 6: Floor Metrology & ISO Standards</span>
-        <h1 class="text-3xl font-black text-cyan-400 uppercase">Page 6: Quality Control & Shop-Floor Practical Tests</h1>
-        <p class="text-xs text-slate-400 max-w-2xl mx-auto">ऑफ़सेट प्रिंटिंग और पैकेजिंग प्रोडक्शन में शिफ्ट के दौरान किए जाने वाले स्पेक्ट्रोफोटोमेट्रिक टेस्ट, लाइन क्लीयरेंस और रिजेक्शन कंट्रोल का ऑपरेटर गाइड।</p>
+        <div class="inline-block px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-[10px] text-cyan-400 font-mono tracking-wider uppercase mb-1">Module 6: Floor Metrology & ISO Standards</div>
+        <h1 class="text-2xl md:text-3xl font-black text-cyan-400 uppercase tracking-wider">Page 6: Quality Control & Shop-Floor Practical Tests</h1>
+        <p class="text-xs text-slate-400">Offset Printing and Packaging Metrology Standards, Spectrophotometric Delta-E Values, Dot Gain Thresholds, and Audit Protocols</p>
     </div>
 
-    <!-- SECTION 1: ISO 12647-2 DENSITY & TVI STANDARDS -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">1. Solid Ink Density (SID) & Dot Gain (TVI) Practical Thresholds</h2>
-        <p class="text-xs text-slate-300">
-            मशीन पर OK शीट पास करते समय डेंसिटोमीटर/स्पेक्ट्रोफोटोमीटर (Status T Filter) पर निम्नलिखित वैल्यू मिलनी अनिवार्य हैं:
+    <!-- SECTION 1: SOLID INK DENSITY (SID) & DOT GAIN (TVI) PRACTICAL THRESHOLDS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📊</span> 1. Solid Ink Density (SID) & Dot Gain (TVI) Practical Thresholds
+        </h2>
+        <p class="text-xs text-slate-300 leading-relaxed">
+            मशीन पर OK शीट पास करते वक्त स्पेक्ट्रोफोटोमीटर (Status T Filter) पर निम्नलिखित वैल्यू होनी अनिवार्य हैं:
         </p>
+
         <div class="overflow-x-auto">
-            <table class="w-full data-table text-left">
+            <table class="w-full text-left border-collapse data-table">
                 <thead>
                     <tr>
-                        <th class="p-2.5">Process Color</th>
-                        <th class="p-2.5">Coated Paper / Board SID (Status T)</th>
-                        <th class="p-2.5">Uncoated Paper SID</th>
-                        <th class="p-2.5">Dot Gain (TVI at 50% Mesh)</th>
+                        <th class="p-3">Process Color</th>
+                        <th class="p-3">Coated Paper / Board SID (Status T)</th>
+                        <th class="p-3">Uncoated Paper SID</th>
+                        <th class="p-3">Dot Gain (TVI) at 50% Mid-Tone</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="p-2.5 font-bold text-cyan-400">Cyan (C)</td>
-                        <td class="p-2.5">1.45 - 1.55 D</td>
-                        <td class="p-2.5">1.10 - 1.20 D</td>
-                        <td class="p-2.5">Coated: 14% - 18% (Prints as 64-68%)</td>
+                        <td class="p-3 font-semibold text-white">Cyan (C)</td>
+                        <td class="p-3">1.35 - 1.55 D</td>
+                        <td class="p-3">1.10 - 1.20 D</td>
+                        <td class="p-3">Coated: 14% - 18% (Tints at 40-50%)</td>
                     </tr>
                     <tr>
-                        <td class="p-2.5 font-bold text-pink-400">Magenta (M)</td>
-                        <td class="p-2.5">1.45 - 1.50 D</td>
-                        <td class="p-2.5">1.10 - 1.20 D</td>
-                        <td class="p-2.5">Coated: 14% - 18%</td>
+                        <td class="p-3 font-semibold text-white">Magenta (M)</td>
+                        <td class="p-3">1.45 - 1.50 D</td>
+                        <td class="p-3">1.10 - 1.20 D</td>
+                        <td class="p-3">Coated: 14% - 18%</td>
                     </tr>
                     <tr>
-                        <td class="p-2.5 font-bold text-yellow-400">Yellow (Y)</td>
-                        <td class="p-2.5">1.05 - 1.15 D</td>
-                        <td class="p-2.5">0.85 - 0.95 D</td>
-                        <td class="p-2.5">Coated: 14% - 18%</td>
+                        <td class="p-3 font-semibold text-white">Yellow (Y)</td>
+                        <td class="p-3">1.05 - 1.15 D</td>
+                        <td class="p-3">0.85 - 0.95 D</td>
+                        <td class="p-3">Coated: 14% - 18%</td>
                     </tr>
                     <tr>
-                        <td class="p-2.5 font-bold text-slate-200">Black (K)</td>
-                        <td class="p-2.5">1.70 - 1.85 D</td>
-                        <td class="p-2.5">1.20 - 1.30 D</td>
-                        <td class="p-2.5">Uncoated: 20% - 25% (Prints as 70-75%)</td>
+                        <td class="p-3 font-semibold text-white">Black (K)</td>
+                        <td class="p-3">1.70 - 1.85 D</td>
+                        <td class="p-3">1.20 - 1.30 D</td>
+                        <td class="p-3">Uncoated: 20% - 25% (Tints at 70-75%)</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- SECTION 2: DELTA E & COLOR TOLERANCE MATRIX -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">2. Spectrophotometric Delta E ($\Delta E$) & Registration Limits</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
-                <h3 class="font-bold text-cyan-400 text-sm">Color Difference Tolerances ($\Delta E_{ab} / \Delta E_{00}$)</h3>
-                <ul class="space-y-1.5 text-slate-300 list-disc pl-4">
-                    <li><strong>Target vs OK Sheet:</strong> $\Delta E \le 1.5$ (कस्टमर शेड कार्ड मैचिंग)।</li>
-                    <li><strong>Production Run Consistency:</strong> $\Delta E \le 2.0$ (पूरी रन के दौरान स्थिरता)।</li>
-                    <li><strong>Maximum Rejection Limit:</strong> $\Delta E > 3.0$ होने पर जॉब तुरंत रोककर करेक्शन करें।</li>
+    <!-- SECTION 2: SPECTROPHOTOMETRIC DELTA E & REGISTRATION LIMITS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🎯</span> 2. Spectrophotometric Delta-E (ΔE) & Registration Limits
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
+                <h3 class="text-xs font-bold text-cyan-400 uppercase">Color Difference Tolerances (Delta-E ab / Delta-E 00)</h3>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc pl-4">
+                    <li><strong>Target vs OK Sheet:</strong> Delta-E value 1.5 से कम होनी चाहिए।</li>
+                    <li><strong>Production Run Consistency:</strong> Delta-E value 2.0 से कम रन के दौरान मेंटेन रखें।</li>
+                    <li><strong>Maximum Rejection Limit:</strong> Delta-E greater than 3.0 होने पर तुरंत प्रेस रोककर correction करें।</li>
                 </ul>
             </div>
-            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-2">
-                <h3 class="font-bold text-cyan-400 text-sm">Mechanical Registration & Squareness</h3>
-                <ul class="space-y-1.5 text-slate-300 list-disc pl-4">
-                    <li><strong>Multi-color Register Tolerance:</strong> $\pm 0.05 \text{ mm}$ ($\pm 50 \, \mu\text{m}$) के भीतर।</li>
-                    <li><strong>Front Lay & Side Lay Pull:</strong> ग्रिपर मार्जिन <code class="bg-slate-950 text-cyan-300 px-1 py-0.5 rounded">10 - 12 mm</code> फिक्स रखें।</li>
-                    <li><strong>Sheet Squareness:</strong> क्रॉस-टेंशन डिस्टॉर्शन रोकने के लिए बोर्ड ग्रेन डायरेक्शन सिलेंडर एक्सिस के समांतर होनी चाहिए।</li>
+            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
+                <h3 class="text-xs font-bold text-cyan-400 uppercase">Mechanical Registration & Squareness</h3>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc pl-4">
+                    <li><strong>Multi-color Register Tolerance:</strong> Strict plus-minus 0.02 mm (Max plus-minus 0.03 mm across sheet).</li>
+                    <li><strong>Front Lay & Side Lay Pull Force:</strong> 10 to 15 N spring tension force.</li>
+                    <li><strong>Sheet Squareness:</strong> मशीन फीडर डिस्टॉर्शन रोकने के लिए 90-degree impression cylinder के समांतर होनी चाहिए।</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- SECTION 3: SHOP-FLOOR AUDIT & LINE CLEARANCE PROTOCOL -->
-    <div class="glass-card p-6 rounded-2xl space-y-4">
-        <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-2">3. 5-Step Shop-Floor Line Clearance & Audit Protocol</h2>
-        <div class="space-y-3 text-xs text-slate-300">
-            <div class="flex items-start gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                <span class="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded text-[10px]">STEP 1</span>
-                <div><strong>Pre-Run Line Clearance:</strong> पिछली जॉब की प्लेट्स, इंक डक्ट क्लीनिंग, और पुरानी बची हुई शीटों को पूरी तरह हटाकर एरिया साफ करें। कस्टमर अप्रूव्ड शेड कार्ड और फाइनल आर्टवर्क वर्जन मैच करें।</div>
+    <!-- SECTION 3: 5-STEP SHOP-FLOOR LINE CLEARANCE & AUDIT PROTOCOL -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">📋</span> 3. 5-Step Shop-Floor Line Clearance & Audit Protocol
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1">
+                <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 1</div>
+                <div class="text-xs font-bold text-white">Pre-Run Line Clearance</div>
+                <p class="text-[11px] text-slate-300 leading-snug">पिछली जॉब की प्लेटें, इंक डक्ट, ब्लैंकेट, और पुरानी बची हुई शीटों की पूरी तरह लाइन अपीयरेंस जांच लें। टक्कर आयुष बोर्ड कार्ड और लाइनअप अप्रूवल दर्ज करें।</p>
             </div>
-            <div class="flex items-start gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                <span class="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded text-[10px]">STEP 2</span>
-                <div><strong>Dampening Chemistry Audit:</strong> शिफ्ट शुरू होने से पहले फाउंटेन सॉल्यूशन का pH (<code class="text-cyan-400">4.8 - 5.2</code>), कन्डक्टिविटी (<code class="text-cyan-400">800 - 1500 µS/cm</code>) और चिलर वॉटर टेम्परेचर (<code class="text-cyan-400">10°C - 12°C</code>) की मीटर से जांच करें।</div>
+            <div class="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1">
+                <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 2</div>
+                <div class="text-xs font-bold text-white">Dampening Chemistry Audit</div>
+                <p class="text-[11px] text-slate-300 leading-snug">प्रिंट शुरू होने से पहले डैम्पिनिंग सॉल्यूशन का pH (4.8 - 5.2), कंडक्टिविटी (800 - 1200 µS/cm) और चिल्लर वाटर टेम्परेचर (10°C - 12°C) की मीटर से जांच करें।</p>
             </div>
-            <div class="flex items-start gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                <span class="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded text-[10px]">STEP 3</span>
-                <div><strong>First Sheet Sign-off:</strong> पहली छपी हुई शीट पर टेक्स्ट स्पेलिंग, बारकोड रीडेबिलिटी (ANSI Grade A/B), रजिस्ट्रेशन क्रॉस और कलर डेंसिटी सुपरवाइजर खुद अप्रूव करेंगे।</div>
+            <div class="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1">
+                <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 3</div>
+                <div class="text-xs font-bold text-white">First Sheet Sign-off</div>
+                <p class="text-[11px] text-slate-300 leading-snug">पहली छपी हुई शीट पर सेंटर क्रॉसिंग, चाकोर्ड मेट्रिक्स (ANSI Grade A/B), रजिस्ट्रेशन और कलर डेंसिटी गुणवत्ता खुद अप्रूव करें।</p>
             </div>
-            <div class="flex items-start gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                <span class="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded text-[10px]">STEP 4</span>
-                <div><strong>In-Process Control (Every 500 Sheets):</strong> हर 500 शीट के बाद सैंपल खींचकर स्पेक्टर से डेंसिटी और हिकीज़/डॉट गेन की जांच करें।</div>
-            </div>
-            <div class="flex items-start gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                <span class="bg-cyan-500 text-black font-bold px-2 py-0.5 rounded text-[10px]">STEP 5</span>
-                <div><strong>Traceability & Pallet Segregation:</strong> ओके माल को जॉब कार्ड स्लिप के साथ फिनिश्ड गुड्स एरिया में भेजें और डिफेक्टिव/मेक-रेडी वेस्ट को लाल रंग के क्वारंटाइन ज़ोन में अलग रखें।</div>
+            <div class="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1">
+                <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 4</div>
+                <div class="text-xs font-bold text-white">In-Process Control (Every 500 Sheets)</div>
+                <p class="text-[11px] text-slate-300 leading-snug">हर 500 शीट पर चेक प्रोफिशिएंट काउंटर से डेंसिटी और डेवििएशन गेन की जांच करें।</p>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER NAVIGATION -->
+    <!-- SECTION 4: DESTRUCTIVE & NON-DESTRUCTIVE LABORATORY TESTS -->
+    <div class="glass-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-base font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-2">
+            <span class="text-cyan-400">🧪</span> 4. Destructive & Non-Destructive Laboratory Tests (Floor Quality)
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse data-table">
+                <thead>
+                    <tr>
+                        <th class="p-3">Test Name</th>
+                        <th class="p-3">Testing Instrument / Tool</th>
+                        <th class="p-3">Pass Criteria / Standard Metric</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Scotch Tape Test (Ink Adhesion)</td>
+                        <td class="p-3">3M 610 Adhesive Tape</td>
+                        <td class="p-3">Zero ink particle transfer onto tape after firm thumb rub and instant peel.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Rub Resistance (Sutherland Dry/Wet)</td>
+                        <td class="p-3">Sutherland Rub Tester</td>
+                        <td class="p-3">No scuffing or color transfer after 50 cycles at 2 lb weight (Packaging standard).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Crease & Fold Crack Resistance</td>
+                        <td class="p-3">Manual 180° Fold / Creasing Gauge</td>
+                        <td class="p-3">Outer surface coating must not crack or peel off along the carton crease line.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-semibold text-white">Coating Rub / Solvent Resistance</td>
+                        <td class="p-3">MEK (Methyl Ethyl Ketone) Rub Test</td>
+                        <td class="p-3">UV Varnish layer must withstand minimum 50 double rubs without exposing ink.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FOOTER NAV -->
     <div class="flex justify-between items-center pt-4">
-        <a href="index.html" class="text-cyan-400 font-bold hover:underline">← Back to Dashboard</a>
-       
-    </div>
+        <a href="index.html" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:border-cyan-400 transition">← Back to Dashboard</a>
+    
 
 </div>
+
 </body>
 </html>
