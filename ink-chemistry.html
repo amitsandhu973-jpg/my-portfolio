@@ -10,46 +10,48 @@
             background-color: #050811;
             color: #e2e8f0;
             margin: 0;
-            padding: 12px;
+            padding: 10px;
             display: flex;
             justify-content: center;
         }
-        .app-container {
+        .screen-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
             background: #0b0f19;
-            padding: 16px;
+            padding: 14px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             border: 1px solid #1e293b;
         }
-        .main-heading {
+        .main-title {
             text-align: center;
-            font-size: 1.1rem;
-            font-weight: 800;
+            font-size: 1.05rem;
+            font-weight: 850;
             color: #38bdf8;
             margin-bottom: 4px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
-        .sub-heading {
+        .sub-title {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: #94a3b8;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             line-height: 1.3;
         }
-        /* Section Module Box */
-        .module-box {
+        /* Card Layout matching screenshot */
+        .tech-card {
             background: #111827;
             border: 1px solid #1f2937;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 12px;
             margin-bottom: 14px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-        .module-title {
+        .card-heading {
             color: #60a5fa;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             margin-bottom: 10px;
             display: flex;
@@ -58,187 +60,208 @@
             border-bottom: 1px solid #1f2937;
             padding-bottom: 6px;
         }
-        /* Sub-point mini cards (jaise screenshot mein alag block hote hain) */
-        .sub-card {
+        /* Sub-boxes inside each card */
+        .inner-box {
             background: #172033;
             border-left: 3px solid #38bdf8;
             padding: 10px;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 8px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             line-height: 1.4;
             color: #cbd5e1;
         }
-        .sub-card:last-child {
+        .inner-box:last-child {
             margin-bottom: 0;
         }
-        .sub-card strong {
+        .inner-box strong {
             color: #f8fafc;
             display: block;
             margin-bottom: 2px;
-            font-size: 0.8rem;
+            font-size: 0.79rem;
         }
-        .formula-tag {
+        .formula-box {
             background: #0f172a;
             color: #38bdf8;
-            padding: 4px 8px;
+            padding: 5px 8px;
             border-radius: 4px;
             font-family: monospace;
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             display: inline-block;
             margin-top: 4px;
             border: 1px solid #334155;
         }
-        .footer-note {
+        .bottom-section {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #1f2937;
+        }
+        .dashboard-btn {
+            display: inline-block;
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 9px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #334155;
+            transition: background 0.2s;
+        }
+        .dashboard-btn:hover {
+            background: #334155;
+        }
+        .footer-text {
             color: #64748b;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
+            margin-top: 12px;
         }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <div class="main-heading">The Ultimate Engineering of Offset Printing Inks</div>
-    <div class="sub-heading">Pro-Level Technical Masterclass: Chemistry, Rheology, Press Dynamics & Troubleshooting</div>
+<div class="screen-container">
+    
+    <div class="main-title">THE ULTIMATE ENGINEERING OF OFFSET PRINTING INKS</div>
+    <div class="sub-title">Pro-Level Technical Masterclass: Chemistry, Rheology, Press Dynamics & Troubleshooting</div>
 
     <!-- 1 -->
-    <div class="module-box">
-        <div class="module-title">📦 1. Advanced Chemical Composition & Formulation</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">📦 1. Advanced Chemical Composition & Formulation</div>
+        <div class="inner-box">
             <strong>Resin Matrix & Molecular Weight:</strong>
             Phenolic-modified rosin aur alkyd resins ka acid value ink ki hardness, gloss, aur water resistance tay karta hai. High-softening-point resins press speed high hone par film stability dete hain.
         </div>
-        <div class="sub-card">
+        <div class="inner-box">
             <strong>Solvent Boiling Ranges (240°C - 320°C):</strong>
             High-boiling petroleum distillates use hote hain taki open rollers par ink dry na ho, aur sirf paper par absorb ho.
         </div>
-        <div class="sub-card">
+        <div class="inner-box">
             <strong>Pigment Dispersion Indices:</strong>
             Particle size 0.1 se 1.0 micron tak hota hai, jisse transparent process colors ki CMYK overlapping behtareen milti hai.
         </div>
     </div>
 
     <!-- 2 -->
-    <div class="module-box">
-        <div class="module-title">🌊 2. Rheology & Viscosity Control</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">🌊 2. Rheology & Viscosity Control</div>
+        <div class="inner-box">
             <strong>Viscosity Range (40 - 100 Poise):</strong>
             Sheetfed offset inks ke liye 25°C par yeh ideal range hai jo proper ink fountain flow banaye rakhti hai.
         </div>
-        <div class="sub-card">
+        <div class="inner-box">
             <strong>Pseudoplasticity (Shear Thinning):</strong>
             Ink ek non-Newtonian fluid hai; rollers ki high speed par yeh patli aur rest par aate hi gadi ho jati hai taki dot gain na ho.
         </div>
     </div>
 
     <!-- 3 -->
-    <div class="module-box">
-        <div class="module-title">⚡ 3. Tack Dynamics & Zippering Phenomenon</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">⚡ 3. Tack Dynamics & Zippering Phenomenon</div>
+        <div class="inner-box">
             <strong>Inkometer Values (10 - 25 Units):</strong>
             30°C par 400 RPM par tack measure ki jati hai. Multi-color mein sequence hamesha Descending Order (Black > Cyan > Magenta > Yellow) hota hai.
         </div>
-        <div class="sub-card">
+        <div class="inner-box">
             <strong>Critical Tack Limit:</strong>
             Agar paper ki pick resistance ink ke tack se kam ho, to high speed par paper surface ukhad jati hai (Picking/Plucking).
         </div>
     </div>
 
     <!-- 4 -->
-    <div class="module-box">
-        <div class="module-title">🔥 4. Drying Chemistry & Energy Systems</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">🔥 4. Drying Chemistry & Energy Systems</div>
+        <div class="inner-box">
             <strong>Oxidative Polymerization (Sheetfed):</strong>
             Unsaturated fatty acids hawa ke oxygen ke sath cross-link hokar solid 3D polymer film banate hain (Primary/Secondary driers ki madad se).
         </div>
-        <div class="sub-card">
+        <div class="inner-box">
             <strong>Evaporative & Penetration Drying:</strong>
             Heatset web mein 120-180°C ovens se solvent 0.2 seconds mein evaporate hota hai; coldset mein capillary action se absorb hoti hai.
         </div>
     </div>
 
     <!-- 5 -->
-    <div class="module-box">
-        <div class="module-title">📊 5. Spectrophotometric & Optical Properties</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">📊 5. Spectrophotometric & Optical Properties</div>
+        <div class="inner-box">
             <strong>Wet Film Thickness & Density:</strong>
             Standard wet film thickness 0.8 se 1.2 micrometers hoti hai. Trapping efficiency ka formula:<br>
-            <div class="formula-tag">E = [(D12 - D1) / D2] × 100 (Target > 80%)</div>
+            <div class="formula-box">E = [(D12 - D1) / D2] × 100 (Target > 80%)</div>
         </div>
     </div>
 
     <!-- 6 -->
-    <div class="module-box">
-        <div class="module-title">💧 6. Ink-Water Balance & Emulsification</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">💧 6. Ink-Water Balance & Emulsification</div>
+        <div class="inner-box">
             <strong>Optimum Water Uptake (15% - 25%):</strong>
             Fountain solution ke sath stable water-in-oil (W/O) emulsion banta hai. 30% se upar jaane par ink "drown" ho jati hai aur scumming aati hai.
         </div>
     </div>
 
     <!-- 7 -->
-    <div class="module-box">
-        <div class="module-title">☀️ 7. Pigment Lightfastness & Blue Wool Scale</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">☀️ 7. Pigment Lightfastness & Blue Wool Scale</div>
+        <div class="inner-box">
             <strong>Scale Rating (1 to 8):</strong>
             Pharmaceutical aur food packaging ke liye Scale 6 ya usse upar ki lightfastness wali inks use hoti hain taki dhoop ya light mein rang feeka na pade.
         </div>
     </div>
 
     <!-- 8 -->
-    <div class="module-box">
-        <div class="module-title">🛡️ 8. Rub Resistance & Slip Coefficient</div>
-        <div class="sub-card">
+    <div class="tech-card">
+        <div class="card-heading">🛡️ 8. Rub Resistance & Slip Coefficient</div>
+        <div class="inner-box">
             <strong>PTFE & Amide Waxes:</strong>
             Transit ke dauran sheets ki ragad se bachne ke liye waxes milayi jati hain jo final scratch hardness aur rub resistance badhati hain.
         </div>
     </div>
 
-    <!-- 9 (New Technical Addition) -->
-    <div class="module-box">
-        <div class="module-title">🧪 9. Fountain Solution Chemistry & pH Impact</div>
-        <div class="sub-card">
+    <!-- 9 -->
+    <div class="tech-card">
+        <div class="card-heading">🧪 9. Fountain Solution Chemistry & pH Impact</div>
+        <div class="inner-box">
             <strong>pH & Conductivity Balance:</strong>
             Fountain solution ka pH level 4.8 se 5.5 ke beech hona chahiye. Zyada acidic hone par ink ka drier neutralize ho jata hai aur drying ghanto delay ho sakti hai.
         </div>
     </div>
 
-    <!-- 10 (New Technical Addition) -->
-    <div class="module-box">
-        <div class="module-title">🌟 10. UV & EB Curing Ink Technology</div>
-        <div class="sub-card">
+    <!-- 10 -->
+    <div class="tech-card">
+        <div class="card-heading">🌟 10. UV & EB Curing Ink Technology</div>
+        <div class="inner-box">
             <strong>Instant Photo-Polymerization:</strong>
-            UV inks mein solvents ki jagah monomers aur oligomers hote hain jo UV light padte hi ek second ke hazareeqe hisse mein solid cure ho jate hain (No oxidation/evaporation).
+            UV inks mein solvents ki jagah monomers aur oligomers hote hain jo UV light padte hi ek second ke hazareeqe hisse mein solid cure ho jate hain.
         </div>
     </div>
 
-    <!-- 11 (New Technical Addition) -->
-    <div class="module-box">
-        <div class="module-title">🌱 11. Low-Migration & Eco-Friendly Formulations</div>
-        <div class="sub-card">
+    <!-- 11 -->
+    <div class="tech-card">
+        <div class="card-heading">🌱 11. Low-Migration & Eco-Friendly Formulations</div>
+        <div class="inner-box">
             <strong>Food-Grade Packaging Safety:</strong>
-            EuPIA guidelines ke mutabiq food aur medicine boxes ke liye non-toxic, low-migration vegetable-oil-based inks use hoti hain taki harmful chemicals packaging cross karke product mein na jayein.
+            EuPIA guidelines ke mutabiq food aur medicine boxes ke liye non-toxic, low-migration vegetable-oil-based inks use hoti hain taki chemicals product mein na jayein.
         </div>
     </div>
 
-    <!-- 12 (New Technical Addition) -->
-    <div class="module-box">
-        <div class="module-title">💨 12. Ink Misting & Press Environment Control</div>
-        <div class="sub-card">
+    <!-- 12 -->
+    <div class="tech-card">
+        <div class="card-heading">💨 12. Ink Misting & Press Environment Control</div>
+        <div class="inner-box">
             <strong>High-Speed Film Splitting:</strong>
             High-speed press par blanket se paper splitting ke dauran microscopic droplets hawa mein udti hain (Misting). Isse rokne ke liye electrostatic anti-misting agents use kiye jate hain.
         </div>
     </div>
 
-    <div class="footer-note">
-        <p>&copy; Masterclass Technical Content • Designed for Printing Professionals</p>
+    <!-- Bottom Navigation / Back Button (Centered at Bottom) -->
+    <div class="bottom-section">
+        <a href="dashboard.html" class="dashboard-btn">&#8592; Back to Dashboard</a>
+        <div class="footer-text">&copy; Offset Printing Masterclass • All Rights Reserved</div>
     </div>
+
 </div>
-<!-- BACK BUTTON -->
-        <div class="pt-4 pb-8 text-center">
-            <a href="index.html" class="inline-block px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-slate-950 font-black text-sm shadow-lg hover:opacity-90 transition-all">← Back to Dashboard</a>
-        </div>
+
 </body>
 </html>
