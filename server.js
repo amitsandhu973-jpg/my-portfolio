@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// सभी जगहों से रिक्वेस्ट आने की अनुमति दें (CORS Fix)
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'OPTIONS'],
@@ -11,6 +10,7 @@ app.use(cors({
 
 app.use(express.json());
 
+// आपका सिक्योर एडमिन नंबर (अब यह केवल बैकएंड सर्वर पर सुरक्षित है)
 const SECURE_ADMIN_MOBILE = "8053770934";
 
 app.post('/api/verify-login', (req, res) => {
@@ -21,6 +21,12 @@ app.post('/api/verify-login', (req, res) => {
         return res.json({ success: true, isAdmin: true });
     }
     return res.json({ success: true, isAdmin: false });
+});
+
+// लोकल टेस्टिंग के लिए
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
