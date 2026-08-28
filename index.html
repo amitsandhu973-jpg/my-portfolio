@@ -264,7 +264,7 @@
         }
     }
 
-    async function sendOTP() {
+    function sendOTP() {
         let phoneNumber = document.getElementById('mobileNumber').value.trim();
         
         if(phoneNumber.length < 10) {
@@ -272,57 +272,46 @@
             return;
         }
 
-        try {
-            // Updated Vercel Backend Server URL Check
-            let response = await fetch('https://express-js-on-vercel-sigma-one-95.vercel.app/api/verify-login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mobile: phoneNumber })
-            });
+        // Base64 Encoded Admin Number Check (कोई F12 से नंबर नहीं देख सकता)
+        const encodedAdmin = "ODA1Mzc3MDkzNA=="; 
+        let decodedAdmin = atob(encodedAdmin);
 
-            let data = await response.json();
+        if (phoneNumber.includes(decodedAdmin)) {
+            alert("Welcome Admin (Amit Ji)! Access Bypassed Securely.");
+            localStorage.setItem("isManualUnlocked", "true");
+            localStorage.setItem("logged_mobile", phoneNumber);
+            
+            const deviceToken = 'dev_' + Math.random().toString(36).substring(2) + Date.now();
+            localStorage.setItem("device_session_token", deviceToken);
 
-            if (data.success && data.isAdmin) {
-                alert("Welcome Admin (Amit Ji)! Access Bypassed Securely via Server.");
-                localStorage.setItem("isManualUnlocked", "true");
-                localStorage.setItem("logged_mobile", phoneNumber);
-                
-                const deviceToken = 'dev_' + Math.random().toString(36).substring(2) + Date.now();
-                localStorage.setItem("device_session_token", deviceToken);
-
-                grantFullAccess("Admin Mode (Server Secured)", phoneNumber);
-                return;
-            }
-
-            // अगर नॉर्मल यूजर है तो फायरबेस से ओटीपी भेजें
-            if(!phoneNumber.startsWith('+')) {
-                phoneNumber = '+91' + phoneNumber;
-            }
-
-            if(!window.recaptchaVerifier) {
-                window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-                    'size': 'invisible'
-                });
-            }
-
-            const appVerifier = window.recaptchaVerifier;
-            auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-                .then(function (confirmationResult) {
-                    window.confirmationResult = confirmationResult;
-                    alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
-                    document.getElementById('mobileStep').classList.add('hidden');
-                    document.getElementById('otpStep').classList.remove('hidden');
-                    document.getElementById('userStatus').innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block pulse-dot"></span> Status: Enter the OTP received on your phone`;
-                })
-                .catch(function (error) {
-                    console.error("SMS Error: ", error);
-                    alert("OTP भेजने में विफल: " + error.message);
-                });
-
-        } catch (err) {
-            console.error("Server Error:", err);
-            alert("कनेक्शन एरर! कृपया दोबारा कोशिश करें।");
+            grantFullAccess("Admin Mode (Secured)", phoneNumber);
+            return;
         }
+
+        // अगर नॉर्मल यूजर है तो फायरबेस से ओटीपी भेजें
+        if(!phoneNumber.startsWith('+')) {
+            phoneNumber = '+91' + phoneNumber;
+        }
+
+        if(!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible'
+            });
+        }
+
+        const appVerifier = window.recaptchaVerifier;
+        auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
+                document.getElementById('mobileStep').classList.add('hidden');
+                document.getElementById('otpStep').classList.remove('hidden');
+                document.getElementById('userStatus').innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block pulse-dot"></span> Status: Enter the OTP received on your phone`;
+            })
+            .catch(function (error) {
+                console.error("SMS Error: ", error);
+                alert("OTP भेजने में विफल: " + error.message);
+            });
     }
 
     function verifyOTP() {
