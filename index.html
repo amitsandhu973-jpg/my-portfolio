@@ -93,8 +93,8 @@
         @keyframes pulse-glow {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
-        .pulse-dot { animation: pulse-glow 2s infinite; }
         }
+        .pulse-dot { animation: pulse-glow 2s infinite; }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
@@ -141,13 +141,14 @@
 
     <!-- Invisible Recaptcha Container -->
     <div id="recaptcha-container"></div>
-<!-- AUTHOR PROFILE CARD -->
-<div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
-    <div class="author-card">
-        <div class="profile-photo-wrapper">
-            <img src="1774396860127.png" alt="Amit Sandhu" class="author-img">
-        </div>
-                    <div class="author-info space-y-1 text-center sm:text-left">
+
+    <!-- AUTHOR PROFILE CARD -->
+    <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
+        <div class="author-card">
+            <div class="profile-photo-wrapper">
+                <img src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+            </div>
+            <div class="author-info space-y-1 text-center sm:text-left">
                 <div class="text-[10px] font-bold bg-cyan-950 text-cyan-400 px-2.5 py-0.5 rounded-full border border-cyan-800 uppercase tracking-wider inline-block">CREATED BY AMIT SANDHU</div>
                 <h3 class="text-lg font-bold text-white">Amit Sandhu</h3>
                 <p class="text-xs text-slate-300"><strong>Role:</strong> Production Supervisor</p>
@@ -198,10 +199,19 @@
 
     const ADMIN_MOBILE = "8053770934"; 
 
-    // पेज लोड होते ही लोकल स्टोरेज से चेक करें
+    // पेज लोड होते समय चेक करें कि क्या वाकई पेमेंट हो चुकी है
     window.onload = function() {
+        // यूआरएल (URL) में चेक करें कि क्या पेमेंट सक्सेस होकर वापस आया है
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // यदि आपके पेमेंट गेटवे से सक्सेस का कोई पैरामीटर आता है (उदाहरण के लिए payment_id या razorpay_payment_id)
+        if (urlParams.has('razorpay_payment_id') || urlParams.has('payment_id')) {
+            localStorage.setItem("isManualUnlocked", "true");
+        }
+
+        // यदि लोकल स्टोरेज में पेमेंट वेरीफाइड सेव है, तभी फुल एक्सेस दें
         if (localStorage.getItem("isManualUnlocked") === "true") {
-            grantFullAccess("Saved Session (Unlocked)");
+            grantFullAccess("Saved Session (Paid & Unlocked)");
         }
     };
 
@@ -271,7 +281,8 @@
     }
 
     function startPayment() {
-        localStorage.setItem("isManualUnlocked", "true");
+        // यहाँ ध्यान रखें: अभी हमने isManualUnlocked को true नहीं किया है, 
+        // ताकि अगर यूजर पेमेंट किए बिना वापस आए तो पेज लॉक ही रहें।
         window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
     }
 
