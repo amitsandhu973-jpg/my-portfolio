@@ -226,13 +226,10 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    const ADMIN_MOBILE = "8053770934"; 
-
     // --- 2. PAGE LOAD & EXPIRY / PAYMENT CHECK ---
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         
-        // यदि Razorpay से पेमेंट सफल होकर लौटा है
         if (urlParams.has('razorpay_payment_id') || urlParams.has('payment_id')) {
             const now = new Date().getTime();
             const expiryTime = now + (90 * 24 * 60 * 60 * 1000); // 90 Days Validity
@@ -240,18 +237,17 @@
             localStorage.setItem("isManualUnlocked", "true");
         }
 
-        // 90 दिन की एक्सपायरी चेक करें
         const expiryTime = localStorage.getItem("manual_expiry");
         const now = new Date().getTime();
         if (expiryTime && now > expiryTime) {
             localStorage.removeItem("isManualUnlocked");
             localStorage.removeItem("manual_expiry");
             localStorage.removeItem("device_session_token");
+            localStorage.removeItem("logged_mobile");
             alert("आपके मैनुअल की 90 दिनों की वैलिडिटी समाप्त हो गई है। कृपया दोबारा रिन्यू करें।");
             return;
         }
 
-        // यदि अनलॉक्ड है
         if (localStorage.getItem("isManualUnlocked") === "true") {
             let savedMobile = localStorage.getItem("logged_mobile") || "Protected User";
             grantFullAccess("Saved Session (Paid & Unlocked)", savedMobile);
@@ -268,7 +264,7 @@
         }
     }
 
-    function sendOTP() {
+    async function sendOTP() {
         let phoneNumber = document.getElementById('mobileNumber').value.trim();
         
         if(phoneNumber.length < 10) {
@@ -276,37 +272,57 @@
             return;
         }
 
-        if(phoneNumber.includes(ADMIN_MOBILE)) {
-            alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
-            localStorage.setItem("isManualUnlocked", "true");
-            localStorage.setItem("logged_mobile", phoneNumber);
-            grantFullAccess("Admin Mode (Bypassed)", phoneNumber);
-            return;
-        }
-
-        if(!phoneNumber.startsWith('+')) {
-            phoneNumber = '+91' + phoneNumber;
-        }
-
-        if(!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-                'size': 'invisible'
+        try {
+            // Vercel बैकएंड सर्वर से चेक करें कि क्या यह एडमिन है
+            let response = await fetch('https://express-js-on-vercel-sigma-one-06.vercel.app/api/verify-login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mobile: phoneNumber })
             });
-        }
 
-        const appVerifier = window.recaptchaVerifier;
-        auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-            .then(function (confirmationResult) {
-                window.confirmationResult = confirmationResult;
-                alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
-                document.getElementById('mobileStep').classList.add('hidden');
-                document.getElementById('otpStep').classList.remove('hidden');
-                document.getElementById('userStatus').innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block pulse-dot"></span> Status: Enter the OTP received on your phone`;
-            })
-            .catch(function (error) {
-                console.error("SMS Error: ", error);
-                alert("OTP भेजने में विफल: " + error.message);
-            });
+            let data = await response.json();
+
+            if (data.success && data.isAdmin) {
+                alert("Welcome Admin (Amit Ji)! Access Bypassed Securely via Server.");
+                localStorage.setItem("isManualUnlocked", "true");
+                localStorage.setItem("logged_mobile", phoneNumber);
+                
+                const deviceToken = 'dev_' + Math.random().toString(36).substring(2) + Date.now();
+                localStorage.setItem("device_session_token", deviceToken);
+
+                grantFullAccess("Admin Mode (Server Secured)", phoneNumber);
+                return;
+            }
+
+            // अगर नॉर्मल यूजर है तो फायरबेस से ओटीपी भेजें
+            if(!phoneNumber.startsWith('+')) {
+                phoneNumber = '+91' + phoneNumber;
+            }
+
+            if(!window.recaptchaVerifier) {
+                window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                    'size': 'invisible'
+                });
+            }
+
+            const appVerifier = window.recaptchaVerifier;
+            auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+                .then(function (confirmationResult) {
+                    window.confirmationResult = confirmationResult;
+                    alert("OTP आपके मोबाइल नंबर पर भेज दिया गया है!");
+                    document.getElementById('mobileStep').classList.add('hidden');
+                    document.getElementById('otpStep').classList.remove('hidden');
+                    document.getElementById('userStatus').innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block pulse-dot"></span> Status: Enter the OTP received on your phone`;
+                })
+                .catch(function (error) {
+                    console.error("SMS Error: ", error);
+                    alert("OTP भेजने में विफल: " + error.message);
+                });
+
+        } catch (err) {
+            console.error("Server Error:", err);
+            alert("कनेक्शन एरर! कृपया दोबारा कोशिश करें।");
+        }
     }
 
     function verifyOTP() {
@@ -319,7 +335,6 @@
         }
 
         window.confirmationResult.confirm(otp).then(function (result) {
-            // सिंगल डिवाइस बाइंडिंग टोकन जनरेट करें
             const deviceToken = 'dev_' + Math.random().toString(36).substring(2) + Date.now();
             localStorage.setItem("device_session_token", deviceToken);
             localStorage.setItem("logged_mobile", phoneNumber);
@@ -332,7 +347,6 @@
     }
 
     function startPayment() {
-        // यहाँ isManualUnlocked को true नहीं किया गया है ताकि बिना पेमेंट बैक आने वाले सुरक्षित रहें
         window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
     }
 
