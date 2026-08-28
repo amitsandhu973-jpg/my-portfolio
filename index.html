@@ -273,8 +273,8 @@
         }
 
         try {
-            // Vercel बैकएंड सर्वर से चेक करें कि क्या यह एडमिन है
-            let response = await fetch('https://express-js-on-vercel-sigma-one-06.vercel.app/api/verify-login', {
+            // Updated Vercel Backend Server URL Check
+            let response = await fetch('https://express-js-on-vercel-sigma-one-95.vercel.app/api/verify-login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ mobile: phoneNumber })
