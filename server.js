@@ -2,8 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// सभी जगहों से रिक्वेस्ट आने की अनुमति दें (CORS Fix)
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
-app.use(cors());
 
 const SECURE_ADMIN_MOBILE = "8053770934";
 
