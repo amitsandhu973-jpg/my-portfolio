@@ -20,6 +20,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             position: relative;
             overflow-x: hidden;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Standard Text Copy Block */
         }
 
         /* 1. Ambient Background Glow Effect */
@@ -99,6 +103,11 @@
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
 
+<!-- Dynamic Watermark Overlay -->
+<div id="watermarkOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; opacity: 0.07; display: none; justify-content: center; align-items: center;">
+    <h1 id="watermarkText" style="font-size: 2.5rem; color: #38bdf8; transform: rotate(-30deg); white-space: nowrap; font-weight: bold; text-transform: uppercase;">AMIT SANDHU MANUAL</h1>
+</div>
+
 <div class="w-full max-w-2xl space-y-4">
     
     <!-- HEADER TITLE & VIP COMPLIANCE BADGE -->
@@ -146,7 +155,7 @@
     <div class="glass-card p-5 rounded-2xl border border-cyan-500/30 relative overflow-hidden">
         <div class="author-card">
             <div class="profile-photo-wrapper">
-                <img src="1774396860127.png" alt="Amit Sandhu" class="author-img">
+                <img src="1774396860127.png" alt="Amit Sandhu" class="author-img" id="userPhoto">
             </div>
             <div class="author-info space-y-1 text-center sm:text-left">
                 <div class="text-[10px] font-bold bg-cyan-950 text-cyan-400 px-2.5 py-0.5 rounded-full border border-cyan-800 uppercase tracking-wider inline-block">CREATED BY AMIT SANDHU</div>
@@ -184,6 +193,26 @@
 </div>
 
 <script>
+    // --- 1. SECURITY RESTRICTIONS (Anti-Copy & Screenshot Block) ---
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+            (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 's' || e.key === 'p')) ||
+            e.key === 'PrintScreen'
+        ) {
+            e.preventDefault();
+            alert("Security Warning: Copying or inspecting content is restricted on this technical manual!");
+            return false;
+        }
+    });
+
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+    });
+
     // Firebase Initialization
     const firebaseConfig = {
         apiKey: "AIzaSyBuHZSAw9mwxFVFk1z1FGtwVOUdD4bRrJ4",
@@ -199,19 +228,33 @@
 
     const ADMIN_MOBILE = "8053770934"; 
 
-    // पेज लोड होते समय चेक करें कि क्या वाकई पेमेंट हो चुकी है
+    // --- 2. PAGE LOAD & EXPIRY / PAYMENT CHECK ---
     window.onload = function() {
-        // यूआरएल (URL) में चेक करें कि क्या पेमेंट सक्सेस होकर वापस आया है
         const urlParams = new URLSearchParams(window.location.search);
         
-        // यदि आपके पेमेंट गेटवे से सक्सेस का कोई पैरामीटर आता है (उदाहरण के लिए payment_id या razorpay_payment_id)
+        // यदि Razorpay से पेमेंट सफल होकर लौटा है
         if (urlParams.has('razorpay_payment_id') || urlParams.has('payment_id')) {
+            const now = new Date().getTime();
+            const expiryTime = now + (90 * 24 * 60 * 60 * 1000); // 90 Days Validity
+            localStorage.setItem("manual_expiry", expiryTime);
             localStorage.setItem("isManualUnlocked", "true");
         }
 
-        // यदि लोकल स्टोरेज में पेमेंट वेरीफाइड सेव है, तभी फुल एक्सेस दें
+        // 90 दिन की एक्सपायरी चेक करें
+        const expiryTime = localStorage.getItem("manual_expiry");
+        const now = new Date().getTime();
+        if (expiryTime && now > expiryTime) {
+            localStorage.removeItem("isManualUnlocked");
+            localStorage.removeItem("manual_expiry");
+            localStorage.removeItem("device_session_token");
+            alert("आपके मैनुअल की 90 दिनों की वैलिडिटी समाप्त हो गई है। कृपया दोबारा रिन्यू करें।");
+            return;
+        }
+
+        // यदि अनलॉक्ड है
         if (localStorage.getItem("isManualUnlocked") === "true") {
-            grantFullAccess("Saved Session (Paid & Unlocked)");
+            let savedMobile = localStorage.getItem("logged_mobile") || "Protected User";
+            grantFullAccess("Saved Session (Paid & Unlocked)", savedMobile);
         }
     };
 
@@ -236,7 +279,8 @@
         if(phoneNumber.includes(ADMIN_MOBILE)) {
             alert("Welcome Admin (Amit Ji)! Access Bypassed Successfully.");
             localStorage.setItem("isManualUnlocked", "true");
-            grantFullAccess("Admin Mode (Bypassed)");
+            localStorage.setItem("logged_mobile", phoneNumber);
+            grantFullAccess("Admin Mode (Bypassed)", phoneNumber);
             return;
         }
 
@@ -267,12 +311,19 @@
 
     function verifyOTP() {
         let otp = document.getElementById('otpInput').value;
+        let phoneNumber = document.getElementById('mobileNumber').value.trim();
+
         if(otp.length < 6) {
             alert('कृपया पूरा 6-अंकों का OTP दर्ज करें!');
             return;
         }
 
         window.confirmationResult.confirm(otp).then(function (result) {
+            // सिंगल डिवाइस बाइंडिंग टोकन जनरेट करें
+            const deviceToken = 'dev_' + Math.random().toString(36).substring(2) + Date.now();
+            localStorage.setItem("device_session_token", deviceToken);
+            localStorage.setItem("logged_mobile", phoneNumber);
+
             alert("मोबाइल नंबर वेरिफाई हो गया! अब पेमेंट प्रक्रिया शुरू हो रही है।");
             startPayment();
         }).catch(function (error) {
@@ -281,12 +332,11 @@
     }
 
     function startPayment() {
-        // यहाँ ध्यान रखें: अभी हमने isManualUnlocked को true नहीं किया है, 
-        // ताकि अगर यूजर पेमेंट किए बिना वापस आए तो पेज लॉक ही रहें।
+        // यहाँ isManualUnlocked को true नहीं किया गया है ताकि बिना पेमेंट बैक आने वाले सुरक्षित रहें
         window.location.href = "https://rzp.io/rzp/EXhGR2Zk";
     }
 
-    function grantFullAccess(modeText) {
+    function grantFullAccess(modeText, mobileNum) {
         let statusDiv = document.getElementById('userStatus');
         statusDiv.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 inline-block pulse-dot"></span> Status: ✅ Unlocked (${modeText})`;
         statusDiv.classList.replace('text-amber-400', 'text-emerald-400');
@@ -299,10 +349,19 @@
             link.classList.replace('locked', 'unlocked');
             link.innerText = link.innerText.replace('🔒', '📖');
         });
+
+        // --- 3. DYNAMIC WATERMARK ACTIVATION ---
+        const wmOverlay = document.getElementById('watermarkOverlay');
+        const wmText = document.getElementById('watermarkText');
+        wmText.innerText = "LICENSED TO: " + mobileNum + " - AMIT SANDHU TECH";
+        wmOverlay.style.display = "flex";
     }
 
     function logoutSession() {
         localStorage.removeItem("isManualUnlocked");
+        localStorage.removeItem("manual_expiry");
+        localStorage.removeItem("device_session_token");
+        localStorage.removeItem("logged_mobile");
         alert("Session Locked Successfully!");
         location.reload();
     }
